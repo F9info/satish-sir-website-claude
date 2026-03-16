@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vizag Vision — Satheesh Karnatakapu · A Model for India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── VISION PAGE ── */
+
+.vs-hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: calc(9rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.vs-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+/* Radial glow top-right */
+.vs-hero::after {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(29,111,184,0.18) 0%, transparent 65%);
+  top: -200px; right: -150px;
+  pointer-events: none;
+}
+/* Bottom-left gold glow */
+.vs-hero-glow2 {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(212,146,12,0.1) 0%, transparent 65%);
+  bottom: -150px; left: -100px;
+  pointer-events: none;
+}
+.vs-hero-inner {
+  max-width: 1120px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.vs-breadcrumb {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2.5rem;
+}
+.vs-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.vs-breadcrumb a:hover { color: var(--gold-light); }
+.vs-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  border: 1px solid rgba(212,146,12,0.3);
+  padding: 0.38rem 1rem; border-radius: 99px;
+  margin-bottom: 2rem;
+}
+.vs-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.vs-h1 em { color: var(--gold-light); font-style: normal; }
+.vs-tagline {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.5);
+  max-width: 680px;
+  line-height: 1.75;
+  margin: 1.5rem 0 2.5rem;
+  font-style: italic;
+}
+.vs-hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.vs-btn-primary {
+  padding: 0.85rem 2rem;
+  background: var(--gold-light); color: var(--navy);
+  border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: opacity 0.2s;
+}
+.vs-btn-primary:hover { opacity: 0.88; }
+.vs-btn-ghost {
+  padding: 0.85rem 2rem;
+  background: rgba(255,255,255,0.08); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; transition: background 0.2s;
+}
+.vs-btn-ghost:hover { background: rgba(255,255,255,0.15); }
+.vs-hero-quote {
+  max-width: 640px;
+  padding: 1.5rem 2rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(255,255,255,0.04);
+  border-radius: 0 10px 10px 0;
+}
+.vs-hero-quote p {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65; margin: 0 0 0.5rem;
+}
+.vs-hero-quote cite {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── SHARED SECTION ── */
+.vs-section {
+  padding: 7rem 5rem;
+}
+.vs-section-inner { max-width: 1120px; margin: 0 auto; }
+.vs-section-tag {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.vs-section-tag::before {
+  content: ''; width: 28px; height: 2px;
+  background: var(--accent);
+}
+.vs-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--navy);
+  line-height: 1.15; margin-bottom: 1.5rem;
+}
+.vs-h2 em { color: var(--accent); font-style: italic; }
+.vs-divider {
+  width: 48px; height: 3px;
+  background: var(--gold); border-radius: 2px;
+  margin-bottom: 3rem;
+}
+.vs-body {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 740px;
+}
+
+/* ── CONNECTING THE DOTS DIAGRAM ── */
+.vs-dots-bg { background: var(--navy); }
+.vs-dots-h2 { color: var(--white) !important; }
+.vs-dots-h2 em { color: var(--gold-light) !important; }
+.vs-dots-tag { color: rgba(255,255,255,0.4) !important; }
+.vs-dots-tag::before { background: rgba(255,255,255,0.3) !important; }
+.vs-dots-intro {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.85;
+  max-width: 680px;
+  margin-bottom: 4rem;
+}
+
+/* SVG-style dot diagram using CSS */
+.vs-model-diagram {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.vs-model-left, .vs-model-right {
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.vs-model-right { align-items: flex-end; }
+.vs-dot-node {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  display: flex; align-items: center; gap: 1rem;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  cursor: default;
+  max-width: 300px;
+}
+.vs-dot-node:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(212,146,12,0.4);
+  transform: scale(1.02);
+}
+.vs-dot-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.vs-dot-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+.vs-dot-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.vs-model-center {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0;
+}
+.vs-center-hub {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #0d4a8a);
+  border: 3px solid var(--gold);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 0 60px rgba(29,111,184,0.4);
+  position: relative;
+}
+.vs-center-hub::before {
+  content: '';
+  position: absolute; inset: -12px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212,146,12,0.3);
+  animation: rotate 20s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.vs-hub-label {
+  font-family: 'Fraunces', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+}
+.vs-hub-sub {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-top: 0.3rem;
+}
+.vs-connector-lines {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+/* Connector dots between nodes and center */
+.vs-node-connector {
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, rgba(212,146,12,0.5), transparent);
+  margin: auto 0;
+}
+
+/* Stats row under diagram */
+.vs-model-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+.vs-model-stat {
+  background: rgba(255,255,255,0.04);
+  padding: 1.5rem;
+  text-align: center;
+  transition: background 0.2s;
+}
+.vs-model-stat:hover { background: rgba(255,255,255,0.08); }
+.vs-model-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--gold-light);
+}
+.vs-model-stat-lbl {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.3rem;
+}
+
+/* ── HAPPINESS INDEX ── */
+.vs-hi-bg { background: var(--navy-subtle, #f0f4f8); }
+.vs-hi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.vs-hi-visual {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.vs-hi-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(212,146,12,0.12), transparent 70%);
+  pointer-events: none;
+}
+.vs-hi-score {
+  font-family: 'Fraunces', serif;
+  font-size: 6rem; font-weight: 600;
+  color: var(--gold-light);
+  line-height: 1;
+  position: relative;
+}
+.vs-hi-score-label {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin: 0.5rem 0 2rem;
+}
+.vs-hi-meters {
+  display: flex; flex-direction: column; gap: 1rem;
+  text-align: left;
+}
+.vs-hi-meter-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+  margin-bottom: 0.35rem;
+}
+.vs-hi-meter-track {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.vs-hi-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 99px;
+  transition: width 1s ease;
+}
+.vs-hi-pillars {
+  display: flex; flex-direction: column; gap: 1.2rem;
+}
+.vs-hi-pillar {
+  background: var(--white);
+  border: 1px solid var(--border, #e8edf2);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.vs-hi-pillar:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(11,37,69,0.08);
+}
+.vs-hi-pillar-icon { font-size: 1.5rem; flex-shrink: 0; }
+.vs-hi-pillar-title {
+  font-weight: 700; font-size: 0.92rem;
+  color: var(--navy); margin-bottom: 0.25rem;
+}
+.vs-hi-pillar-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── TECHNOLOGY LAYER ── */
+.vs-tech-stack {
+  display: flex; flex-direction: column; gap: 1.5rem;
+  margin-top: 3rem;
+}
+.vs-tech-layer {
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  display: flex; align-items: center; gap: 2rem;
+  position: relative; overflow: hidden;
+}
+.vs-tech-layer::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+.vs-tl-people   { background: rgba(29,111,184,0.06); }
+.vs-tl-people::before   { background: #1d6fb8; }
+.vs-tl-ngo      { background: rgba(27,188,156,0.06); }
+.vs-tl-ngo::before      { background: #1abc9c; }
+.vs-tl-govt     { background: rgba(243,156,18,0.06); }
+.vs-tl-govt::before     { background: #f39c12; }
+.vs-tl-tech     { background: rgba(155,89,182,0.06); }
+.vs-tl-tech::before     { background: #9b59b6; }
+.vs-tl-env      { background: rgba(39,174,96,0.06); }
+.vs-tl-env::before      { background: #27ae60; }
+.vs-tl-platform { background: var(--navy); }
+.vs-tl-platform::before { background: var(--gold); }
+
+.vs-tech-layer-icon { font-size: 2rem; flex-shrink: 0; }
+.vs-tech-layer-label {
+  font-weight: 700; font-size: 0.95rem;
+  color: var(--navy); flex-shrink: 0; min-width: 180px;
+}
+.vs-tl-platform .vs-tech-layer-label { color: var(--white); }
+.vs-tech-layer-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65; flex: 1;
+}
+.vs-tl-platform .vs-tech-layer-desc { color: rgba(255,255,255,0.6); }
+.vs-tech-layer-tags {
+  display: flex; flex-wrap: wrap; gap: 0.35rem;
+  flex-shrink: 0;
+}
+.vs-tl-tag {
+  font-size: 0.65rem; font-weight: 700;
+  padding: 0.2rem 0.6rem; border-radius: 99px;
+  background: rgba(11,37,69,0.08);
+  color: var(--navy);
+}
+.vs-tl-platform .vs-tl-tag {
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+}
+
+/* ── BUILDING BLOCKS ── */
+.vs-blocks-bg { background: var(--navy-subtle, #f0f4f8); }
+.vs-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.vs-block-card {
+  background: var(--white);
+  border: 1px solid var(--border, #e8edf2);
+  border-radius: 16px;
+  padding: 2.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.vs-block-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(11,37,69,0.1);
+}
+.vs-block-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+}
+.vs-bc-f9::after    { background: #1d6fb8; }
+.vs-bc-kdl::after   { background: #9b59b6; }
+.vs-bc-vv::after    { background: #1abc9c; }
+.vs-bc-dp::after    { background: var(--gold); }
+.vs-block-icon { font-size: 2rem; margin-bottom: 1rem; }
+.vs-block-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 0.3rem;
+}
+.vs-block-role {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.8rem;
+}
+.vs-block-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7; margin-bottom: 1.2rem;
+}
+.vs-block-contribution {
+  background: rgba(11,37,69,0.04);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  font-size: 0.82rem;
+  color: var(--navy);
+  line-height: 1.6;
+}
+.vs-block-contribution strong {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block; margin-bottom: 0.3rem;
+}
+.vs-block-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+.vs-block-link:hover { text-decoration: underline; }
+
+/* ── ROADMAP ── */
+.vs-roadmap {
+  margin-top: 3rem;
+  position: relative;
+}
+.vs-roadmap::before {
+  content: '';
+  position: absolute;
+  left: 1.75rem; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--gold), rgba(11,37,69,0.1));
+}
+.vs-milestone {
+  display: flex; gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.vs-ms-dot {
+  width: 3.5rem; height: 3.5rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+  border: 3px solid var(--white);
+}
+.vs-ms-done   { background: var(--accent); }
+.vs-ms-active { background: var(--gold); box-shadow: 0 0 20px rgba(212,146,12,0.5); }
+.vs-ms-next   { background: var(--navy-subtle, #f0f4f8); border-color: var(--border); }
+.vs-ms-body { padding-top: 0.4rem; }
+.vs-ms-year {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.3rem;
+}
+.vs-ms-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 0.5rem;
+}
+.vs-ms-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.vs-ms-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+.vs-ms-tag {
+  font-size: 0.68rem; font-weight: 600;
+  background: rgba(29,111,184,0.08);
+  color: var(--accent);
+  padding: 0.2rem 0.65rem; border-radius: 99px;
+}
+
+/* ── CTA ── */
+.vs-cta {
+  background: var(--navy);
+  padding: 8rem 5rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.vs-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.vs-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+.vs-cta-eyebrow {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1.5rem;
+}
+.vs-cta-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  line-height: 1.2; margin-bottom: 1rem;
+}
+.vs-cta-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7; margin-bottom: 2.5rem;
+}
+.vs-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .vs-model-diagram { grid-template-columns: 1fr; }
+  .vs-model-left, .vs-model-right { align-items: stretch; }
+  .vs-model-right { align-items: stretch; }
+  .vs-dot-node { max-width: 100%; }
+  .vs-model-center { margin: 1rem 0; }
+  .vs-model-stats { grid-template-columns: repeat(3, 1fr); }
+  .vs-hi-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .vs-blocks-grid { grid-template-columns: 1fr; }
+  .vs-tech-layer { flex-wrap: wrap; }
+  .vs-tech-layer-label { min-width: auto; }
+}
+@media (max-width: 768px) {
+  .vs-hero, .vs-section, .vs-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .vs-model-stats { grid-template-columns: repeat(2, 1fr); }
+  .vs-roadmap::before { left: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <div class="mob-group">
+      <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+      <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Connect</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="vs-hero">
+  <div class="vs-hero-glow2"></div>
+  <div class="vs-hero-inner">
+    <div class="vs-breadcrumb">
+      <a href="index.html">← Satheesh.info</a> / The Vizag Vision
+    </div>
+    <div class="vs-badge">The North Star · A City for the Future</div>
+    <h1 class="vs-h1">
+      Vizag.<br>
+      <em>A Model</em><br>
+      for India.
+    </h1>
+    <p class="vs-tagline">
+      One city. Five pillars. A single technology layer connecting society, government, NGOs, innovation, and environment — all working together, all measured by one thing: how happy its people are.
+    </p>
+    <div class="vs-hero-btns">
+      <a href="#model" class="vs-btn-primary">Explore the Model</a>
+      <a href="#roadmap" class="vs-btn-ghost">See the Roadmap</a>
+    </div>
+    <div class="vs-hero-quote">
+      <p>"Whatever the solutions, whatever the projects I implement — all of it is to build a strong model, build a technology layer out of it, and use it as a role model for the country."</p>
+      <cite>— Satheesh Karnatakapu</cite>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECTING THE DOTS -->
+<section id="model" class="vs-section vs-dots-bg">
+  <div class="vs-section-inner">
+    <div class="vs-section-tag vs-dots-tag reveal">The Model</div>
+    <h2 class="vs-h2 vs-dots-h2 reveal">Connecting <em>All the Dots</em></h2>
+    <div class="vs-divider reveal"></div>
+    <p class="vs-dots-intro reveal">
+      Every city has the same five layers — people, civil society, government, technology, and environment. But they almost never talk to each other. Policies live in silos. NGOs work in isolation. Technology solves problems that people don't have, while missing the ones they do. The Vizag Vision is about connecting all of these into a single, working system.
+    </p>
+
+    <div class="vs-model-diagram reveal">
+      <div class="vs-model-left">
+        <div class="vs-dot-node">
+          <div class="vs-dot-icon">👥</div>
+          <div>
+            <div class="vs-dot-label">Society & Citizens</div>
+            <div class="vs-dot-desc">Needs, aspirations, daily life, voices, feedback — the starting and ending point of everything</div>
+          </div>
+        </div>
+        <div class="vs-dot-node">
+          <div class="vs-dot-icon">🤝</div>
+          <div>
+            <div class="vs-dot-label">NGOs & Civil Society</div>
+            <div class="vs-dot-desc">Community organisations, volunteers, grassroots movements already doing the work</div>
+          </div>
+        </div>
+        <div class="vs-dot-node">
+          <div class="vs-dot-icon">🌿</div>
+          <div>
+            <div class="vs-dot-label">Environment</div>
+            <div class="vs-dot-desc">Air, water, green spaces, waste, coastal health — the living infrastructure of every city</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vs-model-center">
+        <div class="vs-center-hub">
+          <div style="font-size:1.8rem;">🏙️</div>
+          <div class="vs-hub-label">Vizag<br>Platform</div>
+          <div class="vs-hub-sub">Technology<br>Layer</div>
+        </div>
+      </div>
+
+      <div class="vs-model-right">
+        <div class="vs-dot-node">
+          <div class="vs-dot-icon">🏛️</div>
+          <div>
+            <div class="vs-dot-label">Government & Departments</div>
+            <div class="vs-dot-desc">Each dept has its own mandate, protocols, and data — syncing them unlocks city-wide impact</div>
+          </div>
+        </div>
+        <div class="vs-dot-node">
+          <div class="vs-dot-icon">⚡</div>
+          <div>
+            <div class="vs-dot-label">Political Commitment</div>
+            <div class="vs-dot-desc">Leaders who drive policy change, resource allocation, and sustained implementation across elections</div>
+          </div>
+        </div>
+        <div class="vs-dot-node">
+          <div class="vs-dot-icon">💻</div>
+          <div>
+            <div class="vs-dot-label">Technology & Innovation</div>
+            <div class="vs-dot-desc">F9 Tech, Kalam Dream Labs, Dream Port — building the tools that make the connections real</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs-model-stats reveal">
+      <div class="vs-model-stat">
+        <div class="vs-model-stat-val">5</div>
+        <div class="vs-model-stat-lbl">Pillars Connected</div>
+      </div>
+      <div class="vs-model-stat">
+        <div class="vs-model-stat-val">1</div>
+        <div class="vs-model-stat-lbl">Platform Unifying All</div>
+      </div>
+      <div class="vs-model-stat">
+        <div class="vs-model-stat-val">∞</div>
+        <div class="vs-model-stat-lbl">Problems Solvable</div>
+      </div>
+      <div class="vs-model-stat">
+        <div class="vs-model-stat-val">1</div>
+        <div class="vs-model-stat-lbl">North Star Metric</div>
+      </div>
+      <div class="vs-model-stat">
+        <div class="vs-model-stat-val">🇮🇳</div>
+        <div class="vs-model-stat-lbl">National Role Model</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HAPPINESS INDEX -->
+<section class="vs-section vs-hi-bg">
+  <div class="vs-section-inner">
+    <div class="vs-section-tag reveal">North Star Metric</div>
+    <h2 class="vs-h2 reveal">The <em>Happiness Index</em></h2>
+    <div class="vs-divider reveal"></div>
+    <div class="vs-hi-grid">
+      <div>
+        <p class="vs-body reveal">
+          Most cities measure success by GDP, infrastructure investment, or political deliverables. But none of that answers the most important question: <strong>Are the people actually happy?</strong>
+        </p>
+        <p class="vs-body reveal" style="margin-top:1rem;">
+          The Happiness Index is the single measure that cuts across all five pillars. When governance works, when communities thrive, when the environment is clean, when people have opportunity and safety — happiness rises. It becomes the feedback loop that keeps the entire system honest.
+        </p>
+        <p class="vs-body reveal" style="margin-top:1rem;">
+          Vizag should not just be a smart city — it should be a <strong>happy city</strong>. And that happiness should be measurable, trackable, and owned by every citizen.
+        </p>
+        <div class="vs-hi-pillars reveal" style="margin-top:2rem;">
+          <div class="vs-hi-pillar">
+            <div class="vs-hi-pillar-icon">🏥</div>
+            <div>
+              <div class="vs-hi-pillar-title">Health & Safety</div>
+              <div class="vs-hi-pillar-desc">Access to healthcare, clean water, safe streets, emergency services for every neighbourhood</div>
+            </div>
+          </div>
+          <div class="vs-hi-pillar">
+            <div class="vs-hi-pillar-icon">📚</div>
+            <div>
+              <div class="vs-hi-pillar-title">Opportunity & Growth</div>
+              <div class="vs-hi-pillar-desc">Education, jobs, entrepreneurship, skills — the belief that tomorrow can be better than today</div>
+            </div>
+          </div>
+          <div class="vs-hi-pillar">
+            <div class="vs-hi-pillar-icon">🌿</div>
+            <div>
+              <div class="vs-hi-pillar-title">Clean Environment</div>
+              <div class="vs-hi-pillar-desc">Clean beaches, green spaces, unpolluted air, a city people are proud to call home</div>
+            </div>
+          </div>
+          <div class="vs-hi-pillar">
+            <div class="vs-hi-pillar-icon">🤝</div>
+            <div>
+              <div class="vs-hi-pillar-title">Community & Belonging</div>
+              <div class="vs-hi-pillar-desc">Social bonds, culture, festivals, volunteerism — the feeling of being part of something larger</div>
+            </div>
+          </div>
+          <div class="vs-hi-pillar">
+            <div class="vs-hi-pillar-icon">🏛️</div>
+            <div>
+              <div class="vs-hi-pillar-title">Trusted Governance</div>
+              <div class="vs-hi-pillar-desc">Transparent services, responsive officials, policies that actually reflect people's real needs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vs-hi-visual reveal d2">
+        <div class="vs-hi-score">😊</div>
+        <div class="vs-hi-score-label">Vizag Happiness Index — Target</div>
+        <div class="vs-hi-meters">
+          <div>
+            <div class="vs-hi-meter-label"><span>Health & Safety</span><span>Target: 90%</span></div>
+            <div class="vs-hi-meter-track"><div class="vs-hi-meter-fill" style="width:72%"></div></div>
+          </div>
+          <div>
+            <div class="vs-hi-meter-label"><span>Opportunity & Growth</span><span>Target: 85%</span></div>
+            <div class="vs-hi-meter-track"><div class="vs-hi-meter-fill" style="width:58%"></div></div>
+          </div>
+          <div>
+            <div class="vs-hi-meter-label"><span>Clean Environment</span><span>Target: 95%</span></div>
+            <div class="vs-hi-meter-track"><div class="vs-hi-meter-fill" style="width:65%"></div></div>
+          </div>
+          <div>
+            <div class="vs-hi-meter-label"><span>Community & Belonging</span><span>Target: 90%</span></div>
+            <div class="vs-hi-meter-track"><div class="vs-hi-meter-fill" style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="vs-hi-meter-label"><span>Trusted Governance</span><span>Target: 85%</span></div>
+            <div class="vs-hi-meter-track"><div class="vs-hi-meter-fill" style="width:45%"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.78rem; color:rgba(255,255,255,0.4); line-height:1.6;">
+          This dashboard will be powered by real-time data from citizens, departments, sensors, and community feedback once the Vizag Platform is operational.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY LAYER -->
+<section class="vs-section">
+  <div class="vs-section-inner">
+    <div class="vs-section-tag reveal">The Platform</div>
+    <h2 class="vs-h2 reveal">One <em>Technology Layer</em> to Sync It All</h2>
+    <div class="vs-divider reveal"></div>
+    <p class="vs-body reveal">
+      The platform is not just an app or a dashboard. It is the connective tissue between all five pillars — translating citizen needs into government actions, syncing NGO work with official programmes, surfacing environmental data for policymakers, and giving political leaders real-time evidence of what works and what doesn't.
+    </p>
+    <div class="vs-tech-stack reveal" style="margin-top:3rem;">
+      <div class="vs-tech-layer vs-tl-people">
+        <div class="vs-tech-layer-icon">👥</div>
+        <div class="vs-tech-layer-label">Citizens Layer</div>
+        <div class="vs-tech-layer-desc">Mobile-first interface for citizens to report problems, access services, track city projects, give feedback, and see their Happiness Index score in real time.</div>
+        <div class="vs-tech-layer-tags">
+          <span class="vs-tl-tag">Problem Reporting</span>
+          <span class="vs-tl-tag">Service Access</span>
+          <span class="vs-tl-tag">Feedback Loop</span>
+        </div>
+      </div>
+      <div class="vs-tech-layer vs-tl-ngo">
+        <div class="vs-tech-layer-icon">🤝</div>
+        <div class="vs-tech-layer-label">NGO / Community Layer</div>
+        <div class="vs-tech-layer-desc">Coordination tools for NGOs, volunteer networks, and community groups — so 5,000 volunteers work in sync, not in silos, multiplying their impact.</div>
+        <div class="vs-tech-layer-tags">
+          <span class="vs-tl-tag">Volunteer Coordination</span>
+          <span class="vs-tl-tag">NGO Network</span>
+          <span class="vs-tl-tag">Impact Tracking</span>
+        </div>
+      </div>
+      <div class="vs-tech-layer vs-tl-govt">
+        <div class="vs-tech-layer-icon">🏛️</div>
+        <div class="vs-tech-layer-label">Government Layer</div>
+        <div class="vs-tech-layer-desc">Department dashboards that sync policies, track deliverables, and share data across ministries — so the right hand knows what the left hand is doing.</div>
+        <div class="vs-tech-layer-tags">
+          <span class="vs-tl-tag">Policy Sync</span>
+          <span class="vs-tl-tag">Inter-dept Data</span>
+          <span class="vs-tl-tag">Accountability</span>
+        </div>
+      </div>
+      <div class="vs-tech-layer vs-tl-env">
+        <div class="vs-tech-layer-icon">🌿</div>
+        <div class="vs-tech-layer-label">Environment Layer</div>
+        <div class="vs-tech-layer-desc">Sensors, satellite data, and community monitoring feeding real-time environmental health — air, water, coastline, green cover — into the decision layer.</div>
+        <div class="vs-tech-layer-tags">
+          <span class="vs-tl-tag">IoT Sensors</span>
+          <span class="vs-tl-tag">Air Quality</span>
+          <span class="vs-tl-tag">Beach Health</span>
+        </div>
+      </div>
+      <div class="vs-tech-layer vs-tl-tech">
+        <div class="vs-tech-layer-icon">💡</div>
+        <div class="vs-tech-layer-label">Innovation Layer</div>
+        <div class="vs-tech-layer-desc">Problem statements from all layers flow into Dream Port and Kalam Dream Labs — where innovators, researchers, and builders solve them and send solutions back.</div>
+        <div class="vs-tech-layer-tags">
+          <span class="vs-tl-tag">Dream Port</span>
+          <span class="vs-tl-tag">Kalam Labs</span>
+          <span class="vs-tl-tag">R&D Pipeline</span>
+        </div>
+      </div>
+      <div class="vs-tech-layer vs-tl-platform">
+        <div class="vs-tech-layer-icon">🏙️</div>
+        <div class="vs-tech-layer-label">The Vizag Platform · Intelligence Core</div>
+        <div class="vs-tech-layer-desc">The AI-powered layer that sits beneath all five — finding patterns, predicting problems, connecting solutions, surfacing insights, and feeding the Happiness Index in real time.</div>
+        <div class="vs-tech-layer-tags">
+          <span class="vs-tl-tag">AI / ML</span>
+          <span class="vs-tl-tag">Data Analytics</span>
+          <span class="vs-tl-tag">Happiness Index</span>
+          <span class="vs-tl-tag">Open API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDING BLOCKS -->
+<section class="vs-section vs-blocks-bg">
+  <div class="vs-section-inner">
+    <div class="vs-section-tag reveal">Building Blocks</div>
+    <h2 class="vs-h2 reveal">Everything Satheesh Builds <em>Feeds the Model</em></h2>
+    <div class="vs-divider reveal"></div>
+    <p class="vs-body reveal">
+      Nothing is isolated. Every organisation, every project, every volunteer effort — it is all proof-of-concept for the bigger vision. Each piece of the ecosystem is a layer of the Vizag Model, already running, already tested.
+    </p>
+    <div class="vs-blocks-grid">
+      <div class="vs-block-card vs-bc-f9 reveal d1">
+        <div class="vs-block-icon">💻</div>
+        <div class="vs-block-title">F9 Info Technologies</div>
+        <div class="vs-block-role">Technology Execution Layer</div>
+        <p class="vs-block-desc">16 years of building digital products for 600+ clients — this is the technical backbone that will build the Vizag Platform itself.</p>
+        <div class="vs-block-contribution">
+          <strong>Contribution to the Model</strong>
+          Builds the apps, APIs, dashboards, and infrastructure for every layer of the platform. Proves that world-class tech can be built from Vizag, for Vizag.
+        </div>
+        <a href="f9tech.html" class="vs-block-link">Explore F9 →</a>
+      </div>
+      <div class="vs-block-card vs-bc-kdl reveal d2">
+        <div class="vs-block-icon">🚀</div>
+        <div class="vs-block-title">Kalam Dream Labs</div>
+        <div class="vs-block-role">Innovation & Research Layer</div>
+        <p class="vs-block-desc">800+ students, patents, mentoring, and research — training the next generation of problem solvers who will power the innovation layer.</p>
+        <div class="vs-block-contribution">
+          <strong>Contribution to the Model</strong>
+          The research arm that converts problem statements from the platform into real, prototyped, patented solutions. Local needs, global-standard answers.
+        </div>
+        <a href="kalamdreamlabs.html" class="vs-block-link">Explore Kalam Dream Labs →</a>
+      </div>
+      <div class="vs-block-card vs-bc-vv reveal d1">
+        <div class="vs-block-icon">🤝</div>
+        <div class="vs-block-title">Vizag Volunteers</div>
+        <div class="vs-block-role">Community & NGO Layer</div>
+        <p class="vs-block-desc">5,000+ active volunteers. 13 projects. The largest people-powered platform in the city — already working across all the pillars of the model.</p>
+        <div class="vs-block-contribution">
+          <strong>Contribution to the Model</strong>
+          Proves that a 5,000-person civil society network can operate in sync. The playbook for the NGO layer of the Vizag Platform.
+        </div>
+        <a href="vizagvolunteers.html" class="vs-block-link">Explore Vizag Volunteers →</a>
+      </div>
+      <div class="vs-block-card vs-bc-dp reveal d2">
+        <div class="vs-block-icon">🛫</div>
+        <div class="vs-block-title">Dream Port</div>
+        <div class="vs-block-role">Physical Innovation Campus</div>
+        <p class="vs-block-desc">The 100-acre campus where all problem statements from the platform land — and where dreamers, researchers, and builders solve them together, for free.</p>
+        <div class="vs-block-contribution">
+          <strong>Contribution to the Model</strong>
+          The physical manifestation of the platform's innovation layer — where digital problem statements become real-world prototypes and solutions.
+        </div>
+        <a href="dreamport.html" class="vs-block-link">Explore Dream Port →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="vs-section">
+  <div class="vs-section-inner">
+    <div class="vs-section-tag reveal">The Journey</div>
+    <h2 class="vs-h2 reveal">From Vizag to <em>National Replication</em></h2>
+    <div class="vs-divider reveal"></div>
+    <p class="vs-body reveal">Every milestone Satheesh has reached is a proof point for the model. Every next step is a deliberate layer being added to the system.</p>
+    <div class="vs-roadmap reveal" style="margin-top:3rem;">
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-done">✓</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">2008 · Foundation</div>
+          <div class="vs-ms-title">F9 Info Technologies Founded</div>
+          <p class="vs-ms-desc">Built the technology execution capability from scratch. From a borrowed computer and ₹2,000 to 600+ clients across India and internationally. The tech layer has a proven builder.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">Technology Layer</span><span class="vs-ms-tag">16 Years</span></div>
+        </div>
+      </div>
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-done">✓</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">2018 · Innovation</div>
+          <div class="vs-ms-title">Kalam Dream Labs Founded</div>
+          <p class="vs-ms-desc">Created the innovation and research pipeline. Named after Kalam, built on his philosophy: technology must serve people first. 800+ students trained. Patents filed. Rural Andhra focus.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">Innovation Layer</span><span class="vs-ms-tag">Research Pipeline</span></div>
+        </div>
+      </div>
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-done">✓</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">2020 · Community</div>
+          <div class="vs-ms-title">Vizag Volunteers — From One Message to 5,000 People</div>
+          <p class="vs-ms-desc">Proved that a city-scale civil society network can be built from a single WhatsApp message. 13 projects. 2,09,792 lives impacted. The NGO layer is operational and scalable.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">NGO Layer</span><span class="vs-ms-tag">5,000 Volunteers</span><span class="vs-ms-tag">13 Projects</span></div>
+        </div>
+      </div>
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-active">🌆</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">Now · Integration</div>
+          <div class="vs-ms-title">Connecting the Dots — Building the Vizag Model</div>
+          <p class="vs-ms-desc">All the pieces exist. Now the work is connecting them — building the technology layer that syncs government, NGOs, citizens, and environment into one living system with the Happiness Index at its centre.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">Platform Development</span><span class="vs-ms-tag">Government Partnerships</span><span class="vs-ms-tag">Dream Port Campus</span></div>
+        </div>
+      </div>
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-next">🏛️</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">Near Future · Governance</div>
+          <div class="vs-ms-title">Vizag Platform Live — All Departments Connected</div>
+          <p class="vs-ms-desc">The platform goes live with government departments, NGO networks, citizen reporting, and environmental monitoring all feeding into one dashboard. The Happiness Index becomes a published, public metric.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">Platform Launch</span><span class="vs-ms-tag">Happiness Index Live</span></div>
+        </div>
+      </div>
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-next">🛫</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">Mid-Term · Campus</div>
+          <div class="vs-ms-title">Dream Port — 100-Acre Campus Operational</div>
+          <p class="vs-ms-desc">The physical home of the innovation layer opens. Problem statements flow in from the platform. Dreamers, researchers, and builders solve them in the campus. Solutions flow back into the city.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">Dream Port</span><span class="vs-ms-tag">Innovation Campus</span></div>
+        </div>
+      </div>
+
+      <div class="vs-milestone">
+        <div class="vs-ms-dot vs-ms-next">🇮🇳</div>
+        <div class="vs-ms-body">
+          <div class="vs-ms-year">Vision · National</div>
+          <div class="vs-ms-title">Vizag as India's City Role Model — Replication Begins</div>
+          <p class="vs-ms-desc">Vizag's Happiness Index becomes a case study for the nation. Other cities begin adopting the model. The platform becomes open-source. What started as one city's experiment becomes India's blueprint for city transformation.</p>
+          <div class="vs-ms-tags"><span class="vs-ms-tag">National Replication</span><span class="vs-ms-tag">Open Platform</span><span class="vs-ms-tag">India Blueprint</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="vs-cta">
+  <div class="vs-cta-inner">
+    <div class="vs-cta-eyebrow reveal">Be Part of the Vision</div>
+    <h2 class="vs-cta-h2 reveal">Vizag Doesn't Need to Wait for <em style="color:var(--gold-light);">Someone Else.</em></h2>
+    <p class="vs-cta-sub reveal">
+      If you are a government official, a technologist, an investor, a researcher, an NGO leader, or simply a citizen who believes Vizag can be more — this vision needs you. The model is being built now, one piece at a time.
+    </p>
+    <div class="vs-cta-btns reveal">
+      <a href="contact.html" class="vs-btn-primary">Join the Vision</a>
+      <a href="dreamport.html" class="vs-btn-ghost">Explore Dream Port</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

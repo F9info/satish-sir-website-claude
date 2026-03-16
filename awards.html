@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awards — Satheesh Karnatakapu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://w.behold.so/widget.js" type="module"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<section id="awards" style="padding-top:calc(8rem + 68px);">
+  <div class="awards-inner">
+    <div class="reveal">
+      <span class="section-tag">Honours &amp; Recognition</span>
+      <h2 class="section-heading">Awards That <em>Validate the Work</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Recognition received from governments, institutions, and communities for social impact, innovation, and leadership.</p>
+    </div>
+    <div class="awards-grid">
+
+      <!-- Wall of trophies & plaques overview -->
+      <div class="award-card aw-wide reveal">
+        <img src="images/award_1103.jpg" alt="Awards Collection — KATHA, BNI, MSME, We Were the Change">
+        <div class="award-label">Awards &amp; Trophies · Vizag</div>
+        <div class="award-overlay">
+          <span class="award-year">Collection</span>
+          <div class="award-title">Awards &amp; Recognitions Wall</div>
+          <div class="award-body">KATHA · BNI · MSME Champion · We Were the Change</div>
+        </div>
+      </div>
+
+      <!-- Young Social Worker Award -->
+      <div class="award-card aw-tall reveal d1">
+        <img src="images/award_1107.jpg" alt="Shri K.S. Sastry Memorial Young Social Worker Award">
+        <div class="award-label">Young Social Worker Award</div>
+        <div class="award-overlay">
+          <span class="award-year">India Youth For Society</span>
+          <div class="award-title">Shri K.S. Sastry Memorial Young Social Worker Award</div>
+          <div class="award-body">Gandhi Centre · Visakhapatnam</div>
+        </div>
+      </div>
+
+      <!-- Lions Club Builders of Bharat -->
+      <div class="award-card reveal d1">
+        <img src="images/award_1109.jpg" alt="Lions Club Builders of Bharat Certificate">
+        <div class="award-label">Lions Club · Builders of Bharat</div>
+        <div class="award-overlay">
+          <span class="award-year">Lions International</span>
+          <div class="award-title">Builders of Bharat</div>
+          <div class="award-body">Certificate of Appreciation · Lions Club of Visakhapatnam</div>
+        </div>
+      </div>
+
+      <!-- District Governor Excellence Award 2013-14 -->
+      <div class="award-card reveal d2">
+        <img src="images/award_1110.jpg" alt="Lions District Governor Excellence Award 2013-14">
+        <div class="award-label">District Governor's Excellence Award</div>
+        <div class="award-overlay">
+          <span class="award-year">2013–14</span>
+          <div class="award-title">District Governor's Excellence Award</div>
+          <div class="award-body">Lions Clubs International · District 316A</div>
+        </div>
+      </div>
+
+      <!-- Vasantha Mohana Foundation certificate -->
+      <div class="award-card reveal d1">
+        <img src="images/award_1106.jpg" alt="Vasantha Mohana Foundation Recognition Certificate">
+        <div class="award-label">Vasantha Mohana Foundation</div>
+        <div class="award-overlay">
+          <span class="award-year">2021</span>
+          <div class="award-title">Community Recognition</div>
+          <div class="award-body">Vasantha Mohana Foundation · Visakhapatnam</div>
+        </div>
+      </div>
+
+      <!-- District Collector Appreciation Letter -->
+      <div class="award-card reveal d2">
+        <img src="images/award_1108.jpg" alt="District Collector Appreciation Letter for Vizag Volunteers">
+        <div class="award-label">District Collector Appreciation</div>
+        <div class="award-overlay">
+          <span class="award-year">2025</span>
+          <div class="award-title">Appreciation Letter — District Collector</div>
+          <div class="award-body">Vizag Volunteers · Chandanotsavam · Visakhapatnam</div>
+        </div>
+      </div>
+
+      <!-- Bottles for Change -->
+      <div class="award-card reveal d2">
+        <img src="images/award_1112.jpg" alt="Bottles for Change award — K Satish Vizag Volunteers">
+        <div class="award-label">Bottles for Change</div>
+        <div class="award-overlay">
+          <span class="award-year">Environmental</span>
+          <div class="award-title">Bottles for Change</div>
+          <div class="award-body">Satheesh Karnatakapu · Vizag Volunteers Association Founder</div>
+        </div>
+      </div>
+
+      <!-- 5AM Club + Covid Warrior + Blood Bank -->
+      <div class="award-card aw-wide reveal d3">
+        <img src="images/award_1113.jpg" alt="5 AM Club Star Performer, Covid Warrior, Blood Bank awards">
+        <div class="award-label">5AM Club · Covid Warrior · Blood Bank</div>
+        <div class="award-overlay">
+          <span class="award-year">2016–2021</span>
+          <div class="award-title">5 AM Club Star Performer · Covid Warrior · Blood Bank</div>
+          <div class="award-body">Lions International Special Award · A.S. Raja Voluntary Blood Bank</div>
+        </div>
+      </div>
+
+      <!-- Second collection — Lions, TARANG, JCI -->
+      <div class="award-card reveal d2">
+        <img src="images/award_1104.jpg" alt="KATHA, Lions, TARANG-2K23, Beach Warrior awards">
+        <div class="award-label">KATHA · Lions · TARANG · JCI</div>
+        <div class="award-overlay">
+          <span class="award-year">Multiple Years</span>
+          <div class="award-title">KATHA · TARANG 2K23 · JCI CARE</div>
+          <div class="award-body">Beach Warrior Award · Lions Builders of Bharat</div>
+        </div>
+      </div>
+
+      <!-- District Governor Excellence Award 2010-11 -->
+      <div class="award-card reveal d3">
+        <img src="images/award_1111.jpg" alt="Lions District Governor Excellence Award 2010-11">
+        <div class="award-label">District Governor's Excellence 2010–11</div>
+        <div class="award-overlay">
+          <span class="award-year">2010–11</span>
+          <div class="award-title">District Governor's Excellence Award</div>
+          <div class="award-body">Lions Clubs International · District 32C</div>
+        </div>
+      </div>
+
+      <!-- BNI + GVPCE + Kalam shelf -->
+      <div class="award-card reveal d3">
+        <img src="images/award_1114.jpg" alt="BNI Amigos award, GVPCE token, APJ Abdul Kalam bust">
+        <div class="award-label">BNI Amigos · GVPCE · Kalam Tribute</div>
+        <div class="award-overlay">
+          <span class="award-year">Shelf</span>
+          <div class="award-title">BNI Amigos · GVPCE Token</div>
+          <div class="award-body">Gayatri Vidya Parishad College of Engineering · Visakhapatnam</div>
+        </div>
+      </div>
+
+      <!-- Third collection overview -->
+      <div class="award-card reveal d4">
+        <img src="images/award_1113.jpg" alt="Award trophies shelf">
+        <div class="award-label">Award Shelf · Vizag</div>
+        <div class="award-overlay">
+          <span class="award-year">Collection</span>
+          <div class="award-title">Trophies &amp; Shields</div>
+          <div class="award-body">Recognitions across Social Work, Volunteering &amp; Leadership</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

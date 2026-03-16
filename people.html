@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People — Satheesh Karnatakapu · The Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://w.behold.so/widget.js" type="module"></script>
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── PEOPLE PAGE ── */
+body { background: var(--navy); color: var(--white); }
+
+/* HERO */
+.pp-hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: calc(9rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.pp-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+.pp-hero::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(29,111,184,0.15) 0%, transparent 65%);
+  top: -150px; right: -200px;
+  pointer-events: none;
+}
+.pp-hero-glow2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212,146,12,0.1) 0%, transparent 65%);
+  bottom: -100px; left: -80px;
+  pointer-events: none;
+}
+.pp-hero-inner {
+  max-width: 1120px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.pp-breadcrumb {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2.5rem;
+}
+.pp-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.pp-breadcrumb a:hover { color: var(--gold-light); }
+.pp-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  border: 1px solid rgba(212,146,12,0.3);
+  padding: 0.38rem 1rem; border-radius: 99px;
+  margin-bottom: 2rem;
+}
+.pp-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.pp-h1 em { color: var(--gold-light); font-style: normal; }
+.pp-tagline {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: rgba(255,255,255,0.5);
+  max-width: 620px;
+  line-height: 1.8;
+  margin-bottom: 3.5rem;
+}
+
+/* Framework strip */
+.pp-framework {
+  display: flex; align-items: stretch;
+  gap: 0; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  max-width: 720px;
+}
+.pp-fw-item {
+  flex: 1; padding: 1.2rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.25rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  transition: background 0.2s;
+  position: relative;
+}
+.pp-fw-item:last-child { border-right: none; }
+.pp-fw-item.active {
+  background: rgba(212,146,12,0.08);
+  border-right-color: rgba(212,146,12,0.2);
+}
+.pp-fw-item.active::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+}
+.pp-fw-num {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+}
+.pp-fw-item.active .pp-fw-num { color: var(--gold-light); }
+.pp-fw-label {
+  font-size: 0.95rem; font-weight: 600;
+  color: rgba(255,255,255,0.45);
+}
+.pp-fw-item.active .pp-fw-label { color: var(--white); }
+.pp-fw-icon { font-size: 1.2rem; margin-bottom: 0.2rem; }
+.pp-fw-done {
+  font-size: 0.6rem; color: rgba(255,255,255,0.2);
+}
+.pp-fw-item.done .pp-fw-done { color: rgba(255,255,255,0.35); }
+.pp-fw-item.done .pp-fw-label { text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.3); }
+
+/* SECTION BASE */
+.pp-section {
+  padding: 7rem 5rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.pp-section-full {
+  padding: 7rem 5rem;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.pp-section-full-inner { max-width: 1120px; margin: 0 auto; }
+.pp-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+.pp-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.pp-h2 em { color: var(--gold-light); font-style: normal; }
+.pp-body {
+  font-size: 1.05rem; color: rgba(255,255,255,0.5);
+  line-height: 1.8; max-width: 640px;
+  margin-bottom: 0;
+}
+
+/* WHO WE'RE LOOKING FOR */
+.pp-who-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 3.5rem;
+}
+.pp-who-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.pp-who-card:hover {
+  border-color: rgba(29,111,184,0.4);
+  transform: translateY(-3px);
+}
+.pp-who-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.pp-who-title {
+  font-size: 1rem; font-weight: 700;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.pp-who-body {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.65;
+}
+.pp-who-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem;
+}
+.pp-who-tag {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.22rem 0.65rem; border-radius: 99px;
+  background: rgba(29,111,184,0.12);
+  color: rgba(255,255,255,0.4);
+}
+
+/* NOT LOOKING FOR */
+.pp-not-list {
+  margin-top: 2.5rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  display: flex; flex-wrap: wrap; gap: 1rem 3rem;
+}
+.pp-not-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.35);
+}
+.pp-not-item::before {
+  content: '✕'; font-size: 0.7rem;
+  color: rgba(255,100,100,0.5);
+}
+
+/* 4 WAYS TO ENGAGE */
+.pp-engage-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2rem; margin-top: 3.5rem;
+}
+.pp-engage-card {
+  border-radius: 20px; padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  transition: border-color 0.3s;
+  position: relative; overflow: hidden;
+}
+.pp-engage-card:hover { border-color: rgba(212,146,12,0.3); }
+.pp-engage-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s;
+}
+.pp-engage-card:hover::before {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.pp-engage-num {
+  font-family: 'Fraunces', serif;
+  font-size: 3.5rem; font-weight: 600;
+  color: rgba(255,255,255,0.04);
+  position: absolute; top: 1rem; right: 1.5rem;
+  line-height: 1;
+}
+.pp-engage-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+.pp-engage-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem; font-weight: 600;
+  color: var(--white); margin-bottom: 0.3rem;
+}
+.pp-engage-subtitle {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1rem;
+}
+.pp-engage-body {
+  font-size: 0.875rem; color: rgba(255,255,255,0.45);
+  line-height: 1.7; margin-bottom: 1.5rem;
+}
+.pp-engage-criteria {
+  list-style: none; padding: 0; margin: 0 0 1.5rem;
+}
+.pp-engage-criteria li {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  font-size: 0.82rem; color: rgba(255,255,255,0.5);
+  margin-bottom: 0.5rem; line-height: 1.5;
+}
+.pp-engage-criteria li::before {
+  content: '→'; color: var(--gold-light);
+  flex-shrink: 0; margin-top: 0.05rem;
+}
+.pp-engage-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--gold-light); text-decoration: none;
+  border-bottom: 1px solid rgba(212,146,12,0.3);
+  padding-bottom: 0.15rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.pp-engage-cta:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+/* ECOSYSTEM */
+.pp-eco-intro {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 5rem; align-items: center; margin-bottom: 5rem;
+}
+.pp-eco-big {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 600;
+  color: rgba(212,146,12,0.15);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+.pp-eco-tagline {
+  font-size: 1rem; color: rgba(255,255,255,0.45);
+  line-height: 1.75;
+}
+.pp-eco-tagline strong { color: var(--gold-light); font-weight: 600; }
+
+/* How it works steps */
+.pp-eco-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; margin-bottom: 4rem;
+  position: relative;
+}
+.pp-eco-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,146,12,0.3), transparent);
+}
+.pp-eco-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 1rem;
+  position: relative; z-index: 1;
+}
+.pp-eco-step-dot {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(212,146,12,0.1);
+  border: 1px solid rgba(212,146,12,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.pp-eco-step-title {
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--white); margin-bottom: 0.4rem;
+}
+.pp-eco-step-body {
+  font-size: 0.72rem; color: rgba(255,255,255,0.35); line-height: 1.5;
+}
+
+/* Startup cards */
+.pp-eco-h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem; font-weight: 600;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.pp-eco-sub {
+  font-size: 0.9rem; color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
+}
+.pp-eco-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-bottom: 2.5rem;
+}
+.pp-eco-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 1.8rem;
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.pp-eco-card:hover {
+  border-color: rgba(212,146,12,0.3);
+  transform: translateY(-3px);
+}
+.pp-eco-card-tag {
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1rem;
+  display: block;
+}
+.pp-eco-card-name {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--white); margin-bottom: 0.25rem;
+}
+.pp-eco-card-founder {
+  font-size: 0.75rem; color: rgba(255,255,255,0.35);
+  margin-bottom: 0.8rem;
+}
+.pp-eco-card-body {
+  font-size: 0.8rem; color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+.pp-eco-card-placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  border: 1px dashed rgba(255,255,255,0.08);
+}
+.pp-eco-card-placeholder .pp-eco-card-name {
+  color: rgba(255,255,255,0.2);
+}
+.pp-eco-card-placeholder .pp-eco-card-body {
+  color: rgba(255,255,255,0.2);
+}
+.pp-eco-more {
+  background: rgba(212,146,12,0.06);
+  border: 1px dashed rgba(212,146,12,0.2);
+  border-radius: 14px; padding: 1.8rem;
+  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.5rem;
+}
+.pp-eco-more-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.5rem; font-weight: 600;
+  color: rgba(212,146,12,0.4); line-height: 1;
+}
+.pp-eco-more-lbl {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* QUOTE */
+.pp-quote-section {
+  padding: 5rem 5rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pp-quote-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 6rem; line-height: 0.5;
+  color: rgba(212,146,12,0.15);
+  margin-bottom: 1rem;
+}
+.pp-quote-text {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55; margin-bottom: 1.5rem;
+}
+.pp-quote-attr {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── EXISTING SECTIONS (kept) ── */
+.insp-inner, .mentors-inner, .team-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 5rem 7rem;
+}
+section#inspirations { padding-top: 7rem; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.05); }
+section#mentors { padding-top: 7rem; background: rgba(11,37,69,0.98); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+section#team { padding-top: 7rem; background: var(--navy); }
+.insp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.insp-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.insp-card:hover { border-color: rgba(212,146,12,0.3); transform: translateY(-3px); }
+.insp-avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(29,111,184,0.2); border: 1px solid rgba(29,111,184,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+.insp-num { font-size: 0.65rem; color: rgba(255,255,255,0.25); margin-bottom: 0.5rem; }
+.insp-name { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+.insp-title { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+.insp-divider { height: 1px; background: rgba(255,255,255,0.07); margin-bottom: 1rem; }
+.insp-quote { font-style: italic; font-size: 0.85rem; color: var(--gold-light); line-height: 1.6; margin-bottom: 0.8rem; }
+.insp-why { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.65; }
+.mentors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.mentor-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: border-color 0.3s;
+}
+.mentor-card:hover { border-color: rgba(29,111,184,0.35); }
+.mentor-initials {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(212,146,12,0.1); border: 1px solid rgba(212,146,12,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+.mentor-name { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+.mentor-role { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
+.mentor-desc { font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 1rem; }
+.mentor-tag {
+  display: inline-block; font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; border-radius: 99px;
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.3);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.team-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.8rem;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.team-card:hover { border-color: rgba(212,146,12,0.3); transform: translateY(-2px); }
+.team-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(29,111,184,0.15); border: 1px solid rgba(29,111,184,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; color: var(--accent);
+  margin: 0 auto 1rem;
+}
+.team-name { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+.team-role { font-size: 0.7rem; color: var(--gold-light); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+.team-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
+.section-tag {
+  display: inline-block;
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin-bottom: 0.8rem;
+}
+.section-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+.section-heading em { color: var(--gold-light); font-style: normal; }
+.section-divider {
+  height: 2px; width: 48px;
+  background: var(--gold);
+  margin-bottom: 1.2rem;
+}
+.section-sub { font-size: 0.95rem; color: rgba(255,255,255,0.45); line-height: 1.75; max-width: 580px; margin-bottom: 0; }
+
+/* CTA */
+.pp-cta {
+  background: linear-gradient(135deg, rgba(11,37,69,0.98), rgba(18,52,99,0.95));
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 7rem 5rem;
+  text-align: center;
+}
+.pp-cta-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.pp-cta-h2 em { color: var(--gold-light); font-style: normal; }
+.pp-cta-sub { font-size: 1rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem; }
+.pp-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.pp-cta-primary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: var(--gold); color: var(--navy);
+  font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.25s;
+}
+.pp-cta-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.pp-cta-secondary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: transparent; color: var(--white);
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s;
+}
+.pp-cta-secondary:hover { background: rgba(255,255,255,0.05); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .pp-who-grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-eco-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .pp-eco-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .pp-eco-steps::before { display: none; }
+  .pp-eco-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .pp-hero, .pp-section, .pp-quote-section, .pp-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .pp-section-full { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .insp-inner, .mentors-inner, .team-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .pp-engage-grid { grid-template-columns: 1fr; }
+  .pp-who-grid { grid-template-columns: 1fr; }
+  .pp-eco-steps { grid-template-columns: repeat(2, 1fr); }
+  .pp-eco-cards { grid-template-columns: 1fr; }
+  .pp-framework { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <div class="mob-group">
+      <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+      <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Connect</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="pp-hero">
+  <div class="pp-hero-glow2"></div>
+  <div class="pp-hero-inner">
+    <div class="pp-breadcrumb">
+      <a href="index.html">← Satheesh.info</a> / People
+    </div>
+    <div class="pp-badge">👥 The Second Priority</div>
+    <h1 class="pp-h1">
+      Without the<br>right people,<br>
+      <em>nothing moves.</em>
+    </h1>
+    <p class="pp-tagline">
+      Time is the first filter. People are the second.
+      Money can be earned. Processes can be designed.
+      But without like-minded people who grow together —
+      none of it matters.
+    </p>
+
+    <!-- Framework strip -->
+    <div class="pp-framework">
+      <div class="pp-fw-item done">
+        <div class="pp-fw-icon">⏱</div>
+        <div class="pp-fw-num">Priority 01</div>
+        <div class="pp-fw-label">Time</div>
+        <div class="pp-fw-done">Page built ✓</div>
+      </div>
+      <div class="pp-fw-item active">
+        <div class="pp-fw-icon">👥</div>
+        <div class="pp-fw-num">Priority 02</div>
+        <div class="pp-fw-label">People</div>
+      </div>
+      <div class="pp-fw-item">
+        <div class="pp-fw-icon">⚙️</div>
+        <div class="pp-fw-num">Priority 03</div>
+        <div class="pp-fw-label">Process</div>
+      </div>
+      <div class="pp-fw-item">
+        <div class="pp-fw-icon">💰</div>
+        <div class="pp-fw-num">Priority 04</div>
+        <div class="pp-fw-label">Money</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE'RE LOOKING FOR -->
+<div class="pp-section-full">
+  <div class="pp-section-full-inner">
+    <div class="pp-label">Who Belongs Here</div>
+    <h2 class="pp-h2">The kind of people <em>we need</em></h2>
+    <p class="pp-body">
+      This isn't a job listing. It's a description of the people who already feel
+      called to build something bigger than themselves — and haven't found the right
+      ecosystem yet.
+    </p>
+    <div class="pp-who-grid">
+
+      <div class="pp-who-card reveal">
+        <span class="pp-who-icon">🔥</span>
+        <div class="pp-who-title">The Passionate Problem-Solver</div>
+        <div class="pp-who-body">
+          You see a problem in Vizag — in health, education, environment, governance —
+          and you can't stop thinking about it. You don't need money or a title.
+          You need a platform and a team.
+        </div>
+        <div class="pp-who-tags">
+          <span class="pp-who-tag">Social Impact</span>
+          <span class="pp-who-tag">Mission-Driven</span>
+        </div>
+      </div>
+
+      <div class="pp-who-card reveal d1">
+        <span class="pp-who-icon">🚀</span>
+        <div class="pp-who-title">The Aspiring Entrepreneur</div>
+        <div class="pp-who-body">
+          You have a business idea but no network to launch it.
+          You want to build something that generates real revenue
+          while contributing to the city's growth.
+        </div>
+        <div class="pp-who-tags">
+          <span class="pp-who-tag">Startup</span>
+          <span class="pp-who-tag">Ecosystem</span>
+        </div>
+      </div>
+
+      <div class="pp-who-card reveal d2">
+        <span class="pp-who-icon">🛠</span>
+        <div class="pp-who-title">The Builder with Skills</div>
+        <div class="pp-who-body">
+          Developer, designer, engineer, doctor, teacher, filmmaker —
+          you have a craft and you want to use it for something that matters.
+          Skills are your contribution.
+        </div>
+        <div class="pp-who-tags">
+          <span class="pp-who-tag">Technical</span>
+          <span class="pp-who-tag">Creative</span>
+        </div>
+      </div>
+
+      <div class="pp-who-card reveal">
+        <span class="pp-who-icon">🌐</span>
+        <div class="pp-who-title">The Connector</div>
+        <div class="pp-who-body">
+          You know people. You bridge gaps. You see who needs to meet whom
+          and you make it happen. The ecosystem multiplies with people like you.
+        </div>
+        <div class="pp-who-tags">
+          <span class="pp-who-tag">Networking</span>
+          <span class="pp-who-tag">Bridge-Builder</span>
+        </div>
+      </div>
+
+      <div class="pp-who-card reveal d1">
+        <span class="pp-who-icon">🎓</span>
+        <div class="pp-who-title">The Student Ready to Act</div>
+        <div class="pp-who-body">
+          You're studying but tired of waiting to contribute.
+          You want real-world problems to work on now —
+          not after you graduate. Passion beats marks here.
+        </div>
+        <div class="pp-who-tags">
+          <span class="pp-who-tag">Youth</span>
+          <span class="pp-who-tag">Action-Ready</span>
+        </div>
+      </div>
+
+      <div class="pp-who-card reveal d2">
+        <span class="pp-who-icon">🤝</span>
+        <div class="pp-who-title">The Long-term Ally</div>
+        <div class="pp-who-body">
+          You believe in Vizag. You believe in the mission.
+          You're not here for one project — you're here for years.
+          That kind of commitment changes everything.
+        </div>
+        <div class="pp-who-tags">
+          <span class="pp-who-tag">Committed</span>
+          <span class="pp-who-tag">Long-term</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pp-not-list">
+      <div class="pp-not-item">People who want visibility without contribution</div>
+      <div class="pp-not-item">Those who treat this as a stepping stone elsewhere</div>
+      <div class="pp-not-item">People locked only to money as a motivator</div>
+      <div class="pp-not-item">Those who can't commit sustained time</div>
+      <div class="pp-not-item">People who talk more than they build</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="pp-quote-section">
+  <div class="pp-quote-mark">"</div>
+  <p class="pp-quote-text">
+    If we don't have the right people, we cannot do anything.
+    Like-minded people who encourage each other and grow together —
+    that is the real foundation of everything I am building.
+  </p>
+  <div class="pp-quote-attr">— Satheesh Karnatakapu</div>
+</div>
+
+<!-- 4 WAYS TO ENGAGE -->
+<div id="engage" class="pp-section-full">
+  <div class="pp-section-full-inner">
+    <div class="pp-label">How to Join</div>
+    <h2 class="pp-h2">Four ways to <em>engage</em></h2>
+    <p class="pp-body">
+      There is no single path into this ecosystem. Choose the level of commitment
+      that matches where you are right now — and grow from there.
+    </p>
+    <div class="pp-engage-grid">
+
+      <div class="pp-engage-card reveal">
+        <div class="pp-engage-num">01</div>
+        <span class="pp-engage-icon">🙋</span>
+        <div class="pp-engage-title">Volunteer</div>
+        <div class="pp-engage-subtitle">Time · Passion · Action</div>
+        <div class="pp-engage-body">
+          The entry point for most people in the ecosystem.
+          You contribute your time and energy to community initiatives,
+          events, and social projects. No money required —
+          only genuine motivation to make a difference.
+        </div>
+        <ul class="pp-engage-criteria">
+          <li>Commit to at least one ongoing initiative</li>
+          <li>Show up consistently, not just once</li>
+          <li>Bring your full skill set — not just your hands</li>
+          <li>Be open to growing into a bigger role</li>
+        </ul>
+        <a href="vizagvolunteers.html" class="pp-engage-cta">Join Vizag Volunteers →</a>
+      </div>
+
+      <div class="pp-engage-card reveal d1">
+        <div class="pp-engage-num">02</div>
+        <span class="pp-engage-icon">🧑‍💻</span>
+        <div class="pp-engage-title">Team Member</div>
+        <div class="pp-engage-subtitle">Skills · Commitment · Growth</div>
+        <div class="pp-engage-body">
+          You work inside one of the organisations —
+          F9 Info Technologies, Kalam Dream Labs, or Vizag Volunteers.
+          You are building something, not just supporting it.
+          This is where careers and missions intersect.
+        </div>
+        <ul class="pp-engage-criteria">
+          <li>Specific, demonstrable skills in your domain</li>
+          <li>Aligned with the mission — not just the salary</li>
+          <li>Ready for responsibility from day one</li>
+          <li>Committed for the medium to long term</li>
+        </ul>
+        <a href="contact.html" class="pp-engage-cta">Express Interest →</a>
+      </div>
+
+      <div class="pp-engage-card reveal">
+        <div class="pp-engage-num">03</div>
+        <span class="pp-engage-icon">🤝</span>
+        <div class="pp-engage-title">Partner</div>
+        <div class="pp-engage-subtitle">Network · Resources · Strategy</div>
+        <div class="pp-engage-body">
+          Strategic alignment with the ecosystem.
+          You bring resources, network, or domain expertise
+          that accelerates what we're building together.
+          Partnerships are about mutual amplification.
+        </div>
+        <ul class="pp-engage-criteria">
+          <li>Clear alignment on values and long-term goals</li>
+          <li>Something specific to bring: network, capital, expertise</li>
+          <li>Willing to grow together — not just transact</li>
+          <li>Focused on Vizag or the social entrepreneur model</li>
+        </ul>
+        <a href="contact.html" class="pp-engage-cta">Start a Conversation →</a>
+      </div>
+
+      <div class="pp-engage-card reveal d1">
+        <div class="pp-engage-num">04</div>
+        <span class="pp-engage-icon">🌱</span>
+        <div class="pp-engage-title">Ecosystem Builder</div>
+        <div class="pp-engage-subtitle">Idea · Startup · Revenue</div>
+        <div class="pp-engage-body">
+          You have a business idea and you want to build it
+          inside this ecosystem — using the network, the platform,
+          and the collective power of 5,000+ people to launch and grow.
+          This is how the 100 startups vision becomes real.
+        </div>
+        <ul class="pp-engage-criteria">
+          <li>A clear business idea that serves a real need</li>
+          <li>Willingness to give back to the community network</li>
+          <li>Entrepreneurial mindset — ownership, not employment</li>
+          <li>Mission-adjacent: your business should also do good</li>
+        </ul>
+        <a href="dreamport.html" class="pp-engage-cta">Explore Dream Port →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ECOSYSTEM / 100 STARTUPS -->
+<div class="pp-section">
+  <div class="pp-label">The Money Model</div>
+  <h2 class="pp-h2">100 startups.<br><em>One ecosystem.</em></h2>
+
+  <div class="pp-eco-intro">
+    <div>
+      <div class="pp-eco-big">100</div>
+    </div>
+    <div>
+      <p class="pp-eco-tagline">
+        Satheesh is not just a social worker —
+        he is a <strong>social entrepreneur</strong>.<br><br>
+        The plan: build an ecosystem of <strong>100 startups</strong>
+        that generate sustainable revenue — not for personal gain,
+        but to fuel the mission indefinitely.
+        Each startup uses the network.
+        Each startup grows through it.
+        Each startup gives back to it.
+      </p>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="pp-eco-steps">
+    <div class="pp-eco-step">
+      <div class="pp-eco-step-dot">🙋</div>
+      <div class="pp-eco-step-title">Volunteer Joins</div>
+      <div class="pp-eco-step-body">Someone discovers a passion through volunteering</div>
+    </div>
+    <div class="pp-eco-step">
+      <div class="pp-eco-step-dot">💡</div>
+      <div class="pp-eco-step-title">Idea Forms</div>
+      <div class="pp-eco-step-body">A business idea emerges from real community experience</div>
+    </div>
+    <div class="pp-eco-step">
+      <div class="pp-eco-step-dot">🤝</div>
+      <div class="pp-eco-step-title">Network Connects</div>
+      <div class="pp-eco-step-body">Satheesh connects them to the right people and resources</div>
+    </div>
+    <div class="pp-eco-step">
+      <div class="pp-eco-step-dot">🚀</div>
+      <div class="pp-eco-step-title">Startup Launches</div>
+      <div class="pp-eco-step-body">They build and grow — powered by 5,000+ connections</div>
+    </div>
+    <div class="pp-eco-step">
+      <div class="pp-eco-step-dot">🔄</div>
+      <div class="pp-eco-step-title">Ecosystem Grows</div>
+      <div class="pp-eco-step-body">Revenue and relationships flow back into the mission</div>
+    </div>
+  </div>
+
+  <!-- Live examples -->
+  <div class="pp-eco-h3">Already happening.</div>
+  <div class="pp-eco-sub">Three startups born directly from the Vizag Volunteers ecosystem:</div>
+  <div class="pp-eco-cards">
+
+    <div class="pp-eco-card reveal">
+      <span class="pp-eco-card-tag">Digital · Marketing</span>
+      <div class="pp-eco-card-name">Aura Digital</div>
+      <div class="pp-eco-card-founder">Founded by a Vizag Volunteer · 2024</div>
+      <div class="pp-eco-card-body">
+        A woman from the volunteer network discovered her passion for digital marketing
+        through community campaigns. She launched Aura Digital — and is now
+        growing it through the same network that gave her the start.
+      </div>
+    </div>
+
+    <div class="pp-eco-card reveal d1">
+      <span class="pp-eco-card-tag">Events · Production</span>
+      <div class="pp-eco-card-name">Events Venture</div>
+      <div class="pp-eco-card-founder">Founded by a Vizag Volunteer · 2024</div>
+      <div class="pp-eco-card-body">
+        Another woman from the network turned her experience organising
+        community events into a professional events company —
+        with immediate clients from within the ecosystem itself.
+      </div>
+    </div>
+
+    <div class="pp-eco-card reveal d2">
+      <span class="pp-eco-card-tag">Apparel · Print</span>
+      <div class="pp-eco-card-name">T-Shirt Printing Business</div>
+      <div class="pp-eco-card-founder">Founded by a Vizag Volunteer · 2024</div>
+      <div class="pp-eco-card-body">
+        A volunteer started a T-shirt printing business — connected to event
+        merchandise, community branding, and corporate orders through
+        the business network Satheesh has built over two decades.
+      </div>
+    </div>
+
+    <div class="pp-eco-more reveal d3">
+      <div class="pp-eco-more-num">97</div>
+      <div class="pp-eco-more-lbl">More startups<br>being built</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INSPIRATIONS -->
+<section id="inspirations">
+  <div class="insp-inner">
+    <span class="section-tag reveal">Inspiration Leaders</span>
+    <h2 class="section-heading reveal d1">Shaped by <em>Giants</em></h2>
+    <div class="section-divider reveal d2"></div>
+    <p class="section-sub reveal d2">Four leaders whose vision, courage, and legacy continue to drive Satheesh every single day.</p>
+    <div class="insp-grid">
+
+      <div class="insp-card reveal">
+        <div class="insp-avatar">AK</div>
+        <div class="insp-num">01 / 04</div>
+        <div class="insp-name">Dr. APJ Abdul Kalam</div>
+        <div class="insp-title">Scientist · President · People's Leader</div>
+        <div class="insp-divider"></div>
+        <p class="insp-quote">"Dream, dream, dream. Dreams transform into thoughts, and thoughts result in action."</p>
+        <p class="insp-why"><strong>Why:</strong> A child from a small village who changed a nation. Kalam taught Satheesh that origin never limits destiny — and that youth are the greatest investment. Kalam Dream Labs is Satheesh's tribute to this belief.</p>
+      </div>
+
+      <div class="insp-card reveal d1">
+        <div class="insp-avatar">SJ</div>
+        <div class="insp-num">02 / 04</div>
+        <div class="insp-name">Steve Jobs</div>
+        <div class="insp-title">Visionary · Founder · Design Thinker</div>
+        <div class="insp-divider"></div>
+        <p class="insp-quote">"Stay hungry, stay foolish."</p>
+        <p class="insp-why"><strong>Why:</strong> Jobs showed that obsession with quality, thinking differently, and refusing to accept limits could reshape entire industries. Satheesh carries the same refusal to accept "ordinary" in everything he builds.</p>
+      </div>
+
+      <div class="insp-card reveal d2">
+        <div class="insp-avatar">CB</div>
+        <div class="insp-num">03 / 04</div>
+        <div class="insp-name">Nara Chandrababu Naidu</div>
+        <div class="insp-title">Chief Minister · Tech Visionary · Builder of AP</div>
+        <div class="insp-divider"></div>
+        <p class="insp-quote">"Technology is the tool of transformation."</p>
+        <p class="insp-why"><strong>Why:</strong> Naidu proved that governance + technology + relentless action can uplift millions. His vision for Andhra Pradesh inspires Satheesh to use digital tools to transform Vizag's communities, not just businesses.</p>
+      </div>
+
+      <div class="insp-card reveal d3">
+        <div class="insp-avatar">LT</div>
+        <div class="insp-num">04 / 04</div>
+        <div class="insp-name">Linus Torvalds</div>
+        <div class="insp-title">Engineer · Open Source Pioneer · Linux Creator</div>
+        <div class="insp-divider"></div>
+        <p class="insp-quote">"Talk is cheap. Show me the code."</p>
+        <p class="insp-why"><strong>Why:</strong> One person, open collaboration, world-changing impact. Torvalds inspired Satheesh's belief in building transparent platforms, sharing freely, and letting the community be the force multiplier.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENTORS -->
+<section id="mentors">
+  <div class="mentors-inner">
+    <span class="section-tag reveal">Mentors &amp; Guides</span>
+    <h2 class="section-heading reveal d1">People Who <em>Believed First</em></h2>
+    <div class="section-divider reveal d2"></div>
+    <p class="section-sub reveal d2">Behind every milestone in Satheesh's journey stands a person who guided, trusted, or opened a door — often without being asked.</p>
+    <div class="mentors-grid">
+
+      <div class="mentor-card reveal">
+        <div class="mentor-initials">ES</div>
+        <div class="mentor-name"><a href="https://www.sankararao.com" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--accent);">Dr. Emandi Sankara Rao Garu ↗</a></div>
+        <div class="mentor-role">PhD IIT Bombay · Infrastructure &amp; AI Expert · Govt. Advisor</div>
+        <p class="mentor-desc">A rare mentor who bridges academia, government policy, and social impact. <strong>PhD from IIT Bombay, advisor to NITI Aayog, RBI and Ministry of Finance committees</strong> — and a man who adopted a rural Andhra village to improve education and employment. His philosophy: <em>"Inclusive infrastructure is the only catalyst for Indian economic growth."</em> His guidance gave Satheesh a national lens on every local problem he solves.</p>
+        <span class="mentor-tag">Personal Mentor · sankararao.com</span>
+      </div>
+
+      <div class="mentor-card reveal d1">
+        <div class="mentor-initials">KR</div>
+        <div class="mentor-name">KVT Ramesh Garu</div>
+        <div class="mentor-role">BNI Vizag · Regional Head</div>
+        <p class="mentor-desc">The person who introduced Satheesh to the power of <strong>structured networking and giving without expectation</strong>. BNI transformed how Satheesh built his professional network — and KVT Ramesh was the catalyst. A role model in servant leadership.</p>
+        <span class="mentor-tag">BNI · Networking</span>
+      </div>
+
+      <div class="mentor-card reveal d2">
+        <div class="mentor-initials">DP</div>
+        <div class="mentor-name">Lion Durga Prasad Garu</div>
+        <div class="mentor-role">Lions Club · Past District Governor</div>
+        <p class="mentor-desc">A guiding force in Satheesh's community service journey. <strong>Lion Durga Prasad's example of selfless leadership</strong> and disciplined community building deeply influenced the structure and values of Vizag Volunteers Association.</p>
+        <span class="mentor-tag">Lions Club · Community</span>
+      </div>
+
+      <div class="mentor-card reveal d3">
+        <div class="mentor-initials">SM</div>
+        <div class="mentor-name">Satyavarapu Murali Garu</div>
+        <div class="mentor-role">Cousin Brother · Director, Sivarama Digital Colour Labs</div>
+        <p class="mentor-desc">The one person who made everything possible. When Satheesh had nothing — no money, no office — <strong>Murali Garu lent him a computer.</strong> That single act of trust is where F9 was born. He was also Satheesh's first professional mentor — from the photography era at Sivarama Digital Colour Labs. <strong>Family, guide, and the foundation of Satheesh's entire journey.</strong></p>
+        <span class="mentor-tag">Cousin · First Enabler · Photography Mentor</span>
+      </div>
+
+      <div class="mentor-card reveal d4">
+        <div class="mentor-initials">RU</div>
+        <div class="mentor-name">Rana Upplapati Garu</div>
+        <div class="mentor-role">Mentor · Vizag Entrepreneur &amp; Leader</div>
+        <p class="mentor-desc">A respected entrepreneur and community leader in Vizag whose <strong>guidance, encouragement, and belief in Satheesh's potential</strong> made a lasting impact. Rana Garu's approach to business and people management became a reference point for how Satheesh thinks about leadership and trust-based relationships.</p>
+        <span class="mentor-tag">Business Mentor · Vizag</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="team-inner">
+    <div class="reveal">
+      <span class="section-tag">The Team</span>
+      <h2 class="section-heading">People Behind the <em>Mission</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">The dedicated team that brings Satheesh's vision to life — day after day, on the ground and online.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <div class="team-avatar">PR</div>
+        <div class="team-name">Prasanna</div>
+        <div class="team-role">Team Member</div>
+        <p class="team-desc">A core member of the team contributing to ground-level operations and initiatives.</p>
+      </div>
+
+      <div class="team-card reveal d1">
+        <div class="team-avatar">PS</div>
+        <div class="team-name">Prasad</div>
+        <div class="team-role">Team Member</div>
+        <p class="team-desc">Committed contributor driving impact across key projects and volunteer activities.</p>
+      </div>
+
+      <div class="team-card reveal d2">
+        <div class="team-avatar">RK</div>
+        <div class="team-name">Rakesh</div>
+        <div class="team-role">Team Member</div>
+        <p class="team-desc">Dependable team player who brings energy and focus to every mission on the ground.</p>
+      </div>
+
+      <div class="team-card reveal d3">
+        <div class="team-avatar">MD</div>
+        <div class="team-name">Manideep</div>
+        <div class="team-role">Team Member</div>
+        <p class="team-desc">A dedicated force supporting campaigns, events, and community outreach programmes.</p>
+      </div>
+
+      <div class="team-card reveal d4">
+        <div class="team-avatar">NS</div>
+        <div class="team-name">Nursing</div>
+        <div class="team-role">Team Member</div>
+        <p class="team-desc">An integral part of the team who shows up consistently and contributes to every initiative.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="pp-cta">
+  <h2 class="pp-cta-h2">Ready to be part of<br><em>something bigger?</em></h2>
+  <p class="pp-cta-sub">Pick your path. Start where you are. Grow from there.</p>
+  <div class="pp-cta-actions">
+    <a href="contact.html" class="pp-cta-primary">Get in Touch</a>
+    <a href="vizagvolunteers.html" class="pp-cta-secondary">Join as Volunteer</a>
+    <a href="dreamport.html" class="pp-cta-secondary">Build a Startup</a>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

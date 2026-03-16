@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Team — Satheesh Karnatakapu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { background: var(--navy); color: var(--white); }
+
+  /* ── HERO ── */
+  .team-hero {
+    padding: 140px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .team-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,111,184,.18), transparent);
+  }
+  .team-hero-eyebrow {
+    font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .team-hero h1 {
+    font-family: 'Fraunces', serif; font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 600; line-height: 1.1; margin-bottom: 20px;
+  }
+  .team-hero h1 span { color: var(--gold); }
+  .team-hero-sub {
+    max-width: 560px; margin: 0 auto 40px;
+    color: rgba(255,255,255,.65); font-size: 1.05rem; line-height: 1.7;
+  }
+  .team-hero-stats {
+    display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+  }
+  .team-hero-stat strong {
+    display: block; font-family: 'Fraunces', serif; font-size: 2rem;
+    color: var(--gold); line-height: 1;
+  }
+  .team-hero-stat span { font-size: .78rem; color: rgba(255,255,255,.45); margin-top: 4px; display: block; }
+
+  /* ── SECTION WRAPPER ── */
+  .team-section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  .section-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: rgba(255,255,255,.3); display: flex; align-items: center; gap: 12px; margin-bottom: 40px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.07); }
+
+  /* ── TEAM GRID ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .team-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px; padding: 28px;
+    cursor: pointer; transition: all .25s ease;
+    position: relative; overflow: hidden;
+  }
+  .team-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(212,146,12,.06), transparent);
+    opacity: 0; transition: opacity .25s;
+  }
+  .team-card:hover { border-color: rgba(212,146,12,.35); transform: translateY(-3px); }
+  .team-card:hover::before { opacity: 1; }
+
+  .team-card-top { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+  .team-avatar {
+    width: 58px; height: 58px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600;
+    border: 2px solid rgba(255,255,255,.12);
+    position: relative;
+  }
+  .team-avatar img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    position: absolute; inset: 0;
+  }
+  .team-card-meta { flex: 1; }
+  .team-card-name { font-weight: 700; font-size: 1.05rem; margin-bottom: 3px; }
+  .team-card-role { font-size: .8rem; color: rgba(255,255,255,.5); }
+  .team-tenure-badge {
+    font-size: .65rem; font-weight: 700; letter-spacing: .08em;
+    background: rgba(212,146,12,.15); color: var(--gold);
+    border: 1px solid rgba(212,146,12,.3); border-radius: 20px;
+    padding: 4px 10px; white-space: nowrap; margin-top: 6px;
+    display: inline-block;
+  }
+
+  .team-card-skills { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+  .skill-pill {
+    font-size: .68rem; font-weight: 600; letter-spacing: .04em;
+    background: rgba(255,255,255,.06); color: rgba(255,255,255,.6);
+    border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+    padding: 4px 10px;
+  }
+
+  .team-card-orgs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+  .org-tag {
+    font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    border-radius: 4px; padding: 3px 8px;
+  }
+  .org-f9    { background: rgba(29,111,184,.2); color: #6db4f7; border: 1px solid rgba(29,111,184,.3); }
+  .org-kdl   { background: rgba(212,146,12,.15); color: var(--gold); border: 1px solid rgba(212,146,12,.25); }
+  .org-vv    { background: rgba(34,197,94,.12); color: #4ade80; border: 1px solid rgba(34,197,94,.2); }
+  .org-ev    { background: rgba(168,85,247,.12); color: #c084fc; border: 1px solid rgba(168,85,247,.2); }
+
+  .team-view-btn {
+    width: 100%; padding: 10px; border-radius: 8px;
+    background: rgba(212,146,12,.1); color: var(--gold);
+    border: 1px solid rgba(212,146,12,.25);
+    font-size: .8rem; font-weight: 700; letter-spacing: .06em;
+    cursor: pointer; transition: all .2s;
+    text-align: center;
+  }
+  .team-card:hover .team-view-btn { background: rgba(212,146,12,.2); }
+
+  /* ── PANEL OVERLAY ── */
+  .team-panel-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.5);
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease; z-index: 9998;
+  }
+  .team-panel-overlay.active { opacity: 1; pointer-events: all; }
+
+  /* ── SLIDE-IN PANEL ── */
+  .team-panel {
+    position: fixed; right: -460px; top: 0;
+    width: 440px; max-width: 100vw; height: 100vh;
+    background: #0c2340;
+    border-left: 1px solid rgba(212,146,12,.2);
+    box-shadow: -20px 0 60px rgba(0,0,0,.4);
+    transition: right .38s cubic-bezier(.4,0,.2,1);
+    overflow-y: auto; z-index: 9999;
+    display: flex; flex-direction: column;
+  }
+  .team-panel.open { right: 0; }
+
+  .panel-close {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; justify-content: flex-end; padding: 16px 20px;
+    background: linear-gradient(#0c2340, transparent);
+  }
+  .panel-close-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,.08); border: none;
+    color: rgba(255,255,255,.6); font-size: 1.1rem;
+    cursor: pointer; transition: all .2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .panel-close-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+  .panel-body { padding: 0 28px 40px; }
+
+  /* Panel header */
+  .panel-header { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 24px; }
+  .panel-avatar {
+    width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600;
+    border: 2px solid rgba(212,146,12,.4);
+    position: relative;
+  }
+  .panel-avatar img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    position: absolute; inset: 0;
+  }
+  .panel-name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 4px; }
+  .panel-role { color: rgba(255,255,255,.5); font-size: .85rem; margin-bottom: 10px; }
+  .panel-orgs { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* Tenure */
+  .panel-block { margin-bottom: 28px; }
+  .panel-block-label {
+    font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.3); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .panel-block-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.06); }
+
+  .tenure-bar {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,.04); border-radius: 10px; padding: 14px 16px;
+  }
+  .tenure-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .tenure-text { font-size: .88rem; line-height: 1.5; }
+  .tenure-text strong { color: var(--gold); }
+
+  /* Skill bars */
+  .skill-bars { display: flex; flex-direction: column; gap: 14px; }
+  .skill-row {}
+  .skill-row-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .skill-row-name { font-size: .82rem; font-weight: 600; }
+  .skill-row-pct { font-size: .75rem; color: rgba(255,255,255,.4); }
+  .skill-track {
+    height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--gold), #1d6fb8);
+    width: 0; transition: width .9s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* Contribution */
+  .contrib-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .contrib-card {
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 8px 14px;
+    font-size: .8rem;
+  }
+  .contrib-card strong { display: block; color: rgba(255,255,255,.85); font-weight: 600; }
+  .contrib-card span { color: rgba(255,255,255,.4); font-size: .72rem; }
+
+  /* Why I joined */
+  .panel-quote {
+    border-left: 3px solid var(--gold); padding: 14px 18px;
+    background: rgba(212,146,12,.06); border-radius: 0 10px 10px 0;
+    font-family: 'Fraunces', serif; font-size: 1rem; line-height: 1.65;
+    color: rgba(255,255,255,.8); font-style: italic;
+  }
+
+  /* Key moments */
+  .moments-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .moments-list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: .85rem; line-height: 1.5; color: rgba(255,255,255,.7);
+  }
+  .moments-list li::before {
+    content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── JOIN CTA ── */
+  .team-join {
+    background: linear-gradient(135deg, rgba(29,111,184,.15), rgba(11,37,69,.5));
+    border: 1px solid rgba(29,111,184,.2);
+    border-radius: 20px; padding: 56px 40px; text-align: center;
+    margin-top: 24px;
+  }
+  .team-join h2 { font-family: 'Fraunces', serif; font-size: 2rem; margin-bottom: 14px; }
+  .team-join h2 span { color: var(--gold); }
+  .team-join p { color: rgba(255,255,255,.6); max-width: 500px; margin: 0 auto 28px; line-height: 1.7; }
+  .team-join-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-gold {
+    padding: 13px 28px; border-radius: 8px;
+    background: var(--gold); color: var(--navy);
+    font-weight: 700; font-size: .9rem; text-decoration: none;
+    transition: background .2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-ghost {
+    padding: 13px 28px; border-radius: 8px;
+    background: transparent; color: rgba(255,255,255,.7);
+    border: 1px solid rgba(255,255,255,.2); font-size: .9rem;
+    text-decoration: none; transition: all .2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .team-panel {
+      width: 100vw; height: 90vh;
+      right: unset; bottom: -90vh; top: unset;
+      border-left: none; border-top: 1px solid rgba(212,146,12,.2);
+      border-radius: 20px 20px 0 0;
+      transition: bottom .38s cubic-bezier(.4,0,.2,1);
+    }
+    .team-panel.open { bottom: 0; right: unset; }
+    .team-panel-overlay.active { opacity: 1; pointer-events: all; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🗂️</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🗂️</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="team-hero">
+  <div class="team-hero-eyebrow">The Mission · The People</div>
+  <h1>The People Who<br><span>Show Up</span></h1>
+  <p class="team-hero-sub">Every org, every campaign, every 5 AM morning — none of it happens alone. These are the people who chose the mission over comfort.</p>
+  <div class="team-hero-stats">
+    <div class="team-hero-stat"><strong>6</strong><span>Core Team Members</span></div>
+    <div class="team-hero-stat"><strong>3</strong><span>Organisations Covered</span></div>
+    <div class="team-hero-stat"><strong>10+</strong><span>Years Average Commitment</span></div>
+  </div>
+</section>
+
+<!-- TEAM GRID -->
+<div class="team-section">
+  <div class="section-label">Meet the Team</div>
+  <div class="team-grid" id="teamGrid">
+
+    <!-- Kittu -->
+    <div class="team-card" onclick="openProfile('kittu')">
+      <div class="team-card-top">
+        <div class="team-avatar" style="background:rgba(212,146,12,.2);color:var(--gold);">KT</div>
+        <div class="team-card-meta">
+          <div class="team-card-name">Kittu</div>
+          <div class="team-card-role">Co-Director · Kalam Dream Labs</div>
+          <div class="team-tenure-badge">First Student → Co-Director</div>
+        </div>
+      </div>
+      <div class="team-card-skills">
+        <span class="skill-pill">Robotics</span>
+        <span class="skill-pill">UAV Research</span>
+        <span class="skill-pill">Leadership</span>
+        <span class="skill-pill">Training</span>
+      </div>
+      <div class="team-card-orgs">
+        <span class="org-tag org-kdl">Kalam Dream Labs</span>
+      </div>
+      <div class="team-view-btn">View Full Profile →</div>
+    </div>
+
+    <!-- Prasanna -->
+    <div class="team-card" onclick="openProfile('prasanna')">
+      <div class="team-card-top">
+        <div class="team-avatar" style="background:rgba(29,111,184,.2);color:#6db4f7;">PR</div>
+        <div class="team-card-meta">
+          <div class="team-card-name">Prasanna</div>
+          <div class="team-card-role">Operations Lead</div>
+          <div class="team-tenure-badge">Core Team · Long Standing</div>
+        </div>
+      </div>
+      <div class="team-card-skills">
+        <span class="skill-pill">Operations</span>
+        <span class="skill-pill">Coordination</span>
+        <span class="skill-pill">Ground Work</span>
+      </div>
+      <div class="team-card-orgs">
+        <span class="org-tag org-vv">Vizag Volunteers</span>
+        <span class="org-tag org-f9">F9</span>
+      </div>
+      <div class="team-view-btn">View Full Profile →</div>
+    </div>
+
+    <!-- Prasad -->
+    <div class="team-card" onclick="openProfile('prasad')">
+      <div class="team-card-top">
+        <div class="team-avatar" style="background:rgba(34,197,94,.12);color:#4ade80;">PS</div>
+        <div class="team-card-meta">
+          <div class="team-card-name">Prasad</div>
+          <div class="team-card-role">Project Coordinator</div>
+          <div class="team-tenure-badge">Core Team · Multi-Org</div>
+        </div>
+      </div>
+      <div class="team-card-skills">
+        <span class="skill-pill">Project Mgmt</span>
+        <span class="skill-pill">Community</span>
+        <span class="skill-pill">Events</span>
+      </div>
+      <div class="team-card-orgs">
+        <span class="org-tag org-vv">Vizag Volunteers</span>
+        <span class="org-tag org-kdl">Kalam Dream Labs</span>
+        <span class="org-tag org-ev">Events</span>
+      </div>
+      <div class="team-view-btn">View Full Profile →</div>
+    </div>
+
+    <!-- Rakesh -->
+    <div class="team-card" onclick="openProfile('rakesh')">
+      <div class="team-card-top">
+        <div class="team-avatar" style="background:rgba(239,68,68,.12);color:#f87171;">RK</div>
+        <div class="team-card-meta">
+          <div class="team-card-name">Rakesh</div>
+          <div class="team-card-role">Ground Operations</div>
+          <div class="team-tenure-badge">Field Lead · Crisis Ready</div>
+        </div>
+      </div>
+      <div class="team-card-skills">
+        <span class="skill-pill">Field Ops</span>
+        <span class="skill-pill">Crisis Response</span>
+        <span class="skill-pill">Logistics</span>
+      </div>
+      <div class="team-card-orgs">
+        <span class="org-tag org-vv">Vizag Volunteers</span>
+      </div>
+      <div class="team-view-btn">View Full Profile →</div>
+    </div>
+
+    <!-- Manideep -->
+    <div class="team-card" onclick="openProfile('manideep')">
+      <div class="team-card-top">
+        <div class="team-avatar" style="background:rgba(168,85,247,.12);color:#c084fc;">MD</div>
+        <div class="team-card-meta">
+          <div class="team-card-name">Manideep</div>
+          <div class="team-card-role">Campaigns &amp; Outreach</div>
+          <div class="team-tenure-badge">Core Team · Creative</div>
+        </div>
+      </div>
+      <div class="team-card-skills">
+        <span class="skill-pill">Social Media</span>
+        <span class="skill-pill">Events</span>
+        <span class="skill-pill">Outreach</span>
+      </div>
+      <div class="team-card-orgs">
+        <span class="org-tag org-vv">Vizag Volunteers</span>
+        <span class="org-tag org-kdl">Kalam Dream Labs</span>
+      </div>
+      <div class="team-view-btn">View Full Profile →</div>
+    </div>
+
+    <!-- Nursing -->
+    <div class="team-card" onclick="openProfile('nursing')">
+      <div class="team-card-top">
+        <div class="team-avatar" style="background:rgba(20,184,166,.12);color:#2dd4bf;">NS</div>
+        <div class="team-card-meta">
+          <div class="team-card-name">Nursing</div>
+          <div class="team-card-role">Community Volunteer Lead</div>
+          <div class="team-tenure-badge">Core Team · Consistent</div>
+        </div>
+      </div>
+      <div class="team-card-skills">
+        <span class="skill-pill">Community</span>
+        <span class="skill-pill">Volunteering</span>
+        <span class="skill-pill">Wellness</span>
+      </div>
+      <div class="team-card-orgs">
+        <span class="org-tag org-vv">Vizag Volunteers</span>
+      </div>
+      <div class="team-view-btn">View Full Profile →</div>
+    </div>
+
+  </div>
+
+  <!-- JOIN CTA -->
+  <div class="team-join">
+    <h2>Want to be part of <span>this mission?</span></h2>
+    <p>The team grows by purpose, not by position. If you show up, contribute, and believe in the vision — there's a place for you here.</p>
+    <div class="team-join-btns">
+      <a href="people.html#engage" class="btn-gold">Join / Collaborate</a>
+      <a href="contact.html" class="btn-ghost">Talk to Satheesh</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,.06);">
+  <p style="color:rgba(255,255,255,.3);font-size:.82rem;">© 2026 Satheesh Karnatakapu · <a href="index.html" style="color:rgba(255,255,255,.4);">Home</a> · <a href="people.html" style="color:rgba(255,255,255,.4);">People</a> · <a href="contact.html" style="color:rgba(255,255,255,.4);">Contact</a></p>
+</footer>
+
+<!-- PANEL OVERLAY -->
+<div class="team-panel-overlay" id="panelOverlay" onclick="closeProfile()"></div>
+
+<!-- SLIDE-IN PANEL -->
+<div class="team-panel" id="teamPanel">
+  <div class="panel-close">
+    <button class="panel-close-btn" onclick="closeProfile()">✕</button>
+  </div>
+  <div class="panel-body" id="panelBody">
+    <!-- populated by JS -->
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+const teamData = {
+  kittu: {
+    initials: 'KT',
+    avatarBg: 'rgba(212,146,12,.2)',
+    avatarColor: 'var(--gold)',
+    name: 'Kittu',
+    role: 'Co-Director · Kalam Dream Labs',
+    orgs: [{ label: 'Kalam Dream Labs', cls: 'org-kdl' }],
+    tenure: { joined: '2018', years: '8', note: 'First student · Now leads the lab' },
+    skills: [
+      { name: 'Robotics & UAV', pct: 95 },
+      { name: 'Research & Innovation', pct: 90 },
+      { name: 'Student Training', pct: 88 },
+      { name: 'Leadership', pct: 85 },
+      { name: 'Technical Writing', pct: 78 },
+      { name: 'Project Management', pct: 80 },
+    ],
+    contributions: [
+      { org: 'Kalam Dream Labs', detail: 'UAV disaster mgmt paper · Delhi award' },
+      { org: 'Australia — Robotics', detail: 'International research exchange' },
+      { org: 'Student Mentoring', detail: '100+ students trained under his guidance' },
+    ],
+    why: "I was a student with no path. Satheesh didn't just teach me — he showed me a direction I had never even imagined for myself. I stayed because the mission is real.",
+    moments: [
+      'Won award in Delhi for UAV disaster management research as a student',
+      'Became a robotics expert through international exposure in Australia',
+      'Returned to Kalam Dream Labs as Co-Director — now shapes the next generation',
+    ],
+  },
+  prasanna: {
+    initials: 'PR',
+    avatarBg: 'rgba(29,111,184,.2)',
+    avatarColor: '#6db4f7',
+    name: 'Prasanna',
+    role: 'Operations Lead',
+    orgs: [
+      { label: 'Vizag Volunteers', cls: 'org-vv' },
+      { label: 'F9 Info Tech', cls: 'org-f9' },
+    ],
+    tenure: { joined: '2020', years: '6', note: 'Joined during COVID · Never left' },
+    skills: [
+      { name: 'Operations & Coordination', pct: 92 },
+      { name: 'Ground-Level Execution', pct: 90 },
+      { name: 'Team Communication', pct: 85 },
+      { name: 'Crisis Management', pct: 82 },
+      { name: 'Volunteer Management', pct: 88 },
+      { name: 'Event Logistics', pct: 80 },
+    ],
+    contributions: [
+      { org: 'Vizag Volunteers', detail: 'COVID operations · Meals, plasma, relief' },
+      { org: 'F9 Info Tech', detail: 'Client coordination & delivery support' },
+      { org: 'Beach Cleanups', detail: 'Regular Sunday operations support' },
+    ],
+    why: "When Satheesh put out that one WhatsApp status, I was there. I saw what he was doing — not for recognition, but because it needed to be done. That's the kind of person I want to work alongside.",
+    moments: [
+      'Coordinated ground operations for distributing 2 lakh meals during COVID-19',
+      'Managed logistics across multiple simultaneous relief projects in Vizag',
+      'Consistent presence at 100+ Sunday beach cleanup sessions',
+    ],
+  },
+  prasad: {
+    initials: 'PS',
+    avatarBg: 'rgba(34,197,94,.12)',
+    avatarColor: '#4ade80',
+    name: 'Prasad',
+    role: 'Project Coordinator',
+    orgs: [
+      { label: 'Vizag Volunteers', cls: 'org-vv' },
+      { label: 'Kalam Dream Labs', cls: 'org-kdl' },
+      { label: 'Events', cls: 'org-ev' },
+    ],
+    tenure: { joined: '2019', years: '7', note: 'Multi-org contributor · Growing every year' },
+    skills: [
+      { name: 'Project Management', pct: 88 },
+      { name: 'Community Engagement', pct: 85 },
+      { name: 'Event Planning', pct: 90 },
+      { name: 'Cross-Team Coordination', pct: 82 },
+      { name: 'Training Facilitation', pct: 78 },
+      { name: 'Documentation', pct: 75 },
+    ],
+    contributions: [
+      { org: 'Vizag Volunteers', detail: '13+ projects coordinated across teams' },
+      { org: 'Kalam Dream Labs', detail: 'Training batch coordination · 800+ students' },
+      { org: 'Events', detail: 'Startup Lex, I Love Vizag Beach campaigns' },
+    ],
+    why: "I've worked across many orgs but nowhere felt like this. The mission here is lived — not just talked about. Prasad's reason for staying: because the impact is visible.",
+    moments: [
+      'Coordinated student placement batches connecting rural youth to IT companies',
+      'Managed multi-org event logistics for Startup Lex and beach campaigns',
+      'Bridged communication between Vizag Volunteers and Kalam Dream Labs teams',
+    ],
+  },
+  rakesh: {
+    initials: 'RK',
+    avatarBg: 'rgba(239,68,68,.12)',
+    avatarColor: '#f87171',
+    name: 'Rakesh',
+    role: 'Ground Operations Lead',
+    orgs: [{ label: 'Vizag Volunteers', cls: 'org-vv' }],
+    tenure: { joined: '2020', years: '6', note: 'Field-first · Crisis trained' },
+    skills: [
+      { name: 'Field Operations', pct: 95 },
+      { name: 'Crisis Response', pct: 92 },
+      { name: 'Logistics & Supply', pct: 88 },
+      { name: 'Team Coordination', pct: 85 },
+      { name: 'Physical Endurance', pct: 90 },
+      { name: 'Decision Making', pct: 80 },
+    ],
+    contributions: [
+      { org: 'Vizag Volunteers', detail: 'COVID-19 frontline — hospitals, bodies, plasma' },
+      { org: 'Beach Campaigns', detail: 'Ground setup and volunteer supervision' },
+      { org: 'Disaster Relief', detail: 'Rapid deployment in city emergencies' },
+    ],
+    why: "Most people look away. Satheesh goes in. I follow because that's the right thing to do. No more reason needed.",
+    moments: [
+      'Went into hospitals during peak COVID when most volunteers stayed away',
+      'Managed rapid deployment of relief teams across Vizag during crisis periods',
+      'Supervised and trained new ground volunteers on safe and effective operations',
+    ],
+  },
+  manideep: {
+    initials: 'MD',
+    avatarBg: 'rgba(168,85,247,.12)',
+    avatarColor: '#c084fc',
+    name: 'Manideep',
+    role: 'Campaigns & Outreach',
+    orgs: [
+      { label: 'Vizag Volunteers', cls: 'org-vv' },
+      { label: 'Kalam Dream Labs', cls: 'org-kdl' },
+    ],
+    tenure: { joined: '2021', years: '5', note: 'Creative force · Audience builder' },
+    skills: [
+      { name: 'Social Media Strategy', pct: 90 },
+      { name: 'Event Execution', pct: 88 },
+      { name: 'Community Outreach', pct: 85 },
+      { name: 'Content Creation', pct: 82 },
+      { name: 'Design Thinking', pct: 78 },
+      { name: 'Youth Engagement', pct: 88 },
+    ],
+    contributions: [
+      { org: 'Vizag Volunteers', detail: 'Social campaigns · Recruitment drives' },
+      { org: 'Kalam Dream Labs', detail: 'Student outreach in schools & colleges' },
+      { org: 'Beach Cleanups', detail: 'Awareness campaigns bringing 500+ participants' },
+    ],
+    why: "I wanted to do something that mattered beyond my office desk. Satheesh showed me that impact doesn't wait — it's built, campaign by campaign, Sunday by Sunday.",
+    moments: [
+      'Grew Vizag Volunteers social reach to support mass mobilisation of 5,000+ people',
+      'Led school and college outreach campaigns for Kalam Dream Labs student recruitment',
+      'Ran the I Love Vizag Beach awareness campaign that brought in hundreds of new volunteers',
+    ],
+  },
+  nursing: {
+    initials: 'NS',
+    avatarBg: 'rgba(20,184,166,.12)',
+    avatarColor: '#2dd4bf',
+    name: 'Nursing',
+    role: 'Community Volunteer Lead',
+    orgs: [{ label: 'Vizag Volunteers', cls: 'org-vv' }],
+    tenure: { joined: '2020', years: '6', note: 'Consistency defines contribution' },
+    skills: [
+      { name: 'Community Presence', pct: 95 },
+      { name: 'Volunteer Support', pct: 92 },
+      { name: 'Health & Wellness Awareness', pct: 88 },
+      { name: 'Reliability', pct: 98 },
+      { name: 'Emotional Support', pct: 85 },
+      { name: 'Public Communication', pct: 78 },
+    ],
+    contributions: [
+      { org: 'Vizag Volunteers', detail: 'Consistent presence at 200+ sessions' },
+      { org: 'COVID Relief', detail: 'Healthcare awareness & hospital support' },
+      { org: 'Beach Cleanups', detail: 'Regular Sunday participant & team supporter' },
+    ],
+    why: "I am a nurse. When the city needed help, this was my place. Satheesh was already there. I joined and never looked back.",
+    moments: [
+      'Provided health guidance and first-responder support during COVID-19 volunteer drives',
+      'Consistent attendance at 200+ community events — one of the most reliable team members',
+      'Brought healthcare perspective to Vizag Volunteers, improving volunteer welfare protocols',
+    ],
+  },
+};
+
+function openProfile(id) {
+  const d = teamData[id];
+  if (!d) return;
+
+  // Build skill bars HTML
+  const skillsHTML = d.skills.map(s => `
+    <div class="skill-row">
+      <div class="skill-row-top">
+        <span class="skill-row-name">${s.name}</span>
+        <span class="skill-row-pct">${s.pct}%</span>
+      </div>
+      <div class="skill-track"><div class="skill-fill" data-pct="${s.pct}"></div></div>
+    </div>
+  `).join('');
+
+  // Build contributions HTML
+  const contribHTML = d.contributions.map(c => `
+    <div class="contrib-card">
+      <strong>${c.org}</strong>
+      <span>${c.detail}</span>
+    </div>
+  `).join('');
+
+  // Build org tags
+  const orgsHTML = d.orgs.map(o => `<span class="org-tag ${o.cls}">${o.label}</span>`).join('');
+
+  // Build moments
+  const momentsHTML = d.moments.map(m => `<li>${m}</li>`).join('');
+
+  document.getElementById('panelBody').innerHTML = `
+    <div class="panel-header">
+      <div class="panel-avatar" style="background:${d.avatarBg};color:${d.avatarColor};">${d.initials}</div>
+      <div>
+        <div class="panel-name">${d.name}</div>
+        <div class="panel-role">${d.role}</div>
+        <div class="panel-orgs">${orgsHTML}</div>
+      </div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-block-label">Tenure</div>
+      <div class="tenure-bar">
+        <div class="tenure-dot"></div>
+        <div class="tenure-text">
+          Joined <strong>${d.tenure.joined}</strong> · With the mission for <strong>${d.tenure.years}+ years</strong><br>
+          <span style="color:rgba(255,255,255,.4);font-size:.8rem;">${d.tenure.note}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-block-label">Skill Capacity</div>
+      <div class="skill-bars">${skillsHTML}</div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-block-label">Contributions</div>
+      <div class="contrib-grid">${contribHTML}</div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-block-label">Why I joined the mission</div>
+      <div class="panel-quote">"${d.why}"</div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-block-label">Key Moments</div>
+      <ul class="moments-list">${momentsHTML}</ul>
+    </div>
+  `;
+
+  document.getElementById('panelOverlay').classList.add('active');
+  document.getElementById('teamPanel').classList.add('open');
+
+  // Animate skill bars after a brief delay
+  setTimeout(() => {
+    document.querySelectorAll('.skill-fill').forEach(bar => {
+      bar.style.width = bar.dataset.pct + '%';
+    });
+  }, 120);
+}
+
+function closeProfile() {
+  document.getElementById('panelOverlay').classList.remove('active');
+  document.getElementById('teamPanel').classList.remove('open');
+  // Reset bars for next open
+  setTimeout(() => {
+    document.querySelectorAll('.skill-fill').forEach(bar => { bar.style.width = '0'; });
+  }, 400);
+}
+
+// Close on Escape key
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProfile(); });
+</script>
+</body>
+</html>

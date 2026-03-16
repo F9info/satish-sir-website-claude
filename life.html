@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life by Design — Satheesh Karnatakapu · Ikigai & Incredible Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── LIFE BY DESIGN PAGE ── */
+body { background: var(--navy); color: var(--white); }
+
+/* HERO */
+.ld-hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: calc(9rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.ld-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+.ld-hero::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(212,146,12,0.12) 0%, transparent 65%);
+  top: -200px; right: -150px;
+  pointer-events: none;
+}
+.ld-hero-glow2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(29,111,184,0.12) 0%, transparent 65%);
+  bottom: -100px; left: -80px;
+  pointer-events: none;
+}
+.ld-hero-inner {
+  max-width: 1120px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.ld-breadcrumb {
+  font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem;
+}
+.ld-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.ld-breadcrumb a:hover { color: var(--gold-light); }
+.ld-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  border: 1px solid rgba(212,146,12,0.3);
+  padding: 0.38rem 1rem; border-radius: 99px;
+  margin-bottom: 2rem;
+}
+.ld-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 600; color: var(--white);
+  line-height: 1.0; letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.ld-h1 em { color: var(--gold-light); font-style: normal; }
+.ld-tagline {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: rgba(255,255,255,0.5);
+  max-width: 640px; line-height: 1.8; margin-bottom: 3rem;
+}
+.ld-hero-two {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+}
+.ld-hero-pill {
+  display: flex; align-items: center; gap: 0.8rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 99px; padding: 0.7rem 1.4rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.6);
+  font-weight: 500;
+}
+.ld-hero-pill span { font-size: 1.1rem; }
+
+/* SECTION BASE */
+.ld-section { padding: 7rem 5rem; max-width: 1120px; margin: 0 auto; }
+.ld-section-full {
+  padding: 7rem 5rem;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.ld-section-full-inner { max-width: 1120px; margin: 0 auto; }
+.ld-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem;
+}
+.ld-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;
+}
+.ld-h2 em { color: var(--gold-light); font-style: normal; }
+.ld-body {
+  font-size: 1.05rem; color: rgba(255,255,255,0.5);
+  line-height: 1.8; max-width: 640px; margin-bottom: 0;
+}
+
+/* ── IKIGAI SECTION ── */
+.ik-wrap {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem;
+  align-items: start; margin-top: 4rem;
+}
+
+/* Venn diagram */
+.ik-diagram {
+  position: relative;
+  width: 100%; max-width: 480px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+.ik-circle {
+  position: absolute;
+  width: 62%; height: 62%;
+  border-radius: 50%;
+  opacity: 0.18;
+  transition: opacity 0.3s;
+}
+.ik-circle:hover { opacity: 0.28; }
+.ik-c-love    { background: #e74c6f; top: 0;   left: 50%; transform: translateX(-50%); }
+.ik-c-good    { background: #3b82f6; top: 38%; left: 0; }
+.ik-c-paid    { background: #10b981; top: 38%; right: 0; }
+.ik-c-need    { background: #f59e0b; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+/* Circle borders */
+.ik-circle-border {
+  position: absolute;
+  width: 62%; height: 62%;
+  border-radius: 50%;
+  border: 1px solid;
+  pointer-events: none;
+}
+.ik-cb-love { top: 0;   left: 50%; transform: translateX(-50%); border-color: rgba(231,76,111,0.35); }
+.ik-cb-good { top: 38%; left: 0; border-color: rgba(59,130,246,0.35); }
+.ik-cb-paid { top: 38%; right: 0; border-color: rgba(16,185,129,0.35); }
+.ik-cb-need { bottom: 0; left: 50%; transform: translateX(-50%); border-color: rgba(245,158,11,0.35); }
+
+/* Labels */
+.ik-label {
+  position: absolute;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; text-align: center;
+  line-height: 1.3;
+}
+.ik-label-love { top: -0.5rem; left: 50%; transform: translateX(-50%); color: #e74c6f; }
+.ik-label-good { top: 50%; left: -4.5rem; transform: translateY(-50%); color: #60a5fa; }
+.ik-label-paid { top: 50%; right: -4.5rem; transform: translateY(-50%); color: #34d399; }
+.ik-label-need { bottom: -1.2rem; left: 50%; transform: translateX(-50%); color: #fbbf24; }
+
+/* Center ikigai */
+.ik-center {
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  text-align: center; z-index: 5;
+}
+.ik-center-word {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--gold-light);
+  display: block; line-height: 1.2;
+}
+.ik-center-kanji {
+  font-size: 0.65rem; color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em; display: block; margin-top: 0.2rem;
+}
+.ik-center-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); margin: 0.4rem auto 0;
+}
+
+/* Intersection labels */
+.ik-inter {
+  position: absolute; font-size: 0.6rem;
+  color: rgba(255,255,255,0.35); text-align: center;
+  font-style: italic; line-height: 1.3; max-width: 80px;
+}
+.ik-inter-tl { top: 23%; left: 18%; }
+.ik-inter-tr { top: 23%; right: 14%; }
+.ik-inter-bl { bottom: 23%; left: 18%; }
+.ik-inter-br { bottom: 23%; right: 14%; }
+
+/* Quadrant list */
+.ik-quads { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.ik-quad {
+  border-radius: 14px; padding: 1.5rem;
+  border: 1px solid;
+}
+.ik-quad-love { background: rgba(231,76,111,0.06); border-color: rgba(231,76,111,0.2); }
+.ik-quad-good { background: rgba(59,130,246,0.06); border-color: rgba(59,130,246,0.2); }
+.ik-quad-paid { background: rgba(16,185,129,0.06); border-color: rgba(16,185,129,0.2); }
+.ik-quad-need { background: rgba(245,158,11,0.06); border-color: rgba(245,158,11,0.2); }
+.ik-quad-title {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.ik-quad-love .ik-quad-title { color: #e74c6f; }
+.ik-quad-good .ik-quad-title { color: #60a5fa; }
+.ik-quad-paid .ik-quad-title { color: #34d399; }
+.ik-quad-need .ik-quad-title { color: #fbbf24; }
+.ik-quad-items { list-style: none; padding: 0; margin: 0; }
+.ik-quad-items li {
+  font-size: 0.78rem; color: rgba(255,255,255,0.5);
+  margin-bottom: 0.35rem; line-height: 1.4;
+  display: flex; align-items: flex-start; gap: 0.4rem;
+}
+.ik-quad-items li::before { content: '·'; flex-shrink: 0; margin-top: 0.05rem; }
+
+/* Center box */
+.ik-ikigai-box {
+  background: linear-gradient(135deg, rgba(212,146,12,0.1), rgba(212,146,12,0.04));
+  border: 1px solid rgba(212,146,12,0.3);
+  border-radius: 14px; padding: 1.5rem;
+  margin-top: 1.2rem; text-align: center;
+}
+.ik-ikigai-box-label {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.5rem;
+}
+.ik-ikigai-box-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem; font-weight: 600;
+  color: var(--white); line-height: 1.4;
+}
+
+/* ── CIP SECTION ── */
+.cip-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  align-items: start; margin-bottom: 4rem;
+}
+.cip-terms {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin-bottom: 3rem;
+}
+.cip-term {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 1.5rem;
+}
+.cip-term-word {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+.cip-term-def {
+  font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.55;
+}
+
+/* CIP Steps */
+.cip-steps-wrap { position: relative; }
+.cip-steps-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  margin-bottom: 1.5rem;
+}
+.cip-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;
+  margin-bottom: 1rem;
+}
+.cip-step {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 1.2rem 1rem;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer; position: relative;
+}
+.cip-step:hover {
+  border-color: rgba(212,146,12,0.35);
+  transform: translateY(-3px);
+}
+.cip-step.active {
+  border-color: rgba(212,146,12,0.5);
+  background: rgba(212,146,12,0.06);
+}
+.cip-step-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem; font-weight: 600;
+  color: rgba(255,255,255,0.07); line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.cip-step.active .cip-step-num { color: rgba(212,146,12,0.25); }
+.cip-step-icon { font-size: 1.3rem; margin-bottom: 0.5rem; display: block; }
+.cip-step-name {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+  line-height: 1.3;
+}
+.cip-step.active .cip-step-name { color: var(--gold-light); }
+
+/* Detail panel */
+.cip-detail {
+  background: rgba(212,146,12,0.04);
+  border: 1px solid rgba(212,146,12,0.2);
+  border-radius: 16px; padding: 2rem;
+  min-height: 180px;
+  transition: all 0.3s;
+}
+.cip-detail-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem; font-weight: 600;
+  color: var(--gold-light); margin-bottom: 0.8rem;
+}
+.cip-detail-body {
+  font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.75;
+}
+.cip-detail-actions {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;
+}
+.cip-detail-action {
+  font-size: 0.7rem; padding: 0.25rem 0.75rem; border-radius: 99px;
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4);
+}
+
+/* Incredible scale */
+.cip-scale {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  margin-top: 3rem;
+}
+.cip-scale-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;
+}
+.cip-scale-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.8rem 1.2rem; border-radius: 10px;
+}
+.cip-scale-item.current {
+  background: rgba(212,146,12,0.08);
+  border: 1px solid rgba(212,146,12,0.25);
+}
+.cip-scale-bar {
+  height: 6px; border-radius: 99px; flex-shrink: 0;
+}
+.cip-scale-name {
+  font-size: 0.8rem; font-weight: 600; min-width: 100px;
+}
+.cip-scale-desc { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+.cip-scale-item.current .cip-scale-name { color: var(--gold-light); }
+.cip-scale-item.current .cip-scale-desc { color: rgba(255,255,255,0.45); }
+
+/* HOW THEY CONNECT */
+.ld-connect-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+.ld-connect-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.ld-connect-card:hover { border-color: rgba(212,146,12,0.3); transform: translateY(-3px); }
+.ld-connect-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.ld-connect-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.ld-connect-body { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+/* CTA */
+.ld-cta {
+  background: linear-gradient(135deg, rgba(11,37,69,0.98), rgba(18,52,99,0.95));
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 7rem 5rem; text-align: center;
+}
+.ld-cta-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.ld-cta-h2 em { color: var(--gold-light); font-style: normal; }
+.ld-cta-sub { font-size: 1rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem; }
+.ld-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.ld-cta-primary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: var(--gold); color: var(--navy);
+  font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.25s;
+}
+.ld-cta-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.ld-cta-secondary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: transparent; color: var(--white);
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s;
+}
+.ld-cta-secondary:hover { background: rgba(255,255,255,0.05); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ik-wrap { grid-template-columns: 1fr; }
+  .ik-diagram { max-width: 380px; }
+  .cip-header { grid-template-columns: 1fr; gap: 2rem; }
+  .cip-steps { grid-template-columns: repeat(3, 1fr); }
+  .ld-connect-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .ld-hero, .ld-section, .ld-section-full, .ld-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .ik-quads { grid-template-columns: 1fr; }
+  .cip-steps { grid-template-columns: repeat(2, 1fr); }
+  .cip-terms { grid-template-columns: 1fr; }
+  .ld-connect-grid { grid-template-columns: 1fr; }
+  .ik-label-good, .ik-label-paid { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <div class="mob-group">
+      <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+      <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Connect</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="ld-hero">
+  <div class="ld-hero-glow2"></div>
+  <div class="ld-hero-inner">
+    <div class="ld-breadcrumb">
+      <a href="index.html">← Satheesh.info</a> / Life by Design
+    </div>
+    <div class="ld-badge">🌱 Life Philosophy</div>
+    <h1 class="ld-h1">
+      Nothing is<br>accidental.<br>
+      <em>Life by Design.</em>
+    </h1>
+    <p class="ld-tagline">
+      Two frameworks guide how Satheesh lives and performs.
+      Ikigai — the Japanese art of finding your reason for being.
+      And Causing Incredible Performance — a system for achieving
+      the extraordinary, deliberately.
+    </p>
+    <div class="ld-hero-two">
+      <div class="ld-hero-pill"><span>🇯🇵</span> Ikigai — Reason for Being</div>
+      <div class="ld-hero-pill"><span>⚡</span> Causing Incredible Performance</div>
+    </div>
+  </div>
+</section>
+
+<!-- IKIGAI -->
+<div id="ikigai" class="ld-section">
+  <div class="ld-label">Framework 01 · Japanese Philosophy</div>
+  <h2 class="ld-h2">Find your <em>Ikigai</em></h2>
+  <p class="ld-body">
+    Ikigai (生き甲斐) — the Japanese concept of a life worth living.
+    It sits at the intersection of four questions. Satheesh found his answer
+    years ago. Everything since has been a pursuit of it.
+  </p>
+
+  <div class="ik-wrap">
+    <!-- Venn Diagram -->
+    <div>
+      <div class="ik-diagram reveal">
+        <div class="ik-circle ik-c-love"></div>
+        <div class="ik-circle ik-c-good"></div>
+        <div class="ik-circle ik-c-paid"></div>
+        <div class="ik-circle ik-c-need"></div>
+        <div class="ik-circle-border ik-cb-love"></div>
+        <div class="ik-circle-border ik-cb-good"></div>
+        <div class="ik-circle-border ik-cb-paid"></div>
+        <div class="ik-circle-border ik-cb-need"></div>
+        <div class="ik-label ik-label-love">What you<br>LOVE</div>
+        <div class="ik-label ik-label-good">What you're<br>GOOD AT</div>
+        <div class="ik-label ik-label-paid">What you can<br>be PAID FOR</div>
+        <div class="ik-label ik-label-need">What the<br>WORLD NEEDS</div>
+        <div class="ik-inter ik-inter-tl">Passion</div>
+        <div class="ik-inter ik-inter-tr">Mission</div>
+        <div class="ik-inter ik-inter-bl">Profession</div>
+        <div class="ik-inter ik-inter-br">Vocation</div>
+        <div class="ik-center">
+          <span class="ik-center-word">IKIGAI</span>
+          <span class="ik-center-kanji">生き甲斐</span>
+          <div class="ik-center-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quadrant breakdown — Satheesh's mapping -->
+    <div>
+      <div class="ik-quads">
+        <div class="ik-quad ik-quad-love reveal">
+          <div class="ik-quad-title">❤️ What I Love</div>
+          <ul class="ik-quad-items">
+            <li>Building Vizag's future</li>
+            <li>Mentoring the next generation</li>
+            <li>Community building at scale</li>
+            <li>Dreaming big, thinking nationally</li>
+            <li>Connecting people with purpose</li>
+          </ul>
+        </div>
+        <div class="ik-quad ik-quad-good reveal d1">
+          <div class="ik-quad-title">💪 What I'm Good At</div>
+          <ul class="ik-quad-items">
+            <li>Technology (F9 — 16 years)</li>
+            <li>Building networks (5,000+ volunteers)</li>
+            <li>Social organising at city scale</li>
+            <li>Self-learning under pressure</li>
+            <li>Finding and nurturing talent</li>
+          </ul>
+        </div>
+        <div class="ik-quad ik-quad-need reveal">
+          <div class="ik-quad-title">🌍 What the World Needs</div>
+          <ul class="ik-quad-items">
+            <li>City-level social infrastructure</li>
+            <li>Youth with direction and skills</li>
+            <li>NGOs run with integrity</li>
+            <li>Tech platforms for civic problems</li>
+            <li>Role models who give back</li>
+          </ul>
+        </div>
+        <div class="ik-quad ik-quad-paid reveal d1">
+          <div class="ik-quad-title">💰 What I Can Be Paid For</div>
+          <ul class="ik-quad-items">
+            <li>Technology services (F9)</li>
+            <li>Digital transformation consulting</li>
+            <li>Ecosystem & network building</li>
+            <li>Innovation programmes (Kalam Labs)</li>
+            <li>Social entrepreneurship models</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ik-ikigai-box reveal">
+        <div class="ik-ikigai-box-label">My Ikigai — Where all four meet</div>
+        <div class="ik-ikigai-box-text">
+          Building Vizag as India's model city — through technology, people, and purpose
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CIP -->
+<div id="cip" class="ld-section-full">
+  <div class="ld-section-full-inner">
+    <div class="ld-label">Framework 02 · Kalam Dream Labs</div>
+    <h2 class="ld-h2">Causing <em>Incredible Performance</em></h2>
+    <p class="ld-body" style="margin-bottom:3rem;">
+      A 10-step system for achieving results that go beyond normal — astonishing,
+      unbelievable, extraordinary. Not by accident. By causing it deliberately.
+    </p>
+
+    <!-- 3 term definitions -->
+    <div class="cip-terms">
+      <div class="cip-term reveal">
+        <div class="cip-term-word">Performance</div>
+        <div class="cip-term-def">Includes results, behaviors and actions. What actually happens — not what was intended.</div>
+      </div>
+      <div class="cip-term reveal d1">
+        <div class="cip-term-word">Causing</div>
+        <div class="cip-term-def">Making something happen deliberately — purposefully, thoughtfully, intentionally. Not letting something happen.</div>
+      </div>
+      <div class="cip-term reveal d2">
+        <div class="cip-term-word">Incredible</div>
+        <div class="cip-term-def">Beyond normal. Something that is astonishing, unbelievable, extra-ordinary. Not just better — categorically different.</div>
+      </div>
+    </div>
+
+    <!-- Interactive steps -->
+    <div class="cip-steps-label">The 10 Steps — click any step to explore</div>
+    <div class="cip-steps">
+      <div class="cip-step active" onclick="setCIP(0,this)">
+        <div class="cip-step-num">01</div>
+        <span class="cip-step-icon">🤝</span>
+        <div class="cip-step-name">Rally Others</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(1,this)">
+        <div class="cip-step-num">02</div>
+        <span class="cip-step-icon">⚡</span>
+        <div class="cip-step-name">Execute Ruthlessly</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(2,this)">
+        <div class="cip-step-num">03</div>
+        <span class="cip-step-icon">🔧</span>
+        <div class="cip-step-name">Embrace Breakdowns</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(3,this)">
+        <div class="cip-step-num">04</div>
+        <span class="cip-step-icon">🔭</span>
+        <div class="cip-step-name">Fore-View Future</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(4,this)">
+        <div class="cip-step-num">05</div>
+        <span class="cip-step-icon">🎯</span>
+        <div class="cip-step-name">Declare Incredible Goal</div>
+      </div>
+    </div>
+    <div class="cip-steps" style="margin-top:1rem;">
+      <div class="cip-step" onclick="setCIP(5,this)">
+        <div class="cip-step-num">06</div>
+        <span class="cip-step-icon">❤️‍🔥</span>
+        <div class="cip-step-name">Compelling Purpose</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(6,this)">
+        <div class="cip-step-num">07</div>
+        <span class="cip-step-icon">🤲</span>
+        <div class="cip-step-name">Commit & Account</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(7,this)">
+        <div class="cip-step-num">08</div>
+        <span class="cip-step-icon">🧠</span>
+        <div class="cip-step-name">Reset Mind</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(8,this)">
+        <div class="cip-step-num">09</div>
+        <span class="cip-step-icon">🎯</span>
+        <div class="cip-step-name">Be Present</div>
+      </div>
+      <div class="cip-step" onclick="setCIP(9,this)">
+        <div class="cip-step-num">10</div>
+        <span class="cip-step-icon">✂️</span>
+        <div class="cip-step-name">Simplify</div>
+      </div>
+    </div>
+
+    <div class="cip-detail" id="cipDetail" style="margin-top:1.5rem;">
+      <div class="cip-detail-title" id="cipTitle">Rally Others</div>
+      <div class="cip-detail-body" id="cipBody">
+        Identify whose support you need. State clearly what result you want from each person.
+        Get each one to commit and be accountable. Get people to perform.
+        Use whatever approach works — because nothing great is built alone.
+      </div>
+      <div class="cip-detail-actions" id="cipActions"></div>
+    </div>
+
+    <!-- The Incredible Scale -->
+    <div style="margin-top:3rem;">
+      <div class="cip-scale-label">The Performance Scale — where are you aiming?</div>
+      <div class="cip-scale">
+        <div class="cip-scale-item">
+          <div class="cip-scale-bar" style="width:20px;background:rgba(255,255,255,0.1)"></div>
+          <div class="cip-scale-name" style="color:rgba(255,255,255,0.2)">Past</div>
+          <div class="cip-scale-desc">Where you were</div>
+        </div>
+        <div class="cip-scale-item">
+          <div class="cip-scale-bar" style="width:50px;background:rgba(255,255,255,0.2)"></div>
+          <div class="cip-scale-name" style="color:rgba(255,255,255,0.35)">Current</div>
+          <div class="cip-scale-desc">Business as usual</div>
+        </div>
+        <div class="cip-scale-item">
+          <div class="cip-scale-bar" style="width:100px;background:rgba(29,111,184,0.5)"></div>
+          <div class="cip-scale-name" style="color:#60a5fa">Stretch</div>
+          <div class="cip-scale-desc">Pushing beyond comfort</div>
+        </div>
+        <div class="cip-scale-item current">
+          <div class="cip-scale-bar" style="width:180px;background:linear-gradient(90deg,var(--gold),var(--gold-light))"></div>
+          <div class="cip-scale-name">Incredible ← aim here</div>
+          <div class="cip-scale-desc">Astonishing, unbelievable, extra-ordinary</div>
+        </div>
+        <div class="cip-scale-item">
+          <div class="cip-scale-bar" style="width:240px;background:rgba(255,255,255,0.06);border:1px dashed rgba(255,255,255,0.1)"></div>
+          <div class="cip-scale-name" style="color:rgba(255,255,255,0.15)">Impossible</div>
+          <div class="cip-scale-desc" style="color:rgba(255,255,255,0.15)">Until it isn't</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW THEY CONNECT -->
+<div class="ld-section">
+  <div class="ld-label">The Connection</div>
+  <h2 class="ld-h2">Why these two <em>frameworks together</em></h2>
+  <p class="ld-body">
+    Ikigai tells you <em>what</em> to pursue. Causing Incredible Performance tells you
+    <em>how</em> to pursue it. One is the compass. The other is the engine.
+  </p>
+  <div class="ld-connect-grid">
+    <div class="ld-connect-card reveal">
+      <span class="ld-connect-icon">🧭</span>
+      <div class="ld-connect-title">Ikigai gives the direction</div>
+      <div class="ld-connect-body">
+        Without knowing your reason for being, all performance is just motion.
+        Satheesh found his Ikigai — Vizag, people, technology, purpose —
+        and every decision since has aligned to that center.
+      </div>
+    </div>
+    <div class="ld-connect-card reveal d1">
+      <span class="ld-connect-icon">⚡</span>
+      <div class="ld-connect-title">CIP gives the engine</div>
+      <div class="ld-connect-body">
+        Knowing your purpose is not enough. You must cause the outcome
+        deliberately — rally people, declare goals, commit and account,
+        reset your mind when needed, and simplify relentlessly.
+      </div>
+    </div>
+    <div class="ld-connect-card reveal d2">
+      <span class="ld-connect-icon">🌆</span>
+      <div class="ld-connect-title">Vizag is the proof</div>
+      <div class="ld-connect-body">
+        The result of applying both frameworks over 25 years:
+        a technology company, a 5,000-person volunteer network,
+        an innovation lab, and a vision for a city that becomes
+        India's model — not by accident, but by design.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="ld-cta">
+  <h2 class="ld-cta-h2">Design your life.<br><em>Cause your results.</em></h2>
+  <p class="ld-cta-sub">If these frameworks resonate, the journey with Satheesh might be yours to join.</p>
+  <div class="ld-cta-actions">
+    <a href="people.html#engage" class="ld-cta-primary">Join the Ecosystem</a>
+    <a href="time.html" class="ld-cta-secondary">See the Time Budget</a>
+    <a href="vision.html" class="ld-cta-secondary">The Vizag Vision</a>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+// CIP step data
+const cipData = [
+  {
+    title: 'Rally Others',
+    body: 'Identify whose support you need. State clearly what result you want from each person. Get each one to commit and be accountable. Get people to perform. Use whatever approach works — because nothing great is built alone.',
+    actions: ['Identify supporters', 'State results clearly', 'Commit & account', 'Use any approach that works']
+  },
+  {
+    title: 'Execute Ruthlessly',
+    body: 'Set a rolling action plan. Remove distractions mercilessly. Acknowledge when you\'re in a breakdown situation. Commit to next results and next actions. Find innovative solutions when old ones fail.',
+    actions: ['Rolling action plan', 'Remove distractions', 'Next results', 'Innovative solutions']
+  },
+  {
+    title: 'Embrace Breakdowns',
+    body: 'Look eagerly forward to breakdowns — they show you where the gaps are. Acknowledge honestly what worked and what didn\'t. A breakdown is not failure; it\'s information. Use it.',
+    actions: ['Welcome breakdowns', 'Diagnose honestly', 'What worked?', 'What didn\'t?']
+  },
+  {
+    title: 'Fore-View the Future',
+    body: 'Specify the current status of goal achievement honestly. Look forward to the future from there. Use grammar of that goal — speak it as already happening. State the stretch and incredible versions.',
+    actions: ['Current status', 'Goal grammar', 'Stretch version', 'Incredible version']
+  },
+  {
+    title: 'Declare an Incredible Goal',
+    body: 'State a goal, not an action. Use the grammar of that goal (present/future tense). State the business-of-the-goal. State the stretch goal. State the incredible goal. Then publicise it — accountability starts with declaration.',
+    actions: ['State a goal, not action', 'Business of the goal', 'Stretch goal', 'Incredible goal', 'Publicise']
+  },
+  {
+    title: 'Discover a Compelling Purpose',
+    body: 'State the main satisfaction of achieving the goal. Brainstorm impacts for each beneficiary. Choose the impact that truly touches your heart. When you know why it matters deeply, execution becomes inevitable.',
+    actions: ['State the satisfaction', 'Beneficiary impacts', 'Choose heart-touching impact']
+  },
+  {
+    title: 'Commit & Account',
+    body: 'Give your word. Give a word and produce results. Make the word unambiguous. Keep your word. Keep a record of facts. Produce the record when asked. Your word is your performance.',
+    actions: ['Give a word', 'Make it unambiguous', 'Keep your word', 'Record facts', 'Produce when asked']
+  },
+  {
+    title: 'Reset Mind',
+    body: 'Only actions produce results. Thinking produces action. Identify your current thinking — it drives everything. Note: we think facts and non-facts equally. Differentiate past from non-facts. After the non-facts, act.',
+    actions: ['Actions → results', 'Thinking → actions', 'Identify current thinking', 'Separate facts from non-facts', 'Act on facts']
+  },
+  {
+    title: 'Be Present',
+    body: 'Remove physical clutter. Remove mental clutter. Attend to the details that are in front of you. Keep information in writing — not in your head. Keep track of progress consistently.',
+    actions: ['Clear physical clutter', 'Clear mental clutter', 'Attend to details', 'Write things down', 'Track progress']
+  },
+  {
+    title: 'Simplify',
+    body: 'Ask. Listen. Use technology. Break goals into smaller elements. Talk straight. Do as agreed. Drop dogma. Simplicity is not weakness — it is the highest form of sophistication in execution.',
+    actions: ['Ask', 'Listen', 'Use technology', 'Break it down', 'Talk straight', 'Drop dogma']
+  }
+];
+
+function setCIP(index, btn) {
+  // Update active step
+  document.querySelectorAll('.cip-step').forEach(s => s.classList.remove('active'));
+  btn.classList.add('active');
+  // Update detail panel
+  const d = cipData[index];
+  document.getElementById('cipTitle').textContent = d.title;
+  document.getElementById('cipBody').textContent = d.body;
+  const actionsEl = document.getElementById('cipActions');
+  actionsEl.innerHTML = d.actions.map(a => `<span class="cip-detail-action">${a}</span>`).join('');
+}
+
+// Scroll reveal
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.ik-quad, .ld-connect-card, .ik-diagram, .ik-ikigai-box, .cip-term').forEach(el => {
+  el.classList.add('reveal'); ro.observe(el);
+});
+</script>
+</body>
+</html>

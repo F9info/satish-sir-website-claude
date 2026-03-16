@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F9 Info Technologies Pvt Ltd — Visakhapatnam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.org-hero {
+  padding: calc(8rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position:relative; overflow:hidden;
+}
+.org-hero::before {
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size:60px 60px; pointer-events:none;
+}
+.org-hero-inner { max-width:1120px; margin:0 auto; position:relative; }
+.org-breadcrumb { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:2rem; }
+.org-breadcrumb a { color:rgba(255,255,255,0.5); text-decoration:none; }
+.org-breadcrumb a:hover { color:var(--gold-light); }
+.org-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1rem; }
+.org-h1 { font-family:'Fraunces',serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:600; color:var(--white); line-height:1.1; margin-bottom:0.3rem; }
+.org-h1 span { color:var(--gold-light); }
+.org-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:600px; line-height:1.7; margin:1.2rem 0 2rem; }
+.org-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+.org-btn-primary { padding:0.75rem 1.8rem; background:var(--gold-light); color:var(--navy); border-radius:8px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:opacity 0.2s; }
+.org-btn-primary:hover { opacity:0.88; }
+.org-btn-secondary { padding:0.75rem 1.8rem; background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2); border-radius:8px; font-weight:600; font-size:0.88rem; text-decoration:none; transition:background 0.2s; }
+.org-btn-secondary:hover { background:rgba(255,255,255,0.18); }
+.org-stats-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; }
+.org-stat-val { font-family:'Fraunces',serif; font-size:2rem; font-weight:600; color:var(--white); }
+.org-stat-lbl { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:0.2rem; }
+
+.org-section { padding:7rem 5rem; }
+.org-section-inner { max-width:1120px; margin:0 auto; }
+.org-section-tag { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; }
+.org-section-tag::before { content:''; width:20px; height:2px; background:var(--accent); }
+.org-h2 { font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:1rem; }
+.org-h2 em { color:var(--accent); font-style:italic; }
+.org-sub2 { font-size:0.95rem; color:var(--text-mid); max-width:600px; line-height:1.8; margin-bottom:3rem; }
+
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.svc-card { background:var(--white); border:1.5px solid var(--border); border-radius:16px; padding:2rem 1.8rem; transition:all 0.3s; }
+.svc-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(11,37,69,0.1); border-color:var(--accent); }
+.svc-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+.svc-name { font-family:'Fraunces',serif; font-size:1rem; font-weight:600; color:var(--navy); margin-bottom:0.5rem; }
+.svc-desc { font-size:0.8rem; color:var(--text-mid); line-height:1.7; }
+
+.stack-wrap { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:2rem; }
+.stack-chip { padding:0.4rem 1rem; background:var(--navy-pale); color:var(--navy); border-radius:100px; font-size:0.78rem; font-weight:600; }
+
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+.why-card { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:2rem 1.8rem; }
+.why-card:hover { background:rgba(255,255,255,0.11); }
+.why-icon { font-size:1.8rem; margin-bottom:1rem; display:block; }
+.why-title { font-family:'Fraunces',serif; font-size:1rem; font-weight:600; color:var(--white); margin-bottom:0.5rem; }
+.why-desc { font-size:0.8rem; color:rgba(255,255,255,0.55); line-height:1.7; }
+
+.org-cta-section { padding:6rem 5rem; background:var(--navy-subtle); text-align:center; }
+.org-cta-inner { max-width:600px; margin:0 auto; }
+.org-cta-title { font-family:'Fraunces',serif; font-size:2.2rem; font-weight:600; color:var(--navy); margin-bottom:1rem; }
+.org-cta-sub { font-size:0.95rem; color:var(--text-mid); line-height:1.8; margin-bottom:2rem; }
+.org-cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.org-cta-primary { padding:0.8rem 2rem; background:var(--navy); color:var(--white); border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.2s; }
+.org-cta-primary:hover { background:var(--navy-mid); }
+.org-cta-secondary { padding:0.8rem 2rem; background:transparent; color:var(--accent); border:1.5px solid var(--accent); border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.2s; }
+.org-cta-secondary:hover { background:var(--accent); color:var(--white); }
+.highlight-box { background:var(--navy); border-left:3px solid var(--gold-light); border-radius:0 12px 12px 0; padding:1.8rem 2rem; margin-top:2.5rem; }
+.highlight-box p { font-size:0.9rem; color:rgba(255,255,255,0.75); line-height:1.8; font-style:italic; }
+
+@media(max-width:1024px) {
+  .org-hero, .org-section, .org-cta-section { padding-left:3rem; padding-right:3rem; }
+  .services-grid, .why-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:768px) {
+  .org-hero, .org-section, .org-cta-section { padding-left:1.5rem; padding-right:1.5rem; }
+  .services-grid, .why-grid { grid-template-columns:1fr; }
+  .org-stats-row { gap:2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="org-hero">
+  <div class="org-hero-inner">
+    <div class="org-breadcrumb">
+      <a href="index.html">← Back to Satheesh.info</a>
+    </div>
+    <div class="org-badge">Est. 2008 · Visakhapatnam</div>
+    <h1 class="org-h1">F9 Info Technologies<br><span>Pvt Ltd</span></h1>
+    <p class="org-sub">Full-service IT company delivering digital transformation across India and internationally. 16 years of trust, 600+ clients, 11–50 strong team.</p>
+    <div class="org-hero-btns">
+      <a href="https://f9tech.com" target="_blank" class="org-btn-primary">Visit f9tech.com →</a>
+      <a href="contact.html" class="org-btn-secondary">Connect with Us</a>
+    </div>
+    <div class="org-stats-row">
+      <div class="org-stat">
+        <div class="org-stat-val">18 Yrs</div>
+        <div class="org-stat-lbl">In Business</div>
+      </div>
+      <div class="org-stat">
+        <div class="org-stat-val">600+</div>
+        <div class="org-stat-lbl">Clients Served</div>
+      </div>
+      <div class="org-stat">
+        <div class="org-stat-val">11–50</div>
+        <div class="org-stat-lbl">Team Members</div>
+      </div>
+      <div class="org-stat">
+        <div class="org-stat-val">India &amp; Global</div>
+        <div class="org-stat-lbl">Reach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="org-section" style="background:var(--white);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Our Story</div>
+    <h2 class="org-h2">Built from Zero.<br><em>Trusted by Hundreds.</em></h2>
+    <p class="org-sub2">What started as one man, one borrowed computer, and ₹2,000 has become one of Visakhapatnam's most trusted IT companies.</p>
+    <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.9; max-width:700px; margin-bottom:1.2rem;">
+      F9 Info Technologies was founded in 2008 by Satheesh Karnatakapu — not from privilege, not from capital, but from a fierce refusal to give up. Satheesh taught himself technology 18 hours a day, absorbing everything from web design to digital marketing by sheer will. He started the company with nothing more than ₹2,000, a borrowed computer, and a reputation built entirely on honesty.
+    </p>
+    <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.9; max-width:700px; margin-bottom:1.2rem;">
+      In the early years, when the company faced enormous financial pressure — ₹40 lakhs of debt — Satheesh chose the harder road. He rode his bicycle to client meetings, kept every commitment, and paid back every rupee. Not because the law demanded it, but because his word demanded it.
+    </p>
+    <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.9; max-width:700px;">
+      Today, 16 years on, F9 serves 600+ clients across India and internationally — from local Vizag businesses to enterprises across the country. Every client relationship, every project, every line of code carries that same founding principle: trust first, always.
+    </p>
+    <div class="highlight-box">
+      <p>"When ₹40 lakhs of debt came, the family said: file for insolvency and walk away. Satheesh refused. 'I took those loans on my personal goodwill.' He paid every rupee back — cycling to meetings, cutting every corner except on integrity. That is the foundation F9 stands on today."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="org-section" style="background:var(--navy-subtle);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Services</div>
+    <h2 class="org-h2">What We <em>Build</em></h2>
+    <p class="org-sub2">End-to-end digital solutions crafted in-house — from the first wireframe to the live launch. We don't outsource. We own every pixel and every line of code.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <span class="svc-icon">🌐</span>
+        <div class="svc-name">Web Design &amp; Development</div>
+        <p class="svc-desc">Custom websites, landing pages, and corporate portals. Built responsive, blazing fast, and SEO-ready from the ground up. We design for humans first, search engines second.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">📱</span>
+        <div class="svc-name">Mobile Applications</div>
+        <p class="svc-desc">Flutter &amp; Laravel-powered apps for iOS and Android. Whether it's a consumer app or an enterprise tool, we build for scale, performance, and the long haul.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🎯</span>
+        <div class="svc-name">Digital Marketing</div>
+        <p class="svc-desc">SEO, SEM, social media marketing, content strategy, and analytics-driven growth. We don't guess — we measure, iterate, and grow your audience systematically.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🎨</span>
+        <div class="svc-name">Branding &amp; Design</div>
+        <p class="svc-desc">Logo design, brand identity, and UI/UX design systems for startups and enterprises. We craft visual languages that are memorable, consistent, and built to last.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">📧</span>
+        <div class="svc-name">Email &amp; Hosting</div>
+        <p class="svc-desc">Reliable hosting infrastructure, domain management, and professional business email setup. Uptime, security, and support — so you can focus on your business, not servers.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🛒</span>
+        <div class="svc-name">E-Commerce Solutions</div>
+        <p class="svc-desc">Full-featured online stores with payment integrations, inventory management, and order tracking. We build e-commerce that converts browsers into buyers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECH STACK ── -->
+<section class="org-section" style="background:var(--white);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Technology</div>
+    <h2 class="org-h2">Our <em>Stack</em></h2>
+    <p class="org-sub2">We work with the tools that get the job done right. Modern, battle-tested, and chosen for reliability over hype.</p>
+    <div class="stack-wrap">
+      <span class="stack-chip">Flutter</span>
+      <span class="stack-chip">Laravel</span>
+      <span class="stack-chip">React</span>
+      <span class="stack-chip">WordPress</span>
+      <span class="stack-chip">PHP</span>
+      <span class="stack-chip">MySQL</span>
+      <span class="stack-chip">Node.js</span>
+      <span class="stack-chip">AWS</span>
+      <span class="stack-chip">Google Cloud</span>
+      <span class="stack-chip">SEO Tools</span>
+      <span class="stack-chip">Meta Ads</span>
+      <span class="stack-chip">Google Ads</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="org-section" style="background:var(--navy);">
+  <div class="org-section-inner">
+    <div class="org-section-tag" style="color:var(--gold-light);">
+      Why F9
+    </div>
+    <h2 class="org-h2" style="color:var(--white);">16 Years of <em style="color:var(--gold-light);">Keeping Promises</em></h2>
+    <p class="org-sub2" style="color:rgba(255,255,255,0.55);">We are not the flashiest agency in the room. We are the ones who show up, deliver, and are still here for you five years later.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🤝</span>
+        <div class="why-title">Trust First</div>
+        <p class="why-desc">Every client relationship is built on honesty. We say what we mean, deliver what we promise, and we never overpromise to win a contract. Our track record speaks louder than any pitch deck.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌏</span>
+        <div class="why-title">Local + Global</div>
+        <p class="why-desc">Deep roots in Visakhapatnam, serving clients across India and internationally. We bring local understanding and global standards to every project — no matter where you are.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⚙️</span>
+        <div class="why-title">Full Service</div>
+        <p class="why-desc">From strategy to deployment, we handle everything in-house. One team, one point of contact, complete accountability. No hand-off gaps, no blame games — just results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="org-cta-section">
+  <div class="org-cta-inner">
+    <div class="org-section-tag" style="justify-content:center;">Ready to Build</div>
+    <h2 class="org-cta-title">Ready to Build Something Great?</h2>
+    <p class="org-cta-sub">Talk to Satheesh directly. No sales team, no pitch decks — just honest conversation about your digital needs. We have been doing this for 16 years and we are not going anywhere.</p>
+    <div class="org-cta-btns">
+      <a href="contact.html" class="org-cta-primary">Get in Touch →</a>
+      <a href="https://f9tech.com" target="_blank" class="org-cta-secondary">Visit f9tech.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand"><strong>F9 Info Technologies Pvt Ltd</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"Building Digital India from Vizag since 2008"</div>
+  <div class="foot-domain">f9tech.com</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

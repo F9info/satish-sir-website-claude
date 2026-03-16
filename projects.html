@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Satheesh Karnatakapu · 40+ Ideas, One Mission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { background: var(--navy); color: var(--white); }
+
+/* ── Hero ── */
+.proj-hero {
+  padding: 120px 24px 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.proj-hero .eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(212,146,12,.3); border-radius: 20px;
+  padding: 6px 14px; margin-bottom: 28px;
+}
+.proj-hero h1 {
+  font-family: 'Fraunces', serif; font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 300; line-height: 1.1; margin: 0 0 20px;
+}
+.proj-hero h1 em { color: var(--gold); font-style: italic; }
+.proj-hero p {
+  font-size: 1.1rem; color: rgba(255,255,255,.65); max-width: 580px; line-height: 1.75;
+  margin: 0 0 40px;
+}
+.proj-stats {
+  display: flex; gap: 40px; flex-wrap: wrap;
+}
+.proj-stat-num {
+  font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; color: var(--gold);
+}
+.proj-stat-label {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.45); margin-top: 2px;
+}
+
+/* ── Hub Model ── */
+.hub-section {
+  padding: 72px 24px;
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.hub-inner { max-width: 1100px; margin: 0 auto; }
+.hub-inner .section-label {
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.hub-inner h2 {
+  font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 300; line-height: 1.25; margin: 0 0 12px; color: #fff;
+}
+.hub-inner h2 em { color: var(--gold); font-style: italic; }
+.hub-quote {
+  font-size: 1.05rem; color: rgba(255,255,255,.55); max-width: 640px;
+  line-height: 1.8; margin: 0 0 52px; font-style: italic;
+  border-left: 3px solid var(--gold); padding-left: 20px;
+}
+.hub-diagram {
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 52px;
+}
+.hub-spokes {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; max-width: 340px;
+}
+.hub-spoke {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px; padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+  transition: all .25s;
+}
+.hub-spoke:hover { border-color: rgba(212,146,12,.4); background: rgba(212,146,12,.06); }
+.hub-spoke-icon { font-size: 1.3rem; flex-shrink: 0; }
+.hub-spoke-text { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.8); }
+.hub-arrow {
+  font-size: 2rem; color: rgba(212,146,12,.5); padding: 0 20px;
+  flex-shrink: 0;
+}
+.hub-center {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(29,111,184,.3), rgba(11,37,69,.8));
+  border: 2px solid var(--gold);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; flex-shrink: 0;
+  box-shadow: 0 0 40px rgba(212,146,12,.15);
+}
+.hub-center-name {
+  font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600;
+  color: var(--gold); line-height: 1.1;
+}
+.hub-center-sub {
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); margin-top: 6px;
+}
+.hub-outcomes {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.hub-outcome {
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 12px; padding: 20px;
+  border-top: 3px solid var(--gold);
+}
+.hub-outcome h4 { font-size: .9rem; font-weight: 600; margin: 0 0 6px; color: #fff; }
+.hub-outcome p { font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.55; margin: 0; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  padding: 0 24px 48px;
+  max-width: 1100px; margin: 0 auto;
+}
+.filter-bar h2 {
+  font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 400;
+  color: rgba(255,255,255,.5); margin: 0 0 16px; letter-spacing: .04em;
+}
+.filter-tabs {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.filter-tab {
+  padding: 9px 18px; border-radius: 24px; border: 1px solid rgba(255,255,255,.15);
+  background: transparent; color: rgba(255,255,255,.6); font-size: .85rem;
+  font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: all .2s;
+}
+.filter-tab:hover { border-color: var(--gold); color: var(--gold); }
+.filter-tab.active {
+  background: var(--gold); border-color: var(--gold); color: #0B2545; font-weight: 600;
+}
+
+/* ── Projects grid ── */
+.proj-grid {
+  padding: 0 24px 80px;
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
+}
+
+/* ── Project card ── */
+.proj-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px; overflow: hidden; transition: all .25s;
+  display: flex; flex-direction: column;
+}
+.proj-card:hover { border-color: rgba(212,146,12,.4); transform: translateY(-3px); }
+.proj-card-top {
+  height: 6px;
+}
+.proj-card-body { padding: 24px; flex: 1; }
+.proj-card-meta {
+  display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap;
+}
+.type-badge {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 12px;
+}
+.type-business   { background: rgba(29,111,184,.25); color: #7ec8ff; }
+.type-social     { background: rgba(34,197,94,.18); color: #86efac; }
+.type-mixed      { background: rgba(212,146,12,.2); color: var(--gold); }
+.type-environment{ background: rgba(16,185,129,.2); color: #6ee7b7; }
+.type-technology { background: rgba(14,165,233,.2); color: #7dd3fc; }
+.status-badge {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 12px;
+}
+.status-active   { background: rgba(34,197,94,.12); color: #86efac; border: 1px solid rgba(34,197,94,.2); }
+.status-building { background: rgba(212,146,12,.12); color: var(--gold); border: 1px solid rgba(212,146,12,.2); }
+.status-partners { background: rgba(139,92,246,.15); color: #c4b5fd; border: 1px solid rgba(139,92,246,.2); }
+
+.proj-card h3 {
+  font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 400;
+  margin: 0 0 8px; color: #fff;
+}
+.proj-card .proj-lead {
+  font-size: .78rem; color: var(--gold); font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.proj-card p {
+  font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.65; margin: 0 0 18px;
+}
+.involve-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); margin-bottom: 10px;
+}
+.involve-chips {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+}
+.involve-chip {
+  font-size: .75rem; padding: 5px 11px; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.55);
+  cursor: default;
+}
+.proj-card-footer {
+  padding: 16px 24px; border-top: 1px solid rgba(255,255,255,.06);
+  display: flex; gap: 10px; align-items: center;
+}
+.proj-btn-primary {
+  flex: 1; padding: 10px; text-align: center; border-radius: 8px;
+  background: var(--accent); color: #fff; font-size: .82rem; font-weight: 600;
+  text-decoration: none; transition: background .2s;
+}
+.proj-btn-primary:hover { background: #1a5fa0; }
+.proj-btn-ghost {
+  padding: 10px 14px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.5);
+  font-size: .82rem; text-decoration: none; transition: all .2s; white-space: nowrap;
+}
+.proj-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── How to get involved ── */
+.how-section {
+  padding: 72px 24px;
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.how-inner { max-width: 1100px; margin: 0 auto; }
+.how-inner .section-label {
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.how-inner h2 {
+  font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300;
+  margin: 0 0 48px; color: #fff;
+}
+.how-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;
+}
+.how-card {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; padding: 24px;
+}
+.how-card .how-icon { font-size: 1.8rem; margin-bottom: 14px; }
+.how-card h4 { font-size: .95rem; font-weight: 600; margin: 0 0 8px; color: #fff; }
+.how-card p { font-size: .82rem; color: rgba(255,255,255,.5); line-height: 1.6; margin: 0; }
+
+/* ── Submit project ── */
+.submit-section {
+  padding: 72px 24px;
+  max-width: 1100px; margin: 0 auto;
+  text-align: center;
+}
+.submit-section h2 {
+  font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300;
+  margin: 0 0 16px;
+}
+.submit-section h2 em { color: var(--gold); font-style: italic; }
+.submit-section p {
+  color: rgba(255,255,255,.55); font-size: 1rem; max-width: 520px;
+  margin: 0 auto 32px; line-height: 1.7;
+}
+.submit-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-gold {
+  padding: 14px 28px; border-radius: 8px;
+  background: var(--gold); color: #0B2545; font-weight: 700; font-size: .9rem;
+  text-decoration: none; transition: background .2s;
+}
+.btn-gold:hover { background: var(--gold-light); }
+.btn-outline {
+  padding: 14px 28px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.7);
+  font-size: .9rem; text-decoration: none; transition: all .2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── Pipeline section ── */
+.pipeline-section {
+  padding: 72px 24px;
+  background: rgba(255,255,255,.025);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.pipeline-inner { max-width: 1100px; margin: 0 auto; }
+.pipeline-inner .section-label {
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+}
+.pipeline-inner h2 {
+  font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300;
+  margin: 0 0 12px; color: #fff;
+}
+.pipeline-sub {
+  color: rgba(255,255,255,.5); font-size: .95rem; max-width: 560px;
+  line-height: 1.7; margin: 0 0 40px;
+}
+.pipeline-groups { display: flex; flex-direction: column; gap: 28px; margin-bottom: 48px; }
+.pipeline-group {}
+.pg-label {
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: 12px; padding: 4px 0;
+}
+.pg-business   { color: #7ec8ff; border-bottom: 2px solid rgba(29,111,184,.3); }
+.pg-social     { color: #86efac; border-bottom: 2px solid rgba(34,197,94,.3); }
+.pg-environment{ color: #6ee7b7; border-bottom: 2px solid rgba(16,185,129,.3); }
+.pg-ai         { color: #c4b5fd; border-bottom: 2px solid rgba(139,92,246,.3); }
+.pipeline-tags { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 12px; }
+.ptag {
+  padding: 7px 14px; border-radius: 20px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.65); font-size: .82rem; cursor: default;
+  transition: all .2s;
+}
+.ptag:hover { background: rgba(212,146,12,.1); border-color: rgba(212,146,12,.3); color: var(--gold); }
+.pipeline-cta { text-align: center; }
+.pipeline-cta p { color: rgba(255,255,255,.5); margin-bottom: 16px; }
+
+/* hide/show filter */
+.proj-card.hidden { display: none; }
+
+footer { background: #060f1a; padding: 32px 24px; text-align: center;
+  font-size: .82rem; color: rgba(255,255,255,.3); }
+footer a { color: rgba(255,255,255,.4); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">🤝</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>🤝</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ── Hero ── -->
+<section class="proj-hero">
+  <div class="eyebrow">🗂️ Projects Hub</div>
+  <h1>One platform.<br><em>Many missions.</em></h1>
+  <p>Every project Satheesh supports — business ventures, social initiatives, and mixed-impact work — lives here. Find one that resonates, understand the vision, and choose how you want to get involved.</p>
+  <div class="proj-stats">
+    <div>
+      <div class="proj-stat-num">40+</div>
+      <div class="proj-stat-label">Project Ideas</div>
+    </div>
+    <div>
+      <div class="proj-stat-num">4</div>
+      <div class="proj-stat-label">Categories</div>
+    </div>
+    <div>
+      <div class="proj-stat-num">6</div>
+      <div class="proj-stat-label">Ways to Participate</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Hub Model ── -->
+<section class="hub-section">
+  <div class="hub-inner">
+    <div class="section-label">The Connection Model</div>
+    <h2>No one builds anything <em>alone.</em></h2>
+    <p class="hub-quote">"Every project needs People, Money, Infrastructure, Knowledge, Skills, Experience, and Innovation. No single person has all of these. But one person can be the point where all of them connect." — Satheesh</p>
+
+    <div class="hub-diagram">
+      <div class="hub-spokes">
+        <div class="hub-spoke"><span class="hub-spoke-icon">👥</span><span class="hub-spoke-text">People</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">💰</span><span class="hub-spoke-text">Money</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">🏗️</span><span class="hub-spoke-text">Infrastructure</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">📚</span><span class="hub-spoke-text">Knowledge</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">⚡</span><span class="hub-spoke-text">Skills</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">🎯</span><span class="hub-spoke-text">Experience</span></div>
+      </div>
+      <div class="hub-arrow">→</div>
+      <div class="hub-center">
+        <div class="hub-center-name">Satheesh</div>
+        <div class="hub-center-sub">The Connection<br>Point</div>
+      </div>
+      <div class="hub-arrow">→</div>
+      <div class="hub-spokes" style="max-width:340px;">
+        <div class="hub-spoke"><span class="hub-spoke-icon">🚀</span><span class="hub-spoke-text">Launch</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">📈</span><span class="hub-spoke-text">Scale</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">🌍</span><span class="hub-spoke-text">Impact</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">💡</span><span class="hub-spoke-text">Innovation</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">🤝</span><span class="hub-spoke-text">Collaborate</span></div>
+        <div class="hub-spoke"><span class="hub-spoke-icon">🏆</span><span class="hub-spoke-text">Succeed</span></div>
+      </div>
+    </div>
+
+    <div class="hub-outcomes">
+      <div class="hub-outcome">
+        <h4>20,000+ People</h4>
+        <p>The network is already built. Volunteers, entrepreneurs, professionals, leaders — ready to be connected to the right project.</p>
+      </div>
+      <div class="hub-outcome">
+        <h4>16 Years of Access</h4>
+        <p>F9's business network, KDL's talent pipeline, Vizag Volunteers' community energy — all available for the right mission.</p>
+      </div>
+      <div class="hub-outcome">
+        <h4>Trust as Infrastructure</h4>
+        <p>In Vizag, Satheesh's name opens doors. Introductions that take years happen in days when the right person makes them.</p>
+      </div>
+      <div class="hub-outcome">
+        <h4>Your Idea + This Network</h4>
+        <p>Bring a project. The missing pieces — people, resources, momentum — can be assembled here, faster than anywhere else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Filter ── -->
+<div class="filter-bar">
+  <h2>Filter by type</h2>
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterProjects('all', this)">All Projects</button>
+    <button class="filter-tab" onclick="filterProjects('business', this)">Business</button>
+    <button class="filter-tab" onclick="filterProjects('social', this)">Social Impact</button>
+    <button class="filter-tab" onclick="filterProjects('mixed', this)">Social + Business</button>
+    <button class="filter-tab" onclick="filterProjects('environment', this)">Environment</button>
+    <button class="filter-tab" onclick="filterProjects('technology', this)">Technology / AI</button>
+  </div>
+</div>
+
+<!-- ── Projects Grid ── -->
+<div class="proj-grid" id="projGrid">
+
+  <!-- Startup Lex Events -->
+  <div class="proj-card" data-type="business">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#1d6fb8,#3b9eff);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-business">Business</span>
+        <span class="status-badge status-active">Active</span>
+      </div>
+      <div class="proj-lead">Supported by Satheesh</div>
+      <h3>Startup Lex Events</h3>
+      <p>A professional event management company serving Vizag. Specialises in corporate events, product launches, and social celebrations. Looking to scale with the right network and strategic backing.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">📣 Refer Clients</span>
+        <span class="involve-chip">💰 Sponsor Events</span>
+        <span class="involve-chip">🤝 Partner</span>
+        <span class="involve-chip">📢 Promote</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="people.html#ecosystem" class="proj-btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <!-- I Love Vizag Beach -->
+  <div class="proj-card" data-type="environment">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#059669,#34d399);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-environment">Environment</span>
+        <span class="status-badge status-active">Active</span>
+      </div>
+      <div class="proj-lead">Vizag Volunteers Initiative</div>
+      <h3>I Love Vizag Beach</h3>
+      <p>Vizag's most beloved beach cleanup movement. Thousands of volunteers have cleaned the coastline over hundreds of drives. A model for citizen-led environmental action across India.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🙋 Volunteer</span>
+        <span class="involve-chip">💰 Sponsor</span>
+        <span class="involve-chip">🏢 Corporate CSR</span>
+        <span class="involve-chip">📣 Spread the Word</span>
+        <span class="involve-chip">🤝 Collaborate</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="vizagvolunteers.html" class="proj-btn-primary">Join a Drive</a>
+      <a href="contact.html" class="proj-btn-ghost">Sponsor</a>
+    </div>
+  </div>
+
+  <!-- Aura Digital -->
+  <div class="proj-card" data-type="business">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-business">Business</span>
+        <span class="status-badge status-building">Building</span>
+      </div>
+      <div class="proj-lead">Supported by Satheesh</div>
+      <h3>Aura Digital</h3>
+      <p>A digital marketing startup helping local Vizag businesses build their online presence. Brand identity, social media, SEO, and digital campaigns for SMEs who need results, not jargon.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">📣 Refer Clients</span>
+        <span class="involve-chip">🎓 Mentor</span>
+        <span class="involve-chip">💼 Hire Them</span>
+        <span class="involve-chip">🤝 Partner</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="people.html#ecosystem" class="proj-btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <!-- T-Shirt Printing Startup -->
+  <div class="proj-card" data-type="business">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#d97706,#fbbf24);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-business">Business</span>
+        <span class="status-badge status-building">Building</span>
+      </div>
+      <div class="proj-lead">Supported by Satheesh</div>
+      <h3>Custom Print Studio</h3>
+      <p>A micro-manufacturing startup specialising in custom T-shirt and merchandise printing. Targeting schools, colleges, corporates, and social campaigns across Vizag. Looking for bulk order partners.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🛒 Place Orders</span>
+        <span class="involve-chip">📣 Refer</span>
+        <span class="involve-chip">💰 Invest</span>
+        <span class="involve-chip">🤝 Bulk Partner</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="contact.html" class="proj-btn-ghost">Order Now</a>
+    </div>
+  </div>
+
+  <!-- Kalam Dream Labs -->
+  <div class="proj-card" data-type="mixed">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#d4920c,#f0ab1f);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Social + Business</span>
+        <span class="status-badge status-active">Active</span>
+      </div>
+      <div class="proj-lead">Satheesh's Initiative</div>
+      <h3>Kalam Dream Labs</h3>
+      <p>Skill development, innovation labs, and entrepreneurship training for young Vizag talent. Inspired by Dr. APJ Abdul Kalam — training the next generation to dream, build, and lead.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🎓 Mentor Students</span>
+        <span class="involve-chip">💰 Sponsor Batches</span>
+        <span class="involve-chip">🏢 Hire Graduates</span>
+        <span class="involve-chip">🤝 Partner Schools</span>
+        <span class="involve-chip">📣 Spread Mission</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="kalamdreamlabs.html" class="proj-btn-primary">Explore KDL</a>
+      <a href="contact.html" class="proj-btn-ghost">Mentor / Sponsor</a>
+    </div>
+  </div>
+
+  <!-- Vizag Volunteers -->
+  <div class="proj-card" data-type="social">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#22c55e,#86efac);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-social">Social Impact</span>
+        <span class="status-badge status-active">Active</span>
+      </div>
+      <div class="proj-lead">Satheesh's Initiative</div>
+      <h3>Vizag Volunteers Association</h3>
+      <p>5,000+ active volunteers. 13 social projects. Disaster response, education drives, city beautification, elder care, and community action — the largest volunteer network in Vizag.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🙋 Volunteer</span>
+        <span class="involve-chip">💰 Sponsor Projects</span>
+        <span class="involve-chip">🏢 Corporate CSR</span>
+        <span class="involve-chip">🎓 Train Volunteers</span>
+        <span class="involve-chip">📢 Raise Awareness</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="vizagvolunteers.html" class="proj-btn-primary">Join Volunteers</a>
+      <a href="contact.html" class="proj-btn-ghost">CSR Partner</a>
+    </div>
+  </div>
+
+  <!-- Dream Port -->
+  <div class="proj-card" data-type="mixed">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#0B2545,#1d6fb8);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Social + Business</span>
+        <span class="status-badge status-building">Building</span>
+      </div>
+      <div class="proj-lead">Satheesh's Vision</div>
+      <h3>Dream Port</h3>
+      <p>Vizag's startup and innovation hub. A physical + digital space where entrepreneurs, technologists, and social innovators co-create the city's future. The nerve centre of the 100-startups ecosystem.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🚀 Launch Startup</span>
+        <span class="involve-chip">💰 Invest</span>
+        <span class="involve-chip">🤝 Co-build</span>
+        <span class="involve-chip">🏢 Office Space</span>
+        <span class="involve-chip">🎓 Mentor</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="dreamport.html" class="proj-btn-primary">Explore Dream Port</a>
+      <a href="contact.html" class="proj-btn-ghost">Partner</a>
+    </div>
+  </div>
+
+  <!-- Social Entrepreneur Platform -->
+  <div class="proj-card" data-type="mixed">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#be185d,#f472b6);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Social + Business</span>
+        <span class="status-badge status-partners">Seeking Partners</span>
+      </div>
+      <div class="proj-lead">Satheesh's Vision</div>
+      <h3>Social Entrepreneur Platform</h3>
+      <p>An accelerator for people who want to do good AND make money. Connecting social entrepreneurs with mentors, funding, networks, and markets. Proving that purpose and profit go together.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🚀 Apply as Entrepreneur</span>
+        <span class="involve-chip">🎓 Mentor</span>
+        <span class="involve-chip">💰 Fund</span>
+        <span class="involve-chip">🤝 Ecosystem Partner</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Express Interest</a>
+      <a href="people.html#engage" class="proj-btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Vizag.AI -->
+  <div class="proj-card" data-type="technology">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#0ea5e9,#38bdf8);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Technology</span>
+        <span class="status-badge status-building">Building</span>
+      </div>
+      <div class="proj-lead">Satheesh's Vision</div>
+      <h3>Vizag.AI</h3>
+      <p>An AI-powered platform for Visakhapatnam — connecting city services, startups, and citizens through intelligent automation. Making Vizag India's first truly AI-assisted city.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">💻 Build</span>
+        <span class="involve-chip">💰 Fund</span>
+        <span class="involve-chip">🏛️ Policy Partner</span>
+        <span class="involve-chip">🤝 Co-found</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="dreamport.html" class="proj-btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Kalam Startup Bridge -->
+  <div class="proj-card" data-type="mixed">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#d4920c,#1d6fb8);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Social + Business</span>
+        <span class="status-badge status-building">Building</span>
+      </div>
+      <div class="proj-lead">Kalam Dream Labs</div>
+      <h3>Kalam Startup Bridge</h3>
+      <p>A bridge between student innovators and real business. Connecting Kalam Dream Labs graduates to mentors, funding, co-founders, and markets — turning classroom ideas into running companies.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🎓 Mentor</span>
+        <span class="involve-chip">💰 Invest</span>
+        <span class="involve-chip">🚀 Apply as Founder</span>
+        <span class="involve-chip">🤝 Partner</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="kalamdreamlabs.html" class="proj-btn-ghost">KDL</a>
+    </div>
+  </div>
+
+  <!-- Impact Trainers -->
+  <div class="proj-card" data-type="social">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#16a34a,#4ade80);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-social">Social Impact</span>
+        <span class="status-badge status-partners">Seeking Partners</span>
+      </div>
+      <div class="proj-lead">Social Initiative</div>
+      <h3>Impact Trainers</h3>
+      <p>Training people to become social impact leaders. A programme that builds capacity in NGOs, volunteer organisations, and community groups — turning good intentions into measurable outcomes.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🎓 Train</span>
+        <span class="involve-chip">💰 Sponsor</span>
+        <span class="involve-chip">🙋 Participate</span>
+        <span class="involve-chip">🏢 Corporate CSR</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="vizagvolunteers.html" class="proj-btn-ghost">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Village.AI -->
+  <div class="proj-card" data-type="technology">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#15803d,#0ea5e9);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Technology</span>
+        <span class="status-badge status-partners">Seeking Partners</span>
+      </div>
+      <div class="proj-lead">Social Tech Vision</div>
+      <h3>Village.AI</h3>
+      <p>Bringing AI tools to rural communities in Andhra Pradesh. Helping villages access government schemes, healthcare, education, and markets through simple, voice-driven AI interfaces.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">💻 Build</span>
+        <span class="involve-chip">💰 Fund</span>
+        <span class="involve-chip">🙋 Field Volunteer</span>
+        <span class="involve-chip">🤝 NGO Partner</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="contact.html" class="proj-btn-ghost">Partner</a>
+    </div>
+  </div>
+
+  <!-- Green Works -->
+  <div class="proj-card" data-type="environment">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#166534,#86efac);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-environment">Environment</span>
+        <span class="status-badge status-building">Building</span>
+      </div>
+      <div class="proj-lead">Environmental Initiative</div>
+      <h3>Green Works</h3>
+      <p>A green economy platform connecting eco-entrepreneurs, tree planters, waste managers, and sustainability advocates across Vizag. Building the infrastructure for a genuinely green city.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🌱 Plant Trees</span>
+        <span class="involve-chip">♻️ Waste Solutions</span>
+        <span class="involve-chip">💰 Sponsor</span>
+        <span class="involve-chip">🏢 Corporate CSR</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="contact.html" class="proj-btn-ghost">Partner</a>
+    </div>
+  </div>
+
+  <!-- WE — Women Entrepreneurs -->
+  <div class="proj-card" data-type="mixed">
+    <div class="proj-card-top" style="background:linear-gradient(90deg,#be185d,#fb7185);"></div>
+    <div class="proj-card-body">
+      <div class="proj-card-meta">
+        <span class="type-badge type-mixed">Social + Business</span>
+        <span class="status-badge status-partners">Seeking Partners</span>
+      </div>
+      <div class="proj-lead">Women's Initiative</div>
+      <h3>WE — Women Entrepreneurs</h3>
+      <p>A platform and community for women entrepreneurs in Vizag. Mentorship, funding connections, peer networks, and market access — making sure women-led businesses get the support they deserve.</p>
+      <div class="involve-label">How you can get involved</div>
+      <div class="involve-chips">
+        <span class="involve-chip">🎓 Mentor</span>
+        <span class="involve-chip">💰 Fund</span>
+        <span class="involve-chip">🤝 Partner</span>
+        <span class="involve-chip">🙋 Apply</span>
+      </div>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary">Get Involved</a>
+      <a href="contact.html" class="proj-btn-ghost">Apply</a>
+    </div>
+  </div>
+
+  <!-- Add Your Project -->
+  <div class="proj-card" data-type="all" style="border-style: dashed; border-color: rgba(212,146,12,.3); background: rgba(212,146,12,.03);">
+    <div class="proj-card-top" style="background: repeating-linear-gradient(45deg,rgba(212,146,12,.15) 0,rgba(212,146,12,.15) 10px,transparent 10px,transparent 20px);"></div>
+    <div class="proj-card-body" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:240px;">
+      <div style="font-size:2.5rem;margin-bottom:16px;">🌱</div>
+      <h3 style="font-size:1.1rem;margin-bottom:10px;">Your Project Here</h3>
+      <p style="font-size:.85rem;">Have a business idea, social initiative, or impact project? Bring it under this umbrella. Satheesh's network, time, and platform are available for the right projects.</p>
+    </div>
+    <div class="proj-card-footer">
+      <a href="contact.html" class="proj-btn-primary" style="background:var(--gold);color:#0B2545;">Propose a Project</a>
+    </div>
+  </div>
+
+</div><!-- /proj-grid -->
+
+<!-- ── Project Pipeline ── -->
+<section class="pipeline-section">
+  <div class="pipeline-inner">
+    <div class="section-label">The Whiteboard</div>
+    <h2>Ideas in the pipeline</h2>
+    <p class="pipeline-sub">These are raw ideas — some early-stage, some just named. Every one is a potential mission. If any of these spark something in you, reach out.</p>
+
+    <div class="pipeline-groups">
+
+      <div class="pipeline-group">
+        <div class="pg-label pg-business">Business &amp; Technology</div>
+        <div class="pipeline-tags">
+          <span class="ptag">KDL Starter Kit</span>
+          <span class="ptag">Bharat Plus</span>
+          <span class="ptag">Bharat Tech Force</span>
+          <span class="ptag">Fixed Funds</span>
+          <span class="ptag">Sports Orbit</span>
+          <span class="ptag">Music Ring</span>
+          <span class="ptag">College Rank</span>
+          <span class="ptag">F9 Studios</span>
+          <span class="ptag">Avon Tech</span>
+          <span class="ptag">Brand Loop</span>
+          <span class="ptag">EazyOrg</span>
+          <span class="ptag">OneSFT</span>
+          <span class="ptag">Vieding</span>
+          <span class="ptag">Near Assist</span>
+          <span class="ptag">Corn Hub</span>
+          <span class="ptag">Man Power</span>
+          <span class="ptag">Codey Social</span>
+          <span class="ptag">Hyper Loop</span>
+          <span class="ptag">BulkFree Gov</span>
+        </div>
+      </div>
+
+      <div class="pipeline-group">
+        <div class="pg-label pg-social">Social &amp; Community</div>
+        <div class="pipeline-tags">
+          <span class="ptag">Safety Exhibition</span>
+          <span class="ptag">Veteran Re-Entry</span>
+          <span class="ptag">Gift a Kit</span>
+          <span class="ptag">Bottle Expo</span>
+          <span class="ptag">Human Spirit</span>
+          <span class="ptag">Aram</span>
+          <span class="ptag">Zen Devotee</span>
+          <span class="ptag">SOS UAV</span>
+          <span class="ptag">Fire Fighter</span>
+        </div>
+      </div>
+
+      <div class="pipeline-group">
+        <div class="pg-label pg-environment">Environment &amp; City</div>
+        <div class="pipeline-tags">
+          <span class="ptag">Sky Clean</span>
+          <span class="ptag">Traffic Park</span>
+          <span class="ptag">Vizag Startups</span>
+          <span class="ptag">GDG Vizag</span>
+        </div>
+      </div>
+
+      <div class="pipeline-group">
+        <div class="pg-label pg-ai">AI &amp; Future Tech</div>
+        <div class="pipeline-tags">
+          <span class="ptag">God.AI</span>
+          <span class="ptag">AI Detective</span>
+          <span class="ptag">AI Local Cloud</span>
+          <span class="ptag">Secure Q</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pipeline-cta">
+      <p>See something that excites you? Let's talk.</p>
+      <a href="contact.html" class="btn-gold">Start a Conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── How to get involved ── -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="section-label">Participation Models</div>
+    <h2>Six ways to get involved</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-icon">🙋</div>
+        <h4>Volunteer</h4>
+        <p>Give your time and skills to a social or community project. No experience needed — just commitment.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">💰</div>
+        <h4>Sponsor</h4>
+        <p>Fund a project or event. From CSR budgets to individual giving — every contribution creates visible impact.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🤝</div>
+        <h4>Collaborate</h4>
+        <p>Bring your organisation's resources, reach, or expertise to co-create something bigger than either party alone.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🎓</div>
+        <h4>Mentor</h4>
+        <p>Share your knowledge with entrepreneurs, students, or first-time founders. An hour with the right mentor changes everything.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">📣</div>
+        <h4>Promote</h4>
+        <p>Spread the word in your network. Referrals, introductions, and social shares are the most underrated form of support.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-icon">🚀</div>
+        <h4>Build</h4>
+        <p>Join as a co-founder, core team member, or early team. For projects still in formation — bring your energy and own a part of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Submit project ── -->
+<section class="submit-section">
+  <h2>Have a project? <em>Let's talk.</em></h2>
+  <p>If you have an idea that fits the mission — business, social, environment, or mixed — connect with Satheesh. The network, platform, and community are already here.</p>
+  <div class="submit-btns">
+    <a href="contact.html" class="btn-gold">Propose a Project</a>
+    <a href="people.html#engage" class="btn-outline">Join the Ecosystem</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Satheesh Karnatakapu · <a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="dreamport.html">Dream Port</a></p>
+</footer>
+
+<script>
+function filterProjects(type, btn) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.proj-card').forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+</body>
+</html>

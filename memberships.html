@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memberships — Satheesh Karnatakapu · Communities & Associations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { background: var(--navy); color: var(--white); }
+
+  /* ── HERO ── */
+  .m-hero {
+    padding: 130px 24px 72px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .m-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29,111,184,.2), transparent);
+    pointer-events: none;
+  }
+  .m-hero-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .m-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 300; line-height: 1.1; margin-bottom: 18px;
+  }
+  .m-hero h1 em { font-style: italic; color: var(--gold); }
+  .m-hero p {
+    font-size: 1.05rem; color: rgba(255,255,255,.55);
+    max-width: 520px; margin: 0 auto 40px; line-height: 1.7;
+  }
+  .m-hero-count {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .8rem; color: rgba(255,255,255,.4);
+    border: 1px solid rgba(255,255,255,.1); border-radius: 99px;
+    padding: 8px 20px;
+  }
+  .m-hero-count strong { color: var(--gold); font-family: 'Fraunces', serif; font-size: 1.2rem; }
+
+  /* ── DIVIDER ── */
+  .m-divider { border: none; border-top: 1px solid rgba(255,255,255,.07); margin: 0; }
+
+  /* ── GRID SECTION ── */
+  .m-grid-section {
+    max-width: 1040px; margin: 0 auto; padding: 72px 24px 100px;
+  }
+  .m-section-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: rgba(255,255,255,.35); margin-bottom: 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .m-section-label::after {
+    content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.07);
+  }
+  .m-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px;
+  }
+
+  /* ── MEMBERSHIP CARD ── */
+  .m-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px; padding: 32px 28px;
+    transition: background .2s, transform .2s, border-color .2s;
+    display: flex; flex-direction: column; gap: 20px;
+    position: relative; overflow: hidden;
+  }
+  .m-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--card-accent, var(--gold));
+    opacity: .6;
+  }
+  .m-card:hover {
+    background: rgba(255,255,255,.07);
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,.14);
+  }
+  .m-card-top {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .m-card-icon {
+    width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+  }
+  .m-card-head { flex: 1; }
+  .m-card-name {
+    font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 400;
+    color: var(--white); line-height: 1.25; margin-bottom: 4px;
+  }
+  .m-card-full {
+    font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.4;
+  }
+  .m-card-body {
+    font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.65;
+  }
+  .m-card-footer {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    padding-top: 16px; border-top: 1px solid rgba(255,255,255,.06);
+  }
+  .m-card-role {
+    font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 99px;
+    background: var(--role-bg, rgba(212,146,12,.12));
+    color: var(--role-color, var(--gold));
+  }
+  .m-card-since {
+    font-size: .75rem; color: rgba(255,255,255,.3);
+  }
+
+  /* Role colour variants */
+  .role-founder { --role-bg: rgba(107,203,119,.12); --role-color: #6bcb77; }
+  .role-organiser { --role-bg: rgba(63,167,214,.12); --role-color: #3fa7d6; }
+  .role-member { --role-bg: rgba(212,146,12,.12); --role-color: var(--gold); }
+  .role-past-president { --role-bg: rgba(214,106,240,.12); --role-color: #d66af0; }
+
+  /* Card accent colours */
+  .m-card.accent-blue  { --card-accent: #3fa7d6; }
+  .m-card.accent-green { --card-accent: #6bcb77; }
+  .m-card.accent-purple{ --card-accent: #d66af0; }
+  .m-card.accent-gold  { --card-accent: var(--gold); }
+  .m-card.accent-red   { --card-accent: #e05a5a; }
+
+  /* ── WHAT THIS MEANS ── */
+  .m-philosophy {
+    max-width: 780px; margin: 0 auto; padding: 0 24px 80px;
+    text-align: center;
+  }
+  .m-philosophy h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 300; margin-bottom: 20px;
+  }
+  .m-philosophy h2 em { color: var(--gold); font-style: italic; }
+  .m-philosophy p {
+    font-size: .97rem; color: rgba(255,255,255,.55); line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  /* ── FOOTER ── */
+  .m-footer {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 28px 24px; text-align: center;
+    font-size: .8rem; color: rgba(255,255,255,.3);
+  }
+  .m-footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 8px; }
+  .m-footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🤝</span> Memberships</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🤝</span> Memberships</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="m-hero">
+  <div style="position:relative;z-index:1;">
+    <div class="m-hero-label">Communities · Associations · Networks</div>
+    <h1>Member of <em>purpose.</em></h1>
+    <p>Every community Satheesh belongs to is a reflection of how he chooses to invest his time — in people, in business, and in the city of Vizag.</p>
+    <div class="m-hero-count">
+      <strong>8</strong> Active Memberships across Business, Social & Innovation Networks
+    </div>
+  </div>
+</section>
+
+<hr class="m-divider">
+
+<!-- MEMBERSHIPS GRID -->
+<div class="m-grid-section">
+  <div class="m-section-label">All Memberships</div>
+  <div class="m-grid">
+
+    <!-- CII -->
+    <div class="m-card accent-blue">
+      <div class="m-card-top">
+        <div class="m-card-icon">🏭</div>
+        <div class="m-card-head">
+          <div class="m-card-name">CII Visakhapatnam</div>
+          <div class="m-card-full">Confederation of Indian Industry</div>
+        </div>
+      </div>
+      <div class="m-card-body">India's premier business association connecting industry leaders, policymakers, and entrepreneurs. Satheesh participates in forums that shape Vizag's industrial and economic direction.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-member">Member</span>
+        <span class="m-card-since">Visakhapatnam Chapter</span>
+      </div>
+    </div>
+
+    <!-- Lions Club -->
+    <div class="m-card accent-gold">
+      <div class="m-card-top">
+        <div class="m-card-icon">🦁</div>
+        <div class="m-card-head">
+          <div class="m-card-name">Lions Club</div>
+          <div class="m-card-full">Lions Club of Visakhapatnam</div>
+        </div>
+      </div>
+      <div class="m-card-body">One of the world's largest service organisations with over 1.4 million members. Lions Club aligns with Satheesh's core belief: communities are built through consistent service, not one-time acts.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-member">Member</span>
+        <span class="m-card-since">Visakhapatnam Chapter</span>
+      </div>
+    </div>
+
+    <!-- TiE -->
+    <div class="m-card accent-purple">
+      <div class="m-card-top">
+        <div class="m-card-icon">🚀</div>
+        <div class="m-card-head">
+          <div class="m-card-name">TiE Vizag</div>
+          <div class="m-card-full">The Indus Entrepreneurs</div>
+        </div>
+      </div>
+      <div class="m-card-body">A global non-profit fostering entrepreneurship through mentoring, education, and networking. TiE Vizag connects founders, investors, and ecosystem builders — exactly the kind of network Satheesh helps build locally.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-member">Member</span>
+        <span class="m-card-since">Vizag Chapter</span>
+      </div>
+    </div>
+
+    <!-- Google Developer Community -->
+    <div class="m-card accent-blue">
+      <div class="m-card-top">
+        <div class="m-card-icon">💻</div>
+        <div class="m-card-head">
+          <div class="m-card-name">Google Developer Community</div>
+          <div class="m-card-full">GDC Visakhapatnam</div>
+        </div>
+      </div>
+      <div class="m-card-body">As a community organiser, Satheesh helps run events that bring developers, designers, and tech enthusiasts together in Vizag — building the city's technical talent pipeline from the ground up.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-organiser">Community Organiser</span>
+        <span class="m-card-since">Visakhapatnam</span>
+      </div>
+    </div>
+
+    <!-- Vizag Startup -->
+    <div class="m-card accent-green">
+      <div class="m-card-top">
+        <div class="m-card-icon">🌱</div>
+        <div class="m-card-head">
+          <div class="m-card-name">Vizag Startup</div>
+          <div class="m-card-full">Vizag Startup Ecosystem</div>
+        </div>
+      </div>
+      <div class="m-card-body">A founding member of Vizag's startup community — one of the earliest voices championing an entrepreneurial ecosystem in the city. Helped lay the foundation for what is now a growing startup culture in Visakhapatnam.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-founder">Founding Member</span>
+        <span class="m-card-since">Visakhapatnam</span>
+      </div>
+    </div>
+
+    <!-- BNI Amigos -->
+    <div class="m-card accent-gold">
+      <div class="m-card-top">
+        <div class="m-card-icon">🤝</div>
+        <div class="m-card-head">
+          <div class="m-card-name">BNI Amigos</div>
+          <div class="m-card-full">Business Network International</div>
+        </div>
+      </div>
+      <div class="m-card-body">BNI is the world's largest business referral network. The Amigos chapter in Vizag practices structured networking and relationship-based referrals — a model that aligns directly with how Satheesh builds trust in business: face to face, consistently.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-member">Member</span>
+        <span class="m-card-since">BNI Amigos · Vizag</span>
+      </div>
+    </div>
+
+    <!-- YI Vizag -->
+    <div class="m-card accent-purple">
+      <div class="m-card-top">
+        <div class="m-card-icon">⚡</div>
+        <div class="m-card-head">
+          <div class="m-card-name">YI Vizag</div>
+          <div class="m-card-full">Young Indians · CII Youth Wing</div>
+        </div>
+      </div>
+      <div class="m-card-body">Young Indians is CII's youth wing focused on nation-building through entrepreneurship, leadership, and civic engagement. Satheesh's participation reflects his commitment to developing the next generation of Vizag's leaders.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-member">Member</span>
+        <span class="m-card-since">Visakhapatnam Chapter</span>
+      </div>
+    </div>
+
+    <!-- JCI Port City -->
+    <div class="m-card accent-red">
+      <div class="m-card-top">
+        <div class="m-card-icon">🏙️</div>
+        <div class="m-card-head">
+          <div class="m-card-name">JCI Port City</div>
+          <div class="m-card-full">Junior Chamber International</div>
+        </div>
+      </div>
+      <div class="m-card-body">JCI is a worldwide community of young active citizens working to create positive change. The Port City chapter in Vizag focuses on civic leadership and community development — areas Satheesh has committed his life to.</div>
+      <div class="m-card-footer">
+        <span class="m-card-role role-member">Member</span>
+        <span class="m-card-since">JCI Port City · Vizag</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="m-divider">
+
+<!-- WHY THIS MATTERS -->
+<section class="m-philosophy">
+  <h2>Community is not <em>networking.</em></h2>
+  <p>Satheesh doesn't join organisations to collect memberships. He joins to contribute — to bring ideas, connect people, and help the community grow stronger. Every forum is a place where the Vizag ecosystem gets a little better connected.</p>
+  <p>The common thread across all 8: people who want to build something, help someone, or make the city better. That's the only filter that matters.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="m-footer">
+  <p>© 2026 Satheesh Karnatakapu ·
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="people.html">People</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('navHamburger');
+const mobileNav = document.getElementById('navMobile');
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('active');
+});
+function closeMob() {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('active');
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.m-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

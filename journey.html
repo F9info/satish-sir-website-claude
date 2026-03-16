@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Journey — Satheesh Karnatakapu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { background: var(--navy); color: var(--white); }
+
+  /* ── HERO ── */
+  .journey-hero {
+    min-height: 52vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .journey-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(29,111,184,.18), transparent);
+    pointer-events: none;
+  }
+  .journey-hero-label {
+    font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .journey-hero h1 {
+    font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 300; line-height: 1.1; margin-bottom: 20px;
+  }
+  .journey-hero h1 em { font-style: italic; color: var(--gold); }
+  .journey-hero p {
+    font-size: 1.1rem; color: rgba(255,255,255,.65); max-width: 520px; margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    font-size: .8rem; color: rgba(255,255,255,.45); letter-spacing: .08em; text-transform: uppercase;
+  }
+  .hero-meta-item strong { color: var(--gold); display: block; font-size: 1.3rem; font-family: 'Fraunces', serif; }
+
+  /* ── SECTION LABELS ── */
+  .model-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: rgba(255,255,255,.4); margin-bottom: 12px;
+  }
+  .model-label span {
+    display: inline-block; width: 28px; height: 1px; background: rgba(255,255,255,.2);
+  }
+  .model-label.gold { color: var(--gold-light, #f0ab1f); }
+  .model-label.gold span { background: var(--gold); }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    border: none; border-top: 1px solid rgba(255,255,255,.07);
+    margin: 0;
+  }
+
+  /* ════════════════════════════════
+     MODEL 1 — THE DISPATCH
+  ════════════════════════════════ */
+  .dispatch-section {
+    padding: 72px 0 80px;
+  }
+  .dispatch-header {
+    max-width: 760px; margin: 0 auto 48px; padding: 0 24px;
+  }
+  .dispatch-header h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400; margin-bottom: 10px;
+  }
+  .dispatch-header p {
+    color: rgba(255,255,255,.5); font-size: .95rem; line-height: 1.6;
+  }
+  .dispatch-grid {
+    max-width: 760px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .dispatch-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.07);
+    border-left: 3px solid var(--gold);
+    border-radius: 10px; padding: 24px 28px;
+    transition: background .2s;
+  }
+  .dispatch-card:hover { background: rgba(255,255,255,.06); }
+  .dispatch-meta {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .dispatch-date {
+    font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--gold); background: rgba(212,146,12,.1);
+    padding: 3px 10px; border-radius: 4px;
+  }
+  .dispatch-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .dispatch-tag {
+    font-size: .7rem; color: rgba(255,255,255,.4);
+    background: rgba(255,255,255,.06); padding: 2px 8px; border-radius: 20px;
+  }
+  .dispatch-card p {
+    font-size: .97rem; line-height: 1.75; color: rgba(255,255,255,.8); margin: 0;
+  }
+  .dispatch-card p strong { color: var(--white); }
+
+  /* ════════════════════════════════
+     MODEL 2 — THE STORY ARC
+  ════════════════════════════════ */
+  .arc-section {
+    padding: 72px 0 80px;
+    background: rgba(255,255,255,.015);
+  }
+  .arc-header {
+    max-width: 960px; margin: 0 auto 48px; padding: 0 24px;
+  }
+  .arc-header h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400; margin-bottom: 10px;
+  }
+  .arc-header p { color: rgba(255,255,255,.5); font-size: .95rem; }
+  .arc-scroll-wrap {
+    max-width: 960px; margin: 0 auto; padding: 0 24px;
+  }
+  .arc-chapters {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media(max-width:768px) { .arc-chapters { grid-template-columns: 1fr; } }
+  .arc-chapter {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px; padding: 28px 24px;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    position: relative;
+  }
+  .arc-chapter:hover, .arc-chapter.open {
+    background: rgba(29,111,184,.08); border-color: rgba(29,111,184,.3);
+  }
+  .arc-chapter.open .arc-detail { display: block; }
+  .arc-num {
+    font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 300;
+    color: rgba(212,146,12,.25); line-height: 1; margin-bottom: 12px;
+  }
+  .arc-chapter.open .arc-num { color: rgba(212,146,12,.6); }
+  .arc-era {
+    font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .arc-title {
+    font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 400;
+    color: var(--white); margin-bottom: 8px; line-height: 1.3;
+  }
+  .arc-summary {
+    font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.6;
+  }
+  .arc-detail {
+    display: none; margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    font-size: .9rem; line-height: 1.75; color: rgba(255,255,255,.72);
+  }
+  .arc-toggle-hint {
+    margin-top: 12px; font-size: .75rem; color: rgba(255,255,255,.25); text-align: right;
+  }
+
+  /* ════════════════════════════════
+     MODEL 3 — THE NUMBERS
+  ════════════════════════════════ */
+  .numbers-section {
+    padding: 72px 0 80px;
+  }
+  .numbers-header {
+    max-width: 960px; margin: 0 auto 48px; padding: 0 24px;
+  }
+  .numbers-header h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400; margin-bottom: 10px;
+  }
+  .numbers-header p { color: rgba(255,255,255,.5); font-size: .95rem; }
+  .numbers-grid {
+    max-width: 960px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  @media(max-width:900px) { .numbers-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width:480px) { .numbers-grid { grid-template-columns: 1fr; } }
+  .num-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px; padding: 28px 20px; text-align: center;
+    transition: transform .2s, background .2s;
+  }
+  .num-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.07); }
+  .num-value {
+    font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 600;
+    color: var(--gold); line-height: 1; margin-bottom: 10px;
+  }
+  .num-label {
+    font-size: .8rem; color: rgba(255,255,255,.55); line-height: 1.4; font-weight: 500;
+  }
+  .num-context {
+    font-size: .72rem; color: rgba(255,255,255,.3); margin-top: 4px; line-height: 1.3;
+  }
+
+  /* ════════════════════════════════
+     MODEL 4 — LESSONS FROM THE ROAD
+  ════════════════════════════════ */
+  .lessons-section {
+    padding: 72px 0 80px;
+    background: rgba(255,255,255,.015);
+  }
+  .lessons-header {
+    max-width: 760px; margin: 0 auto 48px; padding: 0 24px;
+  }
+  .lessons-header h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400; margin-bottom: 10px;
+  }
+  .lessons-header p { color: rgba(255,255,255,.5); font-size: .95rem; }
+  .lessons-list {
+    max-width: 760px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .lesson-item {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    align-items: center;
+  }
+  .lesson-item:last-child { border-bottom: none; }
+  .lesson-item:nth-child(even) .lesson-quote { order: 2; text-align: right; padding-left: 40px; padding-right: 0; }
+  .lesson-item:nth-child(even) .lesson-meta { order: 1; }
+  .lesson-quote {
+    padding-right: 40px;
+  }
+  .lesson-quote blockquote {
+    font-family: 'Fraunces', serif; font-size: clamp(1rem, 2.2vw, 1.3rem);
+    font-weight: 300; font-style: italic; color: var(--white); line-height: 1.55;
+    margin: 0; border: none; padding: 0;
+  }
+  .lesson-quote blockquote::before {
+    content: '"'; font-size: 3rem; color: var(--gold); line-height: 0;
+    vertical-align: -0.5em; margin-right: 4px; font-family: 'Fraunces', serif;
+  }
+  .lesson-meta { padding-left: 0; }
+  .lesson-chapter {
+    font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .lesson-context {
+    font-size: .88rem; color: rgba(255,255,255,.45); line-height: 1.6;
+  }
+  @media(max-width:640px) {
+    .lesson-item { grid-template-columns: 1fr; gap: 16px; }
+    .lesson-item:nth-child(even) .lesson-quote { order: 1; text-align: left; padding-left: 0; }
+    .lesson-item:nth-child(even) .lesson-meta { order: 2; }
+    .lesson-quote { padding-right: 0; }
+  }
+
+  /* ════════════════════════════════
+     MODEL 5 — WHAT'S AHEAD
+  ════════════════════════════════ */
+  .ahead-section {
+    padding: 72px 0 100px;
+  }
+  .ahead-header {
+    max-width: 960px; margin: 0 auto 48px; padding: 0 24px;
+  }
+  .ahead-header h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 400; margin-bottom: 10px;
+  }
+  .ahead-header p { color: rgba(255,255,255,.5); font-size: .95rem; }
+  .ahead-inner {
+    max-width: 960px; margin: 0 auto; padding: 0 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  }
+  @media(max-width:640px) { .ahead-inner { grid-template-columns: 1fr; } }
+  .ahead-now h3, .ahead-next h3 {
+    font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 400;
+    margin-bottom: 20px; color: var(--white);
+  }
+  .ahead-items { display: flex; flex-direction: column; gap: 14px; }
+  .ahead-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px; background: rgba(255,255,255,.04);
+    border-radius: 10px; border: 1px solid rgba(255,255,255,.06);
+  }
+  .ahead-icon {
+    font-size: 1.2rem; flex-shrink: 0; margin-top: 1px;
+  }
+  .ahead-item-text strong {
+    display: block; font-size: .95rem; font-weight: 600; color: var(--white); margin-bottom: 3px;
+  }
+  .ahead-item-text span {
+    font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.5;
+  }
+  .time-bar {
+    margin-top: 36px; padding: 20px 24px;
+    background: rgba(212,146,12,.08); border: 1px solid rgba(212,146,12,.2);
+    border-radius: 10px;
+  }
+  .time-bar p {
+    font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.6; margin: 0;
+  }
+  .time-bar strong { color: var(--gold); }
+  .ahead-ctas {
+    margin-top: 56px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    max-width: 960px; margin: 56px auto 0; padding: 0 24px;
+  }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; background: var(--gold); color: var(--navy);
+    border-radius: 8px; font-weight: 700; font-size: .95rem;
+    text-decoration: none; transition: background .2s, transform .15s;
+  }
+  .btn-gold:hover { background: var(--gold-light, #f0ab1f); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border: 1.5px solid rgba(255,255,255,.25); color: var(--white);
+    border-radius: 8px; font-weight: 600; font-size: .95rem;
+    text-decoration: none; transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(212,146,12,.07); }
+
+  /* ── FOOTER ── */
+  .journey-footer {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 32px 24px; text-align: center;
+    font-size: .82rem; color: rgba(255,255,255,.3);
+  }
+  .journey-footer a { color: rgba(255,255,255,.45); text-decoration: none; margin: 0 8px; }
+  .journey-footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="journey-hero">
+  <div>
+    <div class="journey-hero-label">From Konaseema to Vizag · 1978 – Now</div>
+    <h1>A life built <em>in public.</em></h1>
+    <p>Not a curated highlight reel. The real story — raw starts, impossible odds, and a mission that never stopped growing.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>47</strong> Years Lived</div>
+      <div class="hero-meta-item"><strong>18</strong> Years F9</div>
+      <div class="hero-meta-item"><strong>652+</strong> Beach Cleanups</div>
+      <div class="hero-meta-item"><strong>5,000+</strong> Volunteers</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     MODEL 1 — THE DISPATCH
+══════════════════════════════════════════ -->
+<section class="dispatch-section" id="dispatch">
+  <div class="dispatch-header">
+    <div class="model-label gold"><span></span> Model 01 — Live Updates</div>
+    <h2>The Dispatch</h2>
+    <p>What's happening right now. Field notes from the mission — updated as things move.</p>
+  </div>
+  <div class="dispatch-grid">
+
+    <div class="dispatch-card">
+      <div class="dispatch-meta">
+        <span class="dispatch-date">March 2026</span>
+        <div class="dispatch-tags">
+          <span class="dispatch-tag">#platform</span>
+          <span class="dispatch-tag">#vizag</span>
+        </div>
+      </div>
+      <p>Building the <strong>Satheesh.info platform</strong> — a single digital home for everything I've been working on: the mission, the projects, the people, and the ideas. This is not a portfolio. It's a living operating system for the work.</p>
+    </div>
+
+    <div class="dispatch-card">
+      <div class="dispatch-meta">
+        <span class="dispatch-date">Feb 2026</span>
+        <div class="dispatch-tags">
+          <span class="dispatch-tag">#vizagvolunteers</span>
+          <span class="dispatch-tag">#community</span>
+        </div>
+      </div>
+      <p>Vizag Volunteers crosses <strong>652 consecutive Sunday cleanups</strong>. Still showing up. What started as one person on one beach is now a movement that doesn't need me to start — it needs me to sustain.</p>
+    </div>
+
+    <div class="dispatch-card">
+      <div class="dispatch-meta">
+        <span class="dispatch-date">Jan 2026</span>
+        <div class="dispatch-tags">
+          <span class="dispatch-tag">#dreamport</span>
+          <span class="dispatch-tag">#f9</span>
+        </div>
+      </div>
+      <p>Dream Port concept formalised. The idea: a <strong>city-scale matching system</strong> that connects project leaders with skilled people. Not another job board. A mission-fit engine for Vizag's talent.</p>
+    </div>
+
+    <div class="dispatch-card">
+      <div class="dispatch-meta">
+        <span class="dispatch-date">Dec 2025</span>
+        <div class="dispatch-tags">
+          <span class="dispatch-tag">#yogandhra</span>
+          <span class="dispatch-tag">#awards</span>
+        </div>
+      </div>
+      <p>Honoured with the <strong>Yogandhra 2025 Award</strong> by the Government of Andhra Pradesh for outstanding social contribution. Gratitude. Back to work.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     MODEL 2 — THE STORY ARC
+══════════════════════════════════════════ -->
+<section class="arc-section" id="chapters">
+  <div class="arc-header">
+    <div class="model-label"><span></span> Model 02 — Life Chapters</div>
+    <h2>The Story Arc</h2>
+    <p>Six chapters that shaped everything. Click any chapter to read the full story.</p>
+  </div>
+  <div class="arc-scroll-wrap">
+    <div class="arc-chapters">
+
+      <div class="arc-chapter" onclick="toggleChapter(this)">
+        <div class="arc-num">01</div>
+        <div class="arc-era">1978 – 1996</div>
+        <div class="arc-title">The Konaseema Boy</div>
+        <div class="arc-summary">Born in Munganda village, East Godavari. 99/100 in Computers. Everyone else got 30–55.</div>
+        <div class="arc-detail">Grew up in a small village in Konaseema, East Godavari. Schooled in a place far from cities and opportunities, but not far from curiosity. While classmates scored 30–55 in computers, he scored 99. Not because there was a plan — because there was a pull. That pull never stopped.</div>
+        <div class="arc-toggle-hint">Tap to expand ↓</div>
+      </div>
+
+      <div class="arc-chapter" onclick="toggleChapter(this)">
+        <div class="arc-num">02</div>
+        <div class="arc-era">1997 – 2002</div>
+        <div class="arc-title">The Photographer</div>
+        <div class="arc-summary">Overnight bus runs. Photo lab collections. Later, shooting from helicopters for Cairn Energy.</div>
+        <div class="arc-detail">Ran a photo lab business in Amalapuram and Rajahmundry. Made daily overnight bus runs for two years, collecting work and delivering prints. The discipline of showing up every single day — regardless of how tired, regardless of the result — was built in this chapter. Later photographed from helicopters for Cairn Energy and Deccan Aviation. From village buses to aerial surveys.</div>
+        <div class="arc-toggle-hint">Tap to expand ↓</div>
+      </div>
+
+      <div class="arc-chapter" onclick="toggleChapter(this)">
+        <div class="arc-num">03</div>
+        <div class="arc-era">Early 2000s</div>
+        <div class="arc-title">The Solar Crash</div>
+        <div class="arc-summary">Booked 100+ solar units. Lost everything overnight. Left with ₹2,000. Refused to quit.</div>
+        <div class="arc-detail">Traveled to Kolkata, Hyderabad, Bangalore, and Mumbai training in solar energy distribution. Became a distributor for MB Solar and booked over 100 units. Then overnight, a political contract change wiped it all out. No warning. No compensation. Left with ₹2,000 in pocket. The lesson: no system, no person, no contract is guaranteed. Build anyway.</div>
+        <div class="arc-toggle-hint">Tap to expand ↓</div>
+      </div>
+
+      <div class="arc-chapter" onclick="toggleChapter(this)">
+        <div class="arc-num">04</div>
+        <div class="arc-era">2003 – 2007</div>
+        <div class="arc-title">18 Hours a Day. Zero Teacher.</div>
+        <div class="arc-summary">Borrowed a cousin's computer. Taught himself Java, web tech, and IT business models. Bought 275+ domains before writing code.</div>
+        <div class="arc-detail">No money for college. No internet at home. Borrowed a cousin's computer and spent 18–19 hours a day teaching himself everything — Java, HTML, web architecture, business models. Bought 275+ domains before he could build a single website. Why? Because he understood something most engineers miss: the domain is the intention. The code comes after the vision.</div>
+        <div class="arc-toggle-hint">Tap to expand ↓</div>
+      </div>
+
+      <div class="arc-chapter" onclick="toggleChapter(this)">
+        <div class="arc-num">05</div>
+        <div class="arc-era">2008 – Present</div>
+        <div class="arc-title">Building F9 — The Long Game</div>
+        <div class="arc-summary">Founded F9 Info Technologies. ₹40 lakh debt. Paid every rupee back. 600+ clients. 18 years strong.</div>
+        <div class="arc-detail">Founded F9 Info Technologies Pvt Ltd in 2008. Built VizagPlus.com. A US client cheated the company — leaving ₹40 lakh in debt. Others might have declared bankruptcy. He refused. Paid back every rupee using a bicycle and a handmade portfolio, visiting clients door to door. That decision — to not take the easy exit — built the trust that now sustains 600+ clients and 18 years of business.</div>
+        <div class="arc-toggle-hint">Tap to expand ↓</div>
+      </div>
+
+      <div class="arc-chapter" onclick="toggleChapter(this)">
+        <div class="arc-num">06</div>
+        <div class="arc-era">2015 – Now</div>
+        <div class="arc-title">The Social Fire</div>
+        <div class="arc-summary">1,000 consecutive 5 AM mornings. 652 beach cleanups. COVID response. 5,000 volunteers. Guinness Record.</div>
+        <div class="arc-detail">Started walking at 5 AM — 1,000 consecutive days, never missing once. Began cleaning RK Beach alone every day for 365 days. Transformed a littered viewpoint into Kalam View Point. Then COVID hit — one WhatsApp status sparked 2 lakh meals, 150+ plasma donations, bodies lifted from hospitals when no one else would go in. Today: Vizag Volunteers runs 13 projects with 5,000 members and holds a Guinness World Record. Kalam Dream Labs has trained 800+ rural students. 555 km walked to Amaravati for Safe Touch awareness. The mission is alive.</div>
+        <div class="arc-toggle-hint">Tap to expand ↓</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     MODEL 3 — THE NUMBERS
+══════════════════════════════════════════ -->
+<section class="numbers-section" id="numbers">
+  <div class="numbers-header">
+    <div class="model-label gold"><span></span> Model 03 — Journey in Stats</div>
+    <h2>The Numbers</h2>
+    <p>Every number is a day someone showed up, a rupee earned honestly, or a life touched by the mission.</p>
+  </div>
+  <div class="numbers-grid">
+    <div class="num-card">
+      <div class="num-value">1,000</div>
+      <div class="num-label">Consecutive 5 AM Mornings</div>
+      <div class="num-context">Never once missed</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">652+</div>
+      <div class="num-label">Sunday Beach Cleanups</div>
+      <div class="num-context">And counting</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">18 Yrs</div>
+      <div class="num-label">F9 Info Technologies</div>
+      <div class="num-context">Founded 2008</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">600+</div>
+      <div class="num-label">F9 Clients Built</div>
+      <div class="num-context">Without a single ad</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">5,000+</div>
+      <div class="num-label">Vizag Volunteers</div>
+      <div class="num-context">13 active projects</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">2 Lakh</div>
+      <div class="num-label">COVID Meals Distributed</div>
+      <div class="num-context">During 2020 lockdown</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">800+</div>
+      <div class="num-label">Rural Students Placed in IT</div>
+      <div class="num-context">Via Kalam Dream Labs</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">555 km</div>
+      <div class="num-label">Walked to Amaravati</div>
+      <div class="num-context">Safe Touch — 2 lakh students</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">275+</div>
+      <div class="num-label">Domains Bought</div>
+      <div class="num-context">Before writing a single line of code</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">₹40L</div>
+      <div class="num-label">Debt Repaid</div>
+      <div class="num-context">Every rupee. No bankruptcy.</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">150+</div>
+      <div class="num-label">Plasma Donations Facilitated</div>
+      <div class="num-context">During COVID-19 crisis</div>
+    </div>
+    <div class="num-card">
+      <div class="num-value">1</div>
+      <div class="num-label">Guinness World Record</div>
+      <div class="num-context">Vizag Volunteers</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     MODEL 4 — LESSONS FROM THE ROAD
+══════════════════════════════════════════ -->
+<section class="lessons-section" id="lessons">
+  <div class="lessons-header">
+    <div class="model-label"><span></span> Model 04 — Wisdom &amp; Reflections</div>
+    <h2>Lessons from the Road</h2>
+    <p>Not inspiration quotes. These are things that were learned the hard way — in real situations, with real consequences.</p>
+  </div>
+  <div class="lessons-list">
+
+    <div class="lesson-item">
+      <div class="lesson-quote">
+        <blockquote>I left with ₹2,000. I had no option but to build.</blockquote>
+      </div>
+      <div class="lesson-meta">
+        <div class="lesson-chapter">Chapter 03 — The Solar Crash</div>
+        <p class="lesson-context">After the solar distribution business collapsed overnight due to a political contract change, there was no safety net, no plan B. The constraint became the fuel.</p>
+      </div>
+    </div>
+
+    <div class="lesson-item">
+      <div class="lesson-quote">
+        <blockquote>I didn't learn from a teacher. I learned because stopping wasn't an option.</blockquote>
+      </div>
+      <div class="lesson-meta">
+        <div class="lesson-chapter">Chapter 04 — 18 Hours a Day</div>
+        <p class="lesson-context">18–19 hours a day on a borrowed computer. No mentor, no course, no degree. Just the will to understand — and the knowledge that the city didn't owe him anything.</p>
+      </div>
+    </div>
+
+    <div class="lesson-item">
+      <div class="lesson-quote">
+        <blockquote>Others suggested bankruptcy. I chose the bicycle.</blockquote>
+      </div>
+      <div class="lesson-meta">
+        <div class="lesson-chapter">Chapter 05 — Building F9</div>
+        <p class="lesson-context">When a US client left ₹40 lakh in debt, the easy exit was available. Choosing to pay it back — every rupee, door by door — was the decision that built everything that followed.</p>
+      </div>
+    </div>
+
+    <div class="lesson-item">
+      <div class="lesson-quote">
+        <blockquote>1,000 days. No one asked me to. No one knew.</blockquote>
+      </div>
+      <div class="lesson-meta">
+        <div class="lesson-chapter">Chapter 06 — The Social Fire</div>
+        <p class="lesson-context">The 5 AM walks were private. No audience, no validation. Consistency without an audience is the only consistency that counts — because it proves the motivation is internal.</p>
+      </div>
+    </div>
+
+    <div class="lesson-item">
+      <div class="lesson-quote">
+        <blockquote>One WhatsApp status. That's all it took to start a movement.</blockquote>
+      </div>
+      <div class="lesson-meta">
+        <div class="lesson-chapter">Chapter 06 — COVID Response</div>
+        <p class="lesson-context">On March 27, 2020, one post asking "I am ready to serve" sparked hundreds of volunteers. The lesson: readiness is contagious. Show it first, and others will follow.</p>
+      </div>
+    </div>
+
+    <div class="lesson-item">
+      <div class="lesson-quote">
+        <blockquote>The domain is the intention. The code comes after the vision.</blockquote>
+      </div>
+      <div class="lesson-meta">
+        <div class="lesson-chapter">Chapter 04 — The Builder</div>
+        <p class="lesson-context">Bought 275+ domains before he could build a single website. Most people wait until they have the skills. The vision has to come first — even if the execution is years away.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     MODEL 5 — WHAT'S AHEAD
+══════════════════════════════════════════ -->
+<section class="ahead-section" id="ahead">
+  <div class="ahead-header">
+    <div class="model-label gold"><span></span> Model 05 — Living Vision</div>
+    <h2>What's Ahead</h2>
+    <p>The next chapter is being written. These are the active fronts.</p>
+  </div>
+  <div class="ahead-inner">
+    <div class="ahead-now">
+      <h3>Right Now — 2026</h3>
+      <div class="ahead-items">
+        <div class="ahead-item">
+          <div class="ahead-icon">🌐</div>
+          <div class="ahead-item-text">
+            <strong>Platform Launch — satteesh.info</strong>
+            <span>Building a digital home that connects all missions, projects, and people in one operating system.</span>
+          </div>
+        </div>
+        <div class="ahead-item">
+          <div class="ahead-icon">🛫</div>
+          <div class="ahead-item-text">
+            <strong>Dream Port — City Matching Engine</strong>
+            <span>A platform that matches Vizag's skilled talent to projects and missions that need them.</span>
+          </div>
+        </div>
+        <div class="ahead-item">
+          <div class="ahead-icon">🤖</div>
+          <div class="ahead-item-text">
+            <strong>AI Layer for Social Work</strong>
+            <span>Applying AI to Vizag Volunteers operations — Happiness Index, impact tracking, volunteer matching.</span>
+          </div>
+        </div>
+        <div class="ahead-item">
+          <div class="ahead-icon">🏖️</div>
+          <div class="ahead-item-text">
+            <strong>652nd Cleanup — and Beyond</strong>
+            <span>Every Sunday, without exception. The streak continues.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ahead-next">
+      <h3>The 5-Year Horizon</h3>
+      <div class="ahead-items">
+        <div class="ahead-item">
+          <div class="ahead-icon">🏙️</div>
+          <div class="ahead-item-text">
+            <strong>Vizag as India's Role Model City</strong>
+            <span>A tech layer connecting society, NGOs, government, and environment — with Happiness Index as the north star.</span>
+          </div>
+        </div>
+        <div class="ahead-item">
+          <div class="ahead-icon">🚀</div>
+          <div class="ahead-item-text">
+            <strong>100 Startups from the Ecosystem</strong>
+            <span>Turning volunteers into entrepreneurs. Every person who gives time should have the option to build something.</span>
+          </div>
+        </div>
+        <div class="ahead-item">
+          <div class="ahead-icon">📚</div>
+          <div class="ahead-item-text">
+            <strong>Kalam Dream Labs — National Scale</strong>
+            <span>10,000 rural students trained and placed in technology roles. The pipeline must outlast any single person.</span>
+          </div>
+        </div>
+        <div class="ahead-item">
+          <div class="ahead-icon">🌱</div>
+          <div class="ahead-item-text">
+            <strong>Green Vizag — Environment Projects</strong>
+            <span>Beach restoration, oxygen banking, and urban greening as permanent city infrastructure — not one-time campaigns.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="time-bar" style="max-width:960px;margin:32px auto 0;padding:0 24px;">
+    <div style="padding:20px 24px;background:rgba(212,146,12,.08);border:1px solid rgba(212,146,12,.2);border-radius:10px;">
+      <p><strong>On time:</strong> Every decision about what to build next is filtered through one question — is this the best use of the years remaining? Time is the only resource that cannot be earned back. That's why the mission has to count.</p>
+    </div>
+  </div>
+  <div class="ahead-ctas">
+    <a href="projects.html" class="btn-gold">See All Projects →</a>
+    <a href="dreamport.html" class="btn-outline">Explore Dream Port</a>
+    <a href="contact.html" class="btn-outline">Be Part of This</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="journey-footer">
+  <p>© 2026 Satheesh Karnatakapu ·
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="dreamport.html">Dream Port</a>
+  </p>
+</footer>
+
+<script>
+// Mobile nav
+const hamburger = document.getElementById('navHamburger');
+const mobileNav = document.getElementById('navMobile');
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('active');
+});
+function closeMob() {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('active');
+}
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Chapter accordion
+function toggleChapter(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.arc-chapter').forEach(c => {
+    c.classList.remove('open');
+    const hint = c.querySelector('.arc-toggle-hint');
+    if (hint) hint.textContent = 'Tap to expand ↓';
+  });
+  if (!isOpen) {
+    el.classList.add('open');
+    const hint = el.querySelector('.arc-toggle-hint');
+    if (hint) hint.textContent = 'Tap to collapse ↑';
+  }
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.dispatch-card, .arc-chapter, .num-card, .lesson-item, .ahead-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
+document.querySelectorAll('.dispatch-card.visible, .arc-chapter.visible, .num-card.visible, .lesson-item.visible, .ahead-item.visible').forEach(el => {
+  el.style.opacity = '1';
+  el.style.transform = 'translateY(0)';
+});
+
+// Fix: apply visible styles when IntersectionObserver fires
+const styleObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.dispatch-card, .arc-chapter, .num-card, .lesson-item, .ahead-item').forEach(el => {
+  styleObserver.observe(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalam Dream Labs Pvt Ltd — Visakhapatnam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>/* page styles */
+/* Reuse same org-page CSS pattern */
+.org-hero { padding: calc(8rem + 68px) 5rem 8rem; background: var(--navy); position:relative; overflow:hidden; }
+.org-hero::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size:60px 60px; pointer-events:none; }
+.org-hero-inner { max-width:1120px; margin:0 auto; position:relative; }
+.org-breadcrumb { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:2rem; }
+.org-breadcrumb a { color:rgba(255,255,255,0.5); text-decoration:none; }
+.org-breadcrumb a:hover { color:var(--gold-light); }
+.org-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1rem; }
+.org-h1 { font-family:'Fraunces',serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:600; color:var(--white); line-height:1.1; margin-bottom:0.3rem; }
+.org-h1 span { color:var(--gold-light); }
+.org-tagline { font-size:1.1rem; color:var(--gold-light); font-style:italic; margin-bottom:0.5rem; }
+.org-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:600px; line-height:1.7; margin:1rem 0 2rem; }
+.org-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+.org-btn-primary { padding:0.75rem 1.8rem; background:var(--gold-light); color:var(--navy); border-radius:8px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:opacity 0.2s; }
+.org-btn-primary:hover { opacity:0.88; }
+.org-btn-secondary { padding:0.75rem 1.8rem; background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2); border-radius:8px; font-weight:600; font-size:0.88rem; text-decoration:none; transition:background 0.2s; }
+.org-btn-secondary:hover { background:rgba(255,255,255,0.18); }
+.org-stats-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; }
+.org-stat-val { font-family:'Fraunces',serif; font-size:2rem; font-weight:600; color:var(--white); }
+.org-stat-lbl { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:0.2rem; }
+.org-section { padding:7rem 5rem; }
+.org-section-inner { max-width:1120px; margin:0 auto; }
+.org-section-tag { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; }
+.org-section-tag::before { content:''; width:20px; height:2px; background:var(--accent); }
+.org-h2 { font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:1rem; }
+.org-h2 em { color:var(--accent); font-style:italic; }
+.org-sub2 { font-size:0.95rem; color:var(--text-mid); max-width:600px; line-height:1.8; margin-bottom:3rem; }
+.programs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.prog-card { background:var(--white); border:1.5px solid var(--border); border-radius:16px; padding:2rem 1.8rem; transition:all 0.3s; }
+.prog-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(11,37,69,0.1); border-color:var(--accent); }
+.prog-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+.prog-name { font-family:'Fraunces',serif; font-size:1rem; font-weight:600; color:var(--navy); margin-bottom:0.5rem; }
+.prog-desc { font-size:0.8rem; color:var(--text-mid); line-height:1.7; }
+.impact-strip { padding:5rem; background:var(--navy); }
+.impact-strip-inner { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; text-align:center; }
+.imp-val { font-family:'Fraunces',serif; font-size:2.5rem; font-weight:600; color:var(--gold-light); }
+.imp-lbl { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:0.3rem; }
+.walk-box { background:var(--navy-pale); border-radius:16px; padding:2.5rem; margin-top:2.5rem; display:grid; grid-template-columns:1fr 2fr; gap:3rem; align-items:center; }
+.walk-num { font-family:'Fraunces',serif; font-size:4rem; font-weight:600; color:var(--navy); }
+.walk-unit { font-size:1rem; color:var(--accent); font-weight:700; }
+.walk-desc { font-size:0.88rem; color:var(--text-mid); line-height:1.8; }
+.quote-block { background:var(--navy); border-left:3px solid var(--gold-light); border-radius:0 12px 12px 0; padding:2rem 2.5rem; margin-top:2.5rem; }
+.quote-block p { font-size:1rem; color:rgba(255,255,255,0.8); line-height:1.8; font-style:italic; }
+.quote-block cite { font-size:0.75rem; color:var(--gold-light); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-top:0.75rem; display:block; }
+.org-cta-section { padding:6rem 5rem; background:var(--navy-subtle); text-align:center; }
+.org-cta-inner { max-width:600px; margin:0 auto; }
+.org-cta-title { font-family:'Fraunces',serif; font-size:2.2rem; font-weight:600; color:var(--navy); margin-bottom:1rem; }
+.org-cta-sub { font-size:0.95rem; color:var(--text-mid); line-height:1.8; margin-bottom:2rem; }
+.org-cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.org-cta-primary { padding:0.8rem 2rem; background:var(--navy); color:var(--white); border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.2s; }
+.org-cta-primary:hover { background:var(--navy-mid); }
+.org-cta-secondary { padding:0.8rem 2rem; background:transparent; color:var(--accent); border:1.5px solid var(--accent); border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.2s; }
+.org-cta-secondary:hover { background:var(--accent); color:var(--white); }
+@media(max-width:1024px) { .org-hero,.org-section,.org-cta-section,.impact-strip { padding-left:3rem; padding-right:3rem; } .programs-grid { grid-template-columns:repeat(2,1fr); } .impact-strip-inner { grid-template-columns:repeat(2,1fr); } .walk-box { grid-template-columns:1fr; } }
+@media(max-width:768px) { .org-hero,.org-section,.org-cta-section,.impact-strip { padding-left:1.5rem; padding-right:1.5rem; } .programs-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 · HERO
+     ═══════════════════════════════════════════ -->
+<section class="org-hero">
+  <div class="org-hero-inner">
+    <div class="org-breadcrumb">
+      <a href="index.html">← Back to Satheesh.info</a>
+      &nbsp;/&nbsp; Organisations &nbsp;/&nbsp; Kalam Dream Labs
+    </div>
+    <div class="org-badge">EST. 2018 · NAMED AFTER DR. APJ ABDUL KALAM</div>
+    <h1 class="org-h1">Kalam Dream Labs <span>Pvt Ltd</span></h1>
+    <p class="org-tagline">Implementing Global Technologies for Local Needs</p>
+    <p class="org-sub">Empowering passionate innovators through internships, mentoring, startup support, patent filing, and research guidance. Where rural dreams meet real opportunity.</p>
+    <div class="org-hero-btns">
+      <a href="https://kalamdreamlabs.com" target="_blank" class="org-btn-primary">Visit kalamdreamlabs.com →</a>
+      <a href="contact.html" class="org-btn-secondary">Join as Intern</a>
+    </div>
+    <div class="org-stats-row">
+      <div>
+        <div class="org-stat-val">800+</div>
+        <div class="org-stat-lbl">Students</div>
+      </div>
+      <div>
+        <div class="org-stat-val">2018</div>
+        <div class="org-stat-lbl">Founded</div>
+      </div>
+      <div>
+        <div class="org-stat-val">Rural</div>
+        <div class="org-stat-lbl">Focus</div>
+      </div>
+      <div>
+        <div class="org-stat-val">Vizag</div>
+        <div class="org-stat-lbl">HQ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 · MISSION
+     ═══════════════════════════════════════════ -->
+<section class="org-section" style="background:var(--white);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Our Story</div>
+    <h2 class="org-h2">Named After <em>a Dreamer</em></h2>
+    <p class="org-sub2">
+      Named after Dr. APJ Abdul Kalam — the People's President who believed every child deserves to dream big. Kalam Dream Labs was born to turn that belief into action. Founded in 2018 by Satheesh Karnatakapu, it bridges the gap between passionate young innovators in rural Andhra Pradesh and the real-world tools, mentors, and opportunities they deserve.
+    </p>
+    <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.8; max-width:700px;">
+      Dr. Kalam's life was itself a testament to the power of dreaming beyond one's circumstances — a small-town boy from Rameswaram who became India's missile man and, ultimately, its most beloved President. That spirit lives in every student who walks through our doors, every patent we help file, every startup we help launch. Kalam Dream Labs is more than an organisation — it is a promise to the next generation that their ambitions matter and that support is available.
+    </p>
+    <div class="quote-block">
+      <p>"You have to dream before your dreams can come true."</p>
+      <cite>— Dr. APJ Abdul Kalam</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 · PROGRAMS
+     ═══════════════════════════════════════════ -->
+<section class="org-section" style="background:var(--navy-subtle);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">What We Do</div>
+    <h2 class="org-h2">Programmes &amp; <em>Services</em></h2>
+    <p class="org-sub2">From internships to patents, from mentoring to startup launches — Kalam Dream Labs offers a comprehensive ecosystem for student innovators at every stage of their journey.</p>
+    <div class="programs-grid">
+
+      <div class="prog-card">
+        <span class="prog-icon">🎓</span>
+        <div class="prog-name">Internships</div>
+        <p class="prog-desc">Hands-on technical internships for engineering and diploma students. Real projects, real mentors, real skills. Gain industry experience that sets you apart from day one.</p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-icon">🧑‍🏫</span>
+        <div class="prog-name">Mentoring</div>
+        <p class="prog-desc">One-on-one and group mentoring sessions with industry professionals and entrepreneurs. Get guidance that is specific to your goals, your challenges, and your context.</p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-icon">🏭</span>
+        <div class="prog-name">Training</div>
+        <p class="prog-desc">Skill development workshops in emerging technologies, soft skills, and entrepreneurship fundamentals. Build a well-rounded profile that the industry respects.</p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-icon">🚀</span>
+        <div class="prog-name">Startup Support</div>
+        <p class="prog-desc">From idea validation to pitch preparation — end-to-end guidance for student startups. We help you build something that works, and then help you tell the world about it.</p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-icon">📄</span>
+        <div class="prog-name">Patent Filing</div>
+        <p class="prog-desc">Guidance and support for students and innovators filing patents for their ideas and innovations. Protect your intellectual property with confidence and expert assistance.</p>
+      </div>
+
+      <div class="prog-card">
+        <span class="prog-icon">💰</span>
+        <div class="prog-name">Funding Preparation</div>
+        <p class="prog-desc">Helping innovators prepare grant applications, investor pitches, and funding proposals. We translate your vision into a compelling case that funders understand and trust.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 · IMPACT NUMBERS
+     ═══════════════════════════════════════════ -->
+<div class="impact-strip">
+  <div class="impact-strip-inner">
+    <div>
+      <div class="imp-val">800+</div>
+      <div class="imp-lbl">Students Trained</div>
+    </div>
+    <div>
+      <div class="imp-val">2018</div>
+      <div class="imp-lbl">Founded</div>
+    </div>
+    <div>
+      <div class="imp-val">Rural</div>
+      <div class="imp-lbl">Andhra Focus</div>
+    </div>
+    <div>
+      <div class="imp-val">Vizag</div>
+      <div class="imp-lbl">Base</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 · SAFE TOUCH WALK
+     ═══════════════════════════════════════════ -->
+<section class="org-section" style="background:var(--white);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Social Impact</div>
+    <h2 class="org-h2">555 km Walk for <em>Safe Touch Awareness</em></h2>
+    <p class="org-sub2">
+      In one of India's most impactful awareness campaigns, Satheesh walked 555 km from Vizag to Amaravati to spread Safe Touch awareness to rural students.
+    </p>
+    <div class="walk-box">
+      <div>
+        <div class="walk-num">555</div>
+        <div class="walk-unit">KILOMETRES</div>
+        <div style="font-size:0.75rem; color:var(--text-mid); margin-top:0.5rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">Vizag → Amaravati</div>
+      </div>
+      <div class="walk-desc">
+        <p style="margin-bottom:1rem;">Kalam Dream Labs partnered with schools along the route to deliver sessions on child safety, digital literacy, and innovation. The walk was not just a physical journey — it was a mission to reach students who are rarely reached, in villages and small towns that national campaigns often miss.</p>
+        <p>At each stop, volunteers from the Labs conducted interactive Safe Touch workshops, teaching children about personal boundaries and helping teachers and parents build a safer environment. Over the course of the walk, hundreds of schools and thousands of students were touched by this initiative — a living example of what it means to implement global awareness for local needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6 · CTA
+     ═══════════════════════════════════════════ -->
+<section class="org-cta-section">
+  <div class="org-cta-inner">
+    <div class="org-section-tag" style="justify-content:center;">Get Involved</div>
+    <h2 class="org-cta-title">Are You a Student, Innovator, or Educator?</h2>
+    <p class="org-cta-sub">Join Kalam Dream Labs — apply for internships, attend mentoring sessions, or partner with us to bring innovation to your institution. Every dream deserves a launchpad.</p>
+    <div class="org-cta-btns">
+      <a href="contact.html" class="org-cta-primary">Apply Now →</a>
+      <a href="https://kalamdreamlabs.com" target="_blank" class="org-cta-secondary">kalamdreamlabs.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand"><strong>Kalam Dream Labs Pvt Ltd</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"Implementing Global Technologies for Local Needs"</div>
+  <div class="foot-domain">kalamdreamlabs.com</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

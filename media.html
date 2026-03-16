@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media — Satheesh Karnatakapu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://w.behold.so/widget.js" type="module"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-top:calc(8rem + 68px);">
+  <div class="gallery-inner">
+    <div class="reveal">
+      <span class="section-tag">Photo Gallery</span>
+      <h2 class="section-heading">Moments That <em>Define the Mission</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">From beach cleanups at dawn to classrooms full of rural dreamers — a life lived in motion.</p>
+    </div>
+
+    <div class="gallery-filters reveal d1">
+      <button class="gf-btn active" onclick="filterGallery('all',this)">All</button>
+      <button class="gf-btn" onclick="filterGallery('beach',this)">Beach Cleanup</button>
+      <button class="gf-btn" onclick="filterGallery('volunteers',this)">Vizag Volunteers</button>
+      <button class="gf-btn" onclick="filterGallery('kalam',this)">Kalam Dream Labs</button>
+      <button class="gf-btn" onclick="filterGallery('awards',this)">Awards</button>
+      <button class="gf-btn" onclick="filterGallery('events',this)">Events</button>
+    </div>
+
+    <div class="gallery-grid reveal d2" id="galleryGrid">
+
+      <div class="g-item g-wide" data-cat="beach">
+        <div class="g-placeholder" style="--g-color:rgba(29,111,184,0.2)">
+          <span class="g-ph-icon">🏖️</span>
+          <span class="g-ph-label">652nd Beach Cleanup · Kalam View Point</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Beach Cleanup</span>652 Sundays · Kalam View Point</div></div>
+      </div>
+
+      <div class="g-item" data-cat="kalam">
+        <div class="g-placeholder" style="--g-color:rgba(212,146,12,0.18)">
+          <span class="g-ph-icon">🚀</span>
+          <span class="g-ph-label">Kalam Dream Labs · Student Training</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Kalam Dream Labs</span>800+ Rural Students Trained</div></div>
+      </div>
+
+      <div class="g-item" data-cat="awards">
+        <div class="g-placeholder" style="--g-color:rgba(212,146,12,0.25)">
+          <span class="g-ph-icon">🏆</span>
+          <span class="g-ph-label">Yogandhra 2025 · Govt. of AP</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Award</span>Yogandhra 2025 · Govt. of Andhra Pradesh</div></div>
+      </div>
+
+      <div class="g-item g-tall" data-cat="volunteers">
+        <div class="g-placeholder" style="--g-color:rgba(26,92,62,0.25)">
+          <span class="g-ph-icon">🤝</span>
+          <span class="g-ph-label">Vizag Volunteers · COVID Response</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Vizag Volunteers</span>COVID Relief · 2 Lakh Meals</div></div>
+      </div>
+
+      <div class="g-item" data-cat="beach">
+        <div class="g-placeholder" style="--g-color:rgba(29,111,184,0.15)">
+          <span class="g-ph-icon">🌅</span>
+          <span class="g-ph-label">5 AM Walk · 1000 Days</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Beach Cleanup</span>1,000 Consecutive 5 AM Walks</div></div>
+      </div>
+
+      <div class="g-item" data-cat="events">
+        <div class="g-placeholder" style="--g-color:rgba(107,63,160,0.2)">
+          <span class="g-ph-icon">🧘</span>
+          <span class="g-ph-label">Guinness Record · Yoga Day · 2500 Volunteers</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Event</span>Guinness World Record · Yoga Day</div></div>
+      </div>
+
+      <div class="g-item" data-cat="kalam">
+        <div class="g-placeholder" style="--g-color:rgba(212,146,12,0.15)">
+          <span class="g-ph-icon">🚶</span>
+          <span class="g-ph-label">555 km Walk · Amaravati · Safe Touch</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Kalam Dream Labs</span>555 km Walk for Safe Touch Awareness</div></div>
+      </div>
+
+      <div class="g-item g-wide" data-cat="volunteers">
+        <div class="g-placeholder" style="--g-color:rgba(26,92,62,0.2)">
+          <span class="g-ph-icon">🩸</span>
+          <span class="g-ph-label">Digi Blood · Emergency Blood Drive · Vizag</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Vizag Volunteers</span>Digi Blood · 150+ Plasma Donations Organised</div></div>
+      </div>
+
+      <div class="g-item" data-cat="events">
+        <div class="g-placeholder" style="--g-color:rgba(11,37,69,0.4)">
+          <span class="g-ph-icon">🏃</span>
+          <span class="g-ph-label">Vizag Marathon · Event Volunteer</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Event</span>Vizag Marathon · District Collector Assigned</div></div>
+      </div>
+
+      <div class="g-item" data-cat="kalam">
+        <div class="g-placeholder" style="--g-color:rgba(212,146,12,0.2)">
+          <span class="g-ph-icon">💡</span>
+          <span class="g-ph-label">Innovation · Startup Mentoring · Vizag</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Kalam Dream Labs</span>Startup Mentoring · Innovation Sessions</div></div>
+      </div>
+
+      <div class="g-item" data-cat="volunteers">
+        <div class="g-placeholder" style="--g-color:rgba(26,92,62,0.18)">
+          <span class="g-ph-icon">🌳</span>
+          <span class="g-ph-label">Green Vizag · Tree Plantation Drive</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Vizag Volunteers</span>Green Vizag · Tree Plantation Campaign</div></div>
+      </div>
+
+      <div class="g-item" data-cat="awards">
+        <div class="g-placeholder" style="--g-color:rgba(212,146,12,0.3)">
+          <span class="g-ph-icon">🎖️</span>
+          <span class="g-ph-label">Community Recognition · Vizag</span>
+        </div>
+        <div class="g-overlay"><div class="g-caption"><span class="g-cat-tag">Award</span>Community Recognition · Visakhapatnam</div></div>
+      </div>
+
+    </div>
+
+    <div class="gallery-upload-note reveal d3">
+      📸 &nbsp; To add real photos — place image files in the <code>images/</code> folder and replace the placeholder divs with <code>&lt;img src="images/your-photo.jpg"&gt;</code>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM FEED -->
+<section id="instagram">
+  <div class="insta-inner">
+    <div class="reveal">
+      <span class="section-tag" style="color:#e1306c;">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#e1306c;margin-right:6px;vertical-align:middle;"></span>
+        Instagram
+      </span>
+      <h2 class="section-heading">Life in <em>Real Time</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Follow the journey — beach cleanups, social work, and everyday moments from Vizag.</p>
+    </div>
+
+    <div class="insta-header reveal d1">
+      <div class="insta-profile">
+        <div class="insta-avatar">S</div>
+        <div class="insta-handle">
+          @websatish
+          <span>Satheesh Karnatakapu · Visakhapatnam</span>
+        </div>
+      </div>
+      <a class="insta-follow-btn" href="https://instagram.com/websatish" target="_blank" rel="noopener">
+        📷 &nbsp;Follow on Instagram
+      </a>
+    </div>
+
+    <div class="behold-wrapper reveal d2">
+
+      <!-- ══════════════════════════════════════════════════════════
+           LIVE FEED: Replace YOUR_FEED_ID below with your Behold ID
+           Steps: behold.so → Connect @websatish → Copy Feed ID
+           Then delete the .insta-setup-notice block above it
+           ══════════════════════════════════════════════════════════ -->
+
+      <!-- <behold-widget feed-id="YOUR_FEED_ID"></behold-widget> -->
+
+      <div class="insta-setup-notice">
+        <div class="insta-ig-icon">📷</div>
+        <h3>Connect @websatish Instagram — 2-minute setup</h3>
+        <p>Your live Instagram posts will auto-display here. Free service, no code needed — just connect your account and paste one ID.</p>
+        <div class="insta-setup-steps">
+          <div class="insta-step">
+            <div class="insta-step-num">1</div>
+            <div class="insta-step-text">Go to <strong>behold.so</strong> and sign up free</div>
+          </div>
+          <div class="insta-step">
+            <div class="insta-step-num">2</div>
+            <div class="insta-step-text">Connect your Instagram <strong>@websatish</strong></div>
+          </div>
+          <div class="insta-step">
+            <div class="insta-step-num">3</div>
+            <div class="insta-step-text">Copy your <strong>Feed ID</strong> from the dashboard</div>
+          </div>
+          <div class="insta-step">
+            <div class="insta-step-num">4</div>
+            <div class="insta-step-text">Share the Feed ID with me — <strong>live feed goes live instantly</strong></div>
+          </div>
+        </div>
+        <a class="insta-setup-link" href="https://behold.so" target="_blank" rel="noopener">
+          → Go to behold.so (free)
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRAVELS -->
+<section id="travels">
+  <div class="travels-inner">
+    <div class="reveal">
+      <span class="section-tag">Travels &amp; Exhibitions</span>
+      <h2 class="section-heading">A Mind <em>Shaped by the World</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">International exposure — visiting global exhibitions, trade fairs, and cultural destinations — that broadened Satheesh's vision beyond Vizag.</p>
+    </div>
+    <div class="travels-grid">
+
+      <div class="travel-card reveal">
+        <span class="travel-flag">🇱🇰</span>
+        <div class="travel-country">Sri Lanka</div>
+        <div class="travel-region">South Asia · International</div>
+        <p class="travel-desc">Explored the cultural heritage, entrepreneurial ecosystem, and community-driven development models of Sri Lanka — drawing parallels with the coastal communities of Vizag.</p>
+        <div class="travel-tags">
+          <span class="travel-tag">International</span>
+          <span class="travel-tag">South Asia</span>
+          <span class="travel-tag">Cultural</span>
+        </div>
+      </div>
+
+      <div class="travel-card reveal d1">
+        <span class="travel-flag">🇦🇪</span>
+        <div class="travel-country">Dubai, UAE</div>
+        <div class="travel-region">Middle East · International</div>
+        <p class="travel-desc">Witnessed world-class infrastructure, innovation hubs, and large-scale exhibitions in one of the world's most ambitious cities — brought back learnings on smart city building and entrepreneurship.</p>
+        <div class="travel-tags">
+          <span class="travel-tag">International</span>
+          <span class="travel-tag">Smart City</span>
+          <span class="travel-tag">Exhibition</span>
+        </div>
+      </div>
+
+      <div class="travel-card reveal d2">
+        <span class="travel-flag">🇸🇬</span>
+        <div class="travel-country">Singapore</div>
+        <div class="travel-region">Southeast Asia · International</div>
+        <p class="travel-desc">Studied Singapore's model of governance, technology-led city planning, and social inclusion — one of the strongest influences on Satheesh's vision for a future Vizag.</p>
+        <div class="travel-tags">
+          <span class="travel-tag">International</span>
+          <span class="travel-tag">Tech Hub</span>
+          <span class="travel-tag">Governance</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- National Cities -->
+    <div class="travels-national reveal d3">
+      <div class="travels-national-label">🇮🇳 &nbsp;National Journeys · India</div>
+      <div class="cities-grid">
+
+        <div class="city-chip">
+          <span class="city-icon">🏛️</span>
+          <div><div class="city-name">Delhi</div><div class="city-state">Capital · North India</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🌆</span>
+          <div><div class="city-name">Mumbai</div><div class="city-state">Maharashtra · West</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">💻</span>
+          <div><div class="city-name">Bangalore</div><div class="city-state">Karnataka · South</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🏙️</span>
+          <div><div class="city-name">Hyderabad</div><div class="city-state">Telangana · South</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🎭</span>
+          <div><div class="city-name">Kolkata</div><div class="city-state">West Bengal · East</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🌊</span>
+          <div><div class="city-name">Chennai</div><div class="city-state">Tamil Nadu · South</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🏖️</span>
+          <div><div class="city-name">Goa</div><div class="city-state">Goa · West Coast</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🌞</span>
+          <div><div class="city-name">Konark</div><div class="city-state">Odisha · East</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🙏</span>
+          <div><div class="city-name">Tirupathi</div><div class="city-state">Andhra Pradesh</div></div>
+        </div>
+
+        <div class="city-chip">
+          <span class="city-icon">🕌</span>
+          <div><div class="city-name">Agra</div><div class="city-state">Uttar Pradesh · North</div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

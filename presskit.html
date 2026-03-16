@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Kit & Brand Guide — Satheesh Karnatakapu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { background: var(--navy); color: var(--white); }
+
+  /* ── HERO ── */
+  .pk-hero {
+    padding: 130px 24px 72px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .pk-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,146,12,.12), transparent);
+    pointer-events: none;
+  }
+  .pk-hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid rgba(212,146,12,.3);
+    padding: 6px 16px; border-radius: 99px; margin-bottom: 20px;
+  }
+  .pk-hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  .pk-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 300; line-height: 1.1; margin-bottom: 16px;
+  }
+  .pk-hero h1 em { font-style: italic; color: var(--gold); }
+  .pk-hero p {
+    font-size: 1.05rem; color: rgba(255,255,255,.55);
+    max-width: 540px; margin: 0 auto 36px; line-height: 1.7;
+  }
+  .pk-hero-note {
+    display: inline-block;
+    font-size: .8rem; color: rgba(255,255,255,.35);
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 10px 20px; max-width: 480px;
+  }
+  .pk-hero-note strong { color: rgba(255,255,255,.6); }
+
+  /* ── LAYOUT ── */
+  .pk-wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .pk-section { padding: 64px 0; border-top: 1px solid rgba(255,255,255,.07); }
+  .pk-section-head {
+    display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap;
+  }
+  .pk-section-num {
+    font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 300;
+    color: rgba(212,146,12,.2); line-height: 1; flex-shrink: 0;
+  }
+  .pk-section-title {
+    font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 400; color: var(--white);
+  }
+  .pk-section-sub {
+    font-size: .82rem; color: rgba(255,255,255,.35); margin-top: 4px;
+  }
+
+  /* ── QUICK FACTS ── */
+  .pk-facts-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+  }
+  @media(max-width:640px) { .pk-facts-grid { grid-template-columns: 1fr; } }
+  .pk-fact {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-radius: 10px; padding: 18px 20px;
+  }
+  .pk-fact-label {
+    font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.35); margin-bottom: 6px;
+  }
+  .pk-fact-value { font-size: .97rem; color: var(--white); font-weight: 500; line-height: 1.4; }
+  .pk-fact-value strong { color: var(--gold); }
+
+  /* ── BIO SECTIONS ── */
+  .pk-bio-tabs {
+    display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .pk-bio-tab {
+    padding: 7px 18px; border-radius: 99px; font-size: .8rem; font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,.15); color: rgba(255,255,255,.5);
+    background: none; cursor: pointer; transition: all .2s;
+  }
+  .pk-bio-tab.active { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+  .pk-bio-tab:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+  .pk-bio-content { display: none; }
+  .pk-bio-content.active { display: block; }
+  .pk-bio-text {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-left: 3px solid var(--gold);
+    border-radius: 10px; padding: 28px 28px 20px;
+    font-size: .97rem; line-height: 1.8; color: rgba(255,255,255,.8);
+  }
+  .pk-bio-text p { margin: 0 0 12px; }
+  .pk-bio-text p:last-child { margin: 0; }
+  .pk-copy-row {
+    display: flex; justify-content: flex-end; margin-top: 12px;
+  }
+  .pk-copy-btn {
+    font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.4);
+    background: none; border: 1px solid rgba(255,255,255,.12);
+    border-radius: 6px; padding: 6px 14px; cursor: pointer; transition: all .2s;
+  }
+  .pk-copy-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .pk-copy-btn.copied { color: #6bcb77; border-color: #6bcb77; }
+
+  /* ── INTRO SPEECH ── */
+  .pk-speech-card {
+    background: rgba(29,111,184,.06); border: 1px solid rgba(29,111,184,.2);
+    border-radius: 12px; padding: 28px; font-size: .97rem; line-height: 1.85;
+    color: rgba(255,255,255,.8);
+  }
+  .pk-speech-card p { margin: 0 0 14px; }
+  .pk-speech-card p:last-child { margin: 0; }
+  .pk-speech-note {
+    font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.06); padding-top: 12px;
+  }
+
+  /* ── TITLES & ROLES ── */
+  .pk-titles-list { display: flex; flex-direction: column; gap: 10px; }
+  .pk-title-row {
+    display: flex; align-items: center; gap: 16px;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-radius: 10px; padding: 16px 20px;
+  }
+  .pk-title-icon { font-size: 1.1rem; flex-shrink: 0; width: 28px; text-align: center; }
+  .pk-title-text strong { display: block; font-size: .95rem; color: var(--white); }
+  .pk-title-text span { font-size: .8rem; color: rgba(255,255,255,.4); }
+
+  /* ── PHOTOS ── */
+  .pk-photos-note {
+    background: rgba(212,146,12,.07); border: 1px solid rgba(212,146,12,.2);
+    border-radius: 10px; padding: 16px 20px; margin-bottom: 24px;
+    font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.6;
+  }
+  .pk-photos-note strong { color: var(--gold); }
+  .pk-photo-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+  }
+  @media(max-width:600px) { .pk-photo-grid { grid-template-columns: 1fr 1fr; } }
+  .pk-photo-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px; overflow: hidden;
+  }
+  .pk-photo-thumb {
+    aspect-ratio: 1; background: rgba(255,255,255,.06);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    font-size: 2.5rem; color: rgba(255,255,255,.15);
+  }
+  .pk-photo-thumb-label {
+    font-size: .7rem; color: rgba(255,255,255,.25); text-transform: uppercase; letter-spacing: .1em;
+  }
+  .pk-photo-info { padding: 12px 14px; }
+  .pk-photo-name { font-size: .83rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+  .pk-photo-meta { font-size: .72rem; color: rgba(255,255,255,.35); }
+  .pk-photo-req {
+    display: block; text-align: center; margin: 8px 14px 12px;
+    font-size: .72rem; font-weight: 600; color: var(--gold);
+    background: rgba(212,146,12,.1); border: 1px solid rgba(212,146,12,.2);
+    border-radius: 6px; padding: 6px; text-decoration: none; transition: background .2s;
+  }
+  .pk-photo-req:hover { background: rgba(212,146,12,.2); }
+
+  /* ── BRAND COLOURS ── */
+  .pk-colours { display: flex; gap: 14px; flex-wrap: wrap; }
+  .pk-colour-card {
+    flex: 1; min-width: 140px;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,.07);
+  }
+  .pk-colour-swatch { height: 80px; }
+  .pk-colour-info { padding: 12px 14px; background: rgba(255,255,255,.04); }
+  .pk-colour-name { font-size: .85rem; font-weight: 600; color: var(--white); }
+  .pk-colour-hex { font-size: .75rem; color: rgba(255,255,255,.4); font-family: monospace; }
+
+  /* ── TYPOGRAPHY ── */
+  .pk-type-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:480px) { .pk-type-cards { grid-template-columns: 1fr; } }
+  .pk-type-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-radius: 10px; padding: 24px;
+  }
+  .pk-type-sample-serif {
+    font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 300;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .pk-type-sample-sans {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 500;
+    color: var(--white); margin-bottom: 8px; letter-spacing: .02em;
+  }
+  .pk-type-meta { font-size: .75rem; color: rgba(255,255,255,.35); }
+
+  /* ── VIDEO SECTION ── */
+  .pk-video-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.35); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .pk-video-label::after { content:''; flex:1; height:1px; background:rgba(255,255,255,.06); }
+  .pk-video-grid { display: grid; gap: 16px; }
+  .pk-video-grid-h { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .pk-video-grid-v { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .pk-video-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px; overflow: hidden;
+  }
+  .pk-video-thumb {
+    background: rgba(255,255,255,.06); position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pk-video-h { aspect-ratio: 16/9; }
+  .pk-video-v { aspect-ratio: 9/16; }
+  .pk-video-play {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(212,146,12,.8); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; padding-left: 3px;
+    transition: background .2s;
+  }
+  .pk-video-card:hover .pk-video-play { background: var(--gold); }
+  .pk-video-tag {
+    position: absolute; top: 8px; right: 8px;
+    font-size: .62rem; font-weight: 800; letter-spacing: .1em;
+    background: rgba(11,37,69,.85); color: var(--gold);
+    padding: 3px 8px; border-radius: 4px;
+  }
+  .pk-video-info { padding: 10px 14px 2px; }
+
+  /* ── USAGE RULES ── */
+  .pk-rules { display: flex; flex-direction: column; gap: 12px; }
+  .pk-rule {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 16px; background: rgba(255,255,255,.03); border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .pk-rule-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .pk-rule-text strong { display: block; font-size: .9rem; color: var(--white); margin-bottom: 3px; }
+  .pk-rule-text span { font-size: .83rem; color: rgba(255,255,255,.45); line-height: 1.5; }
+
+  /* ── CONTACT BOX ── */
+  .pk-contact-box {
+    background: rgba(29,111,184,.08); border: 1px solid rgba(29,111,184,.2);
+    border-radius: 14px; padding: 36px; text-align: center;
+    margin-top: 64px; margin-bottom: 80px;
+  }
+  .pk-contact-box h3 {
+    font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .pk-contact-box p { color: rgba(255,255,255,.5); margin-bottom: 24px; font-size: .95rem; }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; background: var(--gold); color: var(--navy);
+    border-radius: 8px; font-weight: 700; font-size: .95rem;
+    text-decoration: none; transition: background .2s; margin: 4px;
+  }
+  .btn-gold:hover { background: var(--gold-light, #f0ab1f); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; border: 1.5px solid rgba(255,255,255,.2); color: var(--white);
+    border-radius: 8px; font-weight: 600; font-size: .95rem;
+    text-decoration: none; transition: all .2s; margin: 4px;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(212,146,12,.07); }
+
+  /* ── FOOTER ── */
+  .pk-footer {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 28px 24px; text-align: center;
+    font-size: .8rem; color: rgba(255,255,255,.3);
+  }
+  .pk-footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 8px; }
+  .pk-footer a:hover { color: var(--gold); }
+
+  /* copy success */
+  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
+  .copy-toast {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    background: #6bcb77; color: #0B2545; font-weight: 700; font-size: .85rem;
+    padding: 10px 20px; border-radius: 8px;
+    animation: fadeIn .2s ease;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="pk-hero">
+  <div style="position:relative;z-index:1;">
+    <div class="pk-hero-badge"><span></span> Official Press Kit &amp; Brand Guide</div>
+    <h1>Everything you need<br>to <em>feature Satheesh.</em></h1>
+    <p>For event organisers, media, corporates, NGOs, and publishers — approved bios, photos, titles, brand assets, and intro scripts. All in one place.</p>
+    <div class="pk-hero-note">
+      <strong>How to use this page:</strong> Copy the bio text, download photos, use the intro script as-is or adapt it. For custom requests, use the contact at the bottom.
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 1: QUICK FACTS ══ -->
+<div class="pk-wrap">
+  <div class="pk-section" id="facts">
+    <div class="pk-section-head">
+      <div class="pk-section-num">01</div>
+      <div>
+        <div class="pk-section-title">Quick Facts</div>
+        <div class="pk-section-sub">For event listings, programme booklets, and brochures</div>
+      </div>
+    </div>
+    <div class="pk-facts-grid">
+      <div class="pk-fact">
+        <div class="pk-fact-label">Full Name</div>
+        <div class="pk-fact-value">Satheesh Karnatakapu</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Location</div>
+        <div class="pk-fact-value">Visakhapatnam, Andhra Pradesh, India</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Primary Role</div>
+        <div class="pk-fact-value">Entrepreneur · Social Innovator</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Organisations Founded</div>
+        <div class="pk-fact-value"><strong>F9 Info Technologies</strong> · <strong>Kalam Dream Labs</strong> · <strong>Vizag Volunteers</strong></div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Years in Business</div>
+        <div class="pk-fact-value"><strong>18 years</strong> · F9 Info Technologies (2008–present)</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Social Impact</div>
+        <div class="pk-fact-value"><strong>5,000+</strong> volunteers · <strong>2 lakh</strong> COVID meals · <strong>800+</strong> students placed</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Recognition</div>
+        <div class="pk-fact-value">Yogandhra 2025 Award — Govt of Andhra Pradesh · Guinness World Record (Vizag Volunteers)</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Website</div>
+        <div class="pk-fact-value">satteesh.info</div>
+      </div>
+      <div class="pk-fact">
+        <div class="pk-fact-label">Speak To</div>
+        <div class="pk-fact-value">Entrepreneurship · Social Innovation · Vizag Ecosystem · Consistency &amp; Discipline</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2: OFFICIAL TITLES ══ -->
+  <div class="pk-section" id="titles">
+    <div class="pk-section-head">
+      <div class="pk-section-num">02</div>
+      <div>
+        <div class="pk-section-title">Official Titles &amp; Designations</div>
+        <div class="pk-section-sub">Use these exactly as written in print, digital, and stage introductions</div>
+      </div>
+    </div>
+    <div class="pk-titles-list">
+      <div class="pk-title-row">
+        <div class="pk-title-icon">💻</div>
+        <div class="pk-title-text">
+          <strong>Managing Director — F9 Info Technologies Pvt Ltd</strong>
+          <span>IT services company founded in 2008 · 18 years · 600+ clients · Visakhapatnam</span>
+        </div>
+      </div>
+      <div class="pk-title-row">
+        <div class="pk-title-icon">🚀</div>
+        <div class="pk-title-text">
+          <strong>Managing Director — Kalam Dream Labs Pvt Ltd</strong>
+          <span>Technology education & rural student placement · Named after Dr. APJ Abdul Kalam · 800+ students placed</span>
+        </div>
+      </div>
+      <div class="pk-title-row">
+        <div class="pk-title-icon">🤝</div>
+        <div class="pk-title-text">
+          <strong>Founder — Vizag Volunteers Association</strong>
+          <span>5,000+ volunteers · 13 active projects · Guinness World Record · Visakhapatnam's largest volunteer network</span>
+        </div>
+      </div>
+      <div class="pk-title-row">
+        <div class="pk-title-icon">🌱</div>
+        <div class="pk-title-text">
+          <strong>Founding Member — Vizag Startup Ecosystem</strong>
+          <span>One of the earliest champions of entrepreneurship culture in Visakhapatnam</span>
+        </div>
+      </div>
+      <div class="pk-title-row">
+        <div class="pk-title-icon">💻</div>
+        <div class="pk-title-text">
+          <strong>Community Organiser — Google Developer Community, Visakhapatnam</strong>
+          <span>Connecting developers, designers, and tech talent in Vizag</span>
+        </div>
+      </div>
+      <div class="pk-title-row">
+        <div class="pk-title-icon">🏆</div>
+        <div class="pk-title-text">
+          <strong>Yogandhra 2025 Awardee</strong>
+          <span>Honoured by the Government of Andhra Pradesh for outstanding social contribution</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3: BIOS ══ -->
+  <div class="pk-section" id="bio">
+    <div class="pk-section-head">
+      <div class="pk-section-num">03</div>
+      <div>
+        <div class="pk-section-title">Official Bios</div>
+        <div class="pk-section-sub">Three lengths — use the one that fits your format</div>
+      </div>
+    </div>
+    <div class="pk-bio-tabs">
+      <button class="pk-bio-tab active" onclick="switchBio('short', this)">Short (1 sentence)</button>
+      <button class="pk-bio-tab" onclick="switchBio('medium', this)">Medium (1 paragraph)</button>
+      <button class="pk-bio-tab" onclick="switchBio('full', this)">Full (3 paragraphs)</button>
+    </div>
+
+    <div class="pk-bio-content active" id="bio-short">
+      <div class="pk-bio-text">
+        <p>Satheesh Karnatakapu is a Visakhapatnam-based entrepreneur and social innovator — founder of F9 Info Technologies, Kalam Dream Labs, and Vizag Volunteers, a movement of 5,000+ volunteers that holds a Guinness World Record.</p>
+      </div>
+      <div class="pk-copy-row">
+        <button class="pk-copy-btn" onclick="copyBio('bio-short', this)">Copy Text</button>
+      </div>
+    </div>
+
+    <div class="pk-bio-content" id="bio-medium">
+      <div class="pk-bio-text">
+        <p>Satheesh Karnatakapu is a Visakhapatnam-based entrepreneur, social innovator, and ecosystem builder. He founded F9 Info Technologies in 2008 and has built it into an 18-year-strong IT company serving 600+ clients. Simultaneously, he founded Kalam Dream Labs to train and place rural students in technology careers, and Vizag Volunteers — a 5,000-member movement that distributed 2 lakh meals during COVID-19 and holds a Guinness World Record. Recognised with the Yogandhra 2025 Award by the Government of Andhra Pradesh, Satheesh is one of Vizag's most consistent voices for entrepreneurship, social responsibility, and community-driven change.</p>
+      </div>
+      <div class="pk-copy-row">
+        <button class="pk-copy-btn" onclick="copyBio('bio-medium', this)">Copy Text</button>
+      </div>
+    </div>
+
+    <div class="pk-bio-content" id="bio-full">
+      <div class="pk-bio-text">
+        <p>Satheesh Karnatakapu is a Visakhapatnam-based entrepreneur, social innovator, and community builder who has spent nearly two decades building businesses and movements that outlast any single effort. Born in Munganda village, Konaseema, he is entirely self-taught — learning technology through 18-hour days on a borrowed computer, before founding F9 Info Technologies Pvt Ltd in 2008. Today, F9 is an 18-year-old IT company with 600+ clients and a reputation for integrity that was built, literally, by paying back ₹40 lakh in debt door-to-door rather than filing for bankruptcy.</p>
+        <p>Alongside F9, Satheesh founded Kalam Dream Labs — named after Dr. APJ Abdul Kalam — to train rural students in technology and place them in IT careers. Over 800 students have been placed to date. He also founded Vizag Volunteers Association, which mobilised 5,000+ volunteers, distributed 2 lakh meals during COVID-19, facilitated 150+ plasma donations, and earned a Guinness World Record. His individual disciplines include 1,000 consecutive 5 AM morning walks and 652+ Sunday beach cleanups without missing a single week.</p>
+        <p>Satheesh is a recipient of the Yogandhra 2025 Award — conferred by the Government of Andhra Pradesh for outstanding social contribution. He is a member of CII Visakhapatnam, TiE Vizag, BNI Amigos, Lions Club, JCI Port City, YI Vizag, and a founding member of the Vizag Startup Ecosystem. His current focus is building the Dream Port platform — a city-scale talent matching engine — and a technology layer that connects Vizag's society, NGOs, government, and environment toward a Happiness Index north star.</p>
+      </div>
+      <div class="pk-copy-row">
+        <button class="pk-copy-btn" onclick="copyBio('bio-full', this)">Copy Text</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 4: INTRO SPEECH ══ -->
+  <div class="pk-section" id="intro">
+    <div class="pk-section-head">
+      <div class="pk-section-num">04</div>
+      <div>
+        <div class="pk-section-title">Stage Introduction Script</div>
+        <div class="pk-section-sub">For MCs, event hosts, and panel moderators — read as-is or adapt</div>
+      </div>
+    </div>
+    <div class="pk-speech-card" id="intro-text">
+      <p>Our next speaker is someone who needs no introduction in Visakhapatnam — but let me give you one anyway, because the numbers matter.</p>
+      <p>He founded F9 Info Technologies in 2008 and built it into an 18-year IT company with 600+ clients — not by advertising, but by showing up with integrity and delivering on every promise. He founded Kalam Dream Labs and has trained and placed over 800 rural students in technology careers. He founded Vizag Volunteers, which today has 5,000 members, 13 active projects, and a Guinness World Record — a movement that started with one WhatsApp status during COVID-19.</p>
+      <p>He has walked 555 kilometres to Amaravati for a cause. He has completed 1,000 consecutive early morning walks. He has cleaned RK Beach every single Sunday for 652+ weeks and counting.</p>
+      <p>Recognised with the Yogandhra 2025 Award by the Government of Andhra Pradesh for outstanding social contribution — please welcome Satheesh Karnatakapu.</p>
+      <div class="pk-speech-note">Approx. reading time: 45–60 seconds · Pronunciation: <strong>Saa-theesh Kar-na-taa-ka-pu</strong></div>
+    </div>
+    <div class="pk-copy-row" style="margin-top:12px;">
+      <button class="pk-copy-btn" onclick="copyBio('intro-text', this)">Copy Script</button>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 5: PHOTOS ══ -->
+  <div class="pk-section" id="photos">
+    <div class="pk-section-head">
+      <div class="pk-section-num">05</div>
+      <div>
+        <div class="pk-section-title">Official Photos</div>
+        <div class="pk-section-sub">High-resolution images approved for print and digital use</div>
+      </div>
+    </div>
+    <div class="pk-photos-note">
+      <strong>Photo usage guidelines:</strong> All photos are approved for editorial, event, and organisational use. Please do not crop, filter, or alter the images. Credit as: <em>Photo © Satheesh Karnatakapu / satteesh.info</em>
+    </div>
+    <div class="pk-photo-grid">
+      <div class="pk-photo-card">
+        <div class="pk-photo-thumb">👤<div class="pk-photo-thumb-label">Formal Portrait</div></div>
+        <div class="pk-photo-info">
+          <div class="pk-photo-name">Formal Portrait</div>
+          <div class="pk-photo-meta">High-res · White / neutral background</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Photo →</a>
+      </div>
+      <div class="pk-photo-card">
+        <div class="pk-photo-thumb">🎤<div class="pk-photo-thumb-label">Speaking / Stage</div></div>
+        <div class="pk-photo-info">
+          <div class="pk-photo-name">Speaking / Stage</div>
+          <div class="pk-photo-meta">Action shot · Event context</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Photo →</a>
+      </div>
+      <div class="pk-photo-card">
+        <div class="pk-photo-thumb">🤝<div class="pk-photo-thumb-label">Community / Field</div></div>
+        <div class="pk-photo-info">
+          <div class="pk-photo-name">Community / Field</div>
+          <div class="pk-photo-meta">Volunteers, beach cleanup, social work</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Photo →</a>
+      </div>
+      <div class="pk-photo-card">
+        <div class="pk-photo-thumb">🏖️<div class="pk-photo-thumb-label">Kalam View Point</div></div>
+        <div class="pk-photo-info">
+          <div class="pk-photo-name">Beach / Outdoors</div>
+          <div class="pk-photo-meta">5 AM walks · Kalam View Point</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Photo →</a>
+      </div>
+      <div class="pk-photo-card">
+        <div class="pk-photo-thumb">🏆<div class="pk-photo-thumb-label">Award Ceremony</div></div>
+        <div class="pk-photo-info">
+          <div class="pk-photo-name">Award / Recognition</div>
+          <div class="pk-photo-meta">Yogandhra 2025 · Official ceremony</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Photo →</a>
+      </div>
+      <div class="pk-photo-card">
+        <div class="pk-photo-thumb">💼<div class="pk-photo-thumb-label">Business / Office</div></div>
+        <div class="pk-photo-info">
+          <div class="pk-photo-name">Business / Office</div>
+          <div class="pk-photo-meta">F9 context · Professional setting</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Photo →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 6: VIDEOS ══ -->
+  <div class="pk-section" id="videos">
+    <div class="pk-section-head">
+      <div class="pk-section-num">06</div>
+      <div>
+        <div class="pk-section-title">Official Videos</div>
+        <div class="pk-section-sub">Horizontal (16:9) for events &amp; screens · Vertical (9:16) for reels &amp; social</div>
+      </div>
+    </div>
+    <div class="pk-photos-note">
+      <strong>Video usage guidelines:</strong> All videos are approved for editorial, event, and organisational use. Do not re-edit or add third-party music without permission. Credit as: <em>Video © Satheesh Karnatakapu / satteesh.info</em>
+    </div>
+
+    <!-- HORIZONTAL -->
+    <div class="pk-video-label">Horizontal · 16:9 — for presentations, event screens, YouTube</div>
+    <div class="pk-video-grid pk-video-grid-h">
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-h">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">16:9</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">Speaker Introduction Reel</div>
+          <div class="pk-photo-meta">90 sec · Stage &amp; impact highlights</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-h">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">16:9</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">Vizag Volunteers Story</div>
+          <div class="pk-photo-meta">3 min · COVID response, beach cleanups</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-h">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">16:9</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">Kalam Dream Labs — Student Stories</div>
+          <div class="pk-photo-meta">2 min · Rural students, IT placements</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-h">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">16:9</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">F9 Info Technologies Overview</div>
+          <div class="pk-photo-meta">2 min · 18 years, clients, journey</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+    </div>
+
+    <!-- VERTICAL -->
+    <div class="pk-video-label" style="margin-top:36px;">Vertical · 9:16 — for Instagram Reels, YouTube Shorts, WhatsApp Status</div>
+    <div class="pk-video-grid pk-video-grid-v">
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-v">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">9:16</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">1-Minute Bio Reel</div>
+          <div class="pk-photo-meta">60 sec · Quick intro for events &amp; panels</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-v">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">9:16</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">Beach Cleanup Reel</div>
+          <div class="pk-photo-meta">45 sec · 652 Sundays story</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-v">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">9:16</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">Mission Statement</div>
+          <div class="pk-photo-meta">30 sec · Vizag vision, purpose</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-v">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">9:16</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">Award Moment</div>
+          <div class="pk-photo-meta">30 sec · Yogandhra 2025 ceremony</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+      <div class="pk-video-card">
+        <div class="pk-video-thumb pk-video-v">
+          <div class="pk-video-play">▶</div>
+          <div class="pk-video-tag">9:16</div>
+        </div>
+        <div class="pk-video-info">
+          <div class="pk-photo-name">5 AM Discipline</div>
+          <div class="pk-photo-meta">45 sec · 1,000 mornings story</div>
+        </div>
+        <a href="contact.html" class="pk-photo-req">Request Video →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 7: BRAND ══ -->
+  <div class="pk-section" id="brand">
+    <div class="pk-section-head">
+      <div class="pk-section-num">07</div>
+      <div>
+        <div class="pk-section-title">Brand Colours &amp; Typography</div>
+        <div class="pk-section-sub">For digital assets, slides, event screens, and publications</div>
+      </div>
+    </div>
+    <div class="pk-colours" style="margin-bottom:32px;">
+      <div class="pk-colour-card">
+        <div class="pk-colour-swatch" style="background:#0B2545;"></div>
+        <div class="pk-colour-info">
+          <div class="pk-colour-name">Navy</div>
+          <div class="pk-colour-hex">#0B2545</div>
+        </div>
+      </div>
+      <div class="pk-colour-card">
+        <div class="pk-colour-swatch" style="background:#d4920c;"></div>
+        <div class="pk-colour-info">
+          <div class="pk-colour-name">Gold</div>
+          <div class="pk-colour-hex">#d4920c</div>
+        </div>
+      </div>
+      <div class="pk-colour-card">
+        <div class="pk-colour-swatch" style="background:#f0ab1f;"></div>
+        <div class="pk-colour-info">
+          <div class="pk-colour-name">Gold Light</div>
+          <div class="pk-colour-hex">#f0ab1f</div>
+        </div>
+      </div>
+      <div class="pk-colour-card">
+        <div class="pk-colour-swatch" style="background:#1d6fb8;"></div>
+        <div class="pk-colour-info">
+          <div class="pk-colour-name">Accent Blue</div>
+          <div class="pk-colour-hex">#1d6fb8</div>
+        </div>
+      </div>
+      <div class="pk-colour-card">
+        <div class="pk-colour-swatch" style="background:#ffffff;border:1px solid rgba(255,255,255,.1);"></div>
+        <div class="pk-colour-info">
+          <div class="pk-colour-name">White</div>
+          <div class="pk-colour-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+    <div class="pk-type-cards">
+      <div class="pk-type-card">
+        <div class="pk-type-sample-serif">Fraunces</div>
+        <div class="pk-type-meta">Headings · Display · Quotes<br>Google Fonts · Serif · Variable weight</div>
+      </div>
+      <div class="pk-type-card">
+        <div class="pk-type-sample-sans">Plus Jakarta Sans</div>
+        <div class="pk-type-meta">Body · UI · Labels<br>Google Fonts · Sans-serif · 300–700</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 8: USAGE RULES ══ -->
+  <div class="pk-section" id="rules">
+    <div class="pk-section-head">
+      <div class="pk-section-num">08</div>
+      <div>
+        <div class="pk-section-title">Usage Guidelines</div>
+        <div class="pk-section-sub">Please follow these when featuring Satheesh in any publication or event</div>
+      </div>
+    </div>
+    <div class="pk-rules">
+      <div class="pk-rule">
+        <div class="pk-rule-icon">✅</div>
+        <div class="pk-rule-text">
+          <strong>Correct name spelling</strong>
+          <span>Always use <strong>Satheesh Karnatakapu</strong> — not "Satish", not "Sathish", not "Karnatakaapu". The correct spelling is above.</span>
+        </div>
+      </div>
+      <div class="pk-rule">
+        <div class="pk-rule-icon">✅</div>
+        <div class="pk-rule-text">
+          <strong>Pronunciation guide</strong>
+          <span><strong>Saa-theesh Kar-na-taa-ka-pu</strong> — when reading the intro script aloud, practice once before going on stage.</span>
+        </div>
+      </div>
+      <div class="pk-rule">
+        <div class="pk-rule-icon">✅</div>
+        <div class="pk-rule-text">
+          <strong>Approved photos only</strong>
+          <span>Use only photos requested through this page or approved by Satheesh directly. Do not use social media screenshots or unofficial event photos without permission.</span>
+        </div>
+      </div>
+      <div class="pk-rule">
+        <div class="pk-rule-icon">✅</div>
+        <div class="pk-rule-text">
+          <strong>Use verified titles</strong>
+          <span>Only use the official titles listed in Section 02 of this page. Do not add titles he hasn't claimed or omit key ones (especially Vizag Volunteers and Kalam Dream Labs).</span>
+        </div>
+      </div>
+      <div class="pk-rule">
+        <div class="pk-rule-icon">⚠️</div>
+        <div class="pk-rule-text">
+          <strong>Do not alter the bio text</strong>
+          <span>The bios in Section 03 are approved as written. If you need a different format or length, contact us — do not rewrite from scratch using inaccurate sources.</span>
+        </div>
+      </div>
+      <div class="pk-rule">
+        <div class="pk-rule-icon">⚠️</div>
+        <div class="pk-rule-text">
+          <strong>Do not attribute unsolicited quotes</strong>
+          <span>Do not fabricate or paraphrase quotes and attribute them to Satheesh. All approved quotes are available in the Journey page under "Lessons from the Road".</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT BOX -->
+  <div class="pk-contact-box">
+    <h3>Need something not listed here?</h3>
+    <p>For custom bios, high-res photo packs, speaking invitations, or interview requests — get in touch directly.</p>
+    <a href="contact.html" class="btn-gold">Send a Request →</a>
+    <a href="journey.html" class="btn-outline">Read the Full Story</a>
+  </div>
+
+</div><!-- /pk-wrap -->
+
+<!-- FOOTER -->
+<footer class="pk-footer">
+  <p>© 2026 Satheesh Karnatakapu ·
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="awards.html">Awards</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<!-- COPY TOAST -->
+<div class="copy-toast" id="copyToast">Copied to clipboard ✓</div>
+
+<script>
+// Mobile nav
+const hamburger = document.getElementById('navHamburger');
+const mobileNav = document.getElementById('navMobile');
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('active');
+});
+function closeMob() {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('active');
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Bio tabs
+function switchBio(id, btn) {
+  document.querySelectorAll('.pk-bio-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.pk-bio-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('bio-' + id).classList.add('active');
+}
+
+// Copy to clipboard
+function copyBio(sectionId, btn) {
+  const el = document.getElementById(sectionId);
+  const text = el.querySelector('.pk-bio-text, .pk-speech-card') ?
+    el.querySelector('.pk-bio-text, .pk-speech-card').innerText.replace(/\n\n+/g, '\n\n').trim() :
+    el.innerText.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    const toast = document.getElementById('copyToast');
+    toast.style.display = 'block';
+    setTimeout(() => {
+      btn.textContent = btn.textContent.includes('Script') ? 'Copy Script' : 'Copy Text';
+      btn.classList.remove('copied');
+      toast.style.display = 'none';
+    }, 2000);
+  });
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.05 });
+document.querySelectorAll('.pk-fact, .pk-title-row, .pk-colour-card, .pk-type-card, .pk-rule, .pk-photo-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity .45s ease, transform .45s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

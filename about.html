@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Satheesh Karnatakapu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://w.behold.so/widget.js" type="module"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="padding-top:calc(7rem + 68px);">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">The Story</span>
+      <h2 class="section-heading">A Village Boy Who <em>Never Stopped</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-body reveal d1">
+        <p>
+          Born in <strong>Munganda village</strong>, Konaseema, East Godavari — with a 12th standard education
+          and one remarkable fact buried in his report card: a <span class="highlight">99 out of 100 in Computers</span>.
+          Every other subject: 30 to 55 marks. That single score became the compass for everything.
+        </p>
+        <p>
+          His journey began not in a college but on a bus — the overnight Amalapuram to Rajahmundry bus,
+          which he rode <strong>every single day for two years</strong>, collecting photo films and printing
+          orders through the night. He later photographed from helicopters over Cairn Energy oil rigs
+          and Deccan Aviation facilities — famous in his district. Then walked away because he wanted more.
+        </p>
+        <p>
+          A solar business of 100+ orders was destroyed overnight by a political appointment. He was left
+          with ₹2,000. He borrowed a computer from his cousin and spent the next two years learning IT —
+          <strong>18 to 19 hours a day, alone, zero teacher</strong>. Bought 275 domains before building
+          a single website. Started F9 Info Technologies in 2008.
+        </p>
+        <p>
+          When ₹40 lakhs of debt came, his family said: file for insolvency and walk away. He refused.
+          <span class="highlight">"I took those loans on my personal goodwill."</span> He rode a bicycle
+          to client meetings. Made a handmade laptop-shaped portfolio. Built 600 clients. Paid every rupee back.
+          Today, F9 celebrates 16 years — and Satheesh runs three organisations simultaneously.
+        </p>
+      </div>
+      <div class="milestone-stack reveal d2">
+        <div class="ms-item">
+          <div class="ms-year">1997</div>
+          <div class="ms-content">
+            <div class="ms-title">First Business · Amalapuram</div>
+            <div class="ms-desc">Daily overnight bus to Rajahmundry for 2 years. Corporate photographer for Cairn Energy &amp; Deccan Aviation.</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-year">2003</div>
+          <div class="ms-content">
+            <div class="ms-title">18 Hours/Day Self-Learning</div>
+            <div class="ms-desc">Taught himself Java, web tech, and IT business models — no teacher, no guidance, 2 full years.</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-year">2008</div>
+          <div class="ms-content">
+            <div class="ms-title">F9 Info Technologies Pvt Ltd</div>
+            <div class="ms-desc">Registered as Private Limited. "My goal is very big." ₹40L debt → refused bankruptcy → paid it all back.</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-year">2018</div>
+          <div class="ms-content">
+            <div class="ms-title">Kalam Dream Labs Pvt Ltd</div>
+            <div class="ms-desc">Named after Dr. APJ Abdul Kalam. Student mentoring, innovation, internships.</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-year">2020</div>
+          <div class="ms-content">
+            <div class="ms-title">Vizag Volunteers Association</div>
+            <div class="ms-desc">One WhatsApp group during COVID → 5,000 volunteers → 13 social projects. Saved hundreds of lives.</div>
+          </div>
+        </div>
+        <div class="ms-item">
+          <div class="ms-year">2025</div>
+          <div class="ms-content">
+            <div class="ms-title">Yogandhra 2025 Award</div>
+            <div class="ms-desc">Recognised by the Government of Andhra Pradesh for outstanding social contribution.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-tag">Timeline</span>
+      <h2 class="section-heading">The Road <em>From Munganda</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">1978 · Konaseema, East Godavari</div>
+        <h3 class="tl-heading">Born in Munganda Village</h3>
+        <p class="tl-body">A village near Amalapuram. 12th standard education. Scored <span class="hl">99/100 in Computers</span> — the only subject that truly captured him. 30 to 55 in everything else.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">1997–2000 · Amalapuram &amp; Rajahmundry</div>
+        <h3 class="tl-heading">The Photographer — Overnight Bus Runs</h3>
+        <p class="tl-body">Photo lab collection centre, Amalapuram. <span class="hl">Every day: 9 AM open → 7 PM bus to Rajahmundry → print overnight → sleep on chairs → 5 AM bus back → repeat.</span> For two years. Later photographed from helicopters for Cairn Energy and Deccan Aviation.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Early 2000s · Asian Solar Systems</div>
+        <h3 class="tl-heading">The Solar Dream — Destroyed by Politics</h3>
+        <p class="tl-body">Traveled solo to Kolkata, Hyderabad, Bangalore, Mumbai to learn the solar industry. MB Solar distributor for Vizag. Booked <span class="hl">100+ units</span> — then a new political NETCAP chairman gave all contracts to a competitor overnight. Left with ₹2,000.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2003–2007 · Self-Teaching</div>
+        <h3 class="tl-heading">18–19 Hours a Day. Zero Teacher.</h3>
+        <p class="tl-body">Borrowed a computer from his cousin. Self-taught Java, web technologies, digital marketing, IT business models. <span class="hl">18 to 19 hours every day for 2 years.</span> Bought 275+ domains across India before writing a single line of code.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2008 · F9 Info Technologies</div>
+        <h3 class="tl-heading">"My Goal Is Very Big."</h3>
+        <p class="tl-body">Launched F9 Info Technologies Pvt Ltd as a Private Limited company — deliberately. Built VizagPlus.com. ₹40 lakh debt when a US client cheated. <span class="hl">Refused bankruptcy. Paid every rupee back.</span> Rebuilt with a bicycle and a handmade laptop-shaped portfolio album. 600+ clients.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2015–2018 · 5 AM Club &amp; Beach Campaign</div>
+        <h3 class="tl-heading">1,000 Consecutive Days — Never Once Missed</h3>
+        <p class="tl-body"><span class="hl">1,000 consecutive days of 5 AM walks.</span> Became President of the 5 AM Club. Then started "I Love Vizag Beach" — solo daily beach clean for 365 days. Transformed a littered viewpoint into <span class="hl">Kalam View Point</span>. 652 Sunday cleanups and counting.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2018 · Kalam Dream Labs</div>
+        <h3 class="tl-heading">Empowering Dreamers</h3>
+        <p class="tl-body">Founded Kalam Dream Labs Pvt Ltd. First student Kittu: UAV disaster management paper → won Delhi award → robotics expert in Australia — now Co-Director. <span class="hl">800+ rural students trained and placed in IT companies.</span> 555 km walk to Amaravati — Safe Touch awareness for 2,00,000 students.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">March 27, 2020 · COVID-19</div>
+        <h3 class="tl-heading">"I Am Ready to Serve." — Vizag Volunteers Born</h3>
+        <p class="tl-body">One WhatsApp status. Hundreds of calls in hours. <span class="hl">Vizag Volunteers Association</span> founded. 2 lakh meals. 150+ plasma donations. Went into hospitals when others would not. Lifted bodies. Saved lives. Today: 5,000 volunteers. 13 projects. Guinness World Record.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2025</div>
+        <h3 class="tl-heading">Yogandhra 2025 Award</h3>
+        <p class="tl-body">Honoured by the <span class="hl">Government of Andhra Pradesh</span> for outstanding social contribution. Mentioned last — because Satheesh never speaks about his awards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="phil-inner">
+    <span class="section-tag reveal" style="justify-content:center;">Philosophy</span>
+    <div class="big-quote reveal d1">
+      "Dream, dream, dream. Dreams transform into
+      <em>thoughts</em>, and thoughts result in <em>action</em>."
+    </div>
+    <p class="quote-credit reveal d2">
+      — Dr. APJ Abdul Kalam &nbsp;·&nbsp; <span>Satheesh's life motto</span>
+    </p>
+    <div class="values-row reveal d3">
+      <div class="val">
+        <span class="val-icon">🎯</span>
+        <div class="val-name">Consistency</div>
+        <div class="val-desc">1,000 days walking. 652 beach cleanups. He never stops.</div>
+      </div>
+      <div class="val">
+        <span class="val-icon">🤝</span>
+        <div class="val-name">Trust First</div>
+        <div class="val-desc">Networks built by giving, never by taking or calculating.</div>
+      </div>
+      <div class="val">
+        <span class="val-icon">🔮</span>
+        <div class="val-name">Integrity</div>
+        <div class="val-desc">Refused bankruptcy to protect personal goodwill. Paid every rupee.</div>
+      </div>
+      <div class="val">
+        <span class="val-icon">🌅</span>
+        <div class="val-name">Purpose</div>
+        <div class="val-desc">Profit and social good are always inseparable.</div>
+      </div>
+      <div class="val">
+        <span class="val-icon">🚀</span>
+        <div class="val-name">Vision</div>
+        <div class="val-desc">Buys 275 domains before building. Always thinks nationally.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE REAL STORY / TRANSPARENCY -->
+<section id="transparency" style="background:var(--navy);padding:7rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+<style>
+body { background: var(--navy); color: var(--white); }
+.tr-inner { max-width:1120px; margin:0 auto; padding:0 5rem; }
+.tr-label { font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1rem; }
+.tr-h2 { font-family:'Fraunces',serif; font-size:clamp(2rem,4vw,3rem); font-weight:600; color:var(--white); letter-spacing:-0.02em; line-height:1.1; margin-bottom:1rem; }
+.tr-h2 em { color:var(--gold-light); font-style:normal; }
+.tr-intro { font-size:1.05rem; color:rgba(255,255,255,0.5); line-height:1.8; max-width:640px; margin-bottom:4rem; }
+
+/* Statement block */
+.tr-statement {
+  background: rgba(212,146,12,0.05);
+  border: 1px solid rgba(212,146,12,0.2);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  position: relative; overflow: hidden;
+}
+.tr-statement::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 10rem; line-height: 0.7;
+  color: rgba(212,146,12,0.08);
+  position: absolute; top: 1.5rem; left: 2rem;
+  pointer-events: none; user-select: none;
+}
+.tr-statement-text {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+  position: relative; z-index: 1;
+}
+.tr-statement-text strong { color: var(--gold-light); font-style: normal; font-weight: 600; }
+
+/* Two-column grid */
+.tr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+
+/* Card */
+.tr-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 2.5rem;
+}
+.tr-card-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+.tr-card-title { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.8rem; }
+.tr-card-body { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.75; }
+.tr-card-body strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+/* Financial table */
+.tr-finance {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; overflow: hidden;
+  margin-bottom: 3rem;
+}
+.tr-finance-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.tr-finance-row {
+  display: flex; align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 1rem;
+}
+.tr-finance-row:last-child { border-bottom: none; }
+.tr-finance-row.income { background: rgba(29,111,184,0.05); }
+.tr-finance-row.spend  { background: rgba(212,146,12,0.04); }
+.tr-finance-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.tr-finance-row.income .tr-finance-dot { background: var(--accent); }
+.tr-finance-row.spend  .tr-finance-dot { background: var(--gold); }
+.tr-finance-label { flex: 1; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+.tr-finance-type {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 0.22rem 0.7rem;
+  border-radius: 99px;
+}
+.tr-finance-row.income .tr-finance-type { background: rgba(29,111,184,0.15); color: #7ab8f5; }
+.tr-finance-row.spend  .tr-finance-type { background: rgba(212,146,12,0.15); color: var(--gold-light); }
+
+/* Assets row */
+.tr-assets {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  margin-bottom: 3rem;
+}
+.tr-asset-chip {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.2rem; border-radius: 99px;
+  background: rgba(255,80,80,0.06);
+  border: 1px solid rgba(255,80,80,0.15);
+  font-size: 0.8rem; color: rgba(255,255,255,0.4);
+}
+.tr-asset-chip::before { content: '✕'; font-size: 0.65rem; color: rgba(255,100,100,0.6); }
+
+/* Kalam moment */
+.tr-kalam {
+  background: linear-gradient(135deg, rgba(11,37,69,0.9), rgba(18,52,99,0.8));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 3rem;
+  display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center;
+}
+.tr-kalam-icon { font-size: 4rem; }
+.tr-kalam-text { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.8; }
+.tr-kalam-text strong { color: var(--gold-light); font-weight: 600; }
+
+@media (max-width: 1024px) {
+  .tr-grid { grid-template-columns: 1fr; }
+  .tr-kalam { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .tr-inner { padding: 0 1.5rem; }
+}
+</style>
+  <div class="tr-inner">
+    <div class="tr-label reveal">The Real Story</div>
+    <h2 class="tr-h2 reveal">Not for myself.<br><em>For Vizag.</em></h2>
+    <p class="tr-intro reveal">
+      Most people don't know what's actually behind all of this. Here it is —
+      completely transparent, exactly as it is.
+    </p>
+
+    <!-- Opening statement -->
+    <div class="tr-statement reveal">
+      <p class="tr-statement-text">
+        I am not married. I don't live this life for myself.
+        Whatever I build — F9, Kalam Dream Labs, Vizag Volunteers —
+        I am building it <strong>for the ecosystem, not for me</strong>.
+        My only intention is to become part of Vizag's history.
+        The same way Dr. Kalam became part of India's history.
+      </p>
+    </div>
+
+    <!-- Two cards -->
+    <div class="tr-grid">
+      <div class="tr-card reveal">
+        <span class="tr-card-icon">🧭</span>
+        <div class="tr-card-title">Why I Keep Building</div>
+        <div class="tr-card-body">
+          Whatever innovation, technology, money, or assets —
+          <strong>none of it makes sense if it's not in the right hands.</strong>
+          That is why I spend more time identifying and mentoring people
+          than I do building products.<br><br>
+          Some people stay one year. Some six months. Some three months.
+          Some get frustrated with me. I don't mind.
+          <strong>In my journey, only a few people can go forward with me.</strong>
+          The ones who do are enough.
+        </div>
+      </div>
+      <div class="tr-card reveal d1">
+        <span class="tr-card-icon">🌱</span>
+        <div class="tr-card-title">How I Mentor</div>
+        <div class="tr-card-body">
+          I identify students and people from the next generation.
+          I nurture them, give them opportunities, and test them —
+          not to judge them, but to see if they're moving in the
+          right direction for <em>their own life</em>.<br><br>
+          Everybody has their own bandwidth.
+          Some grow with me. Some grow elsewhere.
+          <strong>Both outcomes are success.</strong>
+          The intention is always to help someone find their path.
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial transparency -->
+    <div class="tr-label reveal" style="margin-bottom:1rem;">Financial Transparency</div>
+    <p class="tr-intro reveal" style="margin-bottom:1.5rem;font-size:0.95rem;">
+      People who see the scale of Vizag Volunteers often assume I receive large NGO funds.
+      I do not. Here is the truth, exactly as it is.
+    </p>
+
+    <div class="tr-finance reveal">
+      <div class="tr-finance-header">Income → Where it comes from</div>
+      <div class="tr-finance-row income">
+        <div class="tr-finance-dot"></div>
+        <div class="tr-finance-label">F9 Info Technologies — client projects, technology services</div>
+        <div class="tr-finance-type">Earned Income</div>
+      </div>
+    </div>
+
+    <div class="tr-finance reveal">
+      <div class="tr-finance-header">Spending → Where it goes</div>
+      <div class="tr-finance-row spend">
+        <div class="tr-finance-dot"></div>
+        <div class="tr-finance-label">Vizag Volunteers Association — operations, projects, community work</div>
+        <div class="tr-finance-type">Mission Spend</div>
+      </div>
+      <div class="tr-finance-row spend">
+        <div class="tr-finance-dot"></div>
+        <div class="tr-finance-label">Kalam Dream Labs — student programmes, innovation, mentoring</div>
+        <div class="tr-finance-type">Mission Spend</div>
+      </div>
+      <div class="tr-finance-row spend">
+        <div class="tr-finance-dot"></div>
+        <div class="tr-finance-label">Supporting people in the ecosystem who need a hand</div>
+        <div class="tr-finance-type">People Invest</div>
+      </div>
+    </div>
+
+    <!-- No assets -->
+    <div class="tr-label reveal" style="margin-bottom:0.8rem;">What I Don't Have</div>
+    <div class="tr-assets reveal">
+      <div class="tr-asset-chip">Gold</div>
+      <div class="tr-asset-chip">Shares / Equity</div>
+      <div class="tr-asset-chip">Capital Gains</div>
+      <div class="tr-asset-chip">Fixed Deposits</div>
+      <div class="tr-asset-chip">Land</div>
+      <div class="tr-asset-chip">Buildings</div>
+      <div class="tr-asset-chip">Any personal assets</div>
+    </div>
+    <p class="reveal" style="font-size:0.875rem;color:rgba(255,255,255,0.35);margin-bottom:3rem;line-height:1.7;">
+      I have company names — not monetarily valuable, but they represent something more important:
+      a system. I manage and sustain myself month to month. It is not easy.
+      But it is the only way I know how to do this with full integrity.
+    </p>
+
+    <!-- Kalam comparison -->
+    <div class="tr-kalam reveal">
+      <div class="tr-kalam-icon">🌟</div>
+      <div class="tr-kalam-text">
+        Dr. Kalam did something good for the country.
+        <strong>Maybe I am not capable of doing something good for the entire country.
+        But I am capable of doing something good for Vizag.</strong>
+        That is my only ambition. To be remembered in this city's history.
+        Not for buildings or wealth — but for the people I helped, the problems I solved,
+        and the ecosystem I left behind.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

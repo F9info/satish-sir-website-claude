@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Time Budget — Satheesh Karnatakapu · Time is the Currency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── TIME BUDGET PAGE ── */
+body { background: var(--navy); color: var(--white); }
+
+/* HERO */
+.tb-hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: calc(9rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.tb-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+.tb-hero::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(212,146,12,0.12) 0%, transparent 65%);
+  top: -200px; right: -150px;
+  pointer-events: none;
+}
+.tb-hero-glow2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(29,111,184,0.12) 0%, transparent 65%);
+  bottom: -100px; left: -80px;
+  pointer-events: none;
+}
+.tb-hero-inner {
+  max-width: 1120px; margin: 0 auto;
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.tb-breadcrumb {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2.5rem;
+}
+.tb-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.tb-breadcrumb a:hover { color: var(--gold-light); }
+.tb-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  border: 1px solid rgba(212,146,12,0.3);
+  padding: 0.38rem 1rem; border-radius: 99px;
+  margin-bottom: 2rem;
+}
+.tb-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+}
+.tb-h1 em { color: var(--gold-light); font-style: normal; }
+.tb-tagline {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: rgba(255,255,255,0.5);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+.tb-hero-stats {
+  display: flex; gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.tb-hero-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.tb-hero-stat-label {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.3rem;
+}
+
+/* Live Clock */
+.tb-clock-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,146,12,0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.tb-clock-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin-bottom: 1.2rem;
+}
+.tb-clock-number {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.tb-clock-sub {
+  font-size: 0.8rem; color: rgba(255,255,255,0.35);
+  margin-bottom: 2rem;
+}
+.tb-clock-progress {
+  height: 6px; background: rgba(255,255,255,0.08);
+  border-radius: 99px; overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.tb-clock-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transition: width 1s linear;
+}
+.tb-clock-progress-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.65rem; color: rgba(255,255,255,0.3);
+}
+.tb-clock-units {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem; margin-top: 2rem;
+}
+.tb-clock-unit {
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px; padding: 0.8rem 0.5rem;
+}
+.tb-clock-unit-val {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--white); line-height: 1;
+}
+.tb-clock-unit-lbl {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.25rem;
+}
+
+/* SECTION BASE */
+.tb-section {
+  padding: 7rem 5rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.tb-section-full {
+  padding: 7rem 5rem;
+  background: rgba(255,255,255,0.015);
+}
+.tb-section-full-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.tb-section-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+.tb-section-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.tb-section-h2 em { color: var(--gold-light); font-style: normal; }
+.tb-section-body {
+  font-size: 1.05rem; color: rgba(255,255,255,0.55);
+  line-height: 1.8; max-width: 640px;
+}
+
+/* 24-HOUR BREAKDOWN */
+.tb-24h-wrap {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start;
+  margin-top: 4rem;
+}
+.tb-bar-title {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
+}
+.tb-bar-item {
+  margin-bottom: 1.2rem;
+}
+.tb-bar-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.45rem;
+}
+.tb-bar-name {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.9rem; color: rgba(255,255,255,0.75);
+}
+.tb-bar-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.tb-bar-hours {
+  font-size: 0.8rem; color: rgba(255,255,255,0.4);
+  font-family: 'Fraunces', serif;
+}
+.tb-bar-track {
+  height: 8px; background: rgba(255,255,255,0.07);
+  border-radius: 99px; overflow: hidden;
+}
+.tb-bar-fill {
+  height: 100%; border-radius: 99px;
+  transition: width 1.2s ease;
+}
+/* category colours */
+.c-sleep  { background: #3b5e8c; }
+.c-meals  { background: #5a8a6a; }
+.c-family { background: #7a6fa8; }
+.c-health { background: #4a8fa8; }
+.c-entertain { background: #8a7a5a; }
+.c-biz    { background: #4a7abf; }
+.c-mission { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.dot-sleep  { background: #3b5e8c; }
+.dot-meals  { background: #5a8a6a; }
+.dot-family { background: #7a6fa8; }
+.dot-health { background: #4a8fa8; }
+.dot-entertain { background: #8a7a5a; }
+.dot-biz    { background: #4a7abf; }
+.dot-mission { background: var(--gold-light); }
+
+/* Mission highlight bar */
+.tb-bar-item.mission-row .tb-bar-name {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+.tb-bar-item.mission-row .tb-bar-hours {
+  color: var(--gold-light);
+}
+
+/* Donut */
+.tb-donut-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2rem;
+}
+.tb-donut-svg-wrap {
+  position: relative; width: 260px; height: 260px;
+}
+.tb-donut-svg-wrap svg { width: 100%; height: 100%; }
+.tb-donut-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.tb-donut-center-val {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem; font-weight: 600;
+  color: var(--gold-light); line-height: 1;
+}
+.tb-donut-center-lbl {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-align: center; margin-top: 0.3rem;
+}
+.tb-donut-legend {
+  width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem;
+}
+.tb-donut-legend-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; color: rgba(255,255,255,0.5);
+}
+.tb-donut-legend-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.tb-donut-legend-item.mission-leg {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* MISSION HOURS PANEL */
+.tb-mission-panel {
+  background: linear-gradient(135deg, rgba(212,146,12,0.08), rgba(212,146,12,0.03));
+  border: 1px solid rgba(212,146,12,0.25);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-top: 3rem;
+  position: relative; overflow: hidden;
+}
+.tb-mission-panel::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,146,12,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.tb-mission-panel-inner {
+  display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+}
+.tb-mission-panel h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--gold-light); line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+.tb-mission-panel p {
+  font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.75;
+}
+.tb-mission-big {
+  text-align: center;
+  flex-shrink: 0;
+}
+.tb-mission-big-val {
+  font-family: 'Fraunces', serif;
+  font-size: 4rem; font-weight: 600;
+  color: var(--gold-light); line-height: 1;
+}
+.tb-mission-big-lbl {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.4rem;
+}
+
+/* PRIORITY STACK */
+.tb-priority-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem; margin-top: 3.5rem;
+}
+.tb-priority-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 2rem;
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.tb-priority-card:hover {
+  border-color: rgba(212,146,12,0.3);
+  transform: translateY(-3px);
+}
+.tb-priority-card.p1 {
+  border-color: rgba(212,146,12,0.3);
+  background: rgba(212,146,12,0.04);
+}
+.tb-priority-rank {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem; font-weight: 600;
+  color: rgba(255,255,255,0.06);
+  position: absolute; top: 1.2rem; right: 1.5rem;
+  line-height: 1;
+  user-select: none;
+}
+.tb-priority-card.p1 .tb-priority-rank { color: rgba(212,146,12,0.15); }
+.tb-priority-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.tb-priority-title {
+  font-size: 1.05rem; font-weight: 600;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.tb-priority-card.p1 .tb-priority-title { color: var(--gold-light); }
+.tb-priority-body {
+  font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.65;
+}
+.tb-priority-tag {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.28rem 0.7rem; border-radius: 99px;
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.35);
+}
+.tb-priority-card.p1 .tb-priority-tag {
+  background: rgba(212,146,12,0.15); color: var(--gold-light);
+}
+
+/* COLLABORATION PATHS */
+.tb-collab-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3.5rem;
+}
+.tb-collab-card {
+  border-radius: 20px; padding: 3rem;
+  position: relative; overflow: hidden;
+}
+.tb-collab-card.mission-path {
+  background: linear-gradient(135deg, rgba(212,146,12,0.1), rgba(29,111,184,0.08));
+  border: 1px solid rgba(212,146,12,0.25);
+}
+.tb-collab-card.quick-path {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.tb-collab-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block; }
+.tb-collab-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem; font-weight: 600;
+  color: var(--white); line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+.mission-path .tb-collab-title { color: var(--gold-light); }
+.tb-collab-body {
+  font-size: 0.9rem; color: rgba(255,255,255,0.5);
+  line-height: 1.75; margin-bottom: 2rem;
+}
+.tb-collab-checks { margin-bottom: 2rem; }
+.tb-collab-check {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.55);
+  margin-bottom: 0.6rem; line-height: 1.5;
+}
+.tb-collab-check-icon { color: var(--gold-light); font-size: 0.9rem; flex-shrink: 0; margin-top: 0.1rem; }
+.quick-path .tb-collab-check-icon { color: rgba(255,255,255,0.4); }
+.tb-collab-cta {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.85rem 2rem; border-radius: 99px;
+  font-size: 0.85rem; font-weight: 600;
+  text-decoration: none; transition: all 0.25s;
+}
+.mission-path .tb-collab-cta {
+  background: var(--gold); color: var(--navy);
+}
+.mission-path .tb-collab-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+.quick-path .tb-collab-cta {
+  background: rgba(255,255,255,0.07); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.quick-path .tb-collab-cta:hover { background: rgba(255,255,255,0.12); }
+
+/* QUOTE DIVIDER */
+.tb-quote-section {
+  padding: 6rem 5rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.tb-quote-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 6rem; line-height: 0.5;
+  color: rgba(212,146,12,0.15);
+  margin-bottom: 1rem;
+}
+.tb-quote-text {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.tb-quote-attr {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* YEAR BREAKDOWN TABLE */
+.tb-year-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem; margin-top: 3rem;
+}
+.tb-year-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px; padding: 1.5rem 1.2rem;
+  text-align: center;
+  transition: border-color 0.3s;
+  position: relative;
+}
+.tb-year-card:hover { border-color: rgba(212,146,12,0.25); }
+.tb-year-card.current-year {
+  border-color: rgba(212,146,12,0.4);
+  background: rgba(212,146,12,0.05);
+}
+.tb-year-card.current-year::before {
+  content: 'NOW';
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.15em;
+  background: var(--gold); color: var(--navy);
+  padding: 0.2rem 0.6rem; border-radius: 99px;
+}
+.tb-year-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem; font-weight: 600;
+  color: var(--white); line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.tb-year-card.current-year .tb-year-num { color: var(--gold-light); }
+.tb-year-age { font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-bottom: 0.8rem; }
+.tb-year-hours {
+  font-size: 0.75rem; color: rgba(255,255,255,0.5);
+}
+.tb-year-hours span {
+  display: block; font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--gold-light); line-height: 1.2;
+}
+
+/* CTA */
+.tb-cta {
+  background: linear-gradient(135deg, rgba(11,37,69,0.98), rgba(18,52,99,0.95));
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 7rem 5rem;
+  text-align: center;
+}
+.tb-cta-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.tb-cta-h2 em { color: var(--gold-light); font-style: normal; }
+.tb-cta-sub { font-size: 1.05rem; color: rgba(255,255,255,0.45); margin-bottom: 3rem; }
+.tb-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.tb-cta-primary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: var(--gold); color: var(--navy);
+  font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.25s;
+}
+.tb-cta-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.tb-cta-secondary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: transparent; color: var(--white);
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s;
+}
+.tb-cta-secondary:hover { background: rgba(255,255,255,0.05); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .tb-hero-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .tb-24h-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .tb-mission-panel-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .tb-mission-big { text-align: left; }
+}
+@media (max-width: 768px) {
+  .tb-hero, .tb-section, .tb-section-full, .tb-quote-section, .tb-cta {
+    padding-left: 1.5rem; padding-right: 1.5rem;
+  }
+  .tb-collab-grid { grid-template-columns: 1fr; }
+  .tb-year-grid { grid-template-columns: repeat(3, 1fr); }
+  .tb-clock-units { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <div class="mob-group">
+      <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+      <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Connect</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="tb-hero">
+  <div class="tb-hero-glow2"></div>
+  <div class="tb-hero-inner">
+    <div>
+      <div class="tb-breadcrumb">
+        <a href="index.html">← Satheesh.info</a> / My Time Budget
+      </div>
+      <div class="tb-badge">⏱ Time is the Real Currency</div>
+      <h1 class="tb-h1">
+        Money can<br>be earned back.<br>
+        <em>Time cannot.</em>
+      </h1>
+      <p class="tb-tagline">
+        I calculate every hour with the same discipline I apply to my work.
+        12 peak years. A finite number of mission hours.
+        This is how I decide what gets a yes.
+      </p>
+      <div class="tb-hero-stats">
+        <div>
+          <div class="tb-hero-stat-val" id="heroYears">~12</div>
+          <div class="tb-hero-stat-label">Peak years left</div>
+        </div>
+        <div>
+          <div class="tb-hero-stat-val" id="heroHours">~105K</div>
+          <div class="tb-hero-stat-label">Total hours to 60</div>
+        </div>
+        <div>
+          <div class="tb-hero-stat-val">~30,681</div>
+          <div class="tb-hero-stat-label">Mission hours</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Clock -->
+    <div class="tb-clock-card">
+      <div class="tb-clock-label">Hours remaining — Now to Age 60</div>
+      <div class="tb-clock-number" id="liveHours">—</div>
+      <div class="tb-clock-sub">hours counting down in real time</div>
+      <div class="tb-clock-progress">
+        <div class="tb-clock-fill" id="clockFill" style="width:0%"></div>
+      </div>
+      <div class="tb-clock-progress-label">
+        <span>Born Jan 7, 1978</span>
+        <span>Age 60 · Jan 7, 2038</span>
+      </div>
+      <div class="tb-clock-units">
+        <div class="tb-clock-unit">
+          <div class="tb-clock-unit-val" id="liveYears">—</div>
+          <div class="tb-clock-unit-lbl">Years</div>
+        </div>
+        <div class="tb-clock-unit">
+          <div class="tb-clock-unit-val" id="liveDays">—</div>
+          <div class="tb-clock-unit-lbl">Days</div>
+        </div>
+        <div class="tb-clock-unit">
+          <div class="tb-clock-unit-val" id="liveMins">—</div>
+          <div class="tb-clock-unit-lbl">Minutes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 24-HOUR BREAKDOWN -->
+<div class="tb-section-full">
+  <div class="tb-section-full-inner">
+    <div class="tb-section-label">The Daily Math</div>
+    <h2 class="tb-section-h2">Where does a <em>24-hour day</em> go?</h2>
+    <p class="tb-section-body">
+      I've broken down every hour — from sleep to meals to family to the mission —
+      so I know exactly how many hours are truly available for the work that matters most.
+    </p>
+
+    <div class="tb-24h-wrap">
+      <div>
+        <div class="tb-bar-title">Daily allocation — 24 hours</div>
+
+        <div class="tb-bar-item">
+          <div class="tb-bar-row">
+            <div class="tb-bar-name"><span class="tb-bar-dot dot-sleep"></span> Sleep</div>
+            <div class="tb-bar-hours">7 h/day</div>
+          </div>
+          <div class="tb-bar-track"><div class="tb-bar-fill c-sleep" style="width:29.2%"></div></div>
+        </div>
+
+        <div class="tb-bar-item">
+          <div class="tb-bar-row">
+            <div class="tb-bar-name"><span class="tb-bar-dot dot-meals"></span> Meals &amp; Personal Care</div>
+            <div class="tb-bar-hours">1.5 h/day</div>
+          </div>
+          <div class="tb-bar-track"><div class="tb-bar-fill c-meals" style="width:6.3%"></div></div>
+        </div>
+
+        <div class="tb-bar-item">
+          <div class="tb-bar-row">
+            <div class="tb-bar-name"><span class="tb-bar-dot dot-family"></span> Family, Friends &amp; Entertainment</div>
+            <div class="tb-bar-hours">2.5 h/day</div>
+          </div>
+          <div class="tb-bar-track"><div class="tb-bar-fill c-family" style="width:10.4%"></div></div>
+        </div>
+
+        <div class="tb-bar-item">
+          <div class="tb-bar-row">
+            <div class="tb-bar-name"><span class="tb-bar-dot dot-health"></span> Health &amp; Exercise</div>
+            <div class="tb-bar-hours">0.5 h/day</div>
+          </div>
+          <div class="tb-bar-track"><div class="tb-bar-fill c-health" style="width:2.1%"></div></div>
+        </div>
+
+        <div class="tb-bar-item">
+          <div class="tb-bar-row">
+            <div class="tb-bar-name"><span class="tb-bar-dot dot-biz"></span> Business &amp; Operations</div>
+            <div class="tb-bar-hours">5 h/day</div>
+          </div>
+          <div class="tb-bar-track"><div class="tb-bar-fill c-biz" style="width:20.8%"></div></div>
+        </div>
+
+        <div class="tb-bar-item mission-row">
+          <div class="tb-bar-row">
+            <div class="tb-bar-name"><span class="tb-bar-dot dot-mission"></span> Mission Work &amp; Dream Projects</div>
+            <div class="tb-bar-hours">7.5 h/day</div>
+          </div>
+          <div class="tb-bar-track"><div class="tb-bar-fill c-mission" style="width:31.3%"></div></div>
+        </div>
+
+        <!-- Mission panel -->
+        <div class="tb-mission-panel">
+          <div class="tb-mission-panel-inner">
+            <div>
+              <h3>The Mission Bucket</h3>
+              <p>
+                7.5 hours every day — for 12 years — is dedicated to the mission.
+                That is <strong style="color:var(--gold-light)">~32,800 mission hours</strong> in my peak years.
+                Not a single one of them will be wasted on work that doesn't move the needle.
+              </p>
+            </div>
+            <div class="tb-mission-big">
+              <div class="tb-mission-big-val">32,800</div>
+              <div class="tb-mission-big-lbl">Mission Hours<br>to Age 60</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donut Chart -->
+      <div class="tb-donut-wrap">
+        <div class="tb-donut-svg-wrap">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Sleep 29.2% → 105.1° -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="#3b5e8c" stroke-width="28"
+              stroke-dasharray="502.65" stroke-dashoffset="0"
+              stroke-dasharray="146.77 355.88"
+              transform="rotate(-90 110 110)"/>
+            <!-- Meals 6.3% → 22.7° -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="#5a8a6a" stroke-width="28"
+              stroke-dasharray="31.67 471.0"
+              transform="rotate(15.7 110 110)"/>
+            <!-- Family 10.4% → 37.4° -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="#7a6fa8" stroke-width="28"
+              stroke-dasharray="52.27 450.38"
+              transform="rotate(53.1 110 110)"/>
+            <!-- Health 2.1% → 7.6° -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="#4a8fa8" stroke-width="28"
+              stroke-dasharray="10.55 492.1"
+              transform="rotate(90.5 110 110)"/>
+            <!-- Biz 20.8% → 74.9° -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="#4a7abf" stroke-width="28"
+              stroke-dasharray="104.61 398.04"
+              transform="rotate(98.1 110 110)"/>
+            <!-- Mission 31.3% → 112.7° -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="url(#missionGrad)" stroke-width="28"
+              stroke-dasharray="157.54 345.11"
+              transform="rotate(173.0 110 110)"/>
+            <defs>
+              <linearGradient id="missionGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#d4920c"/>
+                <stop offset="100%" stop-color="#f0ab1f"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="tb-donut-center">
+            <div class="tb-donut-center-val">7.5h</div>
+            <div class="tb-donut-center-lbl">Mission<br>Daily</div>
+          </div>
+        </div>
+        <div class="tb-donut-legend">
+          <div class="tb-donut-legend-item">
+            <span class="tb-donut-legend-dot" style="background:#3b5e8c"></span> Sleep
+          </div>
+          <div class="tb-donut-legend-item">
+            <span class="tb-donut-legend-dot" style="background:#5a8a6a"></span> Meals &amp; Care
+          </div>
+          <div class="tb-donut-legend-item">
+            <span class="tb-donut-legend-dot" style="background:#7a6fa8"></span> Family / Social
+          </div>
+          <div class="tb-donut-legend-item">
+            <span class="tb-donut-legend-dot" style="background:#4a8fa8"></span> Health
+          </div>
+          <div class="tb-donut-legend-item">
+            <span class="tb-donut-legend-dot" style="background:#4a7abf"></span> Business Ops
+          </div>
+          <div class="tb-donut-legend-item mission-leg">
+            <span class="tb-donut-legend-dot" style="background:var(--gold-light)"></span> Mission Work
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE DIVIDER -->
+<div class="tb-quote-section">
+  <div class="tb-quote-mark">"</div>
+  <p class="tb-quote-text">
+    When I give someone my time, I am giving them a piece of my life
+    that I can never get back. That is the most honest thing I can offer.
+  </p>
+  <div class="tb-quote-attr">— Satheesh Karnatakapu · Time Philosophy</div>
+</div>
+
+<!-- PRIORITY STACK -->
+<div class="tb-section-full">
+  <div class="tb-section-full-inner">
+    <div class="tb-section-label">My Priority Filter</div>
+    <h2 class="tb-section-h2">What earns a <em>yes</em> from me?</h2>
+    <p class="tb-section-body">
+      Every request for my time is filtered against this stack.
+      The higher it sits, the more mission hours it can draw from.
+    </p>
+    <div class="tb-priority-grid">
+      <div class="tb-priority-card p1">
+        <div class="tb-priority-rank">1</div>
+        <div class="tb-priority-icon">🌆</div>
+        <div class="tb-priority-title">Vizag City Model</div>
+        <div class="tb-priority-body">
+          Everything that connects society, government, NGOs, and environment
+          into a single platform — with the Happiness Index as the north star.
+          This is the lifetime mission.
+        </div>
+        <div class="tb-priority-tag">Lifetime Commitment</div>
+      </div>
+
+      <div class="tb-priority-card">
+        <div class="tb-priority-rank">2</div>
+        <div class="tb-priority-icon">🛫</div>
+        <div class="tb-priority-title">Dream Port</div>
+        <div class="tb-priority-body">
+          100 acres where people + problems + passion meet.
+          Building the campus where Vizag's biggest challenges
+          get solved by people who care.
+        </div>
+        <div class="tb-priority-tag">Active Build</div>
+      </div>
+
+      <div class="tb-priority-card">
+        <div class="tb-priority-rank">3</div>
+        <div class="tb-priority-icon">🔬</div>
+        <div class="tb-priority-title">Kalam Dream Labs</div>
+        <div class="tb-priority-body">
+          Innovation and research that turns ideas into patents,
+          solutions into scale, and experiments into proof points
+          for the Vizag model.
+        </div>
+        <div class="tb-priority-tag">Innovation Engine</div>
+      </div>
+
+      <div class="tb-priority-card">
+        <div class="tb-priority-rank">4</div>
+        <div class="tb-priority-icon">🤝</div>
+        <div class="tb-priority-title">Vizag Volunteers</div>
+        <div class="tb-priority-body">
+          5,000+ volunteers. 13 active community projects.
+          The social fabric that makes the city model real —
+          one action at a time.
+        </div>
+        <div class="tb-priority-tag">Social Layer</div>
+      </div>
+
+      <div class="tb-priority-card">
+        <div class="tb-priority-rank">5</div>
+        <div class="tb-priority-icon">💻</div>
+        <div class="tb-priority-title">F9 Info Technologies</div>
+        <div class="tb-priority-body">
+          The technology execution arm. Builds the digital layer
+          that connects everything — sustaining the mission
+          with real-world business delivery.
+        </div>
+        <div class="tb-priority-tag">Business Sustainability</div>
+      </div>
+
+      <div class="tb-priority-card">
+        <div class="tb-priority-rank">6</div>
+        <div class="tb-priority-icon">🌱</div>
+        <div class="tb-priority-title">Long-term Collaborators</div>
+        <div class="tb-priority-body">
+          People who are aligned on the mission over years — not
+          just transactions. If you're building toward the same future,
+          there is always time for you.
+        </div>
+        <div class="tb-priority-tag">Mission-Aligned</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YEAR-BY-YEAR -->
+<section class="tb-section">
+  <div class="tb-section-label">The 12-Year Window</div>
+  <h2 class="tb-section-h2">Peak years: <em>2026 → 2038</em></h2>
+  <p class="tb-section-body">
+    Each year holds ~8,766 total hours. Of those, ~2,738 are mission hours.
+    I track them by year so nothing slips through unfocused.
+  </p>
+  <div class="tb-year-grid">
+    <div class="tb-year-card current-year">
+      <div class="tb-year-num">2026</div>
+      <div class="tb-year-age">Age 48</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2027</div>
+      <div class="tb-year-age">Age 49</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2028</div>
+      <div class="tb-year-age">Age 50</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2029</div>
+      <div class="tb-year-age">Age 51</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2030</div>
+      <div class="tb-year-age">Age 52</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2031</div>
+      <div class="tb-year-age">Age 53</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2032</div>
+      <div class="tb-year-age">Age 54</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2033</div>
+      <div class="tb-year-age">Age 55</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2034</div>
+      <div class="tb-year-age">Age 56</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2035</div>
+      <div class="tb-year-age">Age 57</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2036</div>
+      <div class="tb-year-age">Age 58</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+    <div class="tb-year-card">
+      <div class="tb-year-num">2037</div>
+      <div class="tb-year-age">Age 59</div>
+      <div class="tb-year-hours">Mission hrs<span>~2,738</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLABORATION PATHS -->
+<div class="tb-section-full">
+  <div class="tb-section-full-inner">
+    <div class="tb-section-label">Work With Me</div>
+    <h2 class="tb-section-h2">Which path <em>is yours?</em></h2>
+    <p class="tb-section-body">
+      Not every request needs mission hours. Choose the right channel —
+      and we both get the best outcome.
+    </p>
+    <div class="tb-collab-grid">
+      <div class="tb-collab-card mission-path">
+        <span class="tb-collab-icon">🎯</span>
+        <div class="tb-collab-title">Long-term Mission Collaboration</div>
+        <div class="tb-collab-body">
+          You're aligned on the Vizag vision. You want to build something
+          that outlasts a single project. You're investing years, not hours.
+        </div>
+        <div class="tb-collab-checks">
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">✦</span>
+            You believe cities can be reimagined through technology + people
+          </div>
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">✦</span>
+            You can commit to a multi-year collaboration, not a single ask
+          </div>
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">✦</span>
+            You bring a specific skill or resource the mission needs
+          </div>
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">✦</span>
+            You want to solve problems that matter — not just build a career
+          </div>
+        </div>
+        <a href="contact.html" class="tb-collab-cta">Apply to Collaborate →</a>
+      </div>
+
+      <div class="tb-collab-card quick-path">
+        <span class="tb-collab-icon">💬</span>
+        <div class="tb-collab-title">Quick Conversation or Question</div>
+        <div class="tb-collab-body">
+          You have a specific ask — a meeting, a question, an intro,
+          a business inquiry. Short-term, transactional, or exploratory.
+        </div>
+        <div class="tb-collab-checks">
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">→</span>
+            Be specific about what you need and the time required
+          </div>
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">→</span>
+            If it connects to the mission, explain how
+          </div>
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">→</span>
+            Respect that a non-reply is a full answer
+          </div>
+          <div class="tb-collab-check">
+            <span class="tb-collab-check-icon">→</span>
+            Email is the right channel — not calls or drop-ins
+          </div>
+        </div>
+        <a href="contact.html" class="tb-collab-cta">Send a Message →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="tb-cta">
+  <h2 class="tb-cta-h2">Time is finite.<br><em>The mission is not.</em></h2>
+  <p class="tb-cta-sub">
+    If you're building something that will outlast both of us — let's talk.
+  </p>
+  <div class="tb-cta-actions">
+    <a href="vision.html" class="tb-cta-primary">See the Vizag Vision</a>
+    <a href="dreamport.html" class="tb-cta-secondary">Explore Dream Port</a>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+// ── Live countdown clock ──
+(function() {
+  // DOB: Jan 7, 1978  |  Target: Jan 7, 2038
+  const target = new Date('2038-01-07T00:00:00');
+  const born   = new Date('1978-01-07T00:00:00');
+  const totalMs = target - born;
+
+  function update() {
+    const now = new Date();
+    const remaining = target - now;
+    if (remaining <= 0) return;
+
+    const msPerHour = 3600000;
+    const msPerDay  = msPerHour * 24;
+    const msPerYear = msPerDay * 365.25;
+
+    const years = Math.floor(remaining / msPerYear);
+    const days  = Math.floor((remaining % msPerYear) / msPerDay);
+    const hours = Math.floor(remaining / msPerHour);
+    const mins  = Math.floor(remaining / 60000);
+
+    document.getElementById('liveHours').textContent = hours.toLocaleString();
+    document.getElementById('liveYears').textContent = years;
+    document.getElementById('liveDays').textContent  = days.toLocaleString();
+    document.getElementById('liveMins').textContent  = mins.toLocaleString();
+
+    // Progress bar: elapsed since today vs total (born→target)
+    const elapsed = now - born;
+    const pct = Math.min(100, (elapsed / totalMs) * 100);
+    document.getElementById('clockFill').style.width = pct.toFixed(2) + '%';
+
+    // Hero stats
+    const yrs = (remaining / msPerYear).toFixed(1);
+    document.getElementById('heroYears').textContent = yrs;
+    document.getElementById('heroHours').textContent = Math.round(hours / 1000) + 'K';
+  }
+
+  update();
+  setInterval(update, 1000);
+})();
+
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.tb-priority-card, .tb-year-card, .tb-collab-card, .tb-mission-panel');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.08 });
+revealEls.forEach(el => { el.classList.add('reveal'); ro.observe(el); });
+</script>
+</body>
+</html>

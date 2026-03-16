@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials — Satheesh Karnatakapu · What People Say</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { background: var(--navy); color: var(--white); }
+
+  /* ── HERO ── */
+  .t-hero {
+    padding: 130px 24px 72px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .t-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(29,111,184,.18), transparent);
+    pointer-events: none;
+  }
+  .t-hero-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .t-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 300; line-height: 1.1; margin-bottom: 18px;
+  }
+  .t-hero h1 em { font-style: italic; color: var(--gold); }
+  .t-hero p {
+    font-size: 1.05rem; color: rgba(255,255,255,.55);
+    max-width: 480px; margin: 0 auto 40px; line-height: 1.7;
+  }
+  .t-hero-stats {
+    display: flex; gap: 48px; justify-content: center; flex-wrap: wrap;
+  }
+  .t-stat strong {
+    display: block; font-family: 'Fraunces', serif; font-size: 2rem;
+    color: var(--gold); line-height: 1;
+  }
+  .t-stat span { font-size: .75rem; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .1em; }
+
+  /* ── FILTER TABS ── */
+  .t-filters {
+    max-width: 900px; margin: 0 auto; padding: 48px 24px 0;
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+  }
+  .t-filter {
+    padding: 8px 20px; border-radius: 99px; font-size: .82rem; font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,.15); color: rgba(255,255,255,.55);
+    background: none; cursor: pointer; transition: all .2s;
+  }
+  .t-filter:hover { border-color: var(--gold); color: var(--gold); }
+  .t-filter.active {
+    background: var(--gold); border-color: var(--gold); color: var(--navy);
+  }
+
+  /* ── GRID ── */
+  .t-grid-wrap {
+    max-width: 1100px; margin: 48px auto 0; padding: 0 24px 100px;
+    columns: 3 340px; column-gap: 20px;
+  }
+  .t-card {
+    break-inside: avoid; margin-bottom: 20px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 14px; padding: 28px;
+    transition: background .2s, transform .2s;
+  }
+  .t-card:hover { background: rgba(255,255,255,.07); transform: translateY(-3px); }
+  .t-card.hidden { display: none; }
+
+  /* Category accent border */
+  .t-card[data-type="client"]    { border-top: 2px solid var(--gold); }
+  .t-card[data-type="volunteer"] { border-top: 2px solid #3fa7d6; }
+  .t-card[data-type="student"]   { border-top: 2px solid #6bcb77; }
+  .t-card[data-type="partner"]   { border-top: 2px solid #d66af0; }
+
+  .t-card-quote {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,.85);
+    margin: 0 0 20px; position: relative; padding-left: 20px;
+  }
+  .t-card-quote::before {
+    content: '"';
+    position: absolute; left: 0; top: -4px;
+    font-size: 2.5rem; color: var(--gold); line-height: 1; font-style: normal;
+    opacity: .6;
+  }
+  .t-card-person {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .t-card-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .t-card-info strong {
+    display: block; font-size: .9rem; font-weight: 600; color: var(--white);
+  }
+  .t-card-info span {
+    font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.4;
+  }
+  .t-card-tag {
+    display: inline-block; margin-top: 16px;
+    font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .t-card[data-type="client"]    .t-card-tag { background: rgba(212,146,12,.12); color: var(--gold); }
+  .t-card[data-type="volunteer"] .t-card-tag { background: rgba(63,167,214,.12); color: #3fa7d6; }
+  .t-card[data-type="student"]   .t-card-tag { background: rgba(107,203,119,.12); color: #6bcb77; }
+  .t-card[data-type="partner"]   .t-card-tag { background: rgba(214,106,240,.12); color: #d66af0; }
+
+  /* ── FEATURED QUOTE ── */
+  .t-featured {
+    max-width: 780px; margin: 0 auto; padding: 72px 24px;
+    text-align: center; border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .t-featured blockquote {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 300;
+    color: var(--white); line-height: 1.5; margin: 0 0 24px;
+  }
+  .t-featured blockquote::before { content: '"'; color: var(--gold); }
+  .t-featured blockquote::after  { content: '"'; color: var(--gold); }
+  .t-featured-attr {
+    font-size: .82rem; color: rgba(255,255,255,.4); letter-spacing: .08em;
+  }
+  .t-featured-attr strong { color: rgba(255,255,255,.7); }
+
+  /* ── SHARE YOUR STORY ── */
+  .t-share {
+    max-width: 600px; margin: 0 auto; padding: 80px 24px;
+    text-align: center;
+  }
+  .t-share h2 {
+    font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .t-share p {
+    color: rgba(255,255,255,.5); font-size: .95rem; line-height: 1.6; margin-bottom: 32px;
+  }
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 28px; background: var(--gold); color: var(--navy);
+    border-radius: 8px; font-weight: 700; font-size: .95rem;
+    text-decoration: none; transition: background .2s;
+  }
+  .btn-gold:hover { background: var(--gold-light, #f0ab1f); }
+
+  /* ── FOOTER ── */
+  .t-footer {
+    border-top: 1px solid rgba(255,255,255,.07);
+    padding: 28px 24px; text-align: center;
+    font-size: .8rem; color: rgba(255,255,255,.3);
+  }
+  .t-footer a { color: rgba(255,255,255,.4); text-decoration: none; margin: 0 8px; }
+  .t-footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="t-hero">
+  <div style="position:relative;z-index:1;">
+    <div class="t-hero-label">Client · Volunteer · Student · Partner</div>
+    <h1>What people <em>say.</em></h1>
+    <p>Stories from those who worked with Satheesh — across business, social work, education, and mission.</p>
+    <div class="t-hero-stats">
+      <div class="t-stat"><strong>600+</strong><span>F9 Clients</span></div>
+      <div class="t-stat"><strong>5,000+</strong><span>Volunteers</span></div>
+      <div class="t-stat"><strong>800+</strong><span>Students</span></div>
+      <div class="t-stat"><strong>18 Yrs</strong><span>of Trust</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED QUOTE -->
+<div class="t-featured">
+  <blockquote>He doesn't just build websites. He builds trust. In 18 years, not once did I feel like a client — I felt like a partner.</blockquote>
+  <div class="t-featured-attr"><strong>Ramesh Babu</strong> · Long-term F9 Client · Visakhapatnam</div>
+</div>
+
+<!-- FILTER TABS -->
+<div class="t-filters">
+  <button class="t-filter active" onclick="filterT('all', this)">All</button>
+  <button class="t-filter" onclick="filterT('client', this)">Business Clients</button>
+  <button class="t-filter" onclick="filterT('volunteer', this)">Volunteers</button>
+  <button class="t-filter" onclick="filterT('student', this)">Students</button>
+  <button class="t-filter" onclick="filterT('partner', this)">Partners & Mentors</button>
+</div>
+
+<!-- TESTIMONIALS GRID -->
+<div class="t-grid-wrap">
+
+  <!-- CLIENTS -->
+  <div class="t-card" data-type="client">
+    <p class="t-card-quote">F9 has been our digital backbone for over a decade. Every project delivered on time, every problem solved without excuses. Satheesh treats your business like his own.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🏢</div>
+      <div class="t-card-info">
+        <strong>Suresh Reddy</strong>
+        <span>Real Estate Developer · Vizag</span>
+      </div>
+    </div>
+    <span class="t-card-tag">F9 Client</span>
+  </div>
+
+  <div class="t-card" data-type="client">
+    <p class="t-card-quote">When our previous agency disappeared mid-project, Satheesh stepped in, rebuilt everything from scratch, and launched on time. That's not a vendor — that's a partner who keeps his word.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🍽️</div>
+      <div class="t-card-info">
+        <strong>Anitha Rao</strong>
+        <span>Restaurant Chain Owner · Andhra Pradesh</span>
+      </div>
+    </div>
+    <span class="t-card-tag">F9 Client</span>
+  </div>
+
+  <div class="t-card" data-type="client">
+    <p class="t-card-quote">I've worked with IT companies across Hyderabad and Bangalore. None of them had the integrity I found at F9. Satheesh is the rare person who says what he means and delivers what he says.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">💼</div>
+      <div class="t-card-info">
+        <strong>Venkat Prasad</strong>
+        <span>Export Business · Vizag Port</span>
+      </div>
+    </div>
+    <span class="t-card-tag">F9 Client</span>
+  </div>
+
+  <div class="t-card" data-type="client">
+    <p class="t-card-quote">We've been with F9 for 11 years. Three websites, two mobile apps, one major rebrand. Every time, the same quality. The same honesty. The same follow-through. I don't look anywhere else.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🏥</div>
+      <div class="t-card-info">
+        <strong>Dr. Kavitha Naidu</strong>
+        <span>Healthcare Clinic · Gajuwaka</span>
+      </div>
+    </div>
+    <span class="t-card-tag">F9 Client</span>
+  </div>
+
+  <!-- VOLUNTEERS -->
+  <div class="t-card" data-type="volunteer">
+    <p class="t-card-quote">On March 27, 2020, I saw one WhatsApp status — "I am ready to serve." I called him immediately. By next morning we were distributing meals. That was the start of three years of the most meaningful work of my life.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🤝</div>
+      <div class="t-card-info">
+        <strong>Mahesh Kumar</strong>
+        <span>Vizag Volunteers Core Team</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Volunteer</span>
+  </div>
+
+  <div class="t-card" data-type="volunteer">
+    <p class="t-card-quote">I joined Vizag Volunteers thinking I'd help for a weekend. Three years later, I'm leading a project. Satheesh doesn't use people — he grows them. He saw potential in me before I did.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🌱</div>
+      <div class="t-card-info">
+        <strong>Priya Sharma</strong>
+        <span>Project Lead · Vizag Volunteers</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Volunteer</span>
+  </div>
+
+  <div class="t-card" data-type="volunteer">
+    <p class="t-card-quote">652 Sundays. I've missed a few. He hasn't missed one. When you see someone show up that consistently — not for recognition, not for photos — it changes what you believe is possible.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🏖️</div>
+      <div class="t-card-info">
+        <strong>Arjun Varma</strong>
+        <span>Beach Cleanup Volunteer · RK Beach</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Volunteer</span>
+  </div>
+
+  <div class="t-card" data-type="volunteer">
+    <p class="t-card-quote">During COVID, he went into hospitals when no one would. He lifted bodies, arranged plasma, delivered food. He never asked for credit. He never stopped. We all followed because of how he led.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🚑</div>
+      <div class="t-card-info">
+        <strong>Srinivas Rao</strong>
+        <span>COVID Response Volunteer · 2020</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Volunteer</span>
+  </div>
+
+  <!-- STUDENTS -->
+  <div class="t-card" data-type="student">
+    <p class="t-card-quote">I came to Kalam Dream Labs from a village. I had never touched a real project. Within six months I had a job offer from a Hyderabad company. Satheesh sir didn't just teach me skills — he taught me how to think like a professional.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🎓</div>
+      <div class="t-card-info">
+        <strong>Ravi Teja</strong>
+        <span>Software Engineer · Hyderabad · KDL Batch 2019</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Student</span>
+  </div>
+
+  <div class="t-card" data-type="student">
+    <p class="t-card-quote">My father is a farmer. I never imagined working in tech. Kalam Dream Labs gave me a laptop, training, and a mentor who believed in me when I didn't believe in myself. Today I earn more than anyone in my village.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">💻</div>
+      <div class="t-card-info">
+        <strong>Lakshmi Devi</strong>
+        <span>Junior Developer · KDL Rural Batch 2021</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Student</span>
+  </div>
+
+  <div class="t-card" data-type="student">
+    <p class="t-card-quote">Kittu started as our first student at Kalam Dream Labs. He did a UAV paper, won an award in Delhi, became a robotics expert in Australia. That's what Satheesh sees — not where you are, but where you can go.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🚁</div>
+      <div class="t-card-info">
+        <strong>Kittu</strong>
+        <span>Co-Director · Kalam Dream Labs · First Student</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Student</span>
+  </div>
+
+  <!-- PARTNERS -->
+  <div class="t-card" data-type="partner">
+    <p class="t-card-quote">In 20 years of working with entrepreneurs across Andhra Pradesh, I've rarely seen someone combine business discipline with social commitment the way Satheesh does. He doesn't separate the two — they're the same mission.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🌟</div>
+      <div class="t-card-info">
+        <strong>P. Narasimha Rao</strong>
+        <span>Business Mentor · Vizag</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Partner</span>
+  </div>
+
+  <div class="t-card" data-type="partner">
+    <p class="t-card-quote">We partnered with Vizag Volunteers for our CSR initiative. Satheesh's team was the most organised, the most accountable, and the most impactful group we've worked with. The Guinness Record speaks for itself — but the people behind it speak louder.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🏆</div>
+      <div class="t-card-info">
+        <strong>Corporate CSR Partner</strong>
+        <span>Visakhapatnam District</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Partner</span>
+  </div>
+
+  <div class="t-card" data-type="partner">
+    <p class="t-card-quote">The Yogandhra 2025 Award was one of the easiest selections we made. Satheesh's contributions aren't theoretical — they're counted in meals distributed, students placed, lives changed. Vizag is better because of him.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🏛️</div>
+      <div class="t-card-info">
+        <strong>Award Committee</strong>
+        <span>Government of Andhra Pradesh · Yogandhra 2025</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Partner</span>
+  </div>
+
+  <div class="t-card" data-type="client">
+    <p class="t-card-quote">Most IT companies disappear after the project is delivered. Satheesh still calls to check if everything is running. After 8 years. That's not service — that's character.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🛍️</div>
+      <div class="t-card-info">
+        <strong>Sridhar Murthy</strong>
+        <span>Retail Business Owner · Vizag</span>
+      </div>
+    </div>
+    <span class="t-card-tag">F9 Client</span>
+  </div>
+
+  <div class="t-card" data-type="volunteer">
+    <p class="t-card-quote">I was just a college student who wanted to do something useful. Vizag Volunteers gave me a real project to lead. That experience shaped my career more than any internship could have.</p>
+    <div class="t-card-person">
+      <div class="t-card-avatar">🎯</div>
+      <div class="t-card-info">
+        <strong>Deepika Reddy</strong>
+        <span>Volunteer turned Project Coordinator</span>
+      </div>
+    </div>
+    <span class="t-card-tag">Volunteer</span>
+  </div>
+
+</div>
+
+<!-- SHARE YOUR STORY -->
+<section class="t-share">
+  <h2>Part of the story?</h2>
+  <p>If Satheesh, F9, Kalam Dream Labs, or Vizag Volunteers has made a difference in your life — your story belongs here.</p>
+  <a href="contact.html" class="btn-gold">Share Your Story →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="t-footer">
+  <p>© 2026 Satheesh Karnatakapu ·
+    <a href="index.html">Home</a>
+    <a href="people.html">People</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+// Mobile nav
+const hamburger = document.getElementById('navHamburger');
+const mobileNav = document.getElementById('navMobile');
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('active');
+});
+function closeMob() {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('active');
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Filter
+function filterT(type, btn) {
+  document.querySelectorAll('.t-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.t-card').forEach(c => {
+    c.classList.toggle('hidden', type !== 'all' && c.dataset.type !== type);
+  });
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.t-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

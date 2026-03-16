@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Network — Satheesh Karnatakapu · 20,000+ Connections, Organized</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── NETWORK PAGE ── */
+body { background: var(--navy); color: var(--white); }
+
+/* HERO */
+.nw-hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: calc(9rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.nw-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+.nw-hero::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(29,111,184,0.15) 0%, transparent 65%);
+  top: -200px; right: -200px;
+  pointer-events: none;
+}
+.nw-hero-glow2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212,146,12,0.1) 0%, transparent 65%);
+  bottom: -100px; left: -80px;
+  pointer-events: none;
+}
+.nw-hero-inner {
+  max-width: 1120px; margin: 0 auto;
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.nw-breadcrumb { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem; }
+.nw-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.nw-breadcrumb a:hover { color: var(--gold-light); }
+.nw-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  border: 1px solid rgba(212,146,12,0.3);
+  padding: 0.38rem 1rem; border-radius: 99px; margin-bottom: 2rem;
+}
+.nw-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 600; color: var(--white);
+  line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 1.2rem;
+}
+.nw-h1 em { color: var(--gold-light); font-style: normal; }
+.nw-tagline {
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.8; margin-bottom: 2.5rem;
+}
+.nw-hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.nw-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem; font-weight: 600; color: var(--gold-light); line-height: 1;
+}
+.nw-stat-label {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 0.3rem;
+}
+
+/* Bubble chart */
+.nw-bubble-wrap {
+  position: relative; width: 100%; aspect-ratio: 1; max-width: 460px; margin: 0 auto;
+}
+.nw-bubble {
+  position: absolute;
+  border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.nw-bubble:hover { transform: scale(1.06); z-index: 10; }
+.nw-bubble-name {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.9); line-height: 1.2;
+}
+.nw-bubble-count {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem; font-weight: 600; color: var(--white); line-height: 1;
+}
+.nw-bubble-sub {
+  font-size: 0.55rem; color: rgba(255,255,255,0.5); margin-top: 0.1rem;
+}
+
+/* SECTION BASE */
+.nw-section { padding: 7rem 5rem; max-width: 1120px; margin: 0 auto; }
+.nw-section-full {
+  padding: 7rem 5rem;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nw-section-full-inner { max-width: 1120px; margin: 0 auto; }
+.nw-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem;
+}
+.nw-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem;
+}
+.nw-h2 em { color: var(--gold-light); font-style: normal; }
+.nw-body {
+  font-size: 1.05rem; color: rgba(255,255,255,0.5);
+  line-height: 1.8; max-width: 640px;
+}
+
+/* CIRCLE CARDS */
+.nw-circles-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem;
+}
+.nw-circle-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 1.8rem;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative; overflow: hidden;
+}
+.nw-circle-card:hover { border-color: rgba(212,146,12,0.3); transform: translateY(-3px); }
+.nw-circle-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; border-radius: 99px 99px 0 0;
+}
+.nw-cc-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+.nw-cc-icon { font-size: 1.8rem; }
+.nw-cc-count {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8rem; font-weight: 600;
+  color: var(--gold-light); line-height: 1;
+}
+.nw-cc-count-label {
+  font-size: 0.55rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.nw-cc-name { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+.nw-cc-type {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.8rem;
+}
+.nw-cc-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.65; margin-bottom: 1rem; }
+.nw-cc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.nw-cc-tag {
+  font-size: 0.58rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 99px;
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.3);
+}
+
+/* colour bars per circle */
+.nw-circle-card.c-bni::before { background: #e74c6f; }
+.nw-circle-card.c-vv::before  { background: #f59e0b; }
+.nw-circle-card.c-yi::before  { background: #3b82f6; }
+.nw-circle-card.c-cii::before { background: #10b981; }
+.nw-circle-card.c-gdg::before { background: #8b5cf6; }
+.nw-circle-card.c-clients::before { background: #06b6d4; }
+.nw-circle-card.c-social::before  { background: #f97316; }
+.nw-circle-card.c-personal::before { background: #ec4899; }
+.nw-circle-card.c-alumni::before  { background: #a78bfa; }
+
+/* COMMUNICATION MODEL */
+.nw-comm-flow {
+  display: grid; grid-template-columns: auto 1fr auto 1fr auto;
+  align-items: center; gap: 0; margin-top: 3.5rem;
+}
+.nw-comm-node {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 1.5rem 1.2rem;
+  text-align: center; min-width: 140px;
+}
+.nw-comm-node.active {
+  background: rgba(212,146,12,0.08);
+  border-color: rgba(212,146,12,0.3);
+}
+.nw-comm-node-icon { font-size: 1.8rem; margin-bottom: 0.6rem; display: block; }
+.nw-comm-node-title { font-size: 0.8rem; font-weight: 700; color: var(--white); }
+.nw-comm-node-sub { font-size: 0.65rem; color: rgba(255,255,255,0.35); margin-top: 0.2rem; }
+.nw-comm-arrow {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(212,146,12,0.3), rgba(212,146,12,0.1));
+  position: relative; margin: 0 0.5rem;
+}
+.nw-comm-arrow::after {
+  content: '→';
+  position: absolute; right: -6px; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(212,146,12,0.4); font-size: 0.8rem;
+}
+
+/* Communication types */
+.nw-comm-types {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 2.5rem;
+}
+.nw-comm-type {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.25s;
+}
+.nw-comm-type:hover { border-color: rgba(212,146,12,0.3); }
+.nw-comm-type-icon { font-size: 1.8rem; margin-bottom: 0.6rem; display: block; }
+.nw-comm-type-name { font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+.nw-comm-type-desc { font-size: 0.72rem; color: rgba(255,255,255,0.35); line-height: 1.5; }
+
+/* AUTOMATION IDEAS */
+.nw-auto-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3.5rem;
+}
+.nw-auto-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 2rem;
+  transition: border-color 0.3s;
+}
+.nw-auto-card:hover { border-color: rgba(29,111,184,0.4); }
+.nw-auto-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+.nw-auto-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.nw-auto-body { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+.nw-auto-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.nw-auto-chip {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 99px;
+  background: rgba(29,111,184,0.12); color: rgba(255,255,255,0.4);
+}
+
+/* GUILT → SOLUTION */
+.nw-guilt-section {
+  background: linear-gradient(135deg, rgba(212,146,12,0.06), rgba(11,37,69,0.8));
+  border: 1px solid rgba(212,146,12,0.2);
+  border-radius: 20px; padding: 3rem; margin-top: 3.5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+}
+.nw-guilt-text {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.7); line-height: 1.6;
+}
+.nw-guilt-text strong { color: var(--gold-light); font-style: normal; font-weight: 600; }
+.nw-solution-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1rem; }
+.nw-solution-list { list-style: none; padding: 0; }
+.nw-solution-list li {
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 0.6rem;
+}
+.nw-solution-list li::before { content: '✦'; color: var(--gold-light); font-size: 0.65rem; flex-shrink: 0; margin-top: 0.2rem; }
+
+/* CTA */
+.nw-cta {
+  background: linear-gradient(135deg, rgba(11,37,69,0.98), rgba(18,52,99,0.95));
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 7rem 5rem; text-align: center;
+}
+.nw-cta-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600; color: var(--white);
+  letter-spacing: -0.02em; margin-bottom: 1rem;
+}
+.nw-cta-h2 em { color: var(--gold-light); font-style: normal; }
+.nw-cta-sub { font-size: 1rem; color: rgba(255,255,255,0.4); margin-bottom: 2.5rem; }
+.nw-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.nw-cta-primary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: var(--gold); color: var(--navy);
+  font-weight: 700; font-size: 0.9rem;
+  text-decoration: none; transition: all 0.25s;
+}
+.nw-cta-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.nw-cta-secondary {
+  padding: 1rem 2.5rem; border-radius: 99px;
+  background: transparent; color: var(--white);
+  font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.25s;
+}
+.nw-cta-secondary:hover { background: rgba(255,255,255,0.05); }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .nw-hero-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .nw-circles-grid { grid-template-columns: repeat(2, 1fr); }
+  .nw-comm-flow { grid-template-columns: 1fr; gap: 1rem; }
+  .nw-comm-arrow { display: none; }
+  .nw-comm-types { grid-template-columns: repeat(2, 1fr); }
+  .nw-guilt-section { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nw-hero, .nw-section, .nw-section-full, .nw-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .nw-circles-grid { grid-template-columns: 1fr; }
+  .nw-auto-grid { grid-template-columns: 1fr; }
+  .nw-comm-types { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <div class="mob-group">
+      <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+      <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Connect</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="nw-hero">
+  <div class="nw-hero-glow2"></div>
+  <div class="nw-hero-inner">
+    <div>
+      <div class="nw-breadcrumb"><a href="index.html">← Satheesh.info</a> / My Network</div>
+      <div class="nw-badge">🔗 Network by Design</div>
+      <h1 class="nw-h1">
+        20,000+<br>connections.<br>
+        <em>Organized.</em>
+      </h1>
+      <p class="nw-tagline">
+        Not a contacts list — a network of circles.
+        Each circle has a purpose, a communication style,
+        and a role in the mission. This is how one person
+        stays connected to twenty thousand.
+      </p>
+      <div class="nw-hero-stats">
+        <div>
+          <div class="nw-stat-val">20,000+</div>
+          <div class="nw-stat-label">Total connections</div>
+        </div>
+        <div>
+          <div class="nw-stat-val">9+</div>
+          <div class="nw-stat-label">Distinct circles</div>
+        </div>
+        <div>
+          <div class="nw-stat-val">5,000+</div>
+          <div class="nw-stat-label">Active volunteers</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bubble visualization -->
+    <div class="nw-bubble-wrap" id="bubbleWrap"></div>
+  </div>
+</section>
+
+<!-- THE CIRCLES -->
+<div class="nw-section-full">
+  <div class="nw-section-full-inner">
+    <div class="nw-label">The Circles</div>
+    <h2 class="nw-h2">Every connection belongs <em>to a circle</em></h2>
+    <p class="nw-body">
+      Not everyone in the network needs the same message or plays the same role.
+      Circles make it possible to communicate with purpose — sending the right message
+      to the right people at the right time.
+    </p>
+    <div class="nw-circles-grid">
+
+      <div class="nw-circle-card c-vv reveal">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">🤝</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">5,000+</div>
+            <div class="nw-cc-count-label">members</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">Vizag Volunteers</div>
+        <div class="nw-cc-type">Social Impact · WhatsApp Groups</div>
+        <div class="nw-cc-desc">The largest circle. 5,000+ active volunteers across 13 community projects. Mobilised for social action, disaster response, cleanups, and city events.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Social Impact</span>
+          <span class="nw-cc-tag">Volunteers</span>
+          <span class="nw-cc-tag">Projects</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-clients reveal d1">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">💼</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">600+</div>
+            <div class="nw-cc-count-label">clients</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">F9 Business Network</div>
+        <div class="nw-cc-type">Technology Clients · Business Partners</div>
+        <div class="nw-cc-desc">Business relationships built over 16 years. Technology clients, referral partners, and business collaborators across Vizag and beyond.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Clients</span>
+          <span class="nw-cc-tag">Tech</span>
+          <span class="nw-cc-tag">Business</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-bni reveal d2">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">🤜</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">200+</div>
+            <div class="nw-cc-count-label">members</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">BNI Circle</div>
+        <div class="nw-cc-type">Structured Networking · Referrals</div>
+        <div class="nw-cc-desc">Business Network International — structured, trust-based referral network. Built on the principle of Givers Gain. High-quality business connections.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Referrals</span>
+          <span class="nw-cc-tag">Business</span>
+          <span class="nw-cc-tag">Trust</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-yi reveal">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">🌟</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">300+</div>
+            <div class="nw-cc-count-label">members</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">YI Circle</div>
+        <div class="nw-cc-type">Young Indians · CII Youth Wing</div>
+        <div class="nw-cc-desc">Young entrepreneurs, changemakers, and future leaders. A peer network of motivated young professionals committed to India's growth.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Youth</span>
+          <span class="nw-cc-tag">Entrepreneurs</span>
+          <span class="nw-cc-tag">Leadership</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-cii reveal d1">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">🏛</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">400+</div>
+            <div class="nw-cc-count-label">members</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">CII Circle</div>
+        <div class="nw-cc-type">Industry Leaders · Policy Makers</div>
+        <div class="nw-cc-desc">Confederation of Indian Industry. Senior industry leaders, policy influencers, and decision-makers shaping Vizag's economic landscape.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Industry</span>
+          <span class="nw-cc-tag">Policy</span>
+          <span class="nw-cc-tag">Leadership</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-gdg reveal d2">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">💻</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">500+</div>
+            <div class="nw-cc-count-label">members</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">GDG Circle</div>
+        <div class="nw-cc-type">Google Developer Group · Tech Community</div>
+        <div class="nw-cc-desc">Technology developers, engineers, and innovators. The tech community circle — for project assignments, startup support, and digital collaboration.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Developers</span>
+          <span class="nw-cc-tag">Tech</span>
+          <span class="nw-cc-tag">Innovation</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-alumni reveal">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">🎓</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">800+</div>
+            <div class="nw-cc-count-label">students</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">Kalam Labs Alumni</div>
+        <div class="nw-cc-type">Students · Mentees · Next Generation</div>
+        <div class="nw-cc-desc">800+ rural students trained and placed through Kalam Dream Labs. Young people Satheesh has personally mentored, tested, and guided into careers.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Mentees</span>
+          <span class="nw-cc-tag">Students</span>
+          <span class="nw-cc-tag">Placement</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-social reveal d1">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">🌐</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">2,000+</div>
+            <div class="nw-cc-count-label">connections</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">NGO & Social Network</div>
+        <div class="nw-cc-type">Civic Leaders · NGO Partners · Donors</div>
+        <div class="nw-cc-desc">The civic ecosystem — NGO leaders, social workers, government liaisons, donors, and community organisers who power the social mission.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">NGOs</span>
+          <span class="nw-cc-tag">Donors</span>
+          <span class="nw-cc-tag">Civic</span>
+        </div>
+      </div>
+
+      <div class="nw-circle-card c-personal reveal d2">
+        <div class="nw-cc-header">
+          <div class="nw-cc-icon">❤️</div>
+          <div style="text-align:right">
+            <div class="nw-cc-count">10,000+</div>
+            <div class="nw-cc-count-label">contacts</div>
+          </div>
+        </div>
+        <div class="nw-cc-name">Personal Mobile Network</div>
+        <div class="nw-cc-type">Personal Contacts · Friends · Family</div>
+        <div class="nw-cc-desc">10,000+ personal contacts built over 25 years. The broadest circle — family, friends, acquaintances, and connections spanning every chapter of life.</div>
+        <div class="nw-cc-tags">
+          <span class="nw-cc-tag">Personal</span>
+          <span class="nw-cc-tag">Family</span>
+          <span class="nw-cc-tag">Friends</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Guilt → Solution -->
+    <div class="nw-guilt-section reveal">
+      <div class="nw-guilt-text">
+        "I have sometimes felt guilty — because of a busy schedule
+        I was <strong>not able to wish people on their birthdays</strong>,
+        anniversaries, or important days. People who matter to me.
+        That is not acceptable."
+      </div>
+      <div>
+        <div class="nw-solution-title">The Solution — Circle-Based Automation</div>
+        <ul class="nw-solution-list">
+          <li>Birthday & anniversary wishes sent automatically by circle</li>
+          <li>Festival greetings → right message to right circle</li>
+          <li>Project updates → relevant circle only, not everyone</li>
+          <li>Event invitations → circle-filtered, not mass blast</li>
+          <li>Donor appreciation → tracked, personalised, on time</li>
+          <li>Volunteer engagement → context-aware communication</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNICATION MODEL -->
+<div class="nw-section">
+  <div class="nw-label">How Communication Flows</div>
+  <h2 class="nw-h2">Circle-based <em>communication model</em></h2>
+  <p class="nw-body">
+    Each message has a source, a circle filter, and a channel.
+    Never broadcast to everyone. Always communicate with purpose.
+  </p>
+
+  <div class="nw-comm-flow reveal" style="margin-top:3rem;">
+    <div class="nw-comm-node active">
+      <span class="nw-comm-node-icon">💡</span>
+      <div class="nw-comm-node-title">Intent</div>
+      <div class="nw-comm-node-sub">What needs to be communicated?</div>
+    </div>
+    <div class="nw-comm-arrow"></div>
+    <div class="nw-comm-node active">
+      <span class="nw-comm-node-icon">⭕</span>
+      <div class="nw-comm-node-title">Select Circle</div>
+      <div class="nw-comm-node-sub">Who actually needs this?</div>
+    </div>
+    <div class="nw-comm-arrow"></div>
+    <div class="nw-comm-node active">
+      <span class="nw-comm-node-icon">📤</span>
+      <div class="nw-comm-node-title">Send & Track</div>
+      <div class="nw-comm-node-sub">Right channel, right time</div>
+    </div>
+  </div>
+
+  <div class="nw-comm-types reveal">
+    <div class="nw-comm-type">
+      <span class="nw-comm-type-icon">💬</span>
+      <div class="nw-comm-type-name">WhatsApp Groups</div>
+      <div class="nw-comm-type-desc">Instant community updates, event mobilisation, volunteer coordination</div>
+    </div>
+    <div class="nw-comm-type">
+      <span class="nw-comm-type-icon">📧</span>
+      <div class="nw-comm-type-name">Email Campaigns</div>
+      <div class="nw-comm-type-desc">Formal outreach, newsletters, project proposals, donor communication</div>
+    </div>
+    <div class="nw-comm-type">
+      <span class="nw-comm-type-icon">🎂</span>
+      <div class="nw-comm-type-name">Personal Wishes</div>
+      <div class="nw-comm-type-desc">Birthdays, anniversaries, milestones — no one should be missed</div>
+    </div>
+    <div class="nw-comm-type">
+      <span class="nw-comm-type-icon">🔔</span>
+      <div class="nw-comm-type-name">Project Alerts</div>
+      <div class="nw-comm-type-desc">Targeted to relevant circles only — Dream Port, Kalam Labs, Volunteers</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTOMATION VISION -->
+<div class="nw-section-full">
+  <div class="nw-section-full-inner">
+    <div class="nw-label">The Vision — Network Technology</div>
+    <h2 class="nw-h2">What this system <em>should do</em></h2>
+    <p class="nw-body">
+      Managing 20,000+ relationships manually is impossible.
+      The goal is a system that keeps every relationship warm —
+      automatically, intelligently, with the right message at the right time.
+    </p>
+    <div class="nw-auto-grid">
+      <div class="nw-auto-card reveal">
+        <span class="nw-auto-icon">🎯</span>
+        <div class="nw-auto-title">Circle-Based Targeting</div>
+        <div class="nw-auto-body">
+          For any message, project, or event — automatically identify the relevant circle
+          and send only to them. No noise. No mass blasts. Each person receives only
+          what is relevant to their relationship with the mission.
+        </div>
+        <div class="nw-auto-chips">
+          <span class="nw-auto-chip">Circle Filter</span>
+          <span class="nw-auto-chip">WhatsApp</span>
+          <span class="nw-auto-chip">Email</span>
+        </div>
+      </div>
+      <div class="nw-auto-card reveal d1">
+        <span class="nw-auto-icon">🎂</span>
+        <div class="nw-auto-title">Relationship Warmth Engine</div>
+        <div class="nw-auto-body">
+          Never miss a birthday. Never forget an anniversary. Never lose a donor relationship
+          to silence. Automated personal wishes — calibrated by circle, personalised by relationship,
+          scheduled by importance.
+        </div>
+        <div class="nw-auto-chips">
+          <span class="nw-auto-chip">Birthdays</span>
+          <span class="nw-auto-chip">Anniversaries</span>
+          <span class="nw-auto-chip">Festivals</span>
+        </div>
+      </div>
+      <div class="nw-auto-card reveal">
+        <span class="nw-auto-icon">📊</span>
+        <div class="nw-auto-title">Network Analytics</div>
+        <div class="nw-auto-body">
+          Track who is active, who has drifted, which circles are growing.
+          Identify the connectors — the people who bridge circles.
+          Know where to invest relationship energy for maximum mission impact.
+        </div>
+        <div class="nw-auto-chips">
+          <span class="nw-auto-chip">Activity Tracking</span>
+          <span class="nw-auto-chip">Growth Metrics</span>
+          <span class="nw-auto-chip">Connectors</span>
+        </div>
+      </div>
+      <div class="nw-auto-card reveal d1">
+        <span class="nw-auto-icon">🔁</span>
+        <div class="nw-auto-title">Project-to-Circle Matching</div>
+        <div class="nw-auto-body">
+          When a Dream Port problem needs a biomedical engineer — the system identifies
+          who in the network matches. When a volunteer project needs a logistics coordinator —
+          the right circle is activated instantly.
+        </div>
+        <div class="nw-auto-chips">
+          <span class="nw-auto-chip">Skill Matching</span>
+          <span class="nw-auto-chip">Project Alerts</span>
+          <span class="nw-auto-chip">Auto-Assign</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="nw-cta">
+  <h2 class="nw-cta-h2">Want to be part of<br><em>this network?</em></h2>
+  <p class="nw-cta-sub">Every circle is open to people who bring purpose and commitment.</p>
+  <div class="nw-cta-actions">
+    <a href="people.html#engage" class="nw-cta-primary">Join a Circle</a>
+    <a href="vizagvolunteers.html" class="nw-cta-secondary">Vizag Volunteers</a>
+    <a href="contact.html" class="nw-cta-secondary">Get in Touch</a>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+// Bubble chart data
+const bubbles = [
+  { name: 'Vizag\nVolunteers', count: '5,000+', color: 'rgba(245,158,11,0.25)', border: 'rgba(245,158,11,0.4)', size: 38, x: 48, y: 20 },
+  { name: 'Personal\nNetwork', count: '10,000+', color: 'rgba(236,72,153,0.18)', border: 'rgba(236,72,153,0.35)', size: 44, x: 10, y: 45 },
+  { name: 'NGO &\nSocial', count: '2,000+', color: 'rgba(249,115,22,0.2)', border: 'rgba(249,115,22,0.35)', size: 28, x: 68, y: 55 },
+  { name: 'F9 Clients', count: '600+', color: 'rgba(6,182,212,0.2)', border: 'rgba(6,182,212,0.35)', size: 22, x: 15, y: 12 },
+  { name: 'Kalam\nAlumni', count: '800+', color: 'rgba(167,139,250,0.2)', border: 'rgba(167,139,250,0.35)', size: 24, x: 72, y: 15 },
+  { name: 'GDG', count: '500+', color: 'rgba(139,92,246,0.2)', border: 'rgba(139,92,246,0.35)', size: 18, x: 35, y: 68 },
+  { name: 'CII', count: '400+', color: 'rgba(16,185,129,0.2)', border: 'rgba(16,185,129,0.35)', size: 17, x: 58, y: 75 },
+  { name: 'BNI', count: '200+', color: 'rgba(231,76,111,0.2)', border: 'rgba(231,76,111,0.35)', size: 14, x: 82, y: 38 },
+  { name: 'YI', count: '300+', color: 'rgba(59,130,246,0.2)', border: 'rgba(59,130,246,0.35)', size: 15, x: 5, y: 72 },
+];
+
+const wrap = document.getElementById('bubbleWrap');
+bubbles.forEach(b => {
+  const el = document.createElement('div');
+  el.className = 'nw-bubble';
+  const sz = b.size;
+  el.style.cssText = `
+    width:${sz}%; height:${sz}%;
+    left:${b.x}%; top:${b.y}%;
+    background:${b.color};
+    border-color:${b.border};
+  `;
+  el.innerHTML = `
+    <div class="nw-bubble-count">${b.count}</div>
+    <div class="nw-bubble-name">${b.name.replace('\n','<br>')}</div>
+  `;
+  wrap.appendChild(el);
+});
+
+// Scroll reveal
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.nw-circle-card, .nw-auto-card, .nw-comm-flow, .nw-comm-types, .nw-guilt-section').forEach(el => {
+  el.classList.add('reveal'); ro.observe(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Port — Kalam Dream Labs · 100-Acre Campus for Human-First Innovation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── DREAM PORT PAGE ── */
+
+.dp-hero {
+  padding: calc(9rem + 68px) 5rem 8rem;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.dp-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.dp-hero::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(212,146,12,0.12) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.dp-hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.dp-breadcrumb {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.dp-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.dp-breadcrumb a:hover { color: var(--gold-light); }
+.dp-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-light);
+  border: 1px solid rgba(212,146,12,0.3);
+  padding: 0.4rem 1rem; border-radius: 99px;
+  margin-bottom: 2rem;
+}
+.dp-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+.dp-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.0;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+.dp-h1 span { color: var(--gold-light); }
+.dp-tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255,255,255,0.55);
+  max-width: 640px;
+  line-height: 1.7;
+  margin: 1.5rem 0 2.5rem;
+  font-style: italic;
+}
+.dp-hero-btns {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.dp-btn-primary {
+  padding: 0.85rem 2rem;
+  background: var(--gold-light);
+  color: var(--navy);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.dp-btn-primary:hover { opacity: 0.88; }
+.dp-btn-ghost {
+  padding: 0.85rem 2rem;
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.dp-btn-ghost:hover { background: rgba(255,255,255,0.15); }
+.dp-hero-stats {
+  display: flex; gap: 3.5rem; flex-wrap: wrap;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.dp-stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem; font-weight: 600;
+  color: var(--white);
+}
+.dp-stat-lbl {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.25rem;
+}
+
+/* ── KALAM STORY ── */
+.dp-section {
+  padding: 7rem 5rem;
+}
+.dp-section-inner { max-width: 1120px; margin: 0 auto; }
+.dp-section-tag {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.dp-section-tag::before {
+  content: '';
+  width: 28px; height: 2px;
+  background: var(--accent);
+}
+.dp-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+.dp-h2 em { color: var(--accent); font-style: italic; }
+.dp-divider {
+  width: 48px; height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 3rem;
+}
+
+/* Kalam quote box */
+.kalam-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.kalam-story-text p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+.kalam-quote-box {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.kalam-quote-box::before {
+  content: '\201C';
+  font-family: 'Fraunces', serif;
+  font-size: 12rem;
+  color: rgba(212,146,12,0.1);
+  position: absolute;
+  top: -2rem; left: 1rem;
+  line-height: 1;
+  pointer-events: none;
+}
+.kalam-quote-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+.kalam-quote-accent {
+  display: inline-block;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+}
+.kalam-limb-highlight {
+  margin-top: 2rem;
+  background: rgba(212,146,12,0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 1.2rem 1.5rem;
+}
+.kalam-limb-highlight strong {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.kalam-limb-highlight p {
+  font-size: 0.95rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* ── WHAT IS DREAM PORT ── */
+.dp-concept-bg {
+  background: var(--navy-subtle, #f0f4f8);
+}
+.dp-concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.dp-concept-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.2rem 2rem;
+  border: 1px solid var(--border, #e8edf2);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.dp-concept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(11,37,69,0.1);
+}
+.dp-concept-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+}
+.dp-concept-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.7rem;
+}
+.dp-concept-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── ELIGIBILITY ── */
+.dp-eligibility-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+.dp-elig-intro {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+.dp-elig-not {
+  background: #fff5f5;
+  border: 1px solid #ffe0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.dp-elig-not-label {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #c0392b;
+  margin-bottom: 0.8rem;
+}
+.dp-elig-not-items {
+  list-style: none; padding: 0; margin: 0;
+}
+.dp-elig-not-items li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.dp-elig-not-items li::before {
+  content: '✕';
+  position: absolute; left: 0;
+  color: #c0392b;
+  font-size: 0.75rem;
+}
+.dp-elig-yes {
+  background: #f0faf4;
+  border: 1px solid #c3e6cb;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.dp-elig-yes-label {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #1a7c3e;
+  margin-bottom: 0.8rem;
+}
+.dp-elig-yes-items {
+  list-style: none; padding: 0; margin: 0;
+}
+.dp-elig-yes-items li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 0.3rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.dp-elig-yes-items li::before {
+  content: '✓';
+  position: absolute; left: 0;
+  color: #1a7c3e;
+  font-weight: 700;
+}
+.dp-campus-visual {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 3rem;
+  color: var(--white);
+}
+.dp-campus-num {
+  font-family: 'Fraunces', serif;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.dp-campus-unit {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
+}
+.dp-campus-features {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.dp-campus-features li {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.dp-campus-features li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dp-free-tag {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; gap: 1rem;
+}
+.dp-free-badge {
+  background: var(--gold-light);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+}
+.dp-free-text {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+
+/* ── WHO CAN JOIN ── */
+.dp-who-bg { background: var(--navy); }
+.dp-who-h2 { color: var(--white) !important; }
+.dp-who-roles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.dp-role-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.dp-role-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(212,146,12,0.4);
+  transform: translateY(-4px);
+}
+.dp-role-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.dp-role-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.dp-role-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+/* ── PROBLEM STATEMENTS HUB ── */
+.dp-problems-intro {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+
+/* Sector Filter Tabs */
+.dp-sector-tabs {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+.dp-sector-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border, #e0e8f0);
+  background: var(--white);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dp-sector-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(29,111,184,0.05);
+}
+.dp-sector-btn.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.dp-sector-btn .s-icon { font-size: 1rem; }
+
+/* Problem cards grid */
+.dp-problems-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.dp-prob-card {
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border, #e8edf2);
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.dp-prob-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 36px rgba(11,37,69,0.1);
+}
+.dp-prob-card[hidden] { display: none; }
+.dp-prob-sector-bar {
+  height: 3px;
+  border-radius: 2px;
+  margin-bottom: 1.2rem;
+}
+.dp-prob-domain {
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.dp-prob-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+.dp-prob-body {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+  margin-bottom: 1.1rem;
+}
+.dp-prob-skills-label {
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  opacity: 0.6;
+}
+.dp-prob-roles {
+  display: flex; flex-wrap: wrap; gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+.dp-prob-role-tag {
+  font-size: 0.68rem; font-weight: 600;
+  background: rgba(29,111,184,0.08);
+  color: var(--accent);
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+}
+.dp-prob-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #eef1f5);
+}
+.dp-prob-team-size {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+.dp-prob-join {
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  background: rgba(29,111,184,0.08);
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.dp-prob-join:hover { background: rgba(29,111,184,0.16); }
+
+/* How to engage — step guide */
+.dp-engage-strip {
+  background: var(--navy);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-top: 4rem;
+}
+.dp-engage-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.dp-engage-sub {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2.5rem;
+}
+.dp-engage-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+.dp-engage-step {
+  text-align: center;
+  padding: 0.5rem;
+}
+.dp-engage-num {
+  width: 2.5rem; height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(212,146,12,0.4);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 0.8rem;
+  font-family: 'Fraunces', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+.dp-engage-step-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.dp-engage-step-desc {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+}
+
+/* Sector colour accents */
+.s-health  { background: #e74c3c; }
+.s-edu     { background: #3498db; }
+.s-agri    { background: #27ae60; }
+.s-env     { background: #1abc9c; }
+.s-tech    { background: #9b59b6; }
+.s-women   { background: #e91e8c; }
+.s-gov     { background: #f39c12; }
+.s-live    { background: #e67e22; }
+
+/* ── PROCESS ── */
+.dp-process-bg { background: var(--navy-subtle, #f0f4f8); }
+.dp-process-steps {
+  display: flex;
+  gap: 0;
+  margin-top: 3rem;
+  position: relative;
+}
+.dp-process-steps::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: calc(2rem + 2px);
+  right: calc(2rem + 2px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  z-index: 0;
+}
+.dp-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+.dp-step-circle {
+  width: 4rem; height: 4rem;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.dp-step-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.dp-step-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── CTA ── */
+.dp-cta {
+  background: var(--navy);
+  padding: 8rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.dp-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.dp-cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+.dp-cta-eyebrow {
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1.5rem;
+}
+.dp-cta-h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.dp-cta-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+.dp-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .dp-concept-grid { grid-template-columns: repeat(2, 1fr); }
+  .dp-who-roles { grid-template-columns: repeat(2, 1fr); }
+  .kalam-story { grid-template-columns: 1fr; gap: 2.5rem; }
+  .dp-eligibility-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  .dp-hero, .dp-section, .dp-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .dp-concept-grid { grid-template-columns: 1fr; }
+  .dp-who-roles { grid-template-columns: 1fr 1fr; }
+  .dp-problems-grid { grid-template-columns: 1fr; }
+  .dp-process-steps { flex-direction: column; gap: 2rem; }
+  .dp-process-steps::before { display: none; }
+  .dp-campus-features { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="dp-hero">
+  <div class="dp-hero-inner">
+    <div class="dp-breadcrumb">
+      <a href="index.html">← Back to Satheesh.info</a>
+      <span>/</span>
+      <a href="kalamdreamlabs.html">Kalam Dream Labs</a>
+      <span>/</span>
+      <span>Dream Port</span>
+    </div>
+    <div class="dp-badge">
+      <span class="dp-badge-dot"></span>
+      A Vision in the Making · Kalam Dream Labs Initiative
+    </div>
+    <h1 class="dp-h1">Dream<br><span>Port</span></h1>
+    <p class="dp-tagline">
+      Like an airport connects the world — Dream Port connects dreamers, doers, innovators and problem-solvers. A 100-acre free campus built on one idea: people-first innovation.
+    </p>
+    <div class="dp-hero-btns">
+      <a href="#be-part" class="dp-btn-primary">Be Part of This Dream</a>
+      <a href="#what-is" class="dp-btn-ghost">Explore the Vision</a>
+    </div>
+    <div class="dp-hero-stats">
+      <div>
+        <div class="dp-stat-val">100</div>
+        <div class="dp-stat-lbl">Acres Campus</div>
+      </div>
+      <div>
+        <div class="dp-stat-val">Free</div>
+        <div class="dp-stat-lbl">For Dreamers</div>
+      </div>
+      <div>
+        <div class="dp-stat-val">∞</div>
+        <div class="dp-stat-lbl">Problems to Solve</div>
+      </div>
+      <div>
+        <div class="dp-stat-val">1</div>
+        <div class="dp-stat-lbl">Criteria: Passion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE KALAM INSPIRATION -->
+<section class="dp-section">
+  <div class="dp-section-inner">
+    <div class="dp-section-tag reveal">The Spark</div>
+    <h2 class="dp-h2 reveal">Inspired by <em>Dr. APJ Abdul Kalam</em></h2>
+    <div class="dp-divider reveal"></div>
+    <div class="kalam-story">
+      <div class="kalam-story-text reveal">
+        <p>
+          Dr. Kalam's greatest lesson was not about rockets. It was about what rockets leave behind.
+        </p>
+        <p>
+          When the space programme developed ultra-lightweight foam for rocket insulation, Kalam saw something most engineers missed — that same material could be transformed into artificial limbs. Limbs that weighed almost nothing. Limbs that changed millions of lives.
+        </p>
+        <p>
+          He didn't ask "what is this material useful for?" He asked: <strong>"Who needs this?"</strong> That single shift in thinking — from technology-first to people-first — is the founding philosophy of Dream Port.
+        </p>
+        <p>
+          Every technology, every patent, every innovation created inside these walls must answer one question: <strong>Does this make someone's life better?</strong>
+        </p>
+        <div class="kalam-limb-highlight reveal">
+          <strong>The Rocket Foam Story</strong>
+          <p>Rocket insulation foam → Lightweight artificial limbs → Thousands of people walked again. One material. One question. Infinite smiles.</p>
+        </div>
+      </div>
+      <div class="kalam-quote-box reveal d2">
+        <p class="kalam-quote-text">
+          "You have to dream before your dreams can come true."
+        </p>
+        <span class="kalam-quote-accent">— Dr. APJ Abdul Kalam</span>
+        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
+          <p style="font-size:0.9rem; color:rgba(255,255,255,0.5); line-height:1.7; font-style:italic;">
+            "Kalam Dream Labs is named after him not because of his achievements in space, but because of what he chose to do with those achievements — bring them back to the people."
+          </p>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.35); margin-top:0.8rem;">— Satheesh Karnatakapu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS DREAM PORT -->
+<section id="what-is" class="dp-section dp-concept-bg">
+  <div class="dp-section-inner">
+    <div class="dp-section-tag reveal">The Concept</div>
+    <h2 class="dp-h2 reveal">What is <em>Dream Port</em>?</h2>
+    <div class="dp-divider reveal"></div>
+    <p class="dp-problems-intro reveal">
+      An airport doesn't fly — it enables flying. Dream Port doesn't innovate — it enables innovators. It is a physical and intellectual space where dreams land, get refined, find co-builders, and take off as solutions that serve humanity.
+    </p>
+    <div class="dp-concept-grid">
+      <div class="dp-concept-card reveal d1">
+        <div class="dp-concept-icon">🛫</div>
+        <div class="dp-concept-title">Like an Airport for Dreams</div>
+        <p class="dp-concept-body">Every airport has runways, terminals, gates. Dream Port has labs, workshops, maker spaces, and mentors. Dreamers don't arrive with money — they arrive with ideas, passion and a problem they want to solve.</p>
+      </div>
+      <div class="dp-concept-card reveal d2">
+        <div class="dp-concept-icon">🌍</div>
+        <div class="dp-concept-title">People-First Innovation</div>
+        <p class="dp-concept-body">No idea gets space here unless it solves a real human problem. Not market size. Not profit margins. We start with the problem — identify who suffers from it, find people who care, and build the solution together.</p>
+      </div>
+      <div class="dp-concept-card reveal d3">
+        <div class="dp-concept-icon">🔗</div>
+        <div class="dp-concept-title">The Full Ecosystem</div>
+        <p class="dp-concept-body">Researchers, manufacturers, investors, designers, coders, farmers, teachers — all under one roof. Dream Port believes every great solution needs a complete team, not just a brilliant inventor working alone.</p>
+      </div>
+      <div class="dp-concept-card reveal d1">
+        <div class="dp-concept-icon">🏅</div>
+        <div class="dp-concept-title">Patents &amp; Protections</div>
+        <p class="dp-concept-body">Through Kalam Dream Labs, Dream Port helps innovators file patents, register IP, and protect their work — so their ideas belong to them and benefit the world, not just corporations.</p>
+      </div>
+      <div class="dp-concept-card reveal d2">
+        <div class="dp-concept-icon">🚀</div>
+        <div class="dp-concept-title">Moon-Shot Thinking</div>
+        <p class="dp-concept-body">We are building the kind of people who go to the moon. Not because of ambition — but because the journey to the moon forces you to innovate materials, medicines, technologies that transform daily life on Earth.</p>
+      </div>
+      <div class="dp-concept-card reveal d3">
+        <div class="dp-concept-icon">🤝</div>
+        <div class="dp-concept-title">Collaboration Over Competition</div>
+        <p class="dp-concept-body">No silos. No secrets. Dream Port is built on radical collaboration — your strength fills my gap, my network finds your partner, and together we solve what neither of us could alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="dp-section">
+  <div class="dp-section-inner">
+    <div class="dp-section-tag reveal">Who Gets In</div>
+    <h2 class="dp-h2 reveal">The Eligibility is <em>Different</em></h2>
+    <div class="dp-divider reveal"></div>
+    <div class="dp-eligibility-wrap">
+      <div>
+        <p class="dp-elig-intro reveal">
+          Most institutions sort people by degrees, money, connections or age. Dream Port sorts people by one thing only — <strong>the depth of their desire to solve a real problem</strong> and the willingness to work alongside others to do it.
+        </p>
+        <div class="dp-elig-not reveal">
+          <div class="dp-elig-not-label">This is NOT the criteria</div>
+          <ul class="dp-elig-not-items">
+            <li>Your degree or academic background</li>
+            <li>How much money you have or can invest</li>
+            <li>Your age, caste, religion or city</li>
+            <li>Whether you've built something before</li>
+            <li>Having a "perfect" business plan</li>
+          </ul>
+        </div>
+        <div class="dp-elig-yes reveal">
+          <div class="dp-elig-yes-label">THIS is the criteria</div>
+          <ul class="dp-elig-yes-items">
+            <li>You have identified a real problem affecting real people</li>
+            <li>You have the passion to dedicate yourself to solving it</li>
+            <li>You are willing to collaborate, share, and build together</li>
+            <li>You believe the solution must serve the common person</li>
+            <li>You are ready to renovate and innovate — however long it takes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dp-campus-visual reveal d2">
+        <div class="dp-campus-num">100</div>
+        <div class="dp-campus-unit">Acres · The Vision Campus</div>
+        <ul class="dp-campus-features">
+          <li>Innovation Labs</li>
+          <li>Maker Spaces</li>
+          <li>Research Centres</li>
+          <li>Prototype Workshops</li>
+          <li>Patent Filing Hub</li>
+          <li>Mentorship Pods</li>
+          <li>Co-living Spaces</li>
+          <li>Open Collaboration Halls</li>
+          <li>Material Testing Units</li>
+          <li>Community Kitchens</li>
+          <li>Startup Incubation</li>
+          <li>Knowledge Library</li>
+        </ul>
+        <div class="dp-free-tag">
+          <div class="dp-free-badge">FREE</div>
+          <div class="dp-free-text">Access is free. The only currency here is your commitment to solving a real problem for real people.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO CAN JOIN -->
+<section class="dp-section dp-who-bg">
+  <div class="dp-section-inner">
+    <div class="dp-section-tag reveal" style="color:var(--gold-light);">
+      <span style="background:var(--gold-light);width:28px;height:2px;display:inline-block;"></span>
+      All Are Welcome
+    </div>
+    <h2 class="dp-h2 dp-who-h2 reveal">You Don't Need a Title. <em style="color:var(--gold-light);">You Need a Dream.</em></h2>
+    <div class="dp-divider reveal"></div>
+    <p style="color:rgba(255,255,255,0.55); max-width:640px; line-height:1.75; margin-bottom:0;" class="reveal">
+      Dream Port is for everyone who wants to build something meaningful. Whether you want to invent, manufacture, invest, research, or simply be part of something bigger than yourself — there is a place for you here.
+    </p>
+    <div class="dp-who-roles">
+      <div class="dp-role-card reveal d1">
+        <div class="dp-role-icon">🔬</div>
+        <div class="dp-role-name">Innovator</div>
+        <p class="dp-role-desc">You have an idea. You see a problem others walk past. Come build the solution.</p>
+      </div>
+      <div class="dp-role-card reveal d2">
+        <div class="dp-role-icon">🏭</div>
+        <div class="dp-role-name">Manufacturer</div>
+        <p class="dp-role-desc">Prototypes need production. You make it real, scalable and affordable.</p>
+      </div>
+      <div class="dp-role-card reveal d3">
+        <div class="dp-role-icon">💼</div>
+        <div class="dp-role-name">Entrepreneur</div>
+        <p class="dp-role-desc">You know how to build businesses that last. Bring that energy to purpose-led work.</p>
+      </div>
+      <div class="dp-role-card reveal d4">
+        <div class="dp-role-icon">🎓</div>
+        <div class="dp-role-name">Researcher</div>
+        <p class="dp-role-desc">Your knowledge is the foundation. Help us understand the problem deeply.</p>
+      </div>
+      <div class="dp-role-card reveal d1">
+        <div class="dp-role-icon">💰</div>
+        <div class="dp-role-name">Investor</div>
+        <p class="dp-role-desc">Back people-first innovation. Fund solutions that change lives, not just portfolios.</p>
+      </div>
+      <div class="dp-role-card reveal d2">
+        <div class="dp-role-icon">🎨</div>
+        <div class="dp-role-name">Designer</div>
+        <p class="dp-role-desc">Solutions must be usable. Design the bridge between invention and people.</p>
+      </div>
+      <div class="dp-role-card reveal d3">
+        <div class="dp-role-icon">👩‍💻</div>
+        <div class="dp-role-name">Developer</div>
+        <p class="dp-role-desc">Technology is only as powerful as the problem it solves. Build with purpose.</p>
+      </div>
+      <div class="dp-role-card reveal d4">
+        <div class="dp-role-icon">🌱</div>
+        <div class="dp-role-name">Volunteer</div>
+        <p class="dp-role-desc">You don't need a skill — you need a heart. Show up. Help. Be part of something.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STATEMENTS HUB -->
+<section id="problems" class="dp-section">
+  <div class="dp-section-inner">
+    <div class="dp-section-tag reveal">Problem Statements Hub</div>
+    <h2 class="dp-h2 reveal">Every Industry Has Problems. <em>Choose Yours.</em></h2>
+    <div class="dp-divider reveal"></div>
+    <p class="dp-problems-intro reveal">
+      Dream Port gathers real problem statements from across industries, sectors, and communities. Find the area that matters to you, identify the skills you bring, connect with like-minded people, and start solving together. Every problem here is an open invitation.
+    </p>
+
+    <!-- Sector Filter Tabs -->
+    <div class="dp-sector-tabs reveal">
+      <button class="dp-sector-btn active" onclick="filterSector('all', this)"><span class="s-icon">🌐</span> All Sectors</button>
+      <button class="dp-sector-btn" onclick="filterSector('health', this)"><span class="s-icon">🏥</span> Healthcare</button>
+      <button class="dp-sector-btn" onclick="filterSector('edu', this)"><span class="s-icon">📚</span> Education</button>
+      <button class="dp-sector-btn" onclick="filterSector('agri', this)"><span class="s-icon">🌾</span> Agriculture</button>
+      <button class="dp-sector-btn" onclick="filterSector('env', this)"><span class="s-icon">🌿</span> Environment</button>
+      <button class="dp-sector-btn" onclick="filterSector('tech', this)"><span class="s-icon">💻</span> Technology</button>
+      <button class="dp-sector-btn" onclick="filterSector('women', this)"><span class="s-icon">👩</span> Women &amp; Safety</button>
+      <button class="dp-sector-btn" onclick="filterSector('gov', this)"><span class="s-icon">🏛️</span> Governance</button>
+      <button class="dp-sector-btn" onclick="filterSector('live', this)"><span class="s-icon">💼</span> Livelihood</button>
+    </div>
+
+    <div class="dp-problems-grid" id="probGrid">
+
+      <!-- HEALTHCARE -->
+      <div class="dp-prob-card" data-sector="health">
+        <div class="dp-prob-sector-bar s-health"></div>
+        <div class="dp-prob-domain"><span>🏥</span> Healthcare · Mobility</div>
+        <div class="dp-prob-title">Affordable Assistive Devices for the Differently Abled</div>
+        <p class="dp-prob-body">Millions in rural India cannot afford prosthetics, wheelchairs, or hearing devices. How do we use locally available materials and low-cost manufacturing to close this gap — inspired by Kalam's rocket foam → artificial limb innovation?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Biomedical Engineer</span>
+          <span class="dp-prob-role-tag">Material Scientist</span>
+          <span class="dp-prob-role-tag">Manufacturer</span>
+          <span class="dp-prob-role-tag">Volunteer</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 4–8 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <div class="dp-prob-card" data-sector="health">
+        <div class="dp-prob-sector-bar s-health"></div>
+        <div class="dp-prob-domain"><span>🏥</span> Healthcare · Water</div>
+        <div class="dp-prob-title">Clean Drinking Water for Every Household</div>
+        <p class="dp-prob-body">Waterborne diseases kill thousands annually, mostly in communities with the least resources. How do we build low-cost, community-owned water purification systems that anyone can maintain?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Chemist</span>
+          <span class="dp-prob-role-tag">Civil Engineer</span>
+          <span class="dp-prob-role-tag">Researcher</span>
+          <span class="dp-prob-role-tag">Investor</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 5–10 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="dp-prob-card" data-sector="edu">
+        <div class="dp-prob-sector-bar s-edu"></div>
+        <div class="dp-prob-domain"><span>📚</span> Education · Rural</div>
+        <div class="dp-prob-title">Quality Education Beyond City Limits</div>
+        <p class="dp-prob-body">Children in rural Andhra Pradesh have ambition but no access to quality teachers, labs, or technology. How do we bring world-class learning to a village with no reliable electricity or internet?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Teacher / Educator</span>
+          <span class="dp-prob-role-tag">App Developer</span>
+          <span class="dp-prob-role-tag">Curriculum Designer</span>
+          <span class="dp-prob-role-tag">Volunteer</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 6–12 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <div class="dp-prob-card" data-sector="edu">
+        <div class="dp-prob-sector-bar s-edu"></div>
+        <div class="dp-prob-domain"><span>📚</span> Education · Skill Gap</div>
+        <div class="dp-prob-title">First-Generation College Students to Industry-Ready Talent</div>
+        <p class="dp-prob-body">Thousands of first-generation college graduates struggle to find jobs because degrees don't match industry needs. How do we bridge the gap between education and employability through mentoring and real-world training?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Industry Mentor</span>
+          <span class="dp-prob-role-tag">Trainer</span>
+          <span class="dp-prob-role-tag">HR Professional</span>
+          <span class="dp-prob-role-tag">Entrepreneur</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 4–8 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- AGRICULTURE -->
+      <div class="dp-prob-card" data-sector="agri">
+        <div class="dp-prob-sector-bar s-agri"></div>
+        <div class="dp-prob-domain"><span>🌾</span> Agriculture · Income</div>
+        <div class="dp-prob-title">Farmer Income Security Through Smart Technology</div>
+        <p class="dp-prob-body">Small farmers lose 30–40% of income to middlemen, bad weather, and market access failures. How can technology, direct linkage, and climate data protect their livelihoods and dignity?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Data Scientist</span>
+          <span class="dp-prob-role-tag">App Developer</span>
+          <span class="dp-prob-role-tag">Agri Expert</span>
+          <span class="dp-prob-role-tag">Logistic Specialist</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 5–8 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- ENVIRONMENT -->
+      <div class="dp-prob-card" data-sector="env">
+        <div class="dp-prob-sector-bar s-env"></div>
+        <div class="dp-prob-domain"><span>🌿</span> Environment · Waste</div>
+        <div class="dp-prob-title">Turning Urban Waste into Local Wealth</div>
+        <p class="dp-prob-body">Vizag and cities across India generate thousands of tonnes of plastic, organic, and e-waste daily. How do we build localised circular economies that create jobs and clean cities simultaneously?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Waste Management Expert</span>
+          <span class="dp-prob-role-tag">Manufacturer</span>
+          <span class="dp-prob-role-tag">Supply Chain</span>
+          <span class="dp-prob-role-tag">Entrepreneur</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 6–10 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <div class="dp-prob-card" data-sector="env">
+        <div class="dp-prob-sector-bar s-env"></div>
+        <div class="dp-prob-domain"><span>🌿</span> Environment · Air</div>
+        <div class="dp-prob-title">Real-Time Air Quality Monitoring for Every Neighbourhood</div>
+        <p class="dp-prob-body">Air pollution in Indian cities is largely invisible because monitoring stations are few and expensive. How do we build low-cost IoT sensors that give every neighbourhood access to real-time air quality data?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">IoT Engineer</span>
+          <span class="dp-prob-role-tag">Data Analyst</span>
+          <span class="dp-prob-role-tag">Hardware Maker</span>
+          <span class="dp-prob-role-tag">Researcher</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 4–6 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- TECHNOLOGY -->
+      <div class="dp-prob-card" data-sector="tech">
+        <div class="dp-prob-sector-bar s-tech"></div>
+        <div class="dp-prob-domain"><span>💻</span> Technology · Inclusion</div>
+        <div class="dp-prob-title">Digital Literacy for the Last Mile</div>
+        <p class="dp-prob-body">Hundreds of millions of Indians have smartphones but lack the skills to use digital services for banking, health, and education. How do we build a scalable, local-language digital literacy programme?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">UX Designer</span>
+          <span class="dp-prob-role-tag">Translator / Linguist</span>
+          <span class="dp-prob-role-tag">Community Trainer</span>
+          <span class="dp-prob-role-tag">Developer</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 5–10 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- WOMEN & SAFETY -->
+      <div class="dp-prob-card" data-sector="women">
+        <div class="dp-prob-sector-bar s-women"></div>
+        <div class="dp-prob-domain"><span>👩</span> Women · Safety</div>
+        <div class="dp-prob-title">Safe Public Spaces for Women &amp; Girls</div>
+        <p class="dp-prob-body">Women in Indian cities rebuild their entire lives around safety — routes, timings, clothing. How do we redesign public infrastructure, community watch systems, and technology so cities work equally for everyone?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Urban Designer</span>
+          <span class="dp-prob-role-tag">Safety Tech Developer</span>
+          <span class="dp-prob-role-tag">Community Organiser</span>
+          <span class="dp-prob-role-tag">Volunteer</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 5–8 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- GOVERNANCE -->
+      <div class="dp-prob-card" data-sector="gov">
+        <div class="dp-prob-sector-bar s-gov"></div>
+        <div class="dp-prob-domain"><span>🏛️</span> Governance · Services</div>
+        <div class="dp-prob-title">Transparent &amp; Accessible Government Services for Everyone</div>
+        <p class="dp-prob-body">Millions of eligible citizens don't receive government benefits due to lack of awareness, documentation barriers, or corrupt intermediaries. How do we build trusted, simple systems that connect citizens directly with entitlements?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Policy Researcher</span>
+          <span class="dp-prob-role-tag">Developer</span>
+          <span class="dp-prob-role-tag">Community Worker</span>
+          <span class="dp-prob-role-tag">Legal Expert</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 6–10 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+      <!-- LIVELIHOOD -->
+      <div class="dp-prob-card" data-sector="live">
+        <div class="dp-prob-sector-bar s-live"></div>
+        <div class="dp-prob-domain"><span>💼</span> Livelihood · Employment</div>
+        <div class="dp-prob-title">Micro-Enterprise Support for Informal Workers</div>
+        <p class="dp-prob-body">Street vendors, artisans, and informal workers form the backbone of India's economy yet have no access to credit, training, or markets. How do we build a support system that turns daily workers into dignified micro-entrepreneurs?</p>
+        <div class="dp-prob-skills-label">Skills Needed</div>
+        <div class="dp-prob-roles">
+          <span class="dp-prob-role-tag">Finance Expert</span>
+          <span class="dp-prob-role-tag">Business Mentor</span>
+          <span class="dp-prob-role-tag">Digital Marketer</span>
+          <span class="dp-prob-role-tag">Volunteer</span>
+        </div>
+        <div class="dp-prob-footer">
+          <span class="dp-prob-team-size">👥 Team of 4–8 needed</span>
+          <a href="contact.html" class="dp-prob-join">Join this team →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- How to Engage Step Guide -->
+    <div class="dp-engage-strip reveal">
+      <div class="dp-engage-title">How to Engage with a Problem</div>
+      <p class="dp-engage-sub">A step-by-step guide to go from "I care about this" to "I am solving this"</p>
+      <div class="dp-engage-steps">
+        <div class="dp-engage-step">
+          <div class="dp-engage-num">1</div>
+          <div class="dp-engage-step-title">Choose Your Sector</div>
+          <p class="dp-engage-step-desc">Pick the industry or cause area that matches your passion and lived experience.</p>
+        </div>
+        <div class="dp-engage-step">
+          <div class="dp-engage-num">2</div>
+          <div class="dp-engage-step-title">Select a Problem</div>
+          <p class="dp-engage-step-desc">Read through the problem statements. Choose the one that makes you say "I need to fix this."</p>
+        </div>
+        <div class="dp-engage-step">
+          <div class="dp-engage-num">3</div>
+          <div class="dp-engage-step-title">Declare Your Skills</div>
+          <p class="dp-engage-step-desc">Tell us what you bring — tech, research, manufacturing, community work, funding, or just heart.</p>
+        </div>
+        <div class="dp-engage-step">
+          <div class="dp-engage-num">4</div>
+          <div class="dp-engage-step-title">Meet Your Team</div>
+          <p class="dp-engage-step-desc">We connect you with like-minded people already working on or interested in the same problem.</p>
+        </div>
+        <div class="dp-engage-step">
+          <div class="dp-engage-num">5</div>
+          <div class="dp-engage-step-title">Start Solving Together</div>
+          <p class="dp-engage-step-desc">Use Dream Port's resources, mentors, and campus to prototype, test, and build your solution.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THE PROCESS -->
+<section class="dp-section dp-process-bg">
+  <div class="dp-section-inner">
+    <div class="dp-section-tag reveal">How It Works</div>
+    <h2 class="dp-h2 reveal">From Dream to <em>Deployed Solution</em></h2>
+    <div class="dp-divider reveal"></div>
+    <div class="dp-process-steps">
+      <div class="dp-step reveal d1">
+        <div class="dp-step-circle">01</div>
+        <div class="dp-step-title">Find the Problem</div>
+        <p class="dp-step-desc">Start with a human pain point. Not a technology. Not a business model. A real problem hurting real people.</p>
+      </div>
+      <div class="dp-step reveal d2">
+        <div class="dp-step-circle">02</div>
+        <div class="dp-step-title">Find the People</div>
+        <p class="dp-step-desc">Assemble a team of dreamers — researchers, builders, makers, investors, and community members who are affected by the problem.</p>
+      </div>
+      <div class="dp-step reveal d3">
+        <div class="dp-step-circle">03</div>
+        <div class="dp-step-title">Build Together</div>
+        <p class="dp-step-desc">Use Dream Port's labs, resources, mentors, and networks to prototype, test, fail, and iterate — free of charge.</p>
+      </div>
+      <div class="dp-step reveal d4">
+        <div class="dp-step-circle">04</div>
+        <div class="dp-step-title">Protect &amp; Launch</div>
+        <p class="dp-step-desc">File patents. Register IP. Find manufacturing partners. Launch into the world — at a price that the people who need it can actually afford.</p>
+      </div>
+      <div class="dp-step reveal d1">
+        <div class="dp-step-circle">05</div>
+        <div class="dp-step-title">Scale the Impact</div>
+        <p class="dp-step-desc">One solution becomes a model. Others replicate it. The innovation belongs to the world — not a corporation. That is the Dream Port way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="be-part" class="dp-cta">
+  <div class="dp-cta-inner">
+    <div class="dp-cta-eyebrow reveal">Join the Vision</div>
+    <h2 class="dp-cta-h2 reveal">Be Part of <em style="color:var(--gold-light);">Dream Port</em></h2>
+    <p class="dp-cta-sub reveal">
+      This campus doesn't exist yet. But the community does. The problems are real. The dreamers are ready. If you believe that innovation must serve people — not just shareholders — then Dream Port is yours too.
+    </p>
+    <div class="dp-cta-btns reveal">
+      <a href="contact.html" class="dp-btn-primary">Register Your Interest</a>
+      <a href="kalamdreamlabs.html" class="dp-btn-ghost">Explore Kalam Dream Labs</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterSector(sector, btn) {
+  document.querySelectorAll('.dp-sector-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#probGrid .dp-prob-card').forEach(card => {
+    const show = sector === 'all' || card.dataset.sector === sector;
+    card.style.display = show ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
