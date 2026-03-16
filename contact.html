@@ -20,6 +20,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <script src="https://w.behold.so/widget.js" type="module"></script>
 <link rel="stylesheet" href="css/style.css">
+<!-- Google Analytics 4 -->
+<!-- ⚙️  Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 9998;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,.65);
+  animation: none;
+}
+.wa-float svg { width: 30px; height: 30px; fill: #fff; }
+@keyframes waPulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.45); }
+  50%      { box-shadow: 0 4px 32px rgba(37,211,102,.75), 0 0 0 8px rgba(37,211,102,.1); }
+}
+@media(max-width:640px){ .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; } }
+</style>
 </head>
 <body>
 
@@ -141,6 +174,95 @@
   </div>
 </div>
 
+<!-- EmailJS SDK -->
+<!-- ⚙️  SETUP: Sign up at emailjs.com → create service → create template → replace the 3 IDs below -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // Replace with your EmailJS Public Key (Account → API Keys)
+  (function(){ emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" }); })();
+</script>
+
+<style>
+/* ── CONTACT FORM ──────────────────────────────────────── */
+.cf-wrap {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(212,146,12,.15);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  margin-top: 2rem;
+}
+.cf-heading {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem; font-weight: 400;
+  color: #fff; margin-bottom: 1.6rem;
+  display: flex; align-items: center; gap: .7rem;
+}
+.cf-heading::before {
+  content: ''; width: 28px; height: 1px;
+  background: var(--gold); opacity: .6;
+}
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+@media(max-width:600px){ .cf-row { grid-template-columns: 1fr; } }
+.cf-field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+.cf-field label {
+  font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .9rem; padding: .75rem 1rem;
+  outline: none; transition: border-color .2s, background .2s;
+  -webkit-appearance: none;
+}
+.cf-field input::placeholder,
+.cf-field textarea::placeholder { color: rgba(255,255,255,.25); }
+.cf-field input:focus,
+.cf-field select:focus,
+.cf-field textarea:focus {
+  border-color: var(--gold);
+  background: rgba(212,146,12,.06);
+}
+.cf-field select option { background: #0b2545; color: #fff; }
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-submit {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--gold); color: #0B2545;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .85rem; font-weight: 700; letter-spacing: .05em;
+  padding: .85rem 2rem; border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: background .2s, transform .15s, opacity .2s;
+}
+.cf-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+.cf-submit:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+.cf-submit .btn-spinner {
+  width: 16px; height: 16px; border: 2px solid rgba(11,37,69,.3);
+  border-top-color: #0b2545; border-radius: 50%;
+  animation: spin .7s linear infinite; display: none;
+}
+.cf-submit.loading .btn-spinner { display: block; }
+.cf-submit.loading .btn-label { opacity: .6; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.cf-notice {
+  display: none; margin-top: 1rem; padding: .85rem 1.2rem;
+  border-radius: 8px; font-size: .875rem;
+  align-items: center; gap: .6rem;
+}
+.cf-notice.success {
+  display: flex; background: rgba(34,197,94,.12);
+  border: 1px solid rgba(34,197,94,.3); color: #86efac;
+}
+.cf-notice.error {
+  display: flex; background: rgba(239,68,68,.12);
+  border: 1px solid rgba(239,68,68,.3); color: #fca5a5;
+}
+</style>
+
 <!-- CONTACT -->
 <section id="contact" style="padding-top:calc(7rem + 68px);">
   <div class="section-inner">
@@ -163,6 +285,50 @@
             <span class="c-icon">🤝</span>
             <div><div class="c-label">Volunteer</div><div class="c-val">vizagvolunteers.org</div></div>
           </a>
+        </div>
+
+        <!-- ── CONTACT FORM ── -->
+        <div class="cf-wrap reveal">
+          <div class="cf-heading">Send a Message</div>
+          <form id="contactForm" novalidate>
+            <div class="cf-row">
+              <div class="cf-field">
+                <label for="cf-name">Your Name</label>
+                <input type="text" id="cf-name" name="from_name" placeholder="Ravi Kumar" required>
+              </div>
+              <div class="cf-field">
+                <label for="cf-email">Your Email</label>
+                <input type="email" id="cf-email" name="from_email" placeholder="ravi@example.com" required>
+              </div>
+            </div>
+            <div class="cf-field">
+              <label for="cf-context">I'm reaching out about</label>
+              <select id="cf-context" name="context">
+                <option value="" disabled selected>Choose a context…</option>
+                <option value="F9 IT Services">F9 Info Technologies — Web / IT Services</option>
+                <option value="Kalam Dream Labs">Kalam Dream Labs — Training / Innovation</option>
+                <option value="Vizag Volunteers">Vizag Volunteers — Volunteer / NGO</option>
+                <option value="Speaking / Event">Speaking at an Event / Conference</option>
+                <option value="Startup Mentoring">Startup Mentoring / Ecosystem</option>
+                <option value="Media / Press">Media / Press Enquiry</option>
+                <option value="Just Connecting">Just Connecting</option>
+              </select>
+            </div>
+            <div class="cf-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" placeholder="Share what's on your mind…" required></textarea>
+            </div>
+            <button type="submit" class="cf-submit" id="cfSubmitBtn">
+              <div class="btn-spinner"></div>
+              <span class="btn-label">Send Message →</span>
+            </button>
+            <div class="cf-notice success" id="cfSuccess">
+              <span>✅</span> Message sent! Satheesh will get back to you soon.
+            </div>
+            <div class="cf-notice error" id="cfError">
+              <span>⚠️</span> <span id="cfErrorText">Something went wrong. Try emailing md@f9tech.com directly.</span>
+            </div>
+          </form>
         </div>
       </div>
       <div class="contact-right reveal d2">
@@ -251,5 +417,72 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+// ── EmailJS Contact Form ────────────────────────────────────────────────────
+// ⚙️  SETUP REQUIRED (3 steps, takes ~5 minutes):
+//   1. Sign up at https://www.emailjs.com (free — 200 emails/month)
+//   2. Add Email Service → connect your Gmail (md@f9tech.com)
+//   3. Create Email Template with variables: {{from_name}}, {{from_email}}, {{context}}, {{message}}
+//      Set "To Email" = md@f9tech.com
+//   4. Replace the 3 placeholder IDs below with your real IDs
+// ───────────────────────────────────────────────────────────────────────────
+const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz456"
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const btn     = document.getElementById("cfSubmitBtn");
+  const success = document.getElementById("cfSuccess");
+  const error   = document.getElementById("cfError");
+  const errTxt  = document.getElementById("cfErrorText");
+
+  // Basic validation
+  const name    = document.getElementById("cf-name").value.trim();
+  const email   = document.getElementById("cf-email").value.trim();
+  const message = document.getElementById("cf-message").value.trim();
+  if (!name || !email || !message) {
+    errTxt.textContent = "Please fill in your name, email, and message.";
+    error.classList.add("error");
+    error.style.display = "flex";
+    return;
+  }
+
+  // Loading state
+  btn.classList.add("loading");
+  btn.disabled = true;
+  success.style.display = "none";
+  error.style.display   = "none";
+
+  const templateParams = {
+    from_name  : name,
+    from_email : email,
+    context    : document.getElementById("cf-context").value || "Not specified",
+    message    : message,
+    reply_to   : email,
+  };
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+    .then(function() {
+      btn.classList.remove("loading");
+      btn.disabled = false;
+      success.style.display = "flex";
+      document.getElementById("contactForm").reset();
+    }, function(err) {
+      btn.classList.remove("loading");
+      btn.disabled = false;
+      errTxt.textContent = "Couldn't send right now. Email md@f9tech.com directly — or try again shortly.";
+      error.style.display = "flex";
+      console.error("EmailJS error:", err);
+    });
+});
+</script>
+<!-- WhatsApp Floating Button -->
+<!-- ⚙️  Replace 919xxxxxxxxxx with Satheesh's real WhatsApp number -->
+<a class="wa-float" href="https://wa.me/919xxxxxxxxxx?text=Hi%20Satheesh%2C%20I%20came%20across%20your%20website%20and%20would%20like%20to%20connect." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 </body>
 </html>
