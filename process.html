@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process — The Architecture of Action · Satheesh Karnatakapu</title>
+<meta name="description" content="How Satheesh Karnatakapu builds systems, SOPs, and repeatable frameworks that run 5 organisations simultaneously — the invisible architecture of everything that works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { background: var(--navy); color: var(--white); }
+
+/* ── BLUEPRINT GRID BACKGROUND ── */
+.bp-grid-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(29,111,184,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29,111,184,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.bp-grid-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 20%, rgba(29,111,184,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(212,146,12,.05) 0%, transparent 60%);
+}
+
+/* ── HERO ── */
+.proc-hero {
+  position: relative; z-index: 1;
+  padding: 140px 5rem 90px;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+@media(max-width:900px) { .proc-hero { grid-template-columns: 1fr; padding: 120px 1.5rem 60px; gap: 2.5rem; } }
+
+.proc-hero-left {}
+.proc-hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 22px;
+}
+.proc-hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .6; }
+.proc-hero-eyebrow-num {
+  background: rgba(212,146,12,.12); border: 1px solid rgba(212,146,12,.3);
+  border-radius: 4px; padding: 2px 8px; font-size: .62rem;
+}
+.proc-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 600; line-height: 1.08; letter-spacing: -.02em;
+  color: var(--white); margin-bottom: 24px;
+}
+.proc-hero h1 em { font-style: italic; color: var(--gold-light); }
+.proc-hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,.55); line-height: 1.75;
+  max-width: 480px; margin-bottom: 36px;
+}
+.proc-hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(212,146,12,.1); border: 1px solid rgba(212,146,12,.35);
+  color: var(--gold-light); font-size: .82rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 12px 24px; border-radius: 6px;
+  text-decoration: none; transition: all .25s;
+}
+.proc-hero-cta:hover { background: rgba(212,146,12,.2); transform: translateY(-2px); }
+
+/* Hero right — live stat panel */
+.proc-hero-panel {
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; padding: 2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  position: relative; overflow: hidden;
+}
+.proc-hero-panel::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,146,12,.1) 0%, transparent 70%);
+}
+.proc-stat {
+  padding: 1.4rem 1.2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.proc-stat:nth-child(2n) { border-right: none; }
+.proc-stat:nth-last-child(-n+2) { border-bottom: none; }
+.proc-stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem; font-weight: 600; color: var(--gold-light);
+  line-height: 1; margin-bottom: 6px;
+  display: block;
+}
+.proc-stat-label {
+  font-size: .65rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(255,255,255,.4);
+}
+
+/* ── 4-PILLAR STEPPER ── */
+.pillar-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px;
+  max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .pillar-section { padding: 0 1.5rem 60px; } }
+.pillar-label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); margin-bottom: 28px; text-align: center;
+}
+.pillar-steps {
+  display: flex; align-items: center; gap: 0;
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; overflow: hidden;
+}
+@media(max-width:600px) { .pillar-steps { flex-direction: column; } }
+.pillar-step {
+  flex: 1; padding: 1.4rem 1.2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.06);
+  position: relative; transition: background .3s;
+}
+.pillar-step:last-child { border-right: none; }
+.pillar-step.done { background: rgba(29,111,184,.08); }
+.pillar-step.active {
+  background: linear-gradient(135deg, rgba(212,146,12,.12), rgba(212,146,12,.06));
+  border-color: rgba(212,146,12,.2);
+}
+.pillar-step-num {
+  font-size: .6rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.pillar-step.done .pillar-step-num { color: var(--accent); }
+.pillar-step.active .pillar-step-num { color: var(--gold); }
+.pillar-step.upcoming .pillar-step-num { color: rgba(255,255,255,.25); }
+.pillar-step-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem; font-weight: 600;
+}
+.pillar-step.done .pillar-step-name { color: rgba(255,255,255,.7); }
+.pillar-step.active .pillar-step-name { color: var(--gold-light); }
+.pillar-step.upcoming .pillar-step-name { color: rgba(255,255,255,.2); }
+.pillar-step-status {
+  font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  margin-top: 5px;
+}
+.pillar-step.done .pillar-step-status { color: var(--accent); }
+.pillar-step.active .pillar-step-status { color: var(--gold); }
+.pillar-step.upcoming .pillar-step-status { color: rgba(255,255,255,.2); }
+.pillar-arrow {
+  width: 0; height: 0; flex-shrink: 0;
+  display: none; /* hidden on mobile stacked */
+}
+@media(min-width:601px) {
+  .pillar-step { position: relative; }
+  .pillar-step.done::after, .pillar-step.active::after {
+    content: '→';
+    position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+    color: rgba(255,255,255,.15); font-size: .8rem; z-index: 2;
+  }
+  .pillar-step:last-child::after { display: none; }
+}
+
+/* ── WHY PROCESS QUOTE ── */
+.why-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px;
+  max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .why-section { padding: 0 1.5rem 60px; } }
+.why-inner {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.07);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 16px 16px 0;
+  padding: 3rem 3.5rem;
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center;
+}
+@media(max-width:800px) { .why-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; } }
+.why-inner::before {
+  content: '"'; position: absolute; top: -20px; left: 20px;
+  font-family: 'Fraunces', serif; font-size: 10rem; color: rgba(212,146,12,.05);
+  line-height: 1; pointer-events: none;
+}
+.why-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 400; font-style: italic;
+  color: var(--white); line-height: 1.45;
+  position: relative;
+}
+.why-attr {
+  font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); margin-top: 16px; display: block;
+}
+.why-proof {
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.why-proof-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(255,255,255,.03); border-radius: 10px; padding: 1rem 1.2rem;
+}
+.why-proof-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(29,111,184,.15); display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.why-proof-text { font-size: .83rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+.why-proof-text strong { color: var(--white); display: block; margin-bottom: 2px; }
+
+/* ── CORE SYSTEMS ── */
+.systems-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px;
+  max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .systems-section { padding: 0 1.5rem 60px; } }
+.section-header { margin-bottom: 40px; }
+.section-eyebrow {
+  font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); opacity: .6; }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 600; color: var(--white); line-height: 1.1;
+}
+.section-title em { font-style: italic; color: var(--gold-light); }
+.section-sub {
+  margin-top: 12px; font-size: .95rem; color: rgba(255,255,255,.45); max-width: 560px;
+}
+
+.systems-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+  background: rgba(255,255,255,.05); border-radius: 18px; overflow: hidden;
+}
+@media(max-width:900px) { .systems-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:560px) { .systems-grid { grid-template-columns: 1fr; } }
+
+.sys-card {
+  background: var(--navy); padding: 2rem 1.8rem;
+  position: relative; overflow: hidden;
+  transition: background .3s;
+  cursor: default;
+}
+.sys-card:hover { background: rgba(29,111,184,.06); }
+.sys-card::before {
+  content: attr(data-num);
+  position: absolute; top: 12px; right: 16px;
+  font-family: 'Fraunces', serif; font-size: 3.5rem; font-weight: 600;
+  color: rgba(255,255,255,.03); line-height: 1; pointer-events: none;
+}
+.sys-card-icon {
+  width: 44px; height: 44px; border-radius: 10px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+}
+.sys-card-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem; font-weight: 600; color: var(--white);
+  line-height: 1.25; margin-bottom: 8px;
+}
+.sys-card-org {
+  font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px; display: block;
+}
+.sys-card-desc {
+  font-size: .83rem; color: rgba(255,255,255,.45); line-height: 1.6;
+  margin-bottom: 16px;
+}
+.sys-pipeline {
+  display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+}
+.sys-step {
+  font-size: .6rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+  border-radius: 4px; padding: 3px 7px; color: rgba(255,255,255,.45);
+  white-space: nowrap;
+}
+.sys-step.highlight {
+  background: rgba(212,146,12,.12); border-color: rgba(212,146,12,.3);
+  color: var(--gold-light);
+}
+.sys-arrow { color: rgba(255,255,255,.2); font-size: .65rem; }
+
+/* ── PRINCIPLES ── */
+.principles-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px;
+  max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .principles-section { padding: 0 1.5rem 60px; } }
+.principles-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  margin-top: 40px;
+}
+@media(max-width:900px) { .principles-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .principles-grid { grid-template-columns: 1fr; } }
+.principle-card {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px; padding: 1.8rem 1.5rem;
+  position: relative; overflow: hidden;
+  transition: border-color .25s, transform .25s;
+}
+.principle-card:hover {
+  border-color: rgba(212,146,12,.25); transform: translateY(-3px);
+}
+.principle-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0; transition: opacity .25s;
+}
+.principle-card:hover::after { opacity: 1; }
+.principle-num {
+  font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 600;
+  color: rgba(212,146,12,.15); line-height: 1; margin-bottom: 14px; display: block;
+}
+.principle-icon { font-size: 1.6rem; display: block; margin-bottom: 14px; }
+.principle-name {
+  font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 600;
+  color: var(--white); margin-bottom: 8px; line-height: 1.25;
+}
+.principle-rule {
+  font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+  color: var(--gold); font-style: italic; margin-bottom: 10px; display: block;
+}
+.principle-desc { font-size: .82rem; color: rgba(255,255,255,.42); line-height: 1.6; }
+
+/* ── NUMBERS ── */
+.numbers-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px;
+  max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .numbers-section { padding: 0 1.5rem 60px; } }
+.numbers-band {
+  background: linear-gradient(135deg, rgba(29,111,184,.08), rgba(212,146,12,.05));
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 20px; padding: 3rem;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+}
+@media(max-width:800px) { .numbers-band { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:480px) { .numbers-band { grid-template-columns: repeat(2, 1fr); } }
+.num-item {
+  text-align: center; padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(255,255,255,.06);
+}
+.num-item:last-child { border-right: none; }
+@media(max-width:800px) { .num-item:nth-child(3n) { border-right: none; } }
+@media(max-width:480px) { .num-item:nth-child(2n) { border-right: none; } }
+.num-val {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600; color: var(--gold-light);
+  line-height: 1; display: block; margin-bottom: 8px;
+}
+.num-label {
+  font-size: .63rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); line-height: 1.4;
+}
+
+/* ── CTA ── */
+.cta-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 120px;
+  max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .cta-section { padding: 0 1.5rem 80px; } }
+.cta-inner {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; padding: 3.5rem;
+  display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+  position: relative; overflow: hidden;
+}
+@media(max-width:700px) { .cta-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; } }
+.cta-inner::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 80% at 100% 50%, rgba(212,146,12,.05) 0%, transparent 60%);
+}
+.cta-text-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; display: block;
+}
+.cta-text-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 600;
+  color: var(--white); line-height: 1.25; margin-bottom: 10px;
+}
+.cta-text-sub { font-size: .9rem; color: rgba(255,255,255,.4); line-height: 1.6; }
+.cta-buttons { display: flex; flex-direction: column; gap: .8rem; flex-shrink: 0; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 24px; border-radius: 8px;
+  font-size: .82rem; font-weight: 600; letter-spacing: .05em;
+  text-decoration: none; white-space: nowrap; transition: all .25s;
+}
+.cta-btn-primary {
+  background: var(--gold); color: var(--navy);
+}
+.cta-btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+.cta-btn-secondary {
+  background: transparent; color: var(--white);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.cta-btn-secondary:hover { border-color: rgba(255,255,255,.35); transform: translateY(-2px); }
+
+/* ── COUNTER ANIMATION ── */
+.count-up { display: inline-block; }
+
+/* ── FADE IN ── */
+.fade-up {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+</style>
+</head>
+<body>
+
+<!-- Blueprint grid background -->
+<div class="bp-grid-bg"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="family.html"><span class="drop-icon">👨‍👩‍👧‍👦</span> Family</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="family.html" onclick="closeMob()"><span>👨‍👩‍👧‍👦</span> Family</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="proc-hero">
+  <div class="proc-hero-left fade-up">
+    <div class="proc-hero-eyebrow">
+      <span class="proc-hero-eyebrow-num">Pillar 03</span>
+      Process
+    </div>
+    <h1>The <em>Architecture</em><br>of Action</h1>
+    <p class="proc-hero-sub">
+      Most people have a vision. Some build a team. Very few design the systems
+      that turn both into outcomes — repeatably, at scale, for 18 years straight.
+    </p>
+    <a href="#systems" class="proc-hero-cta">Explore the Systems ↓</a>
+  </div>
+  <div class="proc-hero-panel fade-up" style="animation-delay:.15s">
+    <div class="proc-stat">
+      <span class="proc-stat-num count-up" data-target="5">0</span>
+      <span class="proc-stat-label">Orgs Running<br>Simultaneously</span>
+    </div>
+    <div class="proc-stat">
+      <span class="proc-stat-num count-up" data-target="1000">0</span>
+      <span class="proc-stat-label">Days of<br>Unbroken Discipline</span>
+    </div>
+    <div class="proc-stat">
+      <span class="proc-stat-num count-up" data-target="5000">0</span>
+      <span class="proc-stat-label">Volunteers<br>Coordinated</span>
+    </div>
+    <div class="proc-stat">
+      <span class="proc-stat-num count-up" data-target="18">0</span>
+      <span class="proc-stat-label">Years Zero<br>System Failure</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     4-PILLAR STEPPER
+════════════════════════════════════════ -->
+<section class="pillar-section">
+  <div class="pillar-label fade-up">The 4-Pillar Framework</div>
+  <div class="pillar-steps fade-up">
+    <div class="pillar-step done">
+      <div class="pillar-step-num">Pillar 01</div>
+      <div class="pillar-step-name">Time</div>
+      <div class="pillar-step-status">✓ Complete</div>
+    </div>
+    <div class="pillar-step done">
+      <div class="pillar-step-num">Pillar 02</div>
+      <div class="pillar-step-name">People</div>
+      <div class="pillar-step-status">✓ Complete</div>
+    </div>
+    <div class="pillar-step active">
+      <div class="pillar-step-num">Pillar 03</div>
+      <div class="pillar-step-name">Process</div>
+      <div class="pillar-step-status">◉ You are here</div>
+    </div>
+    <div class="pillar-step upcoming">
+      <div class="pillar-step-num">Pillar 04</div>
+      <div class="pillar-step-name">Money</div>
+      <div class="pillar-step-status">Coming Soon</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WHY PROCESS
+════════════════════════════════════════ -->
+<section class="why-section">
+  <div class="why-inner fade-up">
+    <div>
+      <div class="why-quote">
+        "Most people have good ideas. Few have the systems to execute them 1,000 times."
+        <span class="why-attr">— Satheesh Karnatakapu</span>
+      </div>
+    </div>
+    <div class="why-proof">
+      <div class="why-proof-item">
+        <div class="why-proof-icon">⚙️</div>
+        <div class="why-proof-text">
+          <strong>Systems outlast motivation</strong>
+          When discipline is engineered into the process, it doesn't depend on how you feel.
+        </div>
+      </div>
+      <div class="why-proof-item">
+        <div class="why-proof-icon">📐</div>
+        <div class="why-proof-text">
+          <strong>Scale without chaos</strong>
+          5000 volunteers. 800 students. 500 clients. Possible only with documented systems.
+        </div>
+      </div>
+      <div class="why-proof-item">
+        <div class="why-proof-icon">🔁</div>
+        <div class="why-proof-text">
+          <strong>Repeatability is the real skill</strong>
+          Anyone can do something great once. The system makes it happen every time.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CORE SYSTEMS
+════════════════════════════════════════ -->
+<section class="systems-section" id="systems">
+  <div class="section-header">
+    <div class="section-eyebrow fade-up">Core Operating Systems</div>
+    <h2 class="section-title fade-up">The <em>6 Systems</em> Behind<br>Everything That Works</h2>
+    <p class="section-sub fade-up">Each organisation runs on a documented, repeatable system. Not on memory. Not on trust alone.</p>
+  </div>
+
+  <div class="systems-grid">
+
+    <div class="sys-card fade-up" data-num="01">
+      <div class="sys-card-icon" style="background:rgba(212,146,12,.12)">⏰</div>
+      <span class="sys-card-org">Personal · 5 AM Club</span>
+      <div class="sys-card-name">The 5 AM Discipline System</div>
+      <p class="sys-card-desc">1000 consecutive days. Rain, travel, illness — the system never paused. Built on environment design, accountability, and zero-negotiation triggers.</p>
+      <div class="sys-pipeline">
+        <span class="sys-step highlight">Trigger</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Environment</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Execution</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step highlight">Log</span>
+      </div>
+    </div>
+
+    <div class="sys-card fade-up" data-num="02" style="transition-delay:.08s">
+      <div class="sys-card-icon" style="background:rgba(29,111,184,.12)">🤝</div>
+      <span class="sys-card-org">Vizag Volunteers · 5000 People</span>
+      <div class="sys-card-name">The Volunteer Coordination System</div>
+      <p class="sys-card-desc">WhatsApp zone segmentation + role tagging + event broadcast pipeline. 5000 people, zero full-time staff, maximum reach.</p>
+      <div class="sys-pipeline">
+        <span class="sys-step highlight">Register</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Segment</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Broadcast</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step highlight">Activate</span>
+      </div>
+    </div>
+
+    <div class="sys-card fade-up" data-num="03" style="transition-delay:.16s">
+      <div class="sys-card-icon" style="background:rgba(212,146,12,.1)">🎓</div>
+      <span class="sys-card-org">Kalam Dream Labs</span>
+      <div class="sys-card-name">The Student Pipeline System</div>
+      <p class="sys-card-desc">800+ rural students transformed through a 3-stage pipeline: application → 30-day residential training → IT company placement.</p>
+      <div class="sys-pipeline">
+        <span class="sys-step highlight">Apply</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Select</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Train</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step highlight">Place</span>
+      </div>
+    </div>
+
+    <div class="sys-card fade-up" data-num="04" style="transition-delay:.04s">
+      <div class="sys-card-icon" style="background:rgba(29,111,184,.12)">💻</div>
+      <span class="sys-card-org">F9 Info Technologies</span>
+      <div class="sys-card-name">The Client Delivery System</div>
+      <p class="sys-card-desc">From the first brief to long-term retention — a documented 5-stage process that has served 500+ clients over 18 years.</p>
+      <div class="sys-pipeline">
+        <span class="sys-step highlight">Brief</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Build</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Deliver</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Review</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step highlight">Retain</span>
+      </div>
+    </div>
+
+    <div class="sys-card fade-up" data-num="05" style="transition-delay:.12s">
+      <div class="sys-card-icon" style="background:rgba(212,146,12,.1)">🎪</div>
+      <span class="sys-card-org">Vizag Ecosystem · KDL · F9</span>
+      <div class="sys-card-name">The Event Execution System</div>
+      <p class="sys-card-desc">From idea to 500 attendees — a reusable event system covering venue, communication, registration, execution, and follow-up capture.</p>
+      <div class="sys-pipeline">
+        <span class="sys-step highlight">Concept</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Promote</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Register</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step highlight">Execute</span>
+      </div>
+    </div>
+
+    <div class="sys-card fade-up" data-num="06" style="transition-delay:.2s">
+      <div class="sys-card-icon" style="background:rgba(29,111,184,.1)">🔗</div>
+      <span class="sys-card-org">BNI · JCI · CII · YI · Lions</span>
+      <div class="sys-card-name">The Community Engagement System</div>
+      <p class="sys-card-desc">Managing 8+ active communities simultaneously through a touchpoint calendar, value-first contribution system, and relationship tracking.</p>
+      <div class="sys-pipeline">
+        <span class="sys-step highlight">Show Up</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Add Value</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step">Connect</span>
+        <span class="sys-arrow">→</span>
+        <span class="sys-step highlight">Follow Up</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRINCIPLES
+════════════════════════════════════════ -->
+<section class="principles-section">
+  <div class="section-header">
+    <div class="section-eyebrow fade-up">Process Philosophy</div>
+    <h2 class="section-title fade-up">4 Principles That<br><em>Never Get Broken</em></h2>
+  </div>
+  <div class="principles-grid">
+
+    <div class="principle-card fade-up">
+      <span class="principle-num">01</span>
+      <span class="principle-icon">📝</span>
+      <div class="principle-name">Document Everything</div>
+      <span class="principle-rule">"If it's not written, it doesn't exist."</span>
+      <p class="principle-desc">Every system, SOP, and workflow is documented. Verbal agreements fade. Written processes scale.</p>
+    </div>
+
+    <div class="principle-card fade-up" style="transition-delay:.08s">
+      <span class="principle-num">02</span>
+      <span class="principle-icon">🎯</span>
+      <div class="principle-name">Delegate by System</div>
+      <span class="principle-rule">"Not by trust alone."</span>
+      <p class="principle-desc">Trust matters — but a clear process means anyone can step in. Systems make teams replaceable without being disposable.</p>
+    </div>
+
+    <div class="principle-card fade-up" style="transition-delay:.16s">
+      <span class="principle-num">03</span>
+      <span class="principle-icon">📊</span>
+      <div class="principle-name">Measure What Matters</div>
+      <span class="principle-rule">"Numbers don't lie."</span>
+      <p class="principle-desc">Volunteer attendance. Student placement rate. Client retention. If it matters, it gets measured every cycle.</p>
+    </div>
+
+    <div class="principle-card fade-up" style="transition-delay:.24s">
+      <span class="principle-num">04</span>
+      <span class="principle-icon">🔁</span>
+      <div class="principle-name">Iterate Relentlessly</div>
+      <span class="principle-rule">"Every system gets better every cycle."</span>
+      <p class="principle-desc">Version 1 is never the final version. Each cycle brings a retrospective, a fix, and a better next run.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     NUMBERS
+════════════════════════════════════════ -->
+<section class="numbers-section">
+  <div class="section-eyebrow fade-up" style="margin-bottom:24px">Proof in Numbers</div>
+  <div class="numbers-band fade-up">
+    <div class="num-item">
+      <span class="num-val"><span class="count-up" data-target="1000">0</span></span>
+      <span class="num-label">Consecutive Days<br>5 AM Discipline</span>
+    </div>
+    <div class="num-item">
+      <span class="num-val"><span class="count-up" data-target="5000">0</span>+</span>
+      <span class="num-label">Volunteers<br>Coordinated</span>
+    </div>
+    <div class="num-item">
+      <span class="num-val"><span class="count-up" data-target="800">0</span>+</span>
+      <span class="num-label">Students<br>Trained & Placed</span>
+    </div>
+    <div class="num-item">
+      <span class="num-val"><span class="count-up" data-target="500">0</span>+</span>
+      <span class="num-label">Clients<br>Served</span>
+    </div>
+    <div class="num-item">
+      <span class="num-val"><span class="count-up" data-target="18">0</span></span>
+      <span class="num-label">Years Zero<br>System Failure</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner fade-up">
+    <div>
+      <span class="cta-text-label">What's Next</span>
+      <div class="cta-text-title">See the people who make<br>these systems run.</div>
+      <p class="cta-text-sub">Behind every great system is a great team. Meet the people who show up — every day, every cycle.</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="team.html" class="cta-btn cta-btn-primary">👥 Meet the Team →</a>
+      <a href="vision.html" class="cta-btn cta-btn-secondary">🌆 Explore the Vision</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* ── Fade-up on scroll ── */
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+/* ── Count-up animation ── */
+function animateCount(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1800;
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target).toLocaleString();
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(update);
+}
+
+const countEls = document.querySelectorAll('.count-up');
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.dataset.counted) {
+      entry.target.dataset.counted = 'true';
+      animateCount(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+countEls.forEach(el => countObserver.observe(el));
+</script>
+</body>
+</html>

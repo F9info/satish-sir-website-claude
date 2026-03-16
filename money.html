@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money — Fuel for the Mission · Satheesh Karnatakapu</title>
+<meta name="description" content="Satheesh Karnatakapu's financial philosophy — earn with purpose, spend on mission. F9 Info Technologies, 100-startups model, volunteer-to-entrepreneur pipeline, and radical transparency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { background: var(--navy); color: var(--white); }
+
+/* ── FLOWING MONEY LINES BACKGROUND ── */
+.money-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.money-bg-line {
+  position: absolute; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,146,12,.08), transparent);
+  animation: flowLine 8s linear infinite;
+}
+.money-bg-line:nth-child(1) { top: 15%; width: 60%; left: -60%; animation-delay: 0s; }
+.money-bg-line:nth-child(2) { top: 35%; width: 40%; left: -40%; animation-delay: 2s; }
+.money-bg-line:nth-child(3) { top: 55%; width: 70%; left: -70%; animation-delay: 4s; }
+.money-bg-line:nth-child(4) { top: 75%; width: 50%; left: -50%; animation-delay: 6s; }
+.money-bg-line:nth-child(5) { top: 90%; width: 45%; left: -45%; animation-delay: 3s; }
+@keyframes flowLine {
+  0% { transform: translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(250%); opacity: 0; }
+}
+.money-bg-glow {
+  position: absolute;
+  background: radial-gradient(ellipse 60% 40% at 90% 30%, rgba(212,146,12,.06) 0%, transparent 60%);
+  inset: 0;
+}
+
+/* ── HERO ── */
+.money-hero {
+  position: relative; z-index: 1;
+  padding: 140px 5rem 80px;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+@media(max-width:900px) { .money-hero { grid-template-columns: 1fr; padding: 120px 1.5rem 60px; gap: 2.5rem; } }
+
+.money-hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 22px;
+}
+.money-hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); opacity: .6; }
+.money-hero-eyebrow-num {
+  background: rgba(212,146,12,.12); border: 1px solid rgba(212,146,12,.3);
+  border-radius: 4px; padding: 2px 8px; font-size: .62rem;
+}
+.money-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 600; line-height: 1.0; letter-spacing: -.03em;
+  color: var(--white); margin-bottom: 10px;
+}
+.money-hero h1 em { font-style: italic; color: var(--gold-light); }
+.money-hero-not {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.3rem); color: rgba(255,255,255,.35);
+  margin-bottom: 24px; display: block;
+}
+.money-hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,.5); line-height: 1.75; max-width: 460px;
+  margin-bottom: 36px;
+}
+.money-hero-manifesto {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.money-hero-line {
+  display: flex; align-items: center; gap: 12px;
+  font-size: .85rem; color: rgba(255,255,255,.6);
+}
+.money-hero-line::before {
+  content: '→'; color: var(--gold); font-size: .8rem; flex-shrink: 0;
+}
+
+/* Hero right — rupee manifesto card */
+.money-hero-card {
+  background: rgba(212,146,12,.05);
+  border: 1px solid rgba(212,146,12,.2);
+  border-radius: 20px; padding: 2.5rem;
+  position: relative; overflow: hidden;
+}
+.money-hero-card::before {
+  content: '₹';
+  position: absolute; right: -10px; bottom: -30px;
+  font-family: 'Fraunces', serif; font-size: 12rem; font-weight: 600;
+  color: rgba(212,146,12,.05); line-height: 1; pointer-events: none;
+}
+.money-big-quote {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 400;
+  color: var(--gold-light); line-height: 1.45; margin-bottom: 20px;
+}
+.money-big-attr {
+  font-size: .7rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(255,255,255,.35); display: block; margin-bottom: 24px;
+}
+.money-hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: rgba(255,255,255,.06); border-radius: 10px; overflow: hidden;
+}
+.money-hero-stat {
+  background: rgba(255,255,255,.02); padding: 1rem; text-align: center;
+}
+.money-hero-stat-val {
+  font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 600;
+  color: var(--gold-light); display: block; line-height: 1; margin-bottom: 4px;
+}
+.money-hero-stat-label {
+  font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+}
+
+/* ── 4-PILLAR STEPPER ── */
+.pillar-section {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px; max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .pillar-section { padding: 0 1.5rem 60px; } }
+.pillar-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.25); margin-bottom: 20px; text-align: center;
+}
+.pillar-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; overflow: hidden;
+}
+@media(max-width:600px) { .pillar-steps { grid-template-columns: repeat(2, 1fr); } }
+.pillar-step {
+  padding: 1.4rem 1rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.06); position: relative;
+}
+.pillar-step:last-child { border-right: none; }
+.pillar-step.done { background: rgba(29,111,184,.07); }
+.pillar-step.active {
+  background: linear-gradient(135deg, rgba(212,146,12,.15), rgba(212,146,12,.07));
+}
+.pillar-step-num {
+  font-size: .58rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+.pillar-step.done .pillar-step-num { color: var(--accent); }
+.pillar-step.active .pillar-step-num { color: var(--gold); }
+.pillar-step-name {
+  font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 600;
+}
+.pillar-step.done .pillar-step-name { color: rgba(255,255,255,.6); }
+.pillar-step.active .pillar-step-name { color: var(--gold-light); }
+.pillar-step-badge {
+  font-size: .58rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; margin-top: 4px;
+}
+.pillar-step.done .pillar-step-badge { color: var(--accent); }
+.pillar-step.active .pillar-step-badge { color: var(--gold); }
+
+/* ── SHARED SECTION WRAPPERS ── */
+.section-wrap {
+  position: relative; z-index: 1;
+  padding: 0 5rem 80px; max-width: 1200px; margin: 0 auto;
+}
+@media(max-width:900px) { .section-wrap { padding: 0 1.5rem 60px; } }
+.section-eyebrow {
+  font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); opacity: .6; }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 600;
+  color: var(--white); line-height: 1.1; margin-bottom: 14px;
+}
+.section-title em { font-style: italic; color: var(--gold-light); }
+.section-sub { font-size: .95rem; color: rgba(255,255,255,.4); max-width: 560px; line-height: 1.75; }
+
+/* ── PHILOSOPHY ── */
+.philosophy-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 36px;
+}
+@media(max-width:800px) { .philosophy-grid { grid-template-columns: 1fr; } }
+.philo-card {
+  background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px; padding: 2rem 1.8rem;
+  position: relative; overflow: hidden;
+  transition: border-color .25s, transform .25s;
+}
+.philo-card:hover { border-color: rgba(212,146,12,.3); transform: translateY(-4px); }
+.philo-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent); opacity: 0; transition: opacity .25s;
+}
+.philo-card:hover::after { opacity: 1; }
+.philo-num {
+  font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 600;
+  color: rgba(212,146,12,.1); line-height: 1; margin-bottom: 14px; display: block;
+}
+.philo-text {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 1.1rem; font-weight: 400; color: var(--white); line-height: 1.5;
+}
+.philo-org {
+  font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-top: 14px; display: block;
+}
+
+/* ── REVENUE STREAMS ── */
+.revenue-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px;
+  background: rgba(255,255,255,.05); border-radius: 18px; overflow: hidden;
+  margin-top: 36px;
+}
+@media(max-width:700px) { .revenue-grid { grid-template-columns: 1fr; } }
+.rev-card {
+  background: var(--navy); padding: 2.2rem 2rem;
+  position: relative; overflow: hidden; transition: background .3s;
+}
+.rev-card:hover { background: rgba(29,111,184,.05); }
+.rev-card::before {
+  content: attr(data-icon);
+  position: absolute; right: 20px; top: 20px;
+  font-size: 2.5rem; opacity: .15;
+}
+.rev-card-tag {
+  font-size: .6rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px; display: block;
+}
+.rev-card-name {
+  font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 600;
+  color: var(--white); margin-bottom: 10px; line-height: 1.2;
+}
+.rev-card-desc { font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.65; margin-bottom: 16px; }
+.rev-card-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.rev-pill {
+  font-size: .6rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+  border-radius: 20px; padding: 4px 10px; color: rgba(255,255,255,.4);
+}
+
+/* ── 100-STARTUPS MODEL ── */
+.startups-feature {
+  background: linear-gradient(135deg, rgba(212,146,12,.08), rgba(29,111,184,.05));
+  border: 1px solid rgba(212,146,12,.18);
+  border-radius: 20px; padding: 3.5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  margin-top: 36px; position: relative; overflow: hidden;
+}
+@media(max-width:800px) { .startups-feature { grid-template-columns: 1fr; gap: 2.5rem; padding: 2rem; } }
+.startups-feature::before {
+  content: '100'; position: absolute; right: -20px; top: -30px;
+  font-family: 'Fraunces', serif; font-size: 10rem; font-weight: 600;
+  color: rgba(212,146,12,.06); line-height: 1; pointer-events: none;
+}
+.startups-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px; display: block;
+}
+.startups-title {
+  font-family: 'Fraunces', serif; font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 14px;
+}
+.startups-title em { font-style: italic; color: var(--gold-light); }
+.startups-body { font-size: .9rem; color: rgba(255,255,255,.5); line-height: 1.75; }
+
+.startups-pipeline {
+  display: flex; flex-direction: column; gap: 0;
+}
+.pipeline-step {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.pipeline-step:last-child { border-bottom: none; }
+.pipeline-dot {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .65rem; font-weight: 700; margin-top: 2px;
+}
+.pipeline-dot.gold { background: rgba(212,146,12,.2); color: var(--gold); border: 1px solid rgba(212,146,12,.4); }
+.pipeline-dot.blue { background: rgba(29,111,184,.2); color: var(--accent); border: 1px solid rgba(29,111,184,.4); }
+.pipeline-dot-label { font-size: .65rem; color: rgba(255,255,255,.3); }
+.pipeline-step-name { font-weight: 600; color: var(--white); font-size: .9rem; margin-bottom: 3px; }
+.pipeline-step-desc { font-size: .8rem; color: rgba(255,255,255,.4); line-height: 1.5; }
+
+/* ── TRANSPARENCY ── */
+.transparency-block {
+  display: grid; grid-template-columns: 1fr 380px; gap: 4rem; align-items: center;
+  margin-top: 36px;
+  background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.07);
+  border-left: 3px solid var(--gold); border-radius: 0 16px 16px 0;
+  padding: 3rem 3.5rem;
+}
+@media(max-width:800px) { .transparency-block { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; } }
+.transparency-quote {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 400;
+  color: var(--white); line-height: 1.4; position: relative;
+}
+.transparency-quote::before {
+  content: '"'; position: absolute; top: -20px; left: -20px;
+  font-size: 6rem; color: rgba(212,146,12,.08); font-style: italic; line-height: 1;
+}
+.transparency-attr {
+  font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-top: 16px; display: block;
+}
+.transparency-facts { display: flex; flex-direction: column; gap: .8rem; }
+.trans-fact {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(255,255,255,.03); border-radius: 10px; padding: .9rem 1rem;
+}
+.trans-fact-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.trans-fact-text { font-size: .82rem; color: rgba(255,255,255,.55); line-height: 1.5; }
+.trans-fact-text strong { color: var(--white); display: block; margin-bottom: 1px; }
+
+/* ── VOLUNTEER PIPELINE ── */
+.vol-pipeline {
+  display: flex; align-items: stretch; gap: 0;
+  margin-top: 36px;
+  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px; overflow: hidden;
+}
+@media(max-width:700px) { .vol-pipeline { flex-direction: column; } }
+.vol-step {
+  flex: 1; padding: 2rem 1.5rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,.05);
+  position: relative; transition: background .3s;
+}
+.vol-step:last-child { border-right: none; }
+.vol-step:hover { background: rgba(212,146,12,.04); }
+.vol-step-num {
+  font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 600;
+  color: rgba(212,146,12,.15); line-height: 1; margin-bottom: 8px; display: block;
+}
+.vol-step-icon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+.vol-step-name {
+  font-weight: 600; color: var(--white); font-size: .88rem;
+  margin-bottom: 6px; line-height: 1.3;
+}
+.vol-step-desc { font-size: .75rem; color: rgba(255,255,255,.38); line-height: 1.55; }
+.vol-arrow {
+  display: flex; align-items: center; padding: 0 .2rem;
+  color: rgba(212,146,12,.3); font-size: 1rem; flex-shrink: 0;
+}
+@media(max-width:700px) { .vol-arrow { display: none; } }
+
+/* ── STATS BAND ── */
+.stats-band {
+  background: linear-gradient(135deg, rgba(212,146,12,.08), rgba(29,111,184,.05));
+  border: 1px solid rgba(255,255,255,.07); border-radius: 20px; padding: 3rem;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  margin-top: 36px;
+}
+@media(max-width:700px) { .stats-band { grid-template-columns: repeat(2, 1fr); } }
+.stat-item {
+  text-align: center; padding: 1rem;
+  border-right: 1px solid rgba(255,255,255,.06);
+}
+.stat-item:last-child, .stat-item:nth-child(2n):last-child { border-right: none; }
+@media(max-width:700px) { .stat-item:nth-child(2n) { border-right: none; } }
+.stat-val {
+  font-family: 'Fraunces', serif; font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 600; color: var(--gold-light); line-height: 1; display: block; margin-bottom: 8px;
+}
+.stat-label {
+  font-size: .63rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); line-height: 1.4;
+}
+
+/* ── CTA ── */
+.cta-block {
+  display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+  background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; padding: 3.5rem; margin-top: 36px;
+  position: relative; overflow: hidden;
+}
+@media(max-width:700px) { .cta-block { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; } }
+.cta-block::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 40% 80% at 100% 50%, rgba(212,146,12,.05), transparent 60%);
+}
+.cta-label {
+  font-size: .65rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px; display: block;
+}
+.cta-title {
+  font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 600; color: var(--white); line-height: 1.25; margin-bottom: 8px;
+}
+.cta-sub { font-size: .9rem; color: rgba(255,255,255,.38); line-height: 1.6; }
+.cta-btns { display: flex; flex-direction: column; gap: .8rem; flex-shrink: 0; }
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 24px; border-radius: 8px;
+  font-size: .82rem; font-weight: 600; letter-spacing: .05em;
+  text-decoration: none; white-space: nowrap; transition: all .25s;
+}
+.cta-btn-gold { background: var(--gold); color: var(--navy); }
+.cta-btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.cta-btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.15); }
+.cta-btn-outline:hover { border-color: rgba(255,255,255,.35); transform: translateY(-2px); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Flowing background -->
+<div class="money-bg">
+  <div class="money-bg-line"></div>
+  <div class="money-bg-line"></div>
+  <div class="money-bg-line"></div>
+  <div class="money-bg-line"></div>
+  <div class="money-bg-line"></div>
+  <div class="money-bg-glow"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="family.html"><span class="drop-icon">👨‍👩‍👧‍👦</span> Family</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+        <a href="process.html"><span class="drop-icon">⚙️</span> Process</a>
+        <a href="money.html"><span class="drop-icon">💰</span> Money</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="family.html" onclick="closeMob()"><span>👨‍👩‍👧‍👦</span> Family</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+      <a href="process.html" onclick="closeMob()"><span>⚙️</span> Process</a>
+      <a href="money.html" onclick="closeMob()"><span>💰</span> Money</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="money-hero">
+  <div class="fade-up">
+    <div class="money-hero-eyebrow">
+      <span class="money-hero-eyebrow-num">Pillar 04</span>
+      Money
+    </div>
+    <h1>Money is<br>the <em>Fuel</em></h1>
+    <span class="money-hero-not">— not the destination</span>
+    <p class="money-hero-sub">Earn with purpose. Spend on mission. Build for the city. Every rupee has a job to do.</p>
+    <div class="money-hero-manifesto">
+      <div class="money-hero-line">F9 earns. The mission spends.</div>
+      <div class="money-hero-line">No personal wealth accumulation.</div>
+      <div class="money-hero-line">Radical transparency — always.</div>
+    </div>
+  </div>
+  <div class="money-hero-card fade-up" style="transition-delay:.15s">
+    <div class="money-big-quote">"I don't own anything. I am building something."</div>
+    <span class="money-big-attr">— Satheesh Karnatakapu</span>
+    <div class="money-hero-stats">
+      <div class="money-hero-stat">
+        <span class="money-hero-stat-val count-up" data-target="18">0</span>
+        <span class="money-hero-stat-label">Years Revenue</span>
+      </div>
+      <div class="money-hero-stat">
+        <span class="money-hero-stat-val count-up" data-target="500">0</span>
+        <span class="money-hero-stat-label">Clients Served</span>
+      </div>
+      <div class="money-hero-stat">
+        <span class="money-hero-stat-val">100</span>
+        <span class="money-hero-stat-label">Startup Goal</span>
+      </div>
+      <div class="money-hero-stat">
+        <span class="money-hero-stat-val">₹0</span>
+        <span class="money-hero-stat-label">Personal Assets</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 4-PILLAR STEPPER ════════════════════ -->
+<section class="pillar-section">
+  <div class="pillar-label fade-up">The 4-Pillar Framework — Complete</div>
+  <div class="pillar-steps fade-up">
+    <div class="pillar-step done">
+      <div class="pillar-step-num">Pillar 01</div>
+      <div class="pillar-step-name">Time</div>
+      <div class="pillar-step-badge">✓ Done</div>
+    </div>
+    <div class="pillar-step done">
+      <div class="pillar-step-num">Pillar 02</div>
+      <div class="pillar-step-name">People</div>
+      <div class="pillar-step-badge">✓ Done</div>
+    </div>
+    <div class="pillar-step done">
+      <div class="pillar-step-num">Pillar 03</div>
+      <div class="pillar-step-name">Process</div>
+      <div class="pillar-step-badge">✓ Done</div>
+    </div>
+    <div class="pillar-step active">
+      <div class="pillar-step-num">Pillar 04</div>
+      <div class="pillar-step-name">Money</div>
+      <div class="pillar-step-badge">◉ Final Pillar</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PHILOSOPHY ════════════════════ -->
+<section class="section-wrap">
+  <div class="section-eyebrow fade-up">The Philosophy</div>
+  <h2 class="section-title fade-up">3 Beliefs That<br><em>Never Change</em></h2>
+  <div class="philosophy-grid">
+    <div class="philo-card fade-up">
+      <span class="philo-num">01</span>
+      <div class="philo-text">"Earn to fund the mission, not to accumulate."</div>
+      <span class="philo-org">Core Principle</span>
+    </div>
+    <div class="philo-card fade-up" style="transition-delay:.08s">
+      <span class="philo-num">02</span>
+      <div class="philo-text">"F9 Info Technologies is the engine that powers everything else."</div>
+      <span class="philo-org">F9 Info Technologies</span>
+    </div>
+    <div class="philo-card fade-up" style="transition-delay:.16s">
+      <span class="philo-num">03</span>
+      <div class="philo-text">"Every rupee earned has a purpose — Vizag, students, volunteers."</div>
+      <span class="philo-org">Mission Allocation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ REVENUE STREAMS ════════════════════ -->
+<section class="section-wrap">
+  <div class="section-eyebrow fade-up">Revenue Streams</div>
+  <h2 class="section-title fade-up">4 Engines.<br><em>One Mission.</em></h2>
+  <p class="section-sub fade-up">Diversified income that funds Vizag Volunteers, Kalam Dream Labs, and the broader mission — without depending on donations or grants.</p>
+  <div class="revenue-grid">
+    <div class="rev-card fade-up" data-icon="💻">
+      <span class="rev-card-tag">Primary Engine · 18 Years</span>
+      <div class="rev-card-name">F9 Info Technologies</div>
+      <p class="rev-card-desc">Visakhapatnam's trusted digital partner since 2008. Web design, digital marketing, IT services — 500+ clients served. The financial backbone of everything.</p>
+      <div class="rev-card-pills">
+        <span class="rev-pill">Web Design</span>
+        <span class="rev-pill">Digital Marketing</span>
+        <span class="rev-pill">IT Services</span>
+        <span class="rev-pill">500+ Clients</span>
+      </div>
+    </div>
+    <div class="rev-card fade-up" style="transition-delay:.08s" data-icon="🚀">
+      <span class="rev-card-tag">Training & Innovation</span>
+      <div class="rev-card-name">Kalam Dream Labs</div>
+      <p class="rev-card-desc">Training programs, innovation workshops, and corporate sessions that simultaneously earn revenue and create social impact — the dual mandate model.</p>
+      <div class="rev-card-pills">
+        <span class="rev-pill">Training Programs</span>
+        <span class="rev-pill">Workshops</span>
+        <span class="rev-pill">Corporate Sessions</span>
+        <span class="rev-pill">800+ Students</span>
+      </div>
+    </div>
+    <div class="rev-card fade-up" style="transition-delay:.04s" data-icon="📷">
+      <span class="rev-card-tag">Since 1997 · Still Active</span>
+      <div class="rev-card-name">Photography & Studio</div>
+      <p class="rev-card-desc">The original income source that saved F9 during the ₹40 lakh debt crisis. Still active today — income diversification and a reminder of where it all began.</p>
+      <div class="rev-card-pills">
+        <span class="rev-pill">Corporate Photography</span>
+        <span class="rev-pill">Aerial Work</span>
+        <span class="rev-pill">Studio Sessions</span>
+      </div>
+    </div>
+    <div class="rev-card fade-up" style="transition-delay:.12s" data-icon="🎤">
+      <span class="rev-card-tag">Ecosystem Leadership</span>
+      <div class="rev-card-name">Speaking & Consulting</div>
+      <p class="rev-card-desc">Startup ecosystem leadership, mentoring sessions, BNI/CII/YI keynotes, and consulting work that keeps Satheesh at the intersection of Vizag's growth.</p>
+      <div class="rev-card-pills">
+        <span class="rev-pill">Keynotes</span>
+        <span class="rev-pill">Mentoring</span>
+        <span class="rev-pill">Ecosystem Consulting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 100 STARTUPS ════════════════════ -->
+<section class="section-wrap">
+  <div class="section-eyebrow fade-up">The Big Bet</div>
+  <div class="startups-feature fade-up">
+    <div>
+      <span class="startups-label">The 100-Startups Model</span>
+      <div class="startups-title">Building <em>100 startups</em><br>from Vizag's own soil</div>
+      <p class="startups-body">F9's 18 years of client relationships + the Vizag ecosystem network = the perfect infrastructure to incubate startups. Every F9 client is a potential founder. Every KDL student is a potential entrepreneur. The ecosystem is already built — now it needs to be activated.</p>
+    </div>
+    <div class="startups-pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-dot gold">F9</div>
+        <div>
+          <div class="pipeline-step-name">F9 Client or Volunteer</div>
+          <div class="pipeline-step-desc">500+ client relationships + 5000 volunteers = the talent pool</div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot blue">💡</div>
+        <div>
+          <div class="pipeline-step-name">Startup Idea Emerges</div>
+          <div class="pipeline-step-desc">Problem identified through real ecosystem work</div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot gold">KDL</div>
+        <div>
+          <div class="pipeline-step-name">KDL Mentorship</div>
+          <div class="pipeline-step-desc">Validation, skill training, prototype support</div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot blue">🌐</div>
+        <div>
+          <div class="pipeline-step-name">Ecosystem Support</div>
+          <div class="pipeline-step-desc">CII, Startup Vizag, BNI network, investors</div>
+        </div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-dot gold">🚀</div>
+        <div>
+          <div class="pipeline-step-name">Launch</div>
+          <div class="pipeline-step-desc">Vizag-born startup, mission-aligned, job-creating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ TRANSPARENCY ════════════════════ -->
+<section class="section-wrap">
+  <div class="section-eyebrow fade-up">Radical Transparency</div>
+  <h2 class="section-title fade-up">The <em>Financial Truth</em></h2>
+  <div class="transparency-block fade-up">
+    <div>
+      <div class="transparency-quote">
+        "I don't own anything.<br>I am building something."
+        <span class="transparency-attr">— Satheesh Karnatakapu</span>
+      </div>
+    </div>
+    <div class="transparency-facts">
+      <div class="trans-fact">
+        <div class="trans-fact-icon">🏠</div>
+        <div class="trans-fact-text">
+          <strong>No personal assets</strong>
+          No property, no investments, no accumulation. Everything earned goes back.
+        </div>
+      </div>
+      <div class="trans-fact">
+        <div class="trans-fact-icon">💼</div>
+        <div class="trans-fact-text">
+          <strong>Earns from F9</strong>
+          Single salary from F9 Info Technologies. Simple living, maximum mission.
+        </div>
+      </div>
+      <div class="trans-fact">
+        <div class="trans-fact-icon">🤝</div>
+        <div class="trans-fact-text">
+          <strong>Spends on mission</strong>
+          Beach cleaning, student camps, volunteer events — all self-funded.
+        </div>
+      </div>
+      <div class="trans-fact">
+        <div class="trans-fact-icon">📖</div>
+        <div class="trans-fact-text">
+          <strong>Open books philosophy</strong>
+          Financial transparency is a point of pride, not shame. Honesty builds trust.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ VOLUNTEER PIPELINE ════════════════════ -->
+<section class="section-wrap">
+  <div class="section-eyebrow fade-up">The Bigger Vision</div>
+  <h2 class="section-title fade-up">Volunteer → <em>Entrepreneur</em><br>Pipeline</h2>
+  <p class="section-sub fade-up">5000 volunteers aren't just service providers — they are Vizag's next generation of entrepreneurs. The pipeline is already running.</p>
+  <div class="vol-pipeline fade-up">
+    <div class="vol-step">
+      <span class="vol-step-num">01</span>
+      <span class="vol-step-icon">🤝</span>
+      <div class="vol-step-name">Volunteer</div>
+      <div class="vol-step-desc">Joins Vizag Volunteers. Contributes time and energy to the mission.</div>
+    </div>
+    <div class="vol-arrow">›</div>
+    <div class="vol-step">
+      <span class="vol-step-num">02</span>
+      <span class="vol-step-icon">📚</span>
+      <div class="vol-step-name">Skill Development</div>
+      <div class="vol-step-desc">KDL training camps. Leadership, technology, communication.</div>
+    </div>
+    <div class="vol-arrow">›</div>
+    <div class="vol-step">
+      <span class="vol-step-num">03</span>
+      <span class="vol-step-icon">💡</span>
+      <div class="vol-step-name">Startup Idea</div>
+      <div class="vol-step-desc">Problem-solving mindset turns into a real business idea.</div>
+    </div>
+    <div class="vol-arrow">›</div>
+    <div class="vol-step">
+      <span class="vol-step-num">04</span>
+      <span class="vol-step-icon">⚙️</span>
+      <div class="vol-step-name">F9 / KDL Support</div>
+      <div class="vol-step-desc">Tech support, mentoring, ecosystem connections, funding guidance.</div>
+    </div>
+    <div class="vol-arrow">›</div>
+    <div class="vol-step">
+      <span class="vol-step-num">05</span>
+      <span class="vol-step-icon">🚀</span>
+      <div class="vol-step-name">Launch</div>
+      <div class="vol-step-desc">Vizag-born startup. Job creator. Mission multiplier.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ STATS ════════════════════ -->
+<section class="section-wrap">
+  <div class="section-eyebrow fade-up">The Numbers</div>
+  <div class="stats-band fade-up">
+    <div class="stat-item">
+      <span class="stat-val"><span class="count-up" data-target="18">0</span> Yrs</span>
+      <span class="stat-label">Consistent Revenue<br>Generation</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-val"><span class="count-up" data-target="500">0</span>+</span>
+      <span class="stat-label">Clients Served<br>by F9</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-val">100</span>
+      <span class="stat-label">Startups<br>Goal</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-val">₹0</span>
+      <span class="stat-label">Personal<br>Assets Held</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ CTA ════════════════════ -->
+<section class="section-wrap" style="padding-bottom:120px">
+  <div class="cta-block fade-up">
+    <div>
+      <span class="cta-label">The 4 Pillars — Complete</span>
+      <div class="cta-title">Time. People. Process. Money.<br>The full framework.</div>
+      <p class="cta-sub">See how process makes it all repeatable — or explore the Dream Port vision that this framework is building toward.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="process.html" class="cta-btn cta-btn-gold">⚙️ See the Process →</a>
+      <a href="dreamport.html" class="cta-btn cta-btn-outline">🛫 The Full Vision</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><strong>Satheesh Karnatakapu</strong> · Visakhapatnam, India</div>
+  <div class="foot-motto">"For the people. By the people. Of the people."</div>
+  <div class="foot-domain">satheesh.info</div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* Fade-up on scroll */
+const fadeEls = document.querySelectorAll('.fade-up');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => obs.observe(el));
+
+/* Count-up */
+function animateCount(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1600;
+  const start = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target).toLocaleString();
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(tick);
+}
+const countEls = document.querySelectorAll('.count-up');
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = '1';
+      animateCount(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+countEls.forEach(el => countObs.observe(el));
+</script>
+</body>
+</html>
