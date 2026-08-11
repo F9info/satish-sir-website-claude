@@ -4,9 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>People — Satheesh Karnatakapu · The Ecosystem</title>
+<!-- @@meta -->
+<meta name="description" content="The people ecosystem around Satheesh Karnatakapu — mentors, team, inspirations, and the community he serves in Visakhapatnam.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="People & Ecosystem — Satheesh Karnatakapu">
+<meta property="og:description" content="Mentors, collaborators, team members and the community. The people who shape and are shaped by Satheesh Karnatakapu's work.">
+<meta property="og:image" content="https://satheesh.info/images/award_1103.jpg">
+<link rel="canonical" href="https://satheesh.info/people.html">
+<!-- @@meta:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://w.behold.so/widget.js" type="module"></script>
 <link rel="stylesheet" href="css/style.css">
 <style>
@@ -129,7 +137,7 @@ body { background: var(--navy); color: var(--white); }
 /* SECTION BASE */
 .pp-section {
   padding: 7rem 5rem;
-  max-width: 1120px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 .pp-section-full {
@@ -138,7 +146,7 @@ body { background: var(--navy); color: var(--white); }
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.pp-section-full-inner { max-width: 1120px; margin: 0 auto; }
+.pp-section-full-inner { max-width: 1800px; margin: 0 auto; }
 .pp-label {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--gold-light);
@@ -234,7 +242,7 @@ body { background: var(--navy); color: var(--white); }
   background: linear-gradient(90deg, var(--gold), transparent);
 }
 .pp-engage-num {
-  font-family: 'Fraunces', serif;
+  font-family:'Fredoka', sans-serif;
   font-size: 3.5rem; font-weight: 600;
   color: rgba(255,255,255,0.04);
   position: absolute; top: 1rem; right: 1.5rem;
@@ -283,7 +291,7 @@ body { background: var(--navy); color: var(--white); }
   gap: 5rem; align-items: center; margin-bottom: 5rem;
 }
 .pp-eco-big {
-  font-family: 'Fraunces', serif;
+  font-family: 'Fredoka', sans-serif;
   font-size: clamp(5rem, 12vw, 9rem);
   font-weight: 600;
   color: rgba(212,146,12,0.15);
@@ -401,7 +409,7 @@ body { background: var(--navy); color: var(--white); }
   gap: 0.5rem;
 }
 .pp-eco-more-num {
-  font-family: 'Fraunces', serif;
+  font-family:'Fredoka', sans-serif;
   font-size: 2.5rem; font-weight: 600;
   color: rgba(212,146,12,0.4); line-height: 1;
 }
@@ -439,7 +447,7 @@ body { background: var(--navy); color: var(--white); }
 
 /* ── EXISTING SECTIONS (kept) ── */
 .insp-inner, .mentors-inner, .team-inner {
-  max-width: 1120px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 5rem 7rem;
 }
@@ -603,8 +611,13 @@ section#team { padding-top: 7rem; background: var(--navy); }
 </head>
 <body>
 
+<!-- @@nav:start -->
+<!-- Skip link (accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
-<nav id="navbar">
+<nav id="navbar" aria-label="Main navigation">
+ <div class="nav-container">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-mark">SK</div>
     <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
@@ -637,7 +650,6 @@ section#team { padding-top: 7rem; background: var(--navy); }
         <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
       </div>
     </li>
-
     <li class="has-drop">
       <a href="people.html">People</a>
       <div class="nav-drop">
@@ -661,12 +673,13 @@ section#team { padding-top: 7rem; background: var(--navy); }
       </div>
     </li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMobile">
     <span></span><span></span><span></span>
   </button>
+ </div>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu Panel -->
 <div class="nav-mobile" id="navMobile">
   <div class="nav-mobile-inner">
     <div class="mob-group">
@@ -692,7 +705,6 @@ section#team { padding-top: 7rem; background: var(--navy); }
       <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
       <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
     </div>
-
     <div class="mob-group">
       <div class="mob-group-label">People</div>
       <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
@@ -703,14 +715,20 @@ section#team { padding-top: 7rem; background: var(--navy); }
       <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
       <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
     </div>
-    <div class="mob-group">
-      <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
     <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
-      <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
-      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Connect</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
     </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
   </div>
 </div>
+
+<main id="main-content">
+<!-- @@nav:end -->
 
 <!-- HERO -->
 <section class="pp-hero">
@@ -1079,7 +1097,7 @@ section#team { padding-top: 7rem; background: var(--navy); }
     <div class="insp-grid">
 
       <div class="insp-card reveal">
-        <div class="insp-avatar">AK</div>
+        <div class="insp-avatar"><img src="images/APJ-Abdul-Kalam.webp" alt="Dr. APJ Abdul Kalam"></div>
         <div class="insp-num">01 / 04</div>
         <div class="insp-name">Dr. APJ Abdul Kalam</div>
         <div class="insp-title">Scientist · President · People's Leader</div>
@@ -1089,7 +1107,7 @@ section#team { padding-top: 7rem; background: var(--navy); }
       </div>
 
       <div class="insp-card reveal d1">
-        <div class="insp-avatar">SJ</div>
+        <div class="insp-avatar"><img src="images/Steven-Paul-Jobs.avif" alt="Steve Jobs"></div>
         <div class="insp-num">02 / 04</div>
         <div class="insp-name">Steve Jobs</div>
         <div class="insp-title">Visionary · Founder · Design Thinker</div>
@@ -1099,7 +1117,7 @@ section#team { padding-top: 7rem; background: var(--navy); }
       </div>
 
       <div class="insp-card reveal d2">
-        <div class="insp-avatar">CB</div>
+        <div class="insp-avatar"><img src="images/Chandrababu-Naidu.jpg" alt="Nara Chandrababu Naidu"></div>
         <div class="insp-num">03 / 04</div>
         <div class="insp-name">Nara Chandrababu Naidu</div>
         <div class="insp-title">Chief Minister · Tech Visionary · Builder of AP</div>
@@ -1109,7 +1127,7 @@ section#team { padding-top: 7rem; background: var(--navy); }
       </div>
 
       <div class="insp-card reveal d3">
-        <div class="insp-avatar">LT</div>
+        <div class="insp-avatar"><img src="images/Linus-Torvalds.jpg" alt="Linus Torvalds"></div>
         <div class="insp-num">04 / 04</div>
         <div class="insp-name">Linus Torvalds</div>
         <div class="insp-title">Engineer · Open Source Pioneer · Linux Creator</div>
@@ -1235,6 +1253,58 @@ section#team { padding-top: 7rem; background: var(--navy); }
     <a href="dreamport.html" class="pp-cta-secondary">Build a Startup</a>
   </div>
 </div>
+
+<!-- @@footer:start -->
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-logo"><span class="footer-logo-mark">SK</span> Satheesh <span>Karnatakapu</span></div>
+        <p class="footer-tagline">"For the people. By the people. Of the people."</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/websatish" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://vizagvolunteers.org" target="_blank" rel="noopener" aria-label="Vizag Volunteers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M17.5 3.6c1.3.4 2.2 1.6 2.2 3s-.9 2.6-2.2 3"/></svg>
+          </a>
+          <a href="mailto:md@f9tech.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Explore</div>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="people.html">People</a>
+        <a href="journey.html">Journey</a>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Organisations</div>
+        <a href="f9tech.html">F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html">Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html">Vizag Volunteers</a>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="contact.html">Contact</a>
+        <a href="media.html">Media</a>
+        <a href="presskit.html">Press Kit</a>
+        <a href="tel:+919963556668">Mobile: 9963556668</a>
+        <a href="mailto:md@f9tech.com">Email: md@f9tech.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Satheesh Karnatakapu · Visakhapatnam, India</span>
+      <span class="footer-domain">satheesh.info</span>
+    </div>
+  </div>
+</footer>
+<!-- @@footer:end -->
 
 <script src="js/main.js"></script>
 </body>

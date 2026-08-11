@@ -4,9 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Satheesh Karnatakapu · 40+ Ideas, One Mission</title>
+<!-- @@meta -->
+<meta name="description" content="40+ ideas and active projects by Satheesh Karnatakapu — from tech innovations to social initiatives across Visakhapatnam.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Projects — Satheesh Karnatakapu · 40+ Ideas in Motion">
+<meta property="og:description" content="A running list of projects — active, planned, and completed. Technology, social, education, and community-driven initiatives.">
+<meta property="og:image" content="https://satheesh.info/images/award_1103.jpg">
+<link rel="canonical" href="https://satheesh.info/projects.html">
+<!-- @@meta:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
 body { background: var(--navy); color: var(--white); }
@@ -36,7 +44,7 @@ body { background: var(--navy); color: var(--white); }
   display: flex; gap: 40px; flex-wrap: wrap;
 }
 .proj-stat-num {
-  font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; color: var(--gold);
+  font-family:'Fredoka', sans-serif; font-size: 2rem; font-weight: 400; color: var(--gold);
 }
 .proj-stat-label {
   font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
@@ -50,7 +58,7 @@ body { background: var(--navy); color: var(--white); }
   border-top: 1px solid rgba(255,255,255,.05);
   border-bottom: 1px solid rgba(255,255,255,.05);
 }
-.hub-inner { max-width: 1100px; margin: 0 auto; }
+.hub-inner { max-width: 1800px; margin: 0 auto; }
 .hub-inner .section-label {
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 16px;
@@ -139,7 +147,7 @@ body { background: var(--navy); color: var(--white); }
 /* ── Projects grid ── */
 .proj-grid {
   padding: 0 24px 80px;
-  max-width: 1100px; margin: 0 auto;
+  max-width: 1800px; margin: 0 auto;
   display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
 }
 
@@ -220,7 +228,7 @@ body { background: var(--navy); color: var(--white); }
   background: rgba(255,255,255,.02);
   border-top: 1px solid rgba(255,255,255,.06);
 }
-.how-inner { max-width: 1100px; margin: 0 auto; }
+.how-inner { max-width: 1800px; margin: 0 auto; }
 .how-inner .section-label {
   font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 16px;
@@ -243,7 +251,7 @@ body { background: var(--navy); color: var(--white); }
 /* ── Submit project ── */
 .submit-section {
   padding: 72px 24px;
-  max-width: 1100px; margin: 0 auto;
+  max-width: 1800px; margin: 0 auto;
   text-align: center;
 }
 .submit-section h2 {
@@ -320,8 +328,13 @@ footer a:hover { color: var(--gold); }
 </head>
 <body>
 
+<!-- @@nav:start -->
+<!-- Skip link (accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
-<nav id="navbar">
+<nav id="navbar" aria-label="Main navigation">
+ <div class="nav-container">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-mark">SK</div>
     <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
@@ -354,13 +367,14 @@ footer a:hover { color: var(--gold); }
         <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
       </div>
     </li>
-
     <li class="has-drop">
       <a href="people.html">People</a>
       <div class="nav-drop">
-        <a href="people.html"><span class="drop-icon">🌟</span> Inspirations</a>
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
         <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
-        <a href="team.html"><span class="drop-icon">🤝</span> Team</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
         <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
         <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
       </div>
@@ -376,9 +390,10 @@ footer a:hover { color: var(--gold); }
       </div>
     </li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMobile">
     <span></span><span></span><span></span>
   </button>
+ </div>
 </nav>
 
 <!-- Mobile Menu Panel -->
@@ -407,12 +422,13 @@ footer a:hover { color: var(--gold); }
       <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
       <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
     </div>
-
     <div class="mob-group">
       <div class="mob-group-label">People</div>
-      <a href="people.html" onclick="closeMob()"><span>🌟</span> Inspirations</a>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
       <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
-      <a href="team.html" onclick="closeMob()"><span>🤝</span> Team</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
       <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
       <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
     </div>
@@ -427,6 +443,9 @@ footer a:hover { color: var(--gold); }
     <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
   </div>
 </div>
+
+<main id="main-content">
+<!-- @@nav:end -->
 
 <!-- ── Hero ── -->
 <section class="proj-hero">
@@ -487,7 +506,7 @@ footer a:hover { color: var(--gold); }
         <p>The network is already built. Volunteers, entrepreneurs, professionals, leaders — ready to be connected to the right project.</p>
       </div>
       <div class="hub-outcome">
-        <h4>16 Years of Access</h4>
+        <h4>18 Years of Access</h4>
         <p>F9's business network, KDL's talent pipeline, Vizag Volunteers' community energy — all available for the right mission.</p>
       </div>
       <div class="hub-outcome">
@@ -1015,8 +1034,10 @@ footer a:hover { color: var(--gold); }
   </div>
 </section>
 
+</main>
+
 <footer>
-  <p>© 2026 Satheesh Karnatakapu · <a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="dreamport.html">Dream Port</a></p>
+  <p>© 2026 Satheesh Karnatakapu · <a href="index.html">Home</a> · <a href="contact.html">Contact</a> · <a href="dreamport.html">Dream Port</a> · <a href="tel:+919963556668">9963556668</a> · <a href="mailto:md@f9tech.com">md@f9tech.com</a></p>
 </footer>
 
 <script>

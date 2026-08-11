@@ -4,29 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vizag Volunteers Association — Visakhapatnam</title>
+<!-- @@meta -->
+<meta name="description" content="Vizag Volunteers Association — 5,000+ active volunteers, 13 social projects, 2,09,792 lives impacted. Founded March 27, 2020 in Visakhapatnam.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vizag Volunteers Association — For the People of Vizag">
+<meta property="og:description" content="5,000+ volunteers. 13 social projects. 2,09,792 lives impacted. Born from one WhatsApp message on March 27, 2020.">
+<meta property="og:image" content="https://satheesh.info/images/award_1103.jpg">
+<link rel="canonical" href="https://satheesh.info/vizagvolunteers.html">
+<!-- @@meta:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>/* page styles */
-.org-hero { padding: calc(8rem + 68px) 5rem 8rem; background: var(--navy); position:relative; overflow:hidden; }
+/* Vizag Volunteers brand accent — matches vizagvolunteers.org's sun-logo gold + red CTA */
+body { --org-accent:#E8262F; --org-accent-light:#FDC02F; }
+.org-hero { padding: calc(5rem + 68px) 5rem 6rem; background: var(--navy); position:relative; overflow:hidden; }
 .org-hero::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size:60px 60px; pointer-events:none; }
-.org-hero-inner,.org-section-inner,.impact-strip-inner { max-width:1120px; margin:0 auto; position:relative; }
-.org-breadcrumb { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:2rem; }
-.org-breadcrumb a { color:rgba(255,255,255,0.5); text-decoration:none; }
-.org-breadcrumb a:hover { color:var(--gold-light); }
-.org-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.62rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1rem; }
+.org-hero-inner { max-width:1800px; margin:0 auto; position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.org-section-inner,.impact-strip-inner { max-width:1800px; margin:0 auto; position:relative; }
+.org-section-inner.narrow { max-width:760px; }
+.org-hero-logo { width:64px; height:64px; border-radius:14px; background:var(--white); padding:8px; object-fit:contain; box-shadow:var(--shadow-sm); margin-bottom:1.2rem; }
+.org-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.62rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--org-accent-light); margin-bottom:1rem; }
 .org-h1 { font-family:'Fraunces',serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:600; color:var(--white); line-height:1.1; margin-bottom:0.3rem; }
-.org-h1 span { color:var(--gold-light); }
-.org-tagline { font-size:1.05rem; color:var(--gold-light); font-style:italic; margin-bottom:0.5rem; }
-.org-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:620px; line-height:1.7; margin:1rem 0 2rem; }
-.org-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-.org-btn-primary { padding:0.75rem 1.8rem; background:var(--gold-light); color:var(--navy); border-radius:8px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:opacity 0.2s; }
+.org-h1 span { color:var(--org-accent-light); }
+.org-tagline { font-size:1.05rem; color:var(--org-accent-light); font-style:italic; margin-bottom:0.5rem; }
+.org-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:620px; line-height:1.7; margin:1rem auto 2rem; }
+.org-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+.org-btn-primary { padding:0.75rem 1.8rem; background:var(--org-accent); color:var(--white); border-radius:8px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:opacity 0.2s; }
 .org-btn-primary:hover { opacity:0.88; }
 .org-btn-secondary { padding:0.75rem 1.8rem; background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2); border-radius:8px; font-weight:600; font-size:0.88rem; text-decoration:none; transition:background 0.2s; }
 .org-btn-secondary:hover { background:rgba(255,255,255,0.18); }
-.org-stats-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; }
-.org-stat-val { font-family:'Fraunces',serif; font-size:2rem; font-weight:600; color:var(--white); }
+.org-stats-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; justify-content:center; }
+.org-stat-val { font-family:'Fredoka',sans-serif; font-size:2rem; font-weight:600; color:var(--white); }
 .org-stat-lbl { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:0.2rem; }
 .org-section { padding:7rem 5rem; }
 .org-section-tag { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; }
@@ -34,12 +44,12 @@
 .org-h2 { font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:1rem; }
 .org-h2 em { color:var(--accent); font-style:italic; }
 .org-story { font-size:0.95rem; color:var(--text-mid); max-width:750px; line-height:1.9; margin-bottom:1.5rem; }
-.quote-block { background:var(--navy); border-left:3px solid var(--gold-light); border-radius:0 12px 12px 0; padding:2rem 2.5rem; margin-top:2.5rem; }
+.quote-block { background:var(--navy); border-left:3px solid var(--org-accent-light); border-radius:0 12px 12px 0; padding:2rem 2.5rem; margin-top:2.5rem; }
 .quote-block p { font-size:0.95rem; color:rgba(255,255,255,0.8); line-height:1.8; font-style:italic; }
-.quote-block cite { font-size:0.72rem; color:var(--gold-light); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-top:0.75rem; display:block; }
+.quote-block cite { font-size:0.72rem; color:var(--org-accent-light); font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-top:0.75rem; display:block; }
 .impact-strip { padding:5rem; background:var(--navy); }
 .impact-strip-inner { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; text-align:center; }
-.imp-val { font-family:'Fraunces',serif; font-size:2.5rem; font-weight:600; color:var(--gold-light); }
+.imp-val { font-family:'Fredoka',sans-serif; font-size:2.5rem; font-weight:600; color:var(--org-accent-light); }
 .imp-lbl { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:0.3rem; }
 .projects-grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2.5rem; }
 .proj4-card { background:var(--white); border:1.5px solid var(--border); border-radius:14px; padding:1.6rem 1.4rem; transition:all 0.3s; }
@@ -49,14 +59,14 @@
 .proj4-desc { font-size:0.75rem; color:var(--text-mid); line-height:1.65; }
 .covid-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
 .covid-stat { background:var(--navy-pale); border-radius:14px; padding:2rem; text-align:center; }
-.covid-num { font-family:'Fraunces',serif; font-size:2rem; font-weight:600; color:var(--navy); }
+.covid-num { font-family:'Fredoka',sans-serif; font-size:2rem; font-weight:600; color:var(--navy); }
 .covid-label { font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-top:0.3rem; }
 .org-cta-section { padding:6rem 5rem; background:var(--navy); text-align:center; }
 .org-cta-inner { max-width:640px; margin:0 auto; }
 .org-cta-title { font-family:'Fraunces',serif; font-size:2.2rem; font-weight:600; color:var(--white); margin-bottom:1rem; }
 .org-cta-sub { font-size:0.95rem; color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:2rem; }
 .org-cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-.org-cta-primary { padding:0.8rem 2rem; background:var(--gold-light); color:var(--navy); border-radius:8px; font-weight:700; text-decoration:none; transition:opacity 0.2s; }
+.org-cta-primary { padding:0.8rem 2rem; background:var(--org-accent); color:var(--white); border-radius:8px; font-weight:700; text-decoration:none; transition:opacity 0.2s; }
 .org-cta-primary:hover { opacity:0.88; }
 .org-cta-secondary { padding:0.8rem 2rem; background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2); border-radius:8px; font-weight:600; text-decoration:none; }
 .org-cta-secondary:hover { background:rgba(255,255,255,0.18); }
@@ -66,8 +76,13 @@
 </head>
 <body>
 
+<!-- @@nav:start -->
+<!-- Skip link (accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
-<nav id="navbar">
+<nav id="navbar" aria-label="Main navigation">
+ <div class="nav-container">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-mark">SK</div>
     <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
@@ -100,7 +115,6 @@
         <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
       </div>
     </li>
-
     <li class="has-drop">
       <a href="people.html">People</a>
       <div class="nav-drop">
@@ -124,10 +138,13 @@
       </div>
     </li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMobile">
     <span></span><span></span><span></span>
   </button>
+ </div>
 </nav>
+
+<!-- Mobile Menu Panel -->
 <div class="nav-mobile" id="navMobile">
   <div class="nav-mobile-inner">
     <div class="mob-group">
@@ -153,7 +170,6 @@
       <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
       <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
     </div>
-
     <div class="mob-group">
       <div class="mob-group-label">People</div>
       <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
@@ -176,12 +192,13 @@
   </div>
 </div>
 
+<main id="main-content">
+<!-- @@nav:end -->
+
 <!-- HERO -->
 <section class="org-hero">
   <div class="org-hero-inner">
-    <div class="org-breadcrumb">
-      <a href="index.html">← Back to Satheesh.info</a>
-    </div>
+    <img src="images/vv-logo.svg" alt="Vizag Volunteers Association logo" class="org-hero-logo">
     <div class="org-badge">Founded 27 March 2020 · Registered NPO · AP Society Act 2001</div>
     <h1 class="org-h1">Vizag Volunteers<br><span>Association</span></h1>
     <p class="org-tagline">"For the people. By the people. Of the people."</p>
@@ -213,7 +230,7 @@
 
 <!-- ORIGIN STORY -->
 <section class="org-section" style="background:var(--white);">
-  <div class="org-section-inner">
+  <div class="org-section-inner narrow">
     <div class="org-section-tag">Origin Story</div>
     <h2 class="org-h2">Born from One <em>WhatsApp Message</em></h2>
     <p class="org-story">On March 27, 2020, as COVID-19 lockdowns paralysed India, Satheesh Karnatakapu sent a single WhatsApp message. Within hours, hundreds of volunteers responded. Within days, meals were being delivered to migrant workers stranded on Vizag's streets. The message had become a movement — and Vizag Volunteers Association was born.</p>
@@ -221,6 +238,42 @@
     <div class="quote-block">
       <p>"We don't ask for money. We ask for time. Every volunteer gives their Sunday morning, their weekday evenings, their skill — and that's what changes Vizag."</p>
       <cite>— Satheesh Karnatakapu, Founder</cite>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="org-section" style="background:var(--navy-subtle);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Leadership</div>
+    <h2 class="org-h2">Mr. Satheesh Karnatakapu <em>— Founder, Vizag Volunteers Association</em></h2>
+    <p class="org-story" style="margin-bottom:2rem;">A love for Vizag. A passion for people. A movement powered by volunteers.</p>
+    <div class="leader-grid">
+      <div class="leader-photo">
+        <img src="images/vizagvolunter.jpg" alt="Mr. Satheesh Karnatakapu with Vizag Volunteers at a beach cleanup" loading="lazy">
+      </div>
+      <div class="leader-bio">
+        <p><strong>Mr. Satheesh Karnatakapu</strong> is the Founder of <strong>Vizag Volunteers Association</strong>, a citizen-led movement that began on <strong>27 March 2020</strong>, during the challenging days of the COVID-19 lockdown.</p>
+        <p>What started with a <strong>single WhatsApp message</strong> to a small circle of friends quickly became a powerful community movement. Hundreds of people came forward to help families and individuals who were struggling during the lockdown. As more citizens, NGOs, organisations, and volunteers joined, the initiative grew into one of Vizag's largest citizen-led volunteer movements.</p>
+        <p>Today, Vizag Volunteers has grown to <strong>5,000+ volunteers, 13 active projects, and 2,09,792+ lives impacted</strong> — all driven by people who simply chose to care. The Association is a <strong>registered Non-Profit Organisation under the Andhra Pradesh Societies Registration Act, 2001</strong>, bearing <strong>Registration No. 101/2021</strong>.</p>
+        <p>For Mr. Satheesh, Vizag Volunteers is more than an organisation — <strong>it is his way of giving back to the city he loves.</strong> He strongly believes that meaningful change happens when people come together as a team. Rather than simply managing the organisation from behind a desk, Satheesh actively participates in volunteering activities and is present wherever help is needed. His approach is simple: <strong>find a need, bring people together, and take action.</strong></p>
+        <div class="quote-block" style="margin:0 0 1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+          <img src="images/vv-logo.svg" alt="Vizag Volunteers logo" style="width:56px;height:56px;object-fit:contain;background:var(--white);border-radius:10px;padding:6px;flex-shrink:0;">
+          <div>
+            <p>"I Love Vizag. I Love People. Together, We Can Make a Difference."</p>
+            <cite>— Mr. Satheesh Karnatakapu, Founder</cite>
+          </div>
+        </div>
+        <p>He believes every volunteer has something valuable to contribute — whether it is time, knowledge, skills, resources, or simply the willingness to help. His ability to bring passionate people together has helped create a strong volunteer community where individuals from different backgrounds work as one team for the city.</p>
+        <p>Alongside <strong>Co-founder Mr. Chandan Achary</strong>, Satheesh helped establish the digital and operational foundation of Vizag Volunteers. His professional experience in technology enabled the organisation to build a strong digital presence, coordinate volunteers, communicate with the community, and manage projects effectively through online platforms. But technology is only a tool — <strong>people are the real strength of Vizag Volunteers.</strong></p>
+        <p>Satheesh's greatest contribution has been bringing passionate volunteers together and creating a culture where everyone feels responsible for making Vizag a better place — from helping people during the pandemic to supporting community initiatives, environmental activities, healthcare assistance, food distribution, blood and plasma donation drives, and other social causes.</p>
+        <div class="quote-block" style="margin:0 0 1.5rem;">
+          <p>"One person can start a movement. But a team of passionate people can change a city."</p>
+          <cite>— Mr. Satheesh Karnatakapu, Founder</cite>
+        </div>
+        <p>For Mr. Satheesh Karnatakapu, the journey of Vizag Volunteers is not about one person. It is about <strong>every volunteer who showed up, every person who contributed, and every life that was touched by the movement.</strong> His mission is simple: <strong>Love Vizag. Serve Vizag. Build Vizag — together.</strong></p>
+        <a href="https://vizagvolunteers.org" target="_blank" rel="noopener" class="org-btn-primary" style="display:inline-flex;margin-top:0.5rem;">Read More →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -264,13 +317,13 @@
       <div class="proj4-card">
         <span class="proj4-icon">🩸</span>
         <div class="proj4-name">Digi Blood</div>
-        <p class="proj4-desc">Real-time blood donation network for emergency and critical care needs across Vizag.</p>
+        <p class="proj4-desc">When a family is desperate at 2 AM and no blood bank responds, Digi Blood connects them to a willing donor within hours. Every unit given is a life extended.</p>
       </div>
 
       <div class="proj4-card">
         <span class="proj4-icon">📚</span>
         <div class="proj4-name">Skill Share</div>
-        <p class="proj4-desc">Career counselling, training sessions, education for school and college students.</p>
+        <p class="proj4-desc">A student who knows what they're capable of is unstoppable. Skill Share delivers career counselling, industry training, and real mentorship to school and college students who've never had access to it before.</p>
       </div>
 
       <div class="proj4-card">
@@ -294,7 +347,7 @@
       <div class="proj4-card">
         <span class="proj4-icon">♿</span>
         <div class="proj4-name">Special People</div>
-        <p class="proj4-desc">Support for physically disabled and visually impaired individuals in Vizag.</p>
+        <p class="proj4-desc">Everyone deserves to be seen. Special People volunteers spend time with differently-abled individuals in Vizag — offering companionship, practical support, and the simple dignity of being valued.</p>
       </div>
 
       <div class="proj4-card">
@@ -306,7 +359,7 @@
       <div class="proj4-card">
         <span class="proj4-icon">🌳</span>
         <div class="proj4-name">Green Vizag</div>
-        <p class="proj4-desc">Tree plantation and environmental restoration campaigns.</p>
+        <p class="proj4-desc">A greener Vizag is a better Vizag. Volunteers plant trees, restore green spaces, and protect the natural beauty that makes this city worth fighting for — one sapling at a time.</p>
       </div>
 
       <div class="proj4-card">
@@ -385,12 +438,57 @@
   </div>
 </section>
 
+<!-- @@footer:start -->
+</main>
+
 <!-- FOOTER -->
 <footer>
-  <div class="foot-brand"><strong>Vizag Volunteers Association</strong> · Visakhapatnam, India</div>
-  <div class="foot-motto">"For the people. By the people. Of the people."</div>
-  <div class="foot-domain">vizagvolunteers.org</div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-logo"><span class="footer-logo-mark">SK</span> Satheesh <span>Karnatakapu</span></div>
+        <p class="footer-tagline">"For the people. By the people. Of the people."</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/websatish" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://vizagvolunteers.org" target="_blank" rel="noopener" aria-label="Vizag Volunteers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M17.5 3.6c1.3.4 2.2 1.6 2.2 3s-.9 2.6-2.2 3"/></svg>
+          </a>
+          <a href="mailto:md@f9tech.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Explore</div>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="people.html">People</a>
+        <a href="journey.html">Journey</a>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Organisations</div>
+        <a href="f9tech.html">F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html">Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html">Vizag Volunteers</a>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="contact.html">Contact</a>
+        <a href="media.html">Media</a>
+        <a href="presskit.html">Press Kit</a>
+        <a href="tel:+919963556668">Mobile: 9963556668</a>
+        <a href="mailto:md@f9tech.com">Email: md@f9tech.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Satheesh Karnatakapu · Visakhapatnam, India</span>
+      <span class="footer-domain">satheesh.info</span>
+    </div>
+  </div>
 </footer>
+<!-- @@footer:end -->
 
 <script src="js/main.js"></script>
 </body>

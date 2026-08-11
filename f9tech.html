@@ -4,13 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>F9 Info Technologies Pvt Ltd — Visakhapatnam</title>
+<!-- @@meta -->
+<meta name="description" content="F9 Info Technologies Pvt Ltd — Full-service IT company in Visakhapatnam. Web development, mobile apps, digital marketing & branding. 18 years of excellence.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="F9 Info Technologies — Web & Mobile Development, Vizag">
+<meta property="og:description" content="18 years. 600+ clients. Full-service IT company delivering web design, mobile apps, digital marketing and branding across India.">
+<meta property="og:image" content="https://satheesh.info/images/award_1103.jpg">
+<link rel="canonical" href="https://satheesh.info/f9tech.html">
+<!-- @@meta:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
+/* F9 Info Technologies brand accent — matches f9tech.com's blue CTA/wordmark */
+body { --org-accent:#2E6FF2; --org-accent-light:#6FA0FF; }
 .org-hero {
-  padding: calc(8rem + 68px) 5rem 8rem;
+  padding: calc(5rem + 68px) 5rem 6rem;
   background: var(--navy);
   position:relative; overflow:hidden;
 }
@@ -19,25 +29,26 @@
   background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size:60px 60px; pointer-events:none;
 }
-.org-hero-inner { max-width:1120px; margin:0 auto; position:relative; }
-.org-breadcrumb { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:2rem; }
-.org-breadcrumb a { color:rgba(255,255,255,0.5); text-decoration:none; }
-.org-breadcrumb a:hover { color:var(--gold-light); }
-.org-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1rem; }
+.org-hero-inner { max-width:1800px; margin:0 auto; position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.org-hero-logo { width:64px; height:64px; border-radius:14px; background:var(--white); padding:8px; object-fit:contain; box-shadow:var(--shadow-sm); margin-bottom:1.2rem; }
+.org-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--org-accent-light); margin-bottom:1rem; }
 .org-h1 { font-family:'Fraunces',serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:600; color:var(--white); line-height:1.1; margin-bottom:0.3rem; }
-.org-h1 span { color:var(--gold-light); }
-.org-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:600px; line-height:1.7; margin:1.2rem 0 2rem; }
-.org-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
-.org-btn-primary { padding:0.75rem 1.8rem; background:var(--gold-light); color:var(--navy); border-radius:8px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:opacity 0.2s; }
+.org-h1 span { color:var(--org-accent-light); }
+.org-sub { font-size:1rem; color:rgba(255,255,255,0.6); max-width:600px; line-height:1.7; margin:1.2rem auto 2rem; }
+.org-hero-btns { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+.org-btn-primary { padding:0.75rem 1.8rem; background:var(--org-accent-light); color:var(--navy); border-radius:8px; font-weight:700; font-size:0.88rem; text-decoration:none; transition:opacity 0.2s; }
 .org-btn-primary:hover { opacity:0.88; }
 .org-btn-secondary { padding:0.75rem 1.8rem; background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2); border-radius:8px; font-weight:600; font-size:0.88rem; text-decoration:none; transition:background 0.2s; }
 .org-btn-secondary:hover { background:rgba(255,255,255,0.18); }
-.org-stats-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; }
-.org-stat-val { font-family:'Fraunces',serif; font-size:2rem; font-weight:600; color:var(--white); }
+.org-stats-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid rgba(255,255,255,0.1); flex-wrap:wrap; justify-content:center; }
+.org-stat-val { font-family:'Fredoka',sans-serif; font-size:2rem; font-weight:600; color:var(--white); }
 .org-stat-lbl { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:0.2rem; }
 
 .org-section { padding:7rem 5rem; }
-.org-section-inner { max-width:1120px; margin:0 auto; }
+.org-section-inner { max-width:1800px; margin:0 auto; }
+/* single-column narrative/text blocks stay at a readable width even though
+   .org-section-inner itself is now full-width for the grid sections */
+.org-section-inner.narrow { max-width:760px; }
 .org-section-tag { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; }
 .org-section-tag::before { content:''; width:20px; height:2px; background:var(--accent); }
 .org-h2 { font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:600; color:var(--navy); line-height:1.2; margin-bottom:1rem; }
@@ -70,7 +81,7 @@
 .org-cta-primary:hover { background:var(--navy-mid); }
 .org-cta-secondary { padding:0.8rem 2rem; background:transparent; color:var(--accent); border:1.5px solid var(--accent); border-radius:8px; font-weight:600; text-decoration:none; transition:all 0.2s; }
 .org-cta-secondary:hover { background:var(--accent); color:var(--white); }
-.highlight-box { background:var(--navy); border-left:3px solid var(--gold-light); border-radius:0 12px 12px 0; padding:1.8rem 2rem; margin-top:2.5rem; }
+.highlight-box { background:var(--navy); border-left:3px solid var(--org-accent-light); border-radius:0 12px 12px 0; padding:1.8rem 2rem; margin-top:2.5rem; }
 .highlight-box p { font-size:0.9rem; color:rgba(255,255,255,0.75); line-height:1.8; font-style:italic; }
 
 @media(max-width:1024px) {
@@ -86,7 +97,13 @@
 </head>
 <body>
 
-<nav id="navbar">
+<!-- @@nav:start -->
+<!-- Skip link (accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav id="navbar" aria-label="Main navigation">
+ <div class="nav-container">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-mark">SK</div>
     <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
@@ -119,7 +136,6 @@
         <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
       </div>
     </li>
-
     <li class="has-drop">
       <a href="people.html">People</a>
       <div class="nav-drop">
@@ -143,10 +159,13 @@
       </div>
     </li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMobile">
     <span></span><span></span><span></span>
   </button>
+ </div>
 </nav>
+
+<!-- Mobile Menu Panel -->
 <div class="nav-mobile" id="navMobile">
   <div class="nav-mobile-inner">
     <div class="mob-group">
@@ -172,7 +191,6 @@
       <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
       <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
     </div>
-
     <div class="mob-group">
       <div class="mob-group-label">People</div>
       <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
@@ -195,15 +213,16 @@
   </div>
 </div>
 
+<main id="main-content">
+<!-- @@nav:end -->
+
 <!-- ── HERO ── -->
 <section class="org-hero">
   <div class="org-hero-inner">
-    <div class="org-breadcrumb">
-      <a href="index.html">← Back to Satheesh.info</a>
-    </div>
+    <img src="images/F9_logo.jpg" alt="F9 Info Technologies logo" class="org-hero-logo">
     <div class="org-badge">Est. 2008 · Visakhapatnam</div>
     <h1 class="org-h1">F9 Info Technologies<br><span>Pvt Ltd</span></h1>
-    <p class="org-sub">Full-service IT company delivering digital transformation across India and internationally. 16 years of trust, 600+ clients, 11–50 strong team.</p>
+    <p class="org-sub">Started with ₹2,000 and a borrowed computer. Tested by debt, proven by decades of honest work. Today, 600+ clients across India and beyond choose F9 — not for the cheapest price, but for the most reliable partner.</p>
     <div class="org-hero-btns">
       <a href="https://f9tech.com" target="_blank" class="org-btn-primary">Visit f9tech.com →</a>
       <a href="contact.html" class="org-btn-secondary">Connect with Us</a>
@@ -231,7 +250,7 @@
 
 <!-- ── ABOUT ── -->
 <section class="org-section" style="background:var(--white);">
-  <div class="org-section-inner">
+  <div class="org-section-inner narrow">
     <div class="org-section-tag">Our Story</div>
     <h2 class="org-h2">Built from Zero.<br><em>Trusted by Hundreds.</em></h2>
     <p class="org-sub2">What started as one man, one borrowed computer, and ₹2,000 has become one of Visakhapatnam's most trusted IT companies.</p>
@@ -242,7 +261,7 @@
       In the early years, when the company faced enormous financial pressure — ₹40 lakhs of debt — Satheesh chose the harder road. He rode his bicycle to client meetings, kept every commitment, and paid back every rupee. Not because the law demanded it, but because his word demanded it.
     </p>
     <p style="font-size:0.95rem; color:var(--text-mid); line-height:1.9; max-width:700px;">
-      Today, 16 years on, F9 serves 600+ clients across India and internationally — from local Vizag businesses to enterprises across the country. Every client relationship, every project, every line of code carries that same founding principle: trust first, always.
+      Today, 18 years on, F9 serves 600+ clients across India and internationally — from local Vizag businesses to enterprises across the country. Every client relationship, every project, every line of code carries that same founding principle: trust first, always.
     </p>
     <div class="highlight-box">
       <p>"When ₹40 lakhs of debt came, the family said: file for insolvency and walk away. Satheesh refused. 'I took those loans on my personal goodwill.' He paid every rupee back — cycling to meetings, cutting every corner except on integrity. That is the foundation F9 stands on today."</p>
@@ -250,8 +269,37 @@
   </div>
 </section>
 
-<!-- ── SERVICES ── -->
+<!-- ── LEADERSHIP ── -->
 <section class="org-section" style="background:var(--navy-subtle);">
+  <div class="org-section-inner">
+    <div class="org-section-tag">Leadership</div>
+    <h2 class="org-h2">Mr. Satheesh Karnatakapu <em>— Managing Director</em></h2>
+    <p class="org-sub2" style="margin-bottom:2rem;">Building technology. Empowering people. Creating the future.</p>
+    <div class="leader-grid">
+      <div class="leader-photo">
+        <img src="images/f9tech.jpg" alt="Mr. Satheesh Karnatakapu with the F9 Info Technologies team" loading="lazy">
+      </div>
+      <div class="leader-bio">
+        <p><strong>Mr. Satheesh Karnatakapu</strong>, Managing Director of <strong>F9 Info Technologies</strong>, is a technology entrepreneur, innovator, mentor, and visionary leader with a strong passion for transforming ideas into practical digital solutions.</p>
+        <p>His entrepreneurial journey began with just <strong>₹2,000, a borrowed computer, and an unwavering determination to succeed</strong>. Over the years, that small beginning has grown into a trusted digital solutions company serving <strong>600+ clients across India</strong> and delivering technology solutions to businesses across different industries.</p>
+        <p>Today, under his leadership, <strong>F9 Info Technologies is evolving into a next-generation technology and AI-focused company</strong>, exploring Artificial Intelligence, automation, modern software architecture, and emerging technologies to help businesses become more <strong>Agile, Scalable, and Efficient</strong>.</p>
+        <p>What makes Mr. Satheesh different as a leader is his approach to people. He does not believe in treating people simply as employees. <strong>He considers everyone a team member and works alongside the team as one among them.</strong> His simple and approachable nature creates an environment where people are encouraged to share ideas, experiment with new technologies, learn from failures, and grow together.</p>
+        <p>Mr. Satheesh continuously researches and explores <strong>new technologies, Artificial Intelligence, automation, open-source technologies, and emerging digital trends</strong>. His focus is not only on adopting technology but also on making it accessible and useful for businesses, developers, students, and entrepreneurs.</p>
+        <p>He also actively supports <strong>startups and emerging entrepreneurs</strong>, helping them transform their ideas into technology-driven products and scalable solutions. His vision is to create an ecosystem where innovative ideas can be developed faster, with the right technology, guidance, and resources.</p>
+        <p>One of his major initiatives is <strong>KDL-OS</strong>, an open-source technology platform being developed to simplify the process of building <strong>web applications and mobile applications</strong>. The vision behind KDL-OS is to make application development faster and easier — enabling users to build powerful digital products with minimal technical complexity, even through a <strong>click-based development experience</strong>.</p>
+        <p>From starting with a borrowed computer to leading a technology company into the era of <strong>AI and next-generation digital solutions</strong>, Mr. Satheesh Karnatakapu continues to believe that technology should not only build businesses — <strong>it should empower people, create opportunities, and solve real-world problems.</strong></p>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:2.5rem;">
+      <p style="margin-bottom:0.6rem;"><strong style="font-style:normal;">His Philosophy:</strong> "I don't want to build a company where people simply work. I want to build a team where people learn, create, grow, and build the future together."</p>
+      <p style="margin-bottom:0;"><strong style="font-style:normal;">His vision:</strong> Technology for Everyone. Innovation Without Limits.</p>
+    </div>
+    <a href="https://f9tech.com" target="_blank" rel="noopener" class="org-btn-primary" style="display:inline-flex;margin-top:2rem;">Read More →</a>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="org-section" style="background:var(--white);">
   <div class="org-section-inner">
     <div class="org-section-tag">Services</div>
     <h2 class="org-h2">What We <em>Build</em></h2>
@@ -292,8 +340,8 @@
 </section>
 
 <!-- ── TECH STACK ── -->
-<section class="org-section" style="background:var(--white);">
-  <div class="org-section-inner">
+<section class="org-section" style="background:var(--navy-subtle);">
+  <div class="org-section-inner narrow">
     <div class="org-section-tag">Technology</div>
     <h2 class="org-h2">Our <em>Stack</em></h2>
     <p class="org-sub2">We work with the tools that get the job done right. Modern, battle-tested, and chosen for reliability over hype.</p>
@@ -347,7 +395,7 @@
   <div class="org-cta-inner">
     <div class="org-section-tag" style="justify-content:center;">Ready to Build</div>
     <h2 class="org-cta-title">Ready to Build Something Great?</h2>
-    <p class="org-cta-sub">Talk to Satheesh directly. No sales team, no pitch decks — just honest conversation about your digital needs. We have been doing this for 16 years and we are not going anywhere.</p>
+    <p class="org-cta-sub">Talk to Satheesh directly. No sales team, no pitch decks — just honest conversation about your digital needs. We have been doing this for 18 years and we are not going anywhere.</p>
     <div class="org-cta-btns">
       <a href="contact.html" class="org-cta-primary">Get in Touch →</a>
       <a href="https://f9tech.com" target="_blank" class="org-cta-secondary">Visit f9tech.com</a>
@@ -355,10 +403,12 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="foot-brand"><strong>F9 Info Technologies Pvt Ltd</strong> · Visakhapatnam, India</div>
   <div class="foot-motto">"Building Digital India from Vizag since 2008"</div>
-  <div class="foot-domain">f9tech.com</div>
+  <div class="foot-domain">f9tech.com<br><a href="tel:+919963556668" style="color:inherit;text-decoration:none;">9963556668</a> · <a href="mailto:md@f9tech.com" style="color:inherit;text-decoration:none;">md@f9tech.com</a></div>
 </footer>
 
 <script src="js/main.js"></script>
