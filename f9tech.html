@@ -21,13 +21,13 @@
 body { --org-accent:#2E6FF2; --org-accent-light:#6FA0FF; }
 .org-hero {
   padding: calc(5rem + 68px) 5rem 6rem;
-  background: var(--navy);
+  background: url('images/f9tech.jpg') center 25%/cover no-repeat, var(--navy);
   position:relative; overflow:hidden;
 }
 .org-hero::before {
   content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size:60px 60px; pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,37,69,0.93),rgba(11,37,69,0.97)), linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size:auto,60px 60px,60px 60px; pointer-events:none;
 }
 .org-hero-inner { max-width:1800px; margin:0 auto; position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; }
 .org-hero-logo { width:64px; height:64px; border-radius:14px; background:var(--white); padding:8px; object-fit:contain; box-shadow:var(--shadow-sm); margin-bottom:1.2rem; }

@@ -27,11 +27,12 @@
     padding: 120px 24px 64px;
     position: relative;
     overflow: hidden;
+    background: url('images/new-images/537ee212-8393-45e1-b2e3-e95f425880a2.JPG') center 35%/cover no-repeat, var(--navy);
   }
   .journey-hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(29,111,184,.18), transparent);
+    background: linear-gradient(180deg,rgba(11,37,69,.93),rgba(11,37,69,.97)), radial-gradient(ellipse 80% 60% at 50% 30%, rgba(29,111,184,.18), transparent);
     pointer-events: none;
   }
   .journey-hero-label {
@@ -471,7 +472,7 @@
      HERO
 ══════════════════════════════════════════ -->
 <section class="journey-hero">
-  <div>
+  <div style="position:relative;z-index:1;">
     <div class="journey-hero-label">From Konaseema to Vizag · 1978 – Now</div>
     <h1>A life built <em>in public.</em></h1>
     <p>Not a curated highlight reel. The real story — raw starts, impossible odds, and a mission that never stopped growing.</p>

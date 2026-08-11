@@ -25,11 +25,12 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    background: url('images/new-images/IMG_8089.JPG') center 35%/cover no-repeat, var(--navy);
   }
   .team-hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,111,184,.18), transparent);
+    background: linear-gradient(180deg,rgba(11,37,69,.93),rgba(11,37,69,.97)), radial-gradient(ellipse 60% 50% at 50% 0%, rgba(29,111,184,.18), transparent);
   }
   .team-hero-eyebrow {
     font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
@@ -410,13 +411,15 @@
 
 <!-- HERO -->
 <section class="team-hero">
-  <div class="team-hero-eyebrow">The Mission · The People</div>
-  <h1>The People Who<br><span>Show Up</span></h1>
-  <p class="team-hero-sub">Every org, every campaign, every 5 AM morning — none of it happens alone. These are the people who chose the mission over comfort.</p>
-  <div class="team-hero-stats">
-    <div class="team-hero-stat"><strong>6</strong><span>Core Team Members</span></div>
-    <div class="team-hero-stat"><strong>3</strong><span>Organisations Covered</span></div>
-    <div class="team-hero-stat"><strong>10+</strong><span>Years Average Commitment</span></div>
+  <div style="position:relative;z-index:1;">
+    <div class="team-hero-eyebrow">The Mission · The People</div>
+    <h1>The People Who<br><span>Show Up</span></h1>
+    <p class="team-hero-sub">Every org, every campaign, every 5 AM morning — none of it happens alone. These are the people who chose the mission over comfort.</p>
+    <div class="team-hero-stats">
+      <div class="team-hero-stat"><strong>6</strong><span>Core Team Members</span></div>
+      <div class="team-hero-stat"><strong>3</strong><span>Organisations Covered</span></div>
+      <div class="team-hero-stat"><strong>10+</strong><span>Years Average Commitment</span></div>
+    </div>
   </div>
 </section>
 

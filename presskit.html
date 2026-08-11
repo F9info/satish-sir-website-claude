@@ -163,9 +163,15 @@
     aspect-ratio: 1; background: rgba(255,255,255,.06);
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     font-size: 2.5rem; color: rgba(255,255,255,.15);
+    position: relative; overflow: hidden;
   }
+  .pk-photo-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .pk-photo-thumb-label {
     font-size: .7rem; color: rgba(255,255,255,.25); text-transform: uppercase; letter-spacing: .1em;
+  }
+  .pk-photo-thumb img ~ .pk-photo-thumb-label {
+    position: relative; z-index: 1; color: rgba(255,255,255,.85);
+    background: rgba(11,37,69,.62); padding: 4px 10px; border-radius: 5px;
   }
   .pk-photo-info { padding: 12px 14px; }
   .pk-photo-name { font-size: .83rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
@@ -618,7 +624,7 @@
     </div>
     <div class="pk-photo-grid">
       <div class="pk-photo-card">
-        <div class="pk-photo-thumb">👤<div class="pk-photo-thumb-label">Formal Portrait</div></div>
+        <div class="pk-photo-thumb"><img src="images/new-images/932cd550-2cda-4997-809b-8a98c344b432.JPG" alt="Satheesh Karnatakapu formal portrait" loading="lazy"><div class="pk-photo-thumb-label">Formal Portrait</div></div>
         <div class="pk-photo-info">
           <div class="pk-photo-name">Formal Portrait</div>
           <div class="pk-photo-meta">High-res · White / neutral background</div>
@@ -626,7 +632,7 @@
         <a href="contact.html" class="pk-photo-req">Request Photo →</a>
       </div>
       <div class="pk-photo-card">
-        <div class="pk-photo-thumb">🎤<div class="pk-photo-thumb-label">Speaking / Stage</div></div>
+        <div class="pk-photo-thumb"><img src="images/new-images/IMG_7509.PNG" alt="Satheesh Karnatakapu speaking outdoors with a microphone" loading="lazy"><div class="pk-photo-thumb-label">Speaking / Stage</div></div>
         <div class="pk-photo-info">
           <div class="pk-photo-name">Speaking / Stage</div>
           <div class="pk-photo-meta">Action shot · Event context</div>
@@ -634,7 +640,7 @@
         <a href="contact.html" class="pk-photo-req">Request Photo →</a>
       </div>
       <div class="pk-photo-card">
-        <div class="pk-photo-thumb">🤝<div class="pk-photo-thumb-label">Community / Field</div></div>
+        <div class="pk-photo-thumb"><img src="images/new-images/537ee212-8393-45e1-b2e3-e95f425880a2.JPG" alt="Satheesh Karnatakapu at a Vizag Beach cleanup drive" loading="lazy"><div class="pk-photo-thumb-label">Community / Field</div></div>
         <div class="pk-photo-info">
           <div class="pk-photo-name">Community / Field</div>
           <div class="pk-photo-meta">Volunteers, beach cleanup, social work</div>
@@ -642,7 +648,7 @@
         <a href="contact.html" class="pk-photo-req">Request Photo →</a>
       </div>
       <div class="pk-photo-card">
-        <div class="pk-photo-thumb">🏖️<div class="pk-photo-thumb-label">Kalam View Point</div></div>
+        <div class="pk-photo-thumb"><img src="images/new-images/IMG_0745.JPG" alt="Satheesh Karnatakapu at the Kalam View Point beach walkway" loading="lazy"><div class="pk-photo-thumb-label">Kalam View Point</div></div>
         <div class="pk-photo-info">
           <div class="pk-photo-name">Beach / Outdoors</div>
           <div class="pk-photo-meta">5 AM walks · Kalam View Point</div>
@@ -650,7 +656,7 @@
         <a href="contact.html" class="pk-photo-req">Request Photo →</a>
       </div>
       <div class="pk-photo-card">
-        <div class="pk-photo-thumb">🏆<div class="pk-photo-thumb-label">Award Ceremony</div></div>
+        <div class="pk-photo-thumb"><img src="images/new-images/238A5371.jpg" alt="Satheesh Karnatakapu receiving an award at a formal ceremony" loading="lazy"><div class="pk-photo-thumb-label">Award Ceremony</div></div>
         <div class="pk-photo-info">
           <div class="pk-photo-name">Award / Recognition</div>
           <div class="pk-photo-meta">Yogandhra 2025 · Official ceremony</div>
@@ -658,7 +664,7 @@
         <a href="contact.html" class="pk-photo-req">Request Photo →</a>
       </div>
       <div class="pk-photo-card">
-        <div class="pk-photo-thumb">💼<div class="pk-photo-thumb-label">Business / Office</div></div>
+        <div class="pk-photo-thumb"><img src="images/new-images/IMG_9077.JPG" alt="Satheesh Karnatakapu with the F9 team at the office" loading="lazy"><div class="pk-photo-thumb-label">Business / Office</div></div>
         <div class="pk-photo-info">
           <div class="pk-photo-name">Business / Office</div>
           <div class="pk-photo-meta">F9 context · Professional setting</div>

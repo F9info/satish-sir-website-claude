@@ -23,11 +23,12 @@
   .m-hero {
     padding: 130px 24px 72px;
     text-align: center; position: relative; overflow: hidden;
+    background: url('images/new-images/975856e0-da46-4c61-982a-51841fd5d919.JPG') center 30%/cover no-repeat, var(--navy);
   }
   .m-hero::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29,111,184,.2), transparent);
+    background: linear-gradient(180deg,rgba(11,37,69,.93),rgba(11,37,69,.97)), radial-gradient(ellipse 70% 50% at 50% 0%, rgba(29,111,184,.2), transparent);
     pointer-events: none;
   }
   .m-hero-label {
@@ -90,6 +91,10 @@
     background: rgba(255,255,255,.07);
     transform: translateY(-4px);
     border-color: rgba(255,255,255,.14);
+  }
+  .m-card-photo {
+    width: calc(100% + 56px); height: 150px; object-fit: cover;
+    margin: -32px -28px 4px; display: block;
   }
   .m-card-top {
     display: flex; align-items: flex-start; gap: 16px;
@@ -304,6 +309,7 @@
 
     <!-- CII -->
     <div class="m-card accent-blue">
+      <img src="images/new-images/IMG_8166.JPG" alt="Satheesh Karnatakapu at CII Partnership Summit" class="m-card-photo" loading="lazy">
       <div class="m-card-top">
         <div class="m-card-icon">🏭</div>
         <div class="m-card-head">
@@ -384,6 +390,7 @@
 
     <!-- BNI Amigos -->
     <div class="m-card accent-gold">
+      <img src="images/new-images/IMG_7486.JPG" alt="Satheesh Karnatakapu, BNI Amigos 2-Year Member" class="m-card-photo" loading="lazy">
       <div class="m-card-top">
         <div class="m-card-icon">🤝</div>
         <div class="m-card-head">
