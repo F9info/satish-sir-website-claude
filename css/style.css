@@ -2153,7 +2153,7 @@ footer {
 .intro-sec { padding:5rem 5%; background:var(--off-white); }
 .intro-wrap {
   max-width:1800px; margin:0 auto;
-  display:grid; grid-template-columns:0.3fr 0.95fr; gap:3.5rem; align-items:center;
+  display:grid; grid-template-columns:0.4fr 0.95fr; gap:3.5rem; align-items:center;
 }
 .intro-photo {
   position:relative; aspect-ratio:3/4.1;
@@ -2179,8 +2179,9 @@ footer {
   line-height:1.45; color:var(--navy); margin:0.9rem 0 1.1rem;
 }
 .intro-lead em { font-style:italic; color:var(--accent); }
+.intro-text span { font-weight:700; color:var(--accent); }
 .intro-text {
-  font-size:0.9rem; line-height:1.7; color:var(--text-mid);
+  font-size:1.1rem; line-height:1.7; color:var(--text-mid);
   font-weight:300; margin-bottom:0.9rem;
 }
 .intro-sign { margin:1.75rem 0 0; }
