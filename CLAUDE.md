@@ -87,6 +87,10 @@ Add `class="reveal"` to new sections for the scroll fade-in.
 
 The script is shared by every page, so guard any element lookup that may not exist on a page.
 
+## Publishing rule
+
+`master` is the published branch. Never push to `master`, merge into it, or otherwise publish without the owner's explicit permission for that specific change. Work on a separate branch, push the branch, and ask. Permission to publish one change does not cover any other change.
+
 ## Content rules
 
 - This is a real person's public site. Do not invent facts, numbers, awards, quotes or names. If content is missing, ask or leave a clearly marked placeholder.
