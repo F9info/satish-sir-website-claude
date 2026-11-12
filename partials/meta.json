@@ -130,5 +130,11 @@
     "og_title": "Work & Impact — Satheesh Karnatakapu",
     "og_description": "The full impact story — 5,000 volunteers, 2.09 lakh lives, 652 beach cleanups, 800 students trained, and 18 years of tech leadership.",
     "canonical": "https://satheesh.info/work.html"
+  },
+  "stories.html": {
+    "description": "Stories behind the pictures — the places, people and work in Satheesh Karnatakapu's journey, told in photographs.",
+    "og_title": "Stories — Satheesh Karnatakapu",
+    "og_description": "The places, the people and the work behind the photographs, told by Satheesh Karnatakapu.",
+    "canonical": "https://satheesh.info/stories.html"
   }
 }

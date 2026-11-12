@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stories — Satheesh Karnatakapu</title>
+<!-- @@meta -->
+<meta name="description" content="Stories behind the pictures — the places, people and work in Satheesh Karnatakapu's journey, told in photographs.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stories — Satheesh Karnatakapu">
+<meta property="og:description" content="The places, the people and the work behind the photographs, told by Satheesh Karnatakapu.">
+<meta property="og:image" content="https://satheesh.info/images/award_1103.jpg">
+<link rel="canonical" href="https://satheesh.info/stories.html">
+<!-- @@meta:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Stories page — prefix: st- */
+  .st-hero { background: var(--navy); color: var(--white); padding: 130px 24px 64px; text-align: center; }
+  .st-hero-label { font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 16px; }
+  .st-hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 18px; }
+  .st-hero h1 em { font-style: italic; color: var(--gold-light); }
+  .st-hero p { font-size: 1.05rem; color: var(--navy-pale); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+  .st-wrap { background: var(--navy-subtle); padding: var(--space-10) var(--space-4) var(--space-20); }
+  .st-inner { max-width: 1180px; margin: 0 auto; }
+  .st-draft-note { background: var(--white); border: 1px solid var(--gold); color: var(--text); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); margin-bottom: var(--space-6); font-size: .9rem; }
+  .st-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; margin-bottom: var(--space-8); }
+  .st-chip { font: inherit; font-size: .85rem; font-weight: 600; padding: 8px 16px; border-radius: var(--radius-full); border: 1px solid var(--border-dark); background: var(--white); color: var(--text-mid); cursor: pointer; }
+  .st-chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+  .st-chip:focus-visible, .st-btn:focus-visible, .st-arrow:focus-visible, .st-more:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .st-feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: var(--space-6); align-items: start; }
+  .st-post { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); scroll-margin-top: 90px; min-width: 0; }
+  .st-post.is-target { border-color: var(--gold); box-shadow: var(--shadow-md); }
+  .st-head { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+  .st-avatar { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: var(--gold-light); display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
+  .st-who { min-width: 0; }
+  .st-name { font-weight: 700; font-size: .9rem; color: var(--text); }
+  .st-when { font-size: .78rem; color: var(--text-light); }
+  .st-draft { margin-left: auto; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gold-accessible); border: 1px solid var(--gold); border-radius: var(--radius-full); padding: 3px 10px; }
+
+  .st-media { position: relative; background: var(--navy); }
+  .st-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; aspect-ratio: 1 / 1; }
+  .st-track::-webkit-scrollbar { display: none; }
+  .st-slide { flex: 0 0 100%; scroll-snap-align: center; display: grid; place-items: center; min-width: 0; }
+  .st-slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .st-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--white); color: var(--navy); font-size: 1.1rem; line-height: 1; cursor: pointer; box-shadow: var(--shadow-sm); }
+  .st-arrow[disabled] { opacity: 0; pointer-events: none; }
+  .st-prev { left: 10px; } .st-next { right: 10px; }
+  .st-count { position: absolute; top: 10px; right: 10px; background: var(--navy); color: var(--white); font-size: .72rem; font-weight: 600; padding: 3px 9px; border-radius: var(--radius-full); font-variant-numeric: tabular-nums; }
+  .st-dots { display: flex; justify-content: center; gap: 5px; padding: var(--space-3) 0 0; }
+  .st-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-dark); }
+  .st-dot.on { background: var(--accent); }
+
+  .st-body { padding: var(--space-3) var(--space-4) var(--space-4); }
+  .st-title { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 600; line-height: 1.25; color: var(--text); margin-bottom: var(--space-2); }
+  .st-story { font-size: .93rem; line-height: 1.7; color: var(--text-mid); white-space: pre-line; }
+  .st-story.clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .st-more { font: inherit; font-size: .85rem; font-weight: 600; color: var(--accent); background: none; border: 0; padding: 4px 0; cursor: pointer; }
+  .st-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--border); }
+  .st-tag { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gold-accessible); }
+  .st-btn { font: inherit; font-size: .8rem; font-weight: 600; color: var(--text-mid); background: var(--white); border: 1px solid var(--border-dark); border-radius: var(--radius-md); padding: 6px 12px; cursor: pointer; }
+  .st-empty { text-align: center; color: var(--text-mid); padding: var(--space-16) var(--space-4); }
+  .st-empty strong { display: block; font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 500; color: var(--text); margin-bottom: var(--space-2); }
+  @media (prefers-reduced-motion: no-preference) { .st-track { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+<!-- @@nav:start -->
+<!-- Skip link (accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav id="navbar" aria-label="Main navigation">
+ <div class="nav-container">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">SK</div>
+    <span class="nav-logo-text">Satheesh <span>Karnatakapu</span></span>
+  </a>
+  <ul class="nav-links">
+    <li class="has-drop">
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <a href="about.html"><span class="drop-icon">👤</span> About Satheesh</a>
+        <a href="about.html#philosophy"><span class="drop-icon">💡</span> Philosophy</a>
+        <a href="about.html#transparency"><span class="drop-icon">🪟</span> The Real Story</a>
+        <a href="vision.html"><span class="drop-icon">🌆</span> The Vizag Vision</a>
+        <a href="awards.html"><span class="drop-icon">🏆</span> Awards</a>
+        <a href="life.html"><span class="drop-icon">🌱</span> Life by Design</a>
+        <a href="memberships.html"><span class="drop-icon">🏅</span> Memberships</a>
+        <a href="presskit.html"><span class="drop-icon">📋</span> Press Kit</a>
+        <a href="media.html"><span class="drop-icon">📸</span> Photo Gallery</a>
+        <a href="stories.html"><span class="drop-icon">📖</span> Stories</a>
+        <a href="media.html#travels"><span class="drop-icon">✈️</span> Travels</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="work.html">Work</a>
+      <div class="nav-drop">
+        <a href="work.html"><span class="drop-icon">📊</span> Impact</a>
+        <a href="work.html#organizations"><span class="drop-icon">🏢</span> Organisations</a>
+        <a href="f9tech.html"><span class="drop-icon">💻</span> F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html"><span class="drop-icon">🚀</span> Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html"><span class="drop-icon">🤝</span> Vizag Volunteers</a>
+        <a href="work.html#projects"><span class="drop-icon">🚀</span> Projects</a>
+        <a href="time.html"><span class="drop-icon">⏱️</span> Time Budget</a>
+      </div>
+    </li>
+    <li class="has-drop">
+      <a href="people.html">People</a>
+      <div class="nav-drop">
+        <a href="people.html"><span class="drop-icon">🌟</span> The Ecosystem</a>
+        <a href="people.html#engage"><span class="drop-icon">🤝</span> Join / Collaborate</a>
+        <a href="people.html#inspirations"><span class="drop-icon">💡</span> Inspirations</a>
+        <a href="people.html#mentors"><span class="drop-icon">🎓</span> Mentors</a>
+        <a href="team.html"><span class="drop-icon">👥</span> Team</a>
+        <a href="network.html"><span class="drop-icon">🔗</span> My Network</a>
+        <a href="testimonials.html"><span class="drop-icon">💬</span> Testimonials</a>
+      </div>
+    </li>
+    <li><a href="journey.html" style="color:var(--gold);">Journey</a></li>
+    <li><a href="projects.html" style="color:var(--gold);">Projects</a></li>
+    <li><a href="dreamport.html" style="color:var(--gold);">Dream Port</a></li>
+    <li class="has-drop">
+      <a href="contact.html" class="nav-cta">Connect</a>
+      <div class="nav-drop">
+        <a href="contact.html"><span class="drop-icon">✉️</span> Contact</a>
+        <a href="media.html#instagram"><span class="drop-icon">📷</span> Instagram / Media</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMobile">
+    <span></span><span></span><span></span>
+  </button>
+ </div>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile-inner">
+    <div class="mob-group">
+      <div class="mob-group-label">About</div>
+      <a href="about.html" onclick="closeMob()"><span>👤</span> About Satheesh</a>
+      <a href="about.html#philosophy" onclick="closeMob()"><span>💡</span> Philosophy</a>
+      <a href="about.html#transparency" onclick="closeMob()"><span>🪟</span> The Real Story</a>
+      <a href="vision.html" onclick="closeMob()"><span>🌆</span> The Vizag Vision</a>
+      <a href="awards.html" onclick="closeMob()"><span>🏆</span> Awards</a>
+      <a href="life.html" onclick="closeMob()"><span>🌱</span> Life by Design</a>
+      <a href="memberships.html" onclick="closeMob()"><span>🏅</span> Memberships</a>
+      <a href="presskit.html" onclick="closeMob()"><span>📋</span> Press Kit</a>
+      <a href="media.html" onclick="closeMob()"><span>📸</span> Photo Gallery</a>
+      <a href="stories.html" onclick="closeMob()"><span>📖</span> Stories</a>
+      <a href="media.html#travels" onclick="closeMob()"><span>✈️</span> Travels</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">Work</div>
+      <a href="work.html" onclick="closeMob()"><span>📊</span> Impact</a>
+      <a href="work.html#organizations" onclick="closeMob()"><span>🏢</span> Organisations</a>
+      <a href="f9tech.html" onclick="closeMob()"><span>💻</span> F9 Info Technologies</a>
+      <a href="kalamdreamlabs.html" onclick="closeMob()"><span>🚀</span> Kalam Dream Labs</a>
+      <a href="vizagvolunteers.html" onclick="closeMob()"><span>🤝</span> Vizag Volunteers</a>
+      <a href="work.html#projects" onclick="closeMob()"><span>🚀</span> Projects</a>
+      <a href="time.html" onclick="closeMob()"><span>⏱️</span> Time Budget</a>
+    </div>
+    <div class="mob-group">
+      <div class="mob-group-label">People</div>
+      <a href="people.html" onclick="closeMob()"><span>🌟</span> The Ecosystem</a>
+      <a href="people.html#engage" onclick="closeMob()"><span>🤝</span> Join / Collaborate</a>
+      <a href="people.html#inspirations" onclick="closeMob()"><span>💡</span> Inspirations</a>
+      <a href="people.html#mentors" onclick="closeMob()"><span>🎓</span> Mentors</a>
+      <a href="team.html" onclick="closeMob()"><span>👥</span> Team</a>
+      <a href="network.html" onclick="closeMob()"><span>🔗</span> My Network</a>
+      <a href="testimonials.html" onclick="closeMob()"><span>💬</span> Testimonials</a>
+    </div>
+    <a href="journey.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗺️</span> Journey</a>
+    <a href="projects.html" onclick="closeMob()" style="color:var(--gold);font-weight:600;"><span>🗂️</span> Projects</a>
+    <a href="dreamport.html" onclick="closeMob()"><span>🛫</span> Dream Port</a>
+    <div class="mob-group">
+      <div class="mob-group-label">Connect</div>
+      <a href="contact.html" onclick="closeMob()"><span>✉️</span> Contact</a>
+      <a href="media.html#instagram" onclick="closeMob()"><span>📷</span> Instagram / Media</a>
+    </div>
+    <a href="contact.html" class="mob-cta" onclick="closeMob()">Connect with Satheesh →</a>
+  </div>
+</div>
+
+<main id="main-content">
+<!-- @@nav:end -->
+
+<!-- HERO -->
+<section class="st-hero">
+  <div class="st-hero-label">Moments · Journeys · People</div>
+  <h1>Stories behind the <em>pictures.</em></h1>
+  <p>Every photograph here has a story — the places, the people and the work behind it, told by Satheesh.</p>
+</section>
+
+<!-- FEED -->
+<section class="st-wrap">
+  <div class="st-inner">
+    <div class="st-draft-note" id="stDraftNote" hidden>Draft preview. Stories marked “Draft” have no approved text yet and are not visible to visitors.</div>
+    <div class="st-filters" id="stFilters" role="group" aria-label="Filter stories"></div>
+    <div class="st-feed" id="stFeed"></div>
+    <div class="st-empty" id="stEmpty" hidden><strong>Stories are on their way.</strong>The first ones will be posted here soon.</div>
+  </div>
+</section>
+
+<!-- @@footer:start -->
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-logo"><span class="footer-logo-mark">SK</span> Satheesh <span>Karnatakapu</span></div>
+        <p class="footer-tagline">"For the people. By the people. Of the people."</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/websatish" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://vizagvolunteers.org" target="_blank" rel="noopener" aria-label="Vizag Volunteers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M17.5 3.6c1.3.4 2.2 1.6 2.2 3s-.9 2.6-2.2 3"/></svg>
+          </a>
+          <a href="mailto:md@f9tech.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Explore</div>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="people.html">People</a>
+        <a href="journey.html">Journey</a>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Organisations</div>
+        <a href="f9tech.html">F9 Info Technologies</a>
+        <a href="kalamdreamlabs.html">Kalam Dream Labs</a>
+        <a href="vizagvolunteers.html">Vizag Volunteers</a>
+      </div>
+      <div class="footer-links-col">
+        <div class="footer-col-title">Connect</div>
+        <a href="contact.html">Contact</a>
+        <a href="media.html">Media</a>
+        <a href="presskit.html">Press Kit</a>
+        <a href="tel:+919963556668">Mobile: 9963556668</a>
+        <a href="mailto:md@f9tech.com">Email: md@f9tech.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Satheesh Karnatakapu · Visakhapatnam, India</span>
+      <span class="footer-domain">satheesh.info</span>
+    </div>
+  </div>
+</footer>
+<!-- @@footer:end -->
+
+<script src="js/stories-data.js"></script>
+<script>
+(function () {
+  var showDrafts = /[?&]drafts\b/.test(location.search);
+  var all = (window.STORIES || []).filter(function (s) { return showDrafts || (s.story && s.story.trim()); });
+  var feed = document.getElementById('stFeed'), filters = document.getElementById('stFilters'), empty = document.getElementById('stEmpty');
+  document.getElementById('stDraftNote').hidden = !showDrafts;
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  function buildPost(s) {
+    var post = el('article', 'st-post'); post.id = s.id; post.dataset.tag = s.tag || '';
+    var head = el('div', 'st-head');
+    head.appendChild(el('div', 'st-avatar', 'SK'));
+    var who = el('div', 'st-who');
+    who.appendChild(el('div', 'st-name', 'Satheesh Karnatakapu'));
+    who.appendChild(el('div', 'st-when', [s.date, s.place].filter(Boolean).join(' · ')));
+    head.appendChild(who);
+    if (!(s.story && s.story.trim())) head.appendChild(el('span', 'st-draft', 'Draft'));
+    post.appendChild(head);
+
+    var n = s.images.length, media = el('div', 'st-media'), track = el('div', 'st-track');
+    track.tabIndex = 0; track.setAttribute('aria-label', s.title + ' — ' + n + (n === 1 ? ' photo' : ' photos'));
+    s.images.forEach(function (im) {
+      var slide = el('div', 'st-slide'), img = el('img');
+      img.src = im.src; img.alt = im.alt || ''; img.loading = 'lazy'; img.decoding = 'async';
+      if (im.w) { img.width = im.w; img.height = im.h; }
+      slide.appendChild(img); track.appendChild(slide);
+    });
+    media.appendChild(track);
+    var dots = null;
+    if (n > 1) {
+      var prev = el('button', 'st-arrow st-prev', '‹'), next = el('button', 'st-arrow st-next', '›'), count = el('div', 'st-count');
+      prev.type = next.type = 'button'; prev.setAttribute('aria-label', 'Previous photo'); next.setAttribute('aria-label', 'Next photo');
+      dots = el('div', 'st-dots'); for (var i = 0; i < n; i++) dots.appendChild(el('span', 'st-dot'));
+      var cur = function () { return track.clientWidth ? Math.round(track.scrollLeft / track.clientWidth) : 0; };
+      var sync = function () { var c = cur(); count.textContent = (c + 1) + ' / ' + n; prev.disabled = c === 0; next.disabled = c === n - 1;
+        Array.prototype.forEach.call(dots.children, function (d, j) { d.classList.toggle('on', j === c); }); };
+      prev.addEventListener('click', function () { track.scrollLeft = (cur() - 1) * track.clientWidth; });
+      next.addEventListener('click', function () { track.scrollLeft = (cur() + 1) * track.clientWidth; });
+      track.addEventListener('scroll', sync, { passive: true });
+      media.appendChild(prev); media.appendChild(next); media.appendChild(count); sync();
+    }
+    post.appendChild(media);
+    if (dots) post.appendChild(dots);
+
+    var body = el('div', 'st-body');
+    body.appendChild(el('h2', 'st-title', s.title));
+    var has = s.story && s.story.trim();
+    var story = el('p', 'st-story' + (has && s.story.length > 220 ? ' clamp' : ''), has ? s.story : 'The story for these photos has not been written yet.');
+    body.appendChild(story);
+    if (story.classList.contains('clamp')) {
+      var more = el('button', 'st-more', 'Read more'); more.type = 'button'; more.setAttribute('aria-expanded', 'false');
+      more.addEventListener('click', function () { var open = story.classList.toggle('clamp') === false; more.textContent = open ? 'Show less' : 'Read more'; more.setAttribute('aria-expanded', String(open)); });
+      body.appendChild(more);
+    }
+    var foot = el('div', 'st-foot'); foot.appendChild(el('span', 'st-tag', s.tag || ''));
+    var share = el('button', 'st-btn', 'Copy link'); share.type = 'button';
+    share.addEventListener('click', function () {
+      var url = location.href.split('#')[0] + '#' + s.id;
+      var done = function () { share.textContent = 'Link copied'; setTimeout(function () { share.textContent = 'Copy link'; }, 2000); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { location.hash = s.id; });
+      else location.hash = s.id;
+    });
+    foot.appendChild(share); body.appendChild(foot); post.appendChild(body);
+    return post;
+  }
+
+  all.forEach(function (s) { feed.appendChild(buildPost(s)); });
+  empty.hidden = all.length > 0;
+
+  var tags = all.map(function (s) { return s.tag; }).filter(function (t, i, a) { return t && a.indexOf(t) === i; });
+  if (tags.length > 1) ['All'].concat(tags).forEach(function (t, i) {
+    var chip = el('button', 'st-chip', t); chip.type = 'button'; chip.setAttribute('aria-pressed', String(i === 0));
+    chip.addEventListener('click', function () {
+      Array.prototype.forEach.call(filters.children, function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      Array.prototype.forEach.call(feed.children, function (p) { p.hidden = t !== 'All' && p.dataset.tag !== t; });
+    });
+    filters.appendChild(chip);
+  });
+
+  function goToHash() {
+    var t = location.hash && document.getElementById(location.hash.slice(1));
+    Array.prototype.forEach.call(feed.children, function (p) { p.classList.toggle('is-target', p === t); });
+    if (t && t.classList.contains('st-post')) { t.hidden = false; t.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', goToHash); goToHash();
+})();
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

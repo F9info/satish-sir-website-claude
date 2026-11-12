@@ -4,7 +4,7 @@ Guidance for Claude Code when working in this repository.
 
 ## Project Overview
 
-Static HTML portfolio website for Satheesh Karnatakapu (live at `satheesh.info`) — 22 HTML pages, one shared CSS file, one shared JS file. No npm, no frameworks. Open any `.html` file directly in a browser to preview.
+Static HTML portfolio website for Satheesh Karnatakapu (live at `satheesh.info`) — 23 HTML pages, one shared CSS file, one shared JS file. No npm, no frameworks. Open any `.html` file directly in a browser to preview.
 
 The only tooling is `build.js`, a dependency-free Node script that stamps shared partials into every page.
 
@@ -13,7 +13,7 @@ The only tooling is `build.js`, a dependency-free Node script that stamps shared
 ```
 /
 ├── index.html            # Homepage
-├── [21 other pages].html
+├── [22 other pages].html
 ├── build.js              # Injects partials + meta tags into every page
 ├── partials/
 │   ├── nav.html          # Skip link, navbar, mobile menu, opening <main>
@@ -21,6 +21,7 @@ The only tooling is `build.js`, a dependency-free Node script that stamps shared
 │   └── meta.json         # Per-page description / Open Graph / canonical
 ├── css/style.css         # Shared styles (design tokens at the top)
 ├── js/main.js            # Shared JavaScript
+├── js/stories-data.js    # The posts shown on stories.html
 └── images/               # Photos; awards are named award_NNNN.jpg
 ```
 
@@ -122,6 +123,16 @@ Every image needs the owner's approval, one by one, before it is shown to the pu
 ## Publishing rule
 
 `master` is the published branch. Never push to `master`, merge into it, or otherwise publish without the owner's explicit permission for that specific change. Work on a separate branch, push the branch, and ask. Permission to publish one change does not cover any other change.
+
+## Stories page (`stories.html`)
+
+An Instagram-style feed: each post is one photo or a group of photos with a title, date, place and the story behind them. Posts live in `js/stories-data.js` (newest first) and are rendered in the browser by the script at the bottom of `stories.html`.
+
+- A post with an empty `story` is a draft. Visitors never see drafts; open `stories.html?drafts` to preview them.
+- Never write a story from imagination. The owner supplies what happened (a few words is enough); draft the text from that, then get the owner's approval of the final wording before filling in `story`.
+- Do not name other people in a photo unless the owner gives the name.
+- Photos in a post are web-sized copies in `images/stories/` (longest side 1280px), made from an approved original. Keep the original untouched and record it in the post's `original` field.
+- To add a post: add an entry at the top of `window.STORIES` with a unique lowercase hyphenated `id` (it is the post's shareable link, `stories.html#id`), a `tag` (Travel, Community, Events, Fitness, Milestones), and `alt` text for every image.
 
 ## Content rules
 

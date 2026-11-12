@@ -2,6 +2,8 @@
 
 Images the owner has individually approved for public view. A file not listed under Approved is not approved (see CLAUDE.md).
 
+Files in `images/stories/` are web-sized copies of approved images below; each one's source is recorded in `js/stories-data.js`.
+
 ## Approved on 2026-11-12
 
 - `images/APJ-Abdul-Kalam.webp`
