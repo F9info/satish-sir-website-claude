@@ -94,7 +94,7 @@ Everything in this repository should be treated as visible to the whole world. A
 **May be public** — only material made for visitors of the website:
 
 - the pages, `css/`, `js/`, and the build files (`build.js`, `partials/`)
-- images that a page actually displays, and that the owner has approved for the site
+- images the owner has individually approved (see the image approval rule below)
 - contact details the owner has already chosen to show on the site
 
 **Must never be in the repo:**
@@ -109,6 +109,15 @@ Everything in this repository should be treated as visible to the whole world. A
 - raw photo dumps: a photo is added only when a page uses it
 
 **When unsure, treat it as private:** do not commit it, and ask the owner. If something private is found already in the repo, stop and report it; do not publish anything further until the owner decides. Remember that deleting a file does not remove it from git history.
+
+## Image approval rule
+
+Every image needs the owner's approval, one by one, before it is shown to the public. No exceptions for logos, stock pictures or photos that are already in the repo.
+
+- Before using an image on a page, show it to the owner and get a clear yes for that image.
+- Approval of one image does not cover other images from the same batch or folder.
+- An image that is not approved is not committed, not referenced by a page, and not published.
+- Approved images are recorded in `images/APPROVED.md` (filename, date approved). If a file is not listed there, treat it as not approved.
 
 ## Publishing rule
 
