@@ -3,3 +3,18 @@ Thumbs.db
 node_modules/
 .claude/settings.local.json
 private-documents/
+
+# Never commit documents or archives (see CLAUDE.md)
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.csv
+*.zip
+*.rar
+*.7z
+.env
+.env.*
+*.pem
+*.key

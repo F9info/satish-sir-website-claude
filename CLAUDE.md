@@ -87,6 +87,29 @@ Add `class="reveal"` to new sections for the scroll fade-in.
 
 The script is shared by every page, so guard any element lookup that may not exist on a page.
 
+## What may be public and what may not
+
+Everything in this repository should be treated as visible to the whole world. Apply this test to every file before adding or committing it.
+
+**May be public** — only material made for visitors of the website:
+
+- the pages, `css/`, `js/`, and the build files (`build.js`, `partials/`)
+- images that a page actually displays, and that the owner has approved for the site
+- contact details the owner has already chosen to show on the site
+
+**Must never be in the repo:**
+
+- business and financial papers: invoices, quotations, bills, bank or tax documents, contracts, client lists
+- internal work documents: bug reports, CRM exports, spreadsheets, notes, drafts
+- identity documents and anything with ID numbers, addresses, signatures or account numbers
+- passwords, API keys, tokens, login details, `.env` files
+- archives (`.zip`, `.rar`) and office files (`.pdf`, `.docx`, `.xlsx`) unless the owner explicitly says the file is meant for public download
+- screenshots of phones, chats, emails or dashboards
+- personal or family photos, and photos of other people (especially children), that the owner has not approved for the site
+- raw photo dumps: a photo is added only when a page uses it
+
+**When unsure, treat it as private:** do not commit it, and ask the owner. If something private is found already in the repo, stop and report it; do not publish anything further until the owner decides. Remember that deleting a file does not remove it from git history.
+
 ## Publishing rule
 
 `master` is the published branch. Never push to `master`, merge into it, or otherwise publish without the owner's explicit permission for that specific change. Work on a separate branch, push the branch, and ask. Permission to publish one change does not cover any other change.
